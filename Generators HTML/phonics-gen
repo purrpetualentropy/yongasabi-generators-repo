@@ -1,0 +1,33 @@
+
+<h1>[title]</h1>
+<p style="margin:1em auto; padding:0 1em; max-width:700px;">[output]</p>
+<button onclick="update()">randomize</button>
+<br><br> Output types:<br>
+<input type="checkbox" id="phonemeBox" checked/> Phonemes
+<input type="checkbox" id="cvBox"/> CV Blocks<br>
+<input type="checkbox" id="cvcBox"/> CVC Blocks
+<input type="checkbox" id="vcBox"/> VC Blocks <br>
+<input type="checkbox" id="wordBox"/> Words
+<section style="text-align:center; padding: 0.75em 1.5em; font-size: 18px;">
+<p>[somethingtoremember]</p>
+  <p>P.S. A lot of the words in this generator were created automatically, filling every single derivation template for a given root. Thus, most of them are not even <i>slightly</i> sensical. Sorry.</p>
+<p><a href="https://perchance.org/yongasabi-generators-index">Yongasabi Generators Index</a></p>
+</section>
+
+<!-- The line below makes it so if your device is in dark mode, then the default text color is switched to white, and the default background color is switch to black. -->
+<style> html { color-scheme: light dark; }
+@font-face {  
+	font-family: "YongasabiBlock";
+	src: url("https://file.garden/ZqKEHNruXT-CeLY-/YongasabiBlock.ttf") format("truetype");
+}
+div.YongiBlock { 
+    font-family: YongasabiBlock;
+  font-size: 20px;
+}
+  section {
+		padding:1em;
+		border-radius:3px;
+		margin-top:1em;
+    word-wrap:break-word;
+	}
+  </style>
