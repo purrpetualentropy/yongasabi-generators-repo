@@ -1,0 +1,384 @@
+generic = {import:generic-yongasabi-sentences}
+
+title
+  More Tenses Generator
+
+output
+  Translate the following into English: <div class\="YongiBlock">[a = subjmarkersentence.selectOne.selectOne]</div>[a]
+  Translate the following into English: <div class\="YongiBlock">[a = locationmarkersentence.selectOne.selectOne]</div>[a]
+  Translate the following into English: <div class\="YongiBlock">[a = accusativemarkersentence.selectOne.selectOne]</div>[a]
+  Translate the following into English: <div class\="YongiBlock">[a = dativemarkersentence.selectOne.selectOne]</div>[a]
+  Translate the following into English: <div class\="YongiBlock">[a = ablativemarkersentence.selectOne.selectOne]</div>[a]
+  Translate the following into English: <div class\="YongiBlock">[a = subjmarkersentence.selectOne.selectOne][q = generic.questiontone.selectOne]</div>[a][q]
+  Translate the following into English: <div class\="YongiBlock">[a = locationmarkersentence.selectOne.selectOne.selectOne][q = generic.questiontone.selectOne]</div>[a][q]
+  Translate the following into English: <div class\="YongiBlock">[a = accusativemarkersentence.selectOne.selectOne][q = generic.questiontone.selectOne]</div>[a][q]
+  Translate the following into English: <div class\="YongiBlock">[a = dativemarkersentence.selectOne.selectOne][q = generic.questiontone.selectOne]</div>[a][q]
+  Translate the following into English: <div class\="YongiBlock">[a = ablativemarkersentence.selectOne.selectOne][q = generic.questiontone.selectOne]</div>[a][q]
+
+pageDescription
+  This generator uses the exact same outputs as my <a href\=https://perchance.org/generic-yongasabi-sentences>Generic Yongasabi Sentences generator</a>, but will output in a variety of tenses, including (but not limited to) past, future, habitual, and tenses created by combinations.
+  Here's the <a href\="https://docs.google.com/document/d/1Tll7H4qqslsbk1-U1rFnhHs5Au3Lawn3nLowXDmk6AY/edit">Yongasabi Dictionary</a>, and <a href\="https://docs.google.com/document/d/1GSldauQZAjrYEk7K16L3yYkUIdistcQs2MwI2tos_zY">glyph documentation</a>, if you happen to need them. This generator uses the same nouns, adjectives and verbs from the generic sentences generator, so if you know the words that that one uses, you'll be fine.
+  <p><a href\="https://perchance.org/yongasabi-generators-index">Yongasabi Generators Index</a></p>
+
+angsatenses // exclusively for angsa
+  sada // past
+  sago // future
+  sadago // future perfect
+  sagoda // past future
+  angsil // habit
+  angsilda // past habit
+  angsilgo // future habit
+  angsasagil // emphatic habit
+  angsasagilda // past emphabit
+  angsasagilgo // future emphabit
+  angsima // des
+  angsimida // past des
+  angsimigo // future des
+  angsimil // habit des
+  angsamagil // emphabit des
+  angsimidago // future perfect des: will have been wanting to be there
+  // im so fucking tired of these i need to go do all of them for haga too. fml
+  angsimilda // past habit des
+  angsimilgo // future habit des
+  angsamagilda // past emphabit des
+  angsamagilgo // future emphabit des
+
+negatedangsatenses
+  sayongda // past negated
+  sayonggo // future negated
+  sayongdago // future perfect neg
+  sayonggoda // past future neg
+  angsayonggil // habit negated
+  angsayonggilda // past habit negated
+  angsayonggilgo // future habit negated
+  angsasayonggil // emphatic habit negated
+  angsasayonggilda // emphabit past neg
+  angsasayonggilgo // emphabit future neg
+  angsima yong // des neg
+  angsima yongda // past des neg
+  angsima yonggo // future des neg
+  angsima yonggil // habit des neg
+  angsama yonggil // emphabit des neg
+  angsima yonggilda // past habit des neg
+  angsima yonggilgo // future habit des neg
+  angsama yonggilda // past emphabit des neg
+  angsama yonggilgo // future emphabit des neg
+
+pagsatenses // i am hoping and assuming that pagsa is the present tense form of paga, though neither pagsa nor paga are anywhere in the dictionary.
+  pagsada // past
+  pagsayongda //  past negated
+  pagsago // future
+  pagsayonggo // future progressive negated
+  pagil // now i KNOW This one is right because it's in the document. this is 10000% legal.
+  pagsagil // emphatic habit
+  pagima // desiderative
+  pagsamagil // emph des habit
+
+negatedverbs // these are verbs prepped specifically for negation. katyongda: katsayongda: hantayongda: hantasayongda
+  kat // to cut
+  pah // to grip: to hold
+  hanta // to hunt
+  is // to kill
+  mak // to eat
+  ab // to hit
+  akt // to spear
+  jamya // to convince
+  kadma // to redden
+  lan // to rush
+  may // to walk
+  nan // to see
+  satka // to burn
+  lamya // to return
+  yahla // to cook
+  mamya // to leave
+
+preppedverbs // verbs prepped for any non-negated tense, with the final a removed.
+  kat
+  pah
+  is
+  mak
+  ab
+  lan
+  may
+  nan
+
+preppedlongverbs // CaCCa verbs prepped for proper suffixing
+  hant
+  jamy
+  kadm
+  satk
+  lamy
+  yahl
+  mamy
+
+hagatenses
+  goda // past
+  gosada // prog past
+  gogo // future
+  gosago // prog future
+  godago // future perfect
+  gogoda // past future
+  gosadago // future perfect continuous (will have been)
+  hagil // habitual
+  hagilda // past habit
+  hagilgo // future habit
+  hagsagil // emphatic habit
+  hagsagilda // past emphabit
+  hagsagilgo // future emphabit
+
+negatedhagatenses
+  goyongda // past negated
+  goyonggo // future negated
+  gosayonggo // future prog negated
+  gosayongda // past prog negated
+  haga yonggil
+  hagyonggil // habit negated
+  haga yonggilda
+  hagyonggilda // past habit negated
+  haga yonggilgo
+  hagyonggilgo // future habit negatd
+
+negatedvom
+  may
+  lan
+  lamya
+  nan
+  mamya
+  
+preppedvom
+  may
+  lan
+  nan
+
+preppedlongvom
+  mamy
+  lamy
+
+negatedconsumableverb
+  kat
+  hanta
+  mak
+  satka
+  yahla
+
+preppedconsumableverb
+  kat
+  mak
+
+preppedlongconsumableverb
+  hant
+  satk
+  yahl
+
+aktatenses // cus the tenses are actually different!
+  aktida // past 
+  aktigoda // past future
+  aktasada // past prog
+  aktigo // future
+  aktidago // future perf
+  aktasago // future prog
+  aktil // habit
+
+negatedaktatenses
+  aktasayongda // past prog negated
+  aktayonggoda // past future neg
+  aktyongida // past negated
+  aktayonggo // future neg
+  aktayongdago // future perf neg
+  aktsayonggo // future prog neg
+
+tensesuffix // for regular verbs, to use in place of {sa|sayong}
+  ida // past: he walked there
+  sada // progressive past: he was walking
+  igo // future: he will walk there
+  sago // future progressive: he will be walking there
+  idago // future perfect: he will have walked there
+  igoda // past future: he was about to walk there
+  il // habitual: he regularly walks there, he usually walks there, he has a habit of walking there
+  sadago // future perfect continuous: he will have been walking there
+  ilda // past habitual: he used to regularly walk there, but no longer does: he has since lost the habit of walking there
+  sagil // emphatic habitual: he's always walking there
+  ilgo // future habitual: he will form a habit of walking there. this can be used to imply an existing habit will continue in the future, but ....... let us simply not think of it
+  sagilda // past emphatic habitual: he always used to walk there
+  sagilgo // fuiture emphatic habit: he will always have a habit of walking there. inverse of the future habitual wherein the future emphabit is usualy used to indicate a habit will continue into the future, and much less often used to imply an emphabit will form in the future
+  ima // desiderative: he wants to walk there
+  sama // prog des: he wants to be walking there
+  imida // past des: he wanted to walk there
+  imigo // future des: he will walk to walk there
+  imil // habit des: he usually wants to walk there
+  imilda // past habit des: he used to want to walk there [regularly]
+  // imilgo: this is the future habit des but i do not know how to meaningfully translate it. wait are there examples in the document .. no there are not. ok we're going to leave this
+  imidago // future perfect des: he will have been wanting to walk there
+  // imigoda // past future des? he was about to want to walk there? he wanted to be about to walk there? no this is not meaningful.
+  samada // past prog des: he wanted to be walking there
+  samago // future prog des: he will want to be walking there
+  samadago // future perfect prog des: he will have been wanting to be walking there? ... well, it's kind of clunky, but it looks fine
+  // samagoda: we decided earlier that the past future des is not really meaningful so im abandoning this too but. this is how you'd do it
+  samagil // emphatic habit des: he always wants to walk there
+  samagilda // emphabit des past: he used to always want to walk there
+  samagilgo // emphabit des future: he will always want to walk there: his habitual desire to walk there will continue into the future
+
+negatedtensesuffix
+  yongda // past negated: he didn't walk there
+  sayongda // progessive past negated: he wasn't walking there
+  yonggo // future negated: he won't walk there
+  sayonggo // future progressive negated: he won't be walking there
+  yonggil // habitual negated: he doesn't have a habit of walking there
+  yonggilda // past habitual negated: he didn't used to have a habit of walking there
+  yonggilgo // future habitual negated: he won't form a habit of walking there
+  sayonggil // emphatic habit negated: he never walks there
+  sayonggilda // past emphatic habit negated: he never used to walk there
+  sayonggilgo // future emphatic habit negated: he will never walk there
+  ima yong // negated des: he doesn't want to walk there
+  ima yongda // negated past des: he didn't want to walk there
+  ima yonggo // negated future des: he won't want to walk there
+  ima yonggil // negated habit des: he doesn't usually want to walk there: he doesn't have a habitual desire to walk there
+  ima yonggilda // negated habit past des: he didn't usually want to walk there: in the past, he did not have a habitual desire to walk there
+  ima yonggilgo // negated habit future des: he won't usually want to walk there: he will not develop a habitual desire to walk there
+  sama yong // negated prog des: he doesn't want to be walking there
+  sama yongda // negated past prog des: he didn't want to be walking there
+  sama yonggo // negated future prog des: he won't want to be walking there
+  sama yonggil // negated emphabit des: he never wants to walk there
+  sama yonggilda // negated past emphabit des: he never wanted to walk there
+  sama yonggilgo // negated future emphabit des: he will never want to walk there
+
+longtensesuffix // for use with CaCCa verbs: cannot suffix such verbs with sada or sago (etc), as the present tense form is hantasa and suffixing with sada the normal way would create hantsada. not legal!
+  ida // past
+  asada // prog past
+  igo // future
+  asago // prog future
+  idago // future perfect
+  igoda // past future
+  il // habit
+  asadago // future perf continuous
+  ilda // past habit
+  asagil // emphatic habitual
+  ilgo // future habit
+  asagilda // past emphabit
+  asagilgo // future emphabit
+  ima // des
+  asama // prog des
+  imida // past des
+  imigo // future des
+  imilda // past habit des: he used to want to walk there [regularly]
+  // imilgo: this is the future habit des but i do not know how to meaningfully translate it. wait are there examples in the document .. no there are not. ok we're going to leave this
+  imidago // future perfect des: he will have been wanting to walk there
+  // imigoda // past future des? he was about to want to walk there? he wanted to be about to walk there? no this is not meaningful.
+  asamada // past prog des: he wanted to be walking there
+  asamago // future prog des: he will want to be walking there
+  asamadago // future perfect prog des: he will have been wanting to be walking there? ... well, it's kind of clunky, but it looks fine
+  // samagoda: we decided earlier that the past future des is not really meaningful so im abandoning this too but. this is how you'd do it
+  asamagil // emphatic habit des: he always wants to walk there
+  asamagilda // emphabit des past: he used to always want to walk there
+  asamagilgo
+
+preppedthatoneaccverbs
+  inanimate
+    kat
+    is
+    ab
+    // akta
+    pah
+    nan
+  animate
+    pah
+    nan
+
+preppedlongthatoneaccverbs
+  inanimate
+    hant
+    satk
+  animate
+    jamy
+
+subjmarkersentence
+  {[generic.animsubjects.verbend]{ga|hei}|[generic.animsubjects.consend]{'ag|hei}|[generic.inanimsubjects.verbend]{ga|hei}|[generic.inanimsubjects.consend]{'ag|hei}|kip{'ag|hei}|yangseiga|hanoltak{'ag|hei}} [generic.adj] {[angsatenses]|[negatedangsatenses]} // subj was/wasn't, or will/won't be adj
+  {[generic.animsubjects.verbend]{ga|hei}|[generic.animsubjects.consend]{'ag|hei}|[generic.inanimsubjects.verbend]{ga|hei}|[generic.inanimsubjects.consend]{'ag|hei}|kip{'ag|hei}|yangseiga|hanoltak{'ag|hei}} bu[generic.adj] {[angsatenses]|[negatedangsatenses]} // subj is/isnt too adj
+  {[generic.animsubjects.verbend]{ga|hei}|[generic.animsubjects.consend]{'ag|hei}|[generic.inanimsubjects.verbend]{ga|hei}|[generic.inanimsubjects.consend]{'ag|hei}|kip{'ag|hei}|yangseiga|hanoltak{'ag|hei}} lu[generic.adj] [angsatenses] // subj is not adj enough
+  {[generic.animsubjects.verbend]{ga|hei}|[generic.animsubjects.consend]{'ag|hei}} {[preppedverbs.selectOne][tensesuffix.selectOne]|[preppedlongverbs][longtensesuffix]|[negatedverbs][negatedtensesuffix]} // subj is/isn't verbing 
+  {[generic.animsubjects.verbend]{ga|hei}|[generic.animsubjects.consend]{'ag|hei}} [generic.comparativenoun.selectOne] [pagsatenses] // subj is/isnt noun comparison <-- ah fuck i just realised, i should get a negative comparativenoun for this, shouldnt i?
+  [generic.adj] yong {[generic.animsubjects.verbend]{ga|hei}|[generic.animsubjects.consend]{'ag|hei}|[generic.inanimsubjects.verbend]{ga|hei}|[generic.inanimsubjects.consend]{'ag|hei}|yangseiga|hanoltak{'ag|hei}} [angsatenses] // it's not [generic.adj] that subject is
+
+locationmarkersentence
+  {[generic.animsubjects.verbend]{ga|hei}|[generic.animsubjects.consend]{'ag|hei}} {[generic.location.verbend]wa|[generic.location.consend]wa|{[generic.animsubjects.verbend] jattowa|[generic.animsubjects.consend] jattowa}} {[angsatenses]|[negatedangsatenses]} // subj is or is not at location
+  {[generic.animsubjects.verbend]{ga|hei}|[generic.animsubjects.consend]{'ag|hei}} {[generic.location.verbend]wa|[generic.location.consend]wa|{[generic.animsubjects.verbend] jattowa|[generic.animsubjects.consend] jattowa}} {[angsatenses]|[negatedangsatenses]} // in here twice so its just as likely to get a negative as a positive. yeah yeah yeah it doesnt matter i couldve done it in a more elegant way shhh go away
+  {[generic.animsubjects.verbend] jattowa yong|[generic.animsubjects.consend] jattowa yong} {[generic.animsubjects.verbend]{ga|hei}|[generic.animsubjects.consend]{'ag|hei}} [angsatenses] // it's not [x] that [y] is with <-- having learned a little mroe about yong .. im not so confident about the translation of this sentence, but im confident it's grammatically correct
+  {[generic.location.verbend]wa|[generic.location.consend]wa} yong {[generic.animsubjects.verbend]{ga|hei}|[generic.animsubjects.consend]{'ag|hei}} [angsatenses] // it's not location that subject is
+
+accusativemarkersentence
+  {[generic.animsubjects.verbend]{ga|hei}|[generic.animsubjects.consend]{'ag|hei}} {[generic.location.verbend]do|[generic.location.consend]'o} {[preppedvom][tensesuffix]|[preppedlongvom][longtensesuffix]|[negatedvom][negatedtensesuffix]|[hagatenses]} // verb-of-motioning to location
+  {[generic.consumablesubj.verbend]{ga|hei}|[generic.consumablesubj.consend]{'ag|hei}} {[generic.adj] |}{[generic.consumableobject.verbend]do|[generic.consumableobject.consend]'o} {[preppedconsumableverb][tensesuffix]|[preppedlongconsumableverb][longtensesuffix]|[negatedconsumableverb][negatedtensesuffix]} // [x] is [verb]ing [y]: specifically constructed to be stuff that can be eaten (so that there's no sentences like "artificer is eating saint") // now includes adjectives for the consumableoibj
+  {[generic.location.verbend]do|[generic.location.consend]'o} yong {[generic.animsubjects.verbend]{ga|hei}|[generic.animsubjects.consend]{'ag|hei}} {[preppedvom][tensesuffix]|[preppedlongvom][longtensesuffix]|[hagatenses]} // it's not location we're vom-ing
+  {[generic.adj] |}{[generic.consumableobject.verbend]do|[generic.consumableobject.consend]'o} yong {[generic.consumablesubj.verbend]{ga|hei}|[generic.consumablesubj.consend]{'ag|hei}} {[preppedconsumableverb][tensesuffix]|[preppedlongconsumableverb][longtensesuffix]|[negatedconsumableverb][negatedtensesuffix]} // its not consumableobj that x is consumableverbing
+  [tensesaccusativeihate1] // x is verbing y; the whole sentence is constructed in the thatoneaccusativeihate list because i was getting sentences like "survivor is burning the scavenger" and . i shrimply dont like to think of it
+  [tensesaccusativeihate2] // its not x that y is verbing
+
+tensesaccusativeihate1
+//  fuck you
+  [opcurrobj = generic.currobj.animate, ""][opcurrsubj = generic.currsubj] [if (opcurrobj != opcurrsubj) {opcurrobj} else {opcurrobj = generic.currobj.animate}] {[preppedthatoneaccverbs.animate][tensesuffix]|[preppedlongthatoneaccverbs.animate][longtensesuffix]}
+  [generic.inanimateaccusativeihate] {[preppedthatoneaccverbs.inanimate][tensesuffix]|[preppedlongthatoneaccverbs.inanimate][longtensesuffix]|[aktatenses]}
+
+tensesaccusativeihate2
+// fuck you !!!!
+  [opcurrsubj = generic.currsubj, ""][opcurrobj = generic.currobj.animate] yong [if (opcurrsubj != opcurrobj) {opcurrsubj} else {opcurrsubj = generic.currsubj}] {[preppedthatoneaccverbs.animate][tensesuffix]|[preppedlongthatoneaccverbs.animate][longtensesuffix]}
+  [generic.currobj.inanimate] yong [generic.currsubj] {[preppedthatoneaccverbs.inanimate][tensesuffix]|[preppedlongthatoneaccverbs.inanimate][longtensesuffix]|[aktatenses]}
+
+dativemarkersentence
+  {[generic.consumablesubj.verbend]{ga|hei}|[generic.consumablesubj.consend]{'ag|hei}} {[generic.consumablesubj.verbend]m|[generic.consumablesubj.consend]'im} {[generic.adj] |}{[generic.consumableobject.verbend]do|[generic.consumableobject.consend]'o} {[preppedconsumableverb][tensesuffix]|[preppedlongconsumableverb][longtensesuffix]|[negatedconsumableverb][negatedtensesuffix]} // subj is consumableverbing obj for the sake of indirectobj
+  {[generic.consumablesubj.verbend]m|[generic.consumablesubj.consend]'im} yong {[generic.consumablesubj.verbend]{ga|hei}|[generic.consumablesubj.consend]{'ag|hei}} {[generic.adj] |}{[generic.consumableobject.verbend]do|[generic.consumableobject.consend]'o} {[preppedconsumableverb][tensesuffix]|[preppedlongconsumableverb][longtensesuffix]} // its not for the sake of indirobj that subj is consumableverbing obj
+  {[generic.animsubjects.verbend]{ga|hei}|[generic.animsubjects.consend]{'ag|hei}} {[generic.location.verbend]m|[generic.location.consend]'im} {[preppedvom][tensesuffix]|[preppedlongvom][longtensesuffix]|[negatedvom][negatedtensesuffix]|[hagatenses]|[negatedhagatenses]} // verb-of-motioning towards, in the direction of: implying an attempt without inherently implying success
+  {[generic.location.verbend.selectOne]m|[generic.location.consend.selectOne]'im} yong {[generic.animsubjects.verbend.selectOne]ga|[generic.animsubjects.consend.selectOne]{'ag|hei}} {[preppedvom][tensesuffix]|[preppedlongvom][longtensesuffix]|[hagatenses]} // it's not location we're vom-ing towards
+  [tensesthatonedativeihate] // x is verbing y for the sake of z
+  [tensestheotherdativeihate] // its not for the sake of z that x is verbing y
+
+tensesthatonedativeihate
+  [opcurrobj = generic.currobj.animate, ""][opcurrsubj = generic.currsubj] {[generic.animsubjects.verbend]m|[generic.animsubjects.consend]'im} [if (opcurrobj != opcurrsubj) {opcurrobj} else {opcurrobj = generic.currobj.animate}] {[preppedthatoneaccverbs.animate][tensesuffix]|[preppedlongthatoneaccverbs.animate][longtensesuffix]}
+  [generic.currsubj] {[generic.animsubjects.verbend]m|[generic.animsubjects.consend]'im} [generic.currobj.inanimate] {[preppedthatoneaccverbs.inanimate][tensesuffix]|[preppedlongthatoneaccverbs.inanimate][longtensesuffix]|[aktatenses]}
+ 
+tensestheotherdativeihate
+  {[generic.animsubjects.verbend]m|[generic.animsubjects.consend]'im} yong [opcurrobj = generic.currobj.animate, ""][opcurrsubj = generic.currsubj][if (opcurrobj != opcurrsubj) {opcurrobj} else {opcurrobj = generic.currobj.animate}] {[preppedthatoneaccverbs.animate][tensesuffix]|[preppedlongthatoneaccverbs.animate][longtensesuffix]}
+  {[generic.animsubjects.verbend]m|[generic.animsubjects.consend]'im} yong [generic.currsubj] [generic.currobj.inanimate] {[preppedthatoneaccverbs.inanimate][tensesuffix]|[preppedlongthatoneaccverbs.inanimate][longtensesuffix]|[aktatenses]}
+
+ablativemarkersentence
+  {[generic.animsubjects.verbend]{ga|hei}|[generic.animsubjects.consend]{'ag|hei}|{[generic.adj] |}[generic.inanimsubjects.verbend]{ga|hei}|{[generic.adj] |}[generic.inanimsubjects.consend]{'ag|hei}} {[generic.location.verbend]mok|[generic.location.consend]mok} {[angsatenses]|[negatedangsatenses]} // subj is/isnt from location
+  {[generic.animsubjects.verbend]{ga|hei}|[generic.animsubjects.consend]{'ag|hei}} {[generic.location.verbend]mok|[generic.location.consend]mok} {[preppedvom][tensesuffix]|[preppedlongvom][longtensesuffix]|[hagatenses]|[negatedhagatenses]|[negatedvom][negatedtensesuffix]} // subj is/isnt vom-ing from location
+  {[generic.adj ]|}{[generic.inanimsubjects.verbend]{ga|hei}|[generic.inanimsubjects.consend]{'ag|hei}} {[generic.animsubjects.verbend]mok|[generic.animsubjects.consend]mok} {[angsatenses]|[negatedangsatenses]} // inanim subj is/isnt from anim: i.e the message is from hunter
+  {[generic.adj ]|}{[generic.inanimsubjects.verbend]{ga|hei}|[generic.inanimsubjects.consend]{'ag|hei}} {[generic.animsubjects.verbend]mok|[generic.animsubjects.consend]mok} {[generic.location.verbend]wa|[generic.location.consend]wa|kaniwa} {[angsatenses]|[negatedangsatenses]} // the inanimsubj from animsubj is/isnt at location (incl. here)
+  {[generic.adj ]|}{meikiga|mok'ag} {gilamok|munmok|bolmok} {[angsatenses]|[negatedangsatenses]} // the meal/food is/isnt made of [x]
+  {gilamok|munmok|bolmok} yong {[generic.adj] |}{meikiga|mok'ag} [angsatenses] // its not [x] the meal is made of
+  {[generic.location.verbend]mok|[generic.location.consend]mok} yong {[generic.animsubjects.verbend]{ga|hei}|[generic.animsubjects.consend]{'ag|hei}|{[generic.adj] |}[generic.inanimsubjects.verbend]{ga|hei}|{[generic.adj] |}[generic.inanimsubjects.consend]{'ag|hei}} [angsatenses] // its not location that subj is from
+  {[generic.location.verbend]mok|[generic.location.consend]mok} yong {[generic.animsubjects.verbend]{ga|hei}|[generic.animsubjects.consend]{'ag|hei}} {[preppedvom][tensesuffix]|[preppedlongvom][longtensesuffix]|[hagatenses]} // its not location subj is voming from
+  {[generic.animsubjects.verbend] yong'ag|[generic.animsubjects.consend] yong'ag|[generic.inanimsubjects.verbend] yong'ag|[generic.inanimsubjects.consend] yong'ag} {[generic.location.verbend]mok|[generic.location.consend]mok} [angsatenses] // its not subj thats from location. again idk if thats legal but we'll put it in!
+  {[generic.animsubjects.verbend] yong'ag|[generic.animsubjects.consend] yong'ag} {[generic.location.verbend]mok|[generic.location.consend]mok} {[preppedvom][tensesuffix]|[preppedlongvom][longtensesuffix]|[hagatenses]} // its not subj thats voming from location
+  {[generic.animsubjects.verbend]mok|[generic.animsubjects.consend]mok} yong {[generic.inanimsubjects.verbend]{ga|hei}|[generic.inanimsubjects.consend]{'ag|hei}} [angsatenses] // its not animsubj that inanimsubj is from
+ //ugh ugh ugh im so tired all th4ese negatives are hurting myh brain :( taw'ag fucking assa
+  {[generic.inanimsubjects.verbend] yong'ag|[generic.inanimsubjects.consend] yong'ag} {[generic.animsubjects.verbend]mok|[generic.animsubjects.consend]mok} [angsatenses] //bbbb i forgot what this one is. it's not inanimsubj thats from animsubj
+  {[generic.location.verbend]wa|[generic.location.consend]wa|kaniwa} yong {[generic.inanimsubjects.verbend]{ga|hei}|[generic.inanimsubjects.consend]{'ag|hei}} {[generic.animsubjects.verbend]mok|[generic.animsubjects.consend]mok} [angsatenses] // its not location that the inanimsubj from animsubj is at
+  [tensesthatoneablativeihate] // inanimsubj is going from animsubj/location to animsubj/location: also includes its not inanimsubj, its not animsubnj/location its going from, and its not animsubj/location its going to. also, adjectives!
+
+tensesthatoneablativeihate // oh god this is disgusting. this is awful
+// ugh ugh ugh uggh ugh i hate making these so much!!!!
+// inanimsubj is voming (excl. nansa: just write the damn verbs) from location/animsubj to location/animsubj. the start and end location cannot be the same: masin'ag jatoltakmok jatoltakdo go is NOT a valid sentence.
+  [curroriginpoint = generic.validoriginpoint, ""][currdestinationpoint = generic.validtargetpoint.consend, ""]{[generic.adj] |}{[generic.inanimsubjects.verbend]{ga|hei}|[generic.inanimsubjects.consend]{'ag|hei}} [curroriginpoint]mok [if (currdestinationpoint != curroriginpoint) {currdestinationpoint} else {currdestinationpoint = generic.validtargetpoint.consend}]'o {[thatoneablativeverbs][tensesuffix]|[hagatenses]|[thatoneablativelongverbs][longtensesuffix]|[negatedthatoneablativeverbs][negatedtensesuffix]|[negatedhagatenses]} // x is going from y to z
+    [curroriginpoint = generic.validoriginpoint, ""][currdestinationpoint = generic.validtargetpoint.verbend, ""]{[generic.adj] |}{[generic.inanimsubjects.verbend]{ga|hei}|[generic.inanimsubjects.consend]{'ag|hei}} [curroriginpoint]mok [if (currdestinationpoint != curroriginpoint) {currdestinationpoint} else {currdestinationpoint = generic.validtargetpoint.verbend}]do {[thatoneablativeverbs][tensesuffix]|[hagatenses]|[thatoneablativelongverbs][longtensesuffix]|[negatedthatoneablativeverbs][negatedtensesuffix]|[negatedhagatenses]} // x is going from y to z
+ // x is going from y to z - verb edition. they're separated like this because i wanted to use the generic.validtargetpoint list in constructing some instrumentals but needed it to not necessarily have the marker.
+  [curroriginpoint = generic.validoriginpoint, ""][currdestinationpoint = generic.validtargetpoint.consend, ""][currdestinationpoint]'o yong {[generic.adj] |}{[generic.inanimsubjects.verbend]{ga|hei}|[generic.inanimsubjects.consend]{'ag|hei}} [if (curroriginpoint != currdestinationpoint) {curroriginpoint} else {curroriginpoint = generic.validoriginpoint}]mok {[thatoneablativeverbs][tensesuffix]|[hagatenses]|[thatoneablativelongverbs][longtensesuffix]} // its not z that x is going from y to
+  [curroriginpoint = generic.validoriginpoint, ""][currdestinationpoint = generic.validtargetpoint.verbend, ""][currdestinationpoint]do yong {[generic.adj] |}{[generic.inanimsubjects.verbend]{ga|hei}|[generic.inanimsubjects.consend]{'ag|hei}} [if (curroriginpoint != currdestinationpoint) {curroriginpoint} else {curroriginpoint = generic.validoriginpoint}]mok {[thatoneablativeverbs][tensesuffix]|[hagatenses]|[thatoneablativelongverbs][longtensesuffix]} // its not z that x is going from y to
+  [curroriginpoint = generic.validoriginpoint, ""][currdestinationpoint = generic.validtargetpoint.consend, ""]{[generic.adj] |}{[generic.inanimsubjects.verbend] yong{'ag|hei}|[generic.inanimsubjects.consend] yong{'ag|hei}} [curroriginpoint]mok [if (currdestinationpoint != curroriginpoint) {currdestinationpoint} else {currdestinationpoint = generic.validtargetpoint.consend}]'o {[thatoneablativeverbs][tensesuffix]|[hagatenses]|[thatoneablativelongverbs][longtensesuffix]} // its not x thats going from y to z
+  [curroriginpoint = generic.validoriginpoint, ""][currdestinationpoint = generic.validtargetpoint.verbend, ""][curroriginpoint]mok yong {[generic.adj] |}{[generic.inanimsubjects.verbend]{ga|hei}|[generic.inanimsubjects.consend]{'ag|hei}} [if (currdestinationpoint != curroriginpoint) {currdestinationpoint} else {currdestinationpoint = generic.validtargetpoint.verbend}]do {[thatoneablativeverbs][tensesuffix]|[hagatenses]|[thatoneablativelongverbs][longtensesuffix]} // its not from y that x is going to z
+
+thatoneablativeverbs
+  lan
+
+thatoneablativelongverbs
+  lamy
+  mamy
+
+negatedthatoneablativeverbs
+  lan
+  lamya
+  mamya
+
+
+
+
