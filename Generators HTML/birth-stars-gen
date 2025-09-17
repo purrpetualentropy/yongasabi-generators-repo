@@ -1,0 +1,42 @@
+<h1>[title]</h1>
+<p style="margin:1em auto; padding:0 1em; max-width:700px;">[output]</p>
+<button onclick="update()">consult the stars</button>
+<br>
+<p>To get your Yongasabi birth stars, simply select your birth month, <a href="https://ecalculator.io/time/moon-phase-calculator">moon phase</a>, and date. Then press the <i>consult the stars</i> button.</p>
+<select oninput="month = this.value", update()>
+	<option value="January">January</option>
+	<option value="February">February</option>
+  <option value="March">March</option>
+	<option value="April">April</option>
+	<option value="May">May</option>
+	<option value="June">June</option>
+	<option value="July">July</option>
+	<option value="August">August</option>
+	<option value="September">September</option>
+	<option value="October">October</option>
+	<option value="November">November</option>
+  <option value="December">December</option>
+</select>
+<br><br>
+<select oninput="week=this.value", update()>
+  <option value="New Moon">New Moon</option>
+  <option value="Waxing Crescent">Waxing Crescent</option>
+  <option value="Waxing Gibbous">Waxing Gibbous</option>
+  <option value="Full Moon">Full Moon</option>
+  <option value="Waning Gibbous">Waning Gibbous</option>
+  <option value="Waning Crescent">Waning Crescent</option>
+</select>
+<br><br>
+<input type="text" oninput="date=Number(this.value)", placeholder="Please type a number...", update()>
+<section style="text-align:center; padding: 0.75em 1.5em; font-size: 18px;">
+		["&lt;p>"+pageDescription.joinItems("&lt;/p>&lt;p>")+"&lt;/p>"]
+	</section>
+<p style="margin-left:5%; margin-right:5%; bottom:20px; position: relative; font-size: 18px;"><a href="https://perchance.org/yongasabi-generators-index">Yongasabi Generators Index</a></p>
+
+<style> html { color-scheme: light dark; } 
+section {
+		padding:1em;
+		border-radius:3px;
+		margin-top:1em;
+	}
+</style>
