@@ -1,0 +1,49 @@
+<h1>[title]</h1>
+<p>This page hosts links to all of my Yongasabi generators. It does nothing on its own.</p>
+<p>You can use the arrows next to the headers to show all of the generators under that heading, as well as their descriptions.</p>
+<p>A generator marked with the warning emoji, ⚠️, has some issues. These will not be issues that break the generator.</p>
+
+<details>
+  <summary><h2 style="display:inline-block">Sentences</h2></summary>
+<a href="https://perchance.org/generic-yongasabi-sentences">Generic Yongasabi Sentences</a><br>Creates present-tense sentences with a variety of markers (up to sang). <b>Please note that this generator is now defunct</b>. I'm leaving it in the sentences category until I create a replacement, but this generator will not be updated further.<br><br>
+  ⚠️ <a href="https://perchance.org/more-tenses-yongasabi-generator">More Tenses Sentences</a><br>Creates sentences in a variety of tenses, excluding present-tense.<br><div style="color:orange"><b>This generator has improper handling for suffixing trilateral roots, causing some verbs to be incorrect when suffixed with a few verb tenses.</b></div> Also, <b>please note that this generator is now defunct</b>. I'm leaving it in the sentences category until I create a replacement, but this generator will not be updated further.</p>
+</details>
+
+<details>
+  <summary><h2 style="display:inline-block">Numbers & Counting</h2></summary>
+<a href="https://perchance.org/yongasabi-counting">Yongasabi Counting</a><br>Generates a variety of numbers (up to a few thousand max), as well as some measure word constructions.
+</details>
+
+<details>
+  <summary><h2 style="display:inline-block">Reading & Writing</h2></summary>
+<a href="https://perchance.org/yongasabi-phonics">Yongasabi Phonics</a><br>Generates individual phonemes, as well as all possible combinations and some words, with the goal of learning how to pronounce each phoneme. (This is scientifically proven to be a core part of learning to read.)<br><br>
+  <a href="https://perchance.org/can-you-read-yongasabi">Can You Read Yongasabi?</a><br>Takes output from the generic & more tenses sentences generators, and displays them only in glyphs. You can use a text box to write what you think is written, & check if it's correct or not.<br><br>
+  <a href="https://perchance.org/yongasabi-writing-practise">Yongasabi Writing Practise</a><br>Generates a variety of letters, blocks, & words exclusively in the English alphabet, for you to write them in glyphs. Also generates numbers.
+</details>
+
+<details>
+  <summary><h2 style="display:inline-block">Dates</h2></summary>
+<a href="https://perchance.org/yongasabi-dates">Yongasabi Dates</a><br>Generates days, weeks, months, and full dates in both English and Yongasabi.
+</details>
+
+<details>
+  <summary><h2 style="display:inline-block">Misc</h2></summary>
+<a href="https://perchance.org/yongasabi-birth-date">Yongasabi Birth Date & Stars</a><br>Using information given by the user, it attempts to figure out what your birthday would be if you had been born on the same day in the Undergrowth AU, then gives you your birth stars based on that. Not entirely accurate.<br><br>
+  <a href="https://perchance.org/yongasabi-roots">Yongasabi Roots</a><br>Generates random roots, alongside their meaning, in an attempt to learn more words. May include outdated roots.
+
+</details>
+
+<details>
+  <summary><h2 style="display:inline-block">WIP</h2></summary>
+<a href="https://perchance.org/yongasabi-sentence-arguments">Yongasabi Sentence Arguments Generator</a><br>(Eventually) will generate various sentence arguments (subject, object, indirectobejct, etc) as well as modifiers (like adjectives and averbs, verb voices or tenses, focus constructions) and extra challenges (like creating a conversation with the sentence as a starting point).<br><br> It will not use these things to create a sentence: instead, it tells you to make a sentense using them.
+</details>
+
+<!-- The line below makes it so if your device is in dark mode, then the default text color is switched to white, and the default background color is switch to black. -->
+<style> html { color-scheme: light dark; } 
+
+details {
+  margin-left: 5%;
+  margin-right: 5%;
+  bottom: 20px;
+  position: relative;
+}</style>
