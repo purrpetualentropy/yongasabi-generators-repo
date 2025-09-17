@@ -1,0 +1,6 @@
+function clearDefGetter() {
+  const defResultLoc = document.getElementById("defGetterResult")
+  let confirmErase = confirm("Do you really want to erase the output?")
+
+  if (confirmErase == true) {defResultLoc.innerHTML = ""} else {}
+}
