@@ -1,0 +1,13 @@
+// technically this function is unused and untested
+// but uh, it should work? lol
+// now i just need to write the function that'll call it ...
+
+function vowelChecker (word) {
+let finalChar = word.slice(-1)
+if (finalChar = "a" || "o" || "i" || "u" || "e") {return true} else {return false}
+}
+
+// that if statement includes every vowel
+// since only the last letter of a word is grabbed
+// ei becomes i, and is subsumed into i itself
+// ae becomes e, and gets its own entry
