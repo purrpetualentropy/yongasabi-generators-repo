@@ -1,0 +1,33 @@
+<h1>[title]</h1>
+<p style="margin:1em auto; padding:0 1em; max-width:700px; font-size:18px;">[output]</p>
+<button onclick="input = 'nought', update()">randomize & clear input</button>
+<p id="checker">[if (input == "nought") {noinput} else if (input == w) {correct} else {wrong}]</p>
+<textarea oninput="input = this.value" placeholder="Type here..." style="width:250px; height:50px;"></textarea>
+<button onclick="update(checker)">Check</button><br>
+<p class="checkbox"><input type="checkbox" id="questionsallowed"> Questions allowed<br>
+  <input type="checkbox" id="subjMarkerBox" checked> Subject marker
+<input type="checkbox" id="locMarkerBox"> Locative marker<br>
+<input type="checkbox" id="accMarkerBox"> Accusative marker
+<input type="checkbox" id="datMarkerBox"> Dative marker<br>
+<input type="checkbox" id="ablMarkerBox"> Ablative marker
+<input type="checkbox" id="instrMarkerBox"> Instrumental marker<br>
+<input type="checkbox" id="moretensesBox"> Additional tenses</p>
+
+<p class="desc">If the additional tenses box is checked, you will <i>only</i> receive additional tense outputs (i.e no present tense).</p>
+<p style="margin-left:5%; margin-right:5%; bottom:20px; position: relative;"><a href="https://perchance.org/yongasabi-generators-index">Yongasabi Generators Index</a></p>
+<!-- The line below makes it so if your device is in dark mode, then the default text color is switched to white, and the default background color is switch to black. -->
+<style> html { color-scheme: light dark; } 
+
+@font-face {  
+	font-family: "YongasabiBlock";
+	src: url("https://file.garden/ZqKEHNruXT-CeLY-/YongasabiBlock.ttf") format("truetype");
+}
+div.YongiBlock { 
+    font-family: YongasabiBlock;
+}
+
+p.desc {
+
+  padding: 20px
+}
+</style>
