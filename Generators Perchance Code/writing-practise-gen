@@ -1,0 +1,75 @@
+phonemes = {import:yongasabi-phonics}
+counting = {import:yongasabi-counting}
+
+title
+  Yongasabi Writing Exercises
+
+output
+  Write this letter: [letter] ^[phonemeBox.checked]
+  Write this block: [consonant][phonemes.verb] ^[cvBox.checked]
+  Write this block: [consonant][phonemes.verb][consonant] ^[cvcBox.checked]
+  Write this block: [phonemes.verb][consonant] ^[vcBox.checked]
+  Write this word: [phonemes.words] ^[wordBox.checked]
+  [n = number.selectOne, ""]Write this number: [n]<br><br><img src\="https://file.garden/ZqKEHNruXT-CeLY-/Yongasabi%20Numbers/[n]_{f|s|p}.png"></img> ^[numberBox.checked]
+  Write this measure word construction:<br>[amountof] ^[countBox.checked]
+
+letter
+  a
+  i
+  o
+  ae
+  u
+  ei
+  k
+  g
+  t
+  d
+  p
+  b
+  l
+  m
+  n
+  ng
+  s
+  sh
+  ch
+  j
+  h
+  y
+  w
+
+number
+  ota
+  ha
+  san
+  sei
+  long
+  shi
+  siba
+  pal
+  nan
+  jok
+
+consonant
+  k
+  g
+  t
+  d
+  p
+  b
+  l
+  m
+  n
+  ng
+  s
+  sh
+  ch
+  j
+  h
+  y
+  w
+
+amountof
+  [counting.animcounter] si
+  [counting.bangcounter] bang
+  [counting.peicounter] pei
