@@ -1,0 +1,29 @@
+function defGetter() { 
+  let userInput = textInput // items should be input as word.def/word.def/word.def
+  let severedArray = userInput.split("/");
+  const defResultLoc = document.getElementById("defGetterResult");
+  let splitObj = {
+    temp: "i get scared when i don't define data with my variables"
+  };
+
+
+ for (let i = 0; i < severedArray.length; i++) {
+    splitObj["splitArray" + i] = severedArray[i].split(".");
+   };
+    // Each word.def is split into its own individual array, within the splitObj object.
+    // It's important to assign that value to a global object, because per-loop variables will be destroyed once the loop resets.
+
+  let fullDef = ""
+  
+  for (let i = 0; i < severedArray.length; i++) {
+    let shortDef = "<br>" + `&lt;span class&#92;=&quot;show&quot;&gt;${splitObj["splitArray" + i][0]}&lt;/span&gt;&lt;span class&#92;=&quot;hide&quot;&gt;${splitObj["splitArray" + i][1]}&lt;/span&gt;`
+    fullDef += shortDef
+    };
+  // since each splitArray will only ever have two items, we just use their hard locations.
+  // This formats it into <span class="show">word</span><span class="hide">def</span>
+  // but if I wrote it like that, it would insert that into the page's HTML, then 
+  // I'd have to use inspect element to copy+paste it out
+  // and it'd just be really annoying. So we use the character ID codes or whatever I forgot what they're called
+
+  defResultLoc.insertAdjacentHTML("beforeend", fullDef);
+}
