@@ -1,0 +1,387 @@
+// FYI I normally remove todo comments from the generators in here because it's all in the Todo project anyway.
+// But this one is a fucking mess and I don't even want to look through it to port the todo to the project.
+// So it's all staying in.
+
+title
+  Yongasabi Sentence Arguments Generator
+
+output
+  wawa ^[!funcListBox.checked && !testGenBox.checked]
+  {Use the sentence-final particle [finalparticle]|Use the adjective [adj]|Use [subject] as the subject} ^[funcListBox.checked]
+  Verb: [verb]<br>Subject: [subject]<br><br>[extrainclude.selectUnique(1,5).joinItems("<br><br>")]<br><br>Bonus challenges:<br><br>[bonuschallenge.selectUnique(1,3).joinItems("<br><br>")]^[testGenBox.checked]
+  // &lt;br&gt;
+  // &lt;i&gt;italics&lt;&#47;i&gt;
+
+textInput = temp
+  
+  // gen rolls a dice, which is the amount of arguments selected between the subj and verb. these can be any arguments. dice min/max is determined by user. rolls another dice for the amount of extrainclude, min is 1. give numberbox for bonuschallenge?
+  // secondary output type for comparative sentences which include subject and verb, then give other arguments with "include in relclause" or similar. also include chance for comparative like chun, beik, but not necessary
+  // because im stuffing a bunch of random words into this, we really need a method to include a dictionary. onhover ...... hmmmmm bup bup bup bup bup it's just kind of messy to store. we could do a biiiiiiiig if/else statement but that's... bad.
+  // ok no sorry i just realised we can store this in the lists themselves. like just ... <div [required code here]>word</div>. we dont even need to write any JS we can just do it like that one ao3 fic you guys remember ao3?
+  // i have a bunch of stuff about focus construction and change in state and expression of need/hope/etc in the exIn and challenge, but i was kind of wondering if we should do those as their own sentence types?
+  // dev a way to 'hold' certain outputs? <-- We can do this by doing a ... so, it's a checkbox? No, then we'd need one for each variable. We can do a dropdown and then display a list of 'held' items. (This also lets us control the variable name.)
+  // (1) When an item is generated, it should be written to a variable. However, we should involve a check for the held variables that skips rewriting it until that variable is unheld. 
+  // (2) How does that work with extrainclude and bonuschallenge? How does it work when the arguments change?
+  // check how any of this works with yongasabi font. not now im tired
+
+  // ok im just gonna do a bunch of logic in here.
+  // (1) the max adjs must be equal to the amount of arguments selected. this is easy to get, we just assign the argumentNum and then reuse later
+  // (2) the max advs can technically be equal to the amount of verbs in the sentence, which is by default one but can be increased by bonus challenges. however, let's just roll for one. i dont really care ... i mean, we could create a means by which the challenges that increase the amount of verbs can also increase a given variable which then is used as the max adverbs but .... eh. let's just use one.
+  // (3) not every verb is capable of taking every object type. we'll need to separate them by transivity and then avoid selecting dirobjs for intrans, but that's pretty easy.
+  // (4) we should list word order somewhere cus i forget it
+
+subject
+  <span class\="show">sidei</span><span class\="hide">who; unspecified person<br>literally <i>si</i>, the animate counter, with <i>dei</i>, the word for "what"</span>
+  <span class\="show">gi</span><span class\="hide">"one"; used in compounds such as <i>koddim gi</i>, "the red one/s", to create a nonspecific noun meaning</span>
+  <span class\="show">salam</span><span class\="hide">person; people</span>
+  hanitae
+  masinabi
+  pachmigae
+  yongasabi
+  molongjae
+  gila
+  sapinae
+  sattokubi
+  no
+  tonun
+  pajmuy
+  dang
+  lam
+  lamlan
+  ong
+  taw
+  tawhoy
+  nohoy
+  mabkan // watcher!!
+
+comparative
+  chuk
+  chako
+  beik
+  bokei
+  chun'o // next to
+
+timing
+
+locative
+  chudei
+
+accusative
+  dei
+  sidei
+  gi
+  chudei
+
+dative
+  dei
+  sidei
+  chudei
+
+ablative
+  dei
+  sidei
+  chudei
+
+instrumental
+  dei
+  sidei
+
+finalparticle
+  <span class\="show">ma</span><span class\="hide">question tone<br>at the end of a sentence, turns it into a yes/no question<br>on its own, means something like "huh?", or indicates general confusion<br>can also be used to create rhetorical questions, usually by not using a question intonation</span> // question: "Huh?" "Is that right?", or general confusion
+  <span class\="show">-tto</span><span class\="hide">suggestion tone; "Let's..." or "How about you..."<br>when used with a question intonation, it comes off as a gentle proposal<br>when used as a statement, has a more confident or direct feel, like the English imperative "Let's..."<br>a negative feeling can be created by putting <i>yong</i> as its own word after, or contracting <i>-tto</i> to <i>-ttoyo</i></span> // suggestion: "Let's..." "How about you..."
+  <span class\="show">matto</span><span class\="hide">suggestive tone; "What if..."<br>when asked as a question, it comes off as less direct, more indecisive and worrying<br>when used as a statement, it suggests the speaker already has a firm opinion on what's being said</span> // what if
+  <span class\="show">-chi</span><span class\="hide">derived from <i>chisa</i>, the full phrase for "yes". has a few common uses:<br>to emphasise a sentence, bring attention to ir, or in some cases, add urgency<br>to assert ones confidence in a statement<br>to introduce new or contrasting information, or to rectify incorrect information</span>
+  <span class\="show">-ndokana</span><span class\="hide">indirect tone suffix: "Just so you know..."<br>it presents the statement as largely informative, removing any implied request or obligation to act on the information. <i>yaso</i> can also be added to make it even gentler<br>cannot be used with questions or imperatives</span>
+  <span class\="show">-dakanei</span><span class\="hide">annoyance tone suffix: "Seriously?!" or "Are you for real?"<br>originally derived from <i>dakanei to hamyonggo</i> "if (someone) does it, then I won't be needed", used to point out chores or work left undone while expressing frustration about it. has been shortened greatly, and is now solely used to express frustration<br>can be attached to other sentence-final particles</span>
+  <span class\="show">gaenma</span><span class\="hide">technically not a final particle, but is used in about the same place. has a meaning of "I hope" or "there is a hope".<br>when used with the plain form of a verb, it more commonly takes on a meaning of "may", such as "may your skies be clear", expressing both a hope that something will happen and urging it to be true.</span>
+  <span class\="show">yaso</span><span class\="hide">technically not a final particle, but is used in about the same place. meaning "please", it's most often used with plain form verbs to turn them into a request or obligation, but can also be used on its own.</span>
+  <span class\="show">pei</span><span class\="hide">used after a sentence to mean "it seems". can take a variety of verb tenses, separate from the main sentence</span>
+
+converb
+  -nisang
+
+adj
+  <span class\="show">iskaeja</span><span class\="hide">responsive</span>
+  <span class\="show">moskaeja</span><span class\="hide">attentive</span>
+  <span class\="show">abaeja</span><span class\="hide">impactful; emphatic</span>
+  <span class\="show">ubogol</span><span class\="hide">metallic; having the appearance or properties of metal</span>
+  <span class\="show">choja</span><span class\="hide">internal</span>
+  <span class\="show">achae</span><span class\="hide">inner</span>
+  <span class\="show">buchaeja</span><span class\="hide">shut-in</span>
+  <span class\="show">haja</span><span class\="hide">dual; having, being, or coming in twos</span>
+  <span class\="show">mojaeja</span><span class\="hide">(1) satisfying; bringing contentment<br>(2) sufficient; satisfactory</span>
+  <span class\="show">mojeija</span><span class\="hide">(1) content, satisfied<br>(2) (of a condition) met; fulfilled</span>
+  <span class\="show">ojaeja</span><span class\="hide">(1) being enough; satisfying, bringing contentment<br>(2) sufficient</span>
+  <span class\="show">akija</span><span class\="hide">evil</span>
+  <span class\="show">akaeja</span><span class\="hide">demonic</span>
+  <span class\="show">eikija</span><span class\="hide">rotted</span>
+  <span class\="show">akeija</span><span class\="hide">(expletive) shitty, fucking - a vulgar way of describing something as bad, low quality, or unfavourable</span>
+  <span class\="show">akan</span><span class\="hide">bringing bad luck or misfortune; inauspicious</span>
+  <span class\="show">ikaeja</span><span class\="hide">corrupting; bad influence</span>
+  <span class\="show">kiloja</span><span class\="hide">united; coalesced</span>
+  <span class\="show">molaeja</span><span class\="hide">allying</span>
+  <span class\="show">moleija</span><span class\="hide">allied</span>
+  <span class\="show">mae</span><span class\="hide">good; also exists as maeja, which is considered more proper</span>
+  <span class\="show">omi</span><span class\="hide">lucky, fortunate</span>
+  <span class\="show">yoomi</span><span class\="hide">unfortunate, unlucky</span>
+  <span class\="show">umagol</span><span class\="hide">motherly</span>
+  <span class\="show">muh</span><span class\="hide">best</span>
+  <span class\="show">heimaja</span><span class\="hide">preferred</span>
+  <span class\="show">heimaeja</span><span class\="hide">preferred</span>
+  <span class\="show">imaeja</span><span class\="hide">lovely; radiant; beloved such that it uplifts and inspires one to do good</span>
+  <span class\="show">kimaeja</span><span class\="hide">harmonious</span>
+  <span class\="show">momaeja</span><span class\="hide">principled</span>
+  <span class\="show">momeija</span><span class\="hide">esteemed; honoured</span>
+  <span class\="show">anoja</span><span class\="hide">familial; related to family</span>
+  <span class\="show">anaeja</span><span class\="hide">(1) adoptive<br>(2) parental</span>
+  <span class\="show">einija</span><span class\="hide">(1) adopted<br>(2) filial</span>
+  <span class\="show">kinaja</span><span class\="hide">marital; pertaining to marriage</span>
+  <span class\="show">kinaeja</span><span class\="hide">courting, dating</span>
+  <span class\="show">kinuja</span><span class\="hide">engaged</span>
+  <span class\="show">kineija</span><span class\="hide">married</span>
+  <span class\="show">seija</span><span class\="hide">dead; deadness</span>
+  <span class\="show">yoseija</span><span class\="hide">to have died already but continued living anyway</span>
+  <span class\="show">asaeja</span><span class\="hide">mortal</span>
+  <span class\="show">asuja</span><span class\="hide">desperate</span>
+  <span class\="show">eisija</span><span class\="hide">fatal; responsible for or related to causing a dead</span>
+  <span class\="show">isaeja</span><span class\="hide">deadly; lethal</span>
+  <span class\="show">isaegol</span><span class\="hide">murderous</span>
+  <span class\="show">isuja</span><span class\="hide">deadliest; most fatal</span>
+  <span class\="show">yosaeja</span><span class\="hide">undying; immortal</span>
+  <span class\="show">otaeja</span><span class\="hide">singular</span>
+  <span class\="show">otuja</span><span class\="hide">rare</span>
+  <span class\="show">iteija</span><span class\="hide">isolated</span>
+  <span class\="show">ituja</span><span class\="hide">lonely, desolate, depressing</span>
+  <span class\="show">beikija</span><span class\="hide">(1) simple<br>(2) uncomplicated<br>(3) posing little challenge</span>
+  <span class\="show">banaeja</span><span class\="hide">hopeful; optimistic</span>
+  <span class\="show">batoja</span><span class\="hide">occupational; relating to work</span>
+  <span class\="show">butaja</span><span class\="hide">work-relational; relating to ones work-relation</span>
+  <span class\="show">bataeja</span><span class\="hide">working</span>
+  <span class\="show">beitija</span><span class\="hide">worked</span>
+  <span class\="show">boteija</span><span class\="hide">routine</span>
+  <span class\="show">boyya</span><span class\="hide">yellow</span>
+  <span class\="show">buyoja</span><span class\="hide">golden; made of or coloured like gold</span>
+  <span class\="show">buyogol</span><span class\="hide">coloured like gold</span>
+  <span class\="show">chah</span><span class\="hide">warm, hot</span>
+  <span class\="show">cheihija</span><span class\="hide">lukewarm; tepid</span>
+  <span class\="show">choheija</span><span class\="hide">hot; sweltering; dangerously warm</span>
+  <span class\="show">huwchoheija</span><span class\="hide">muggy; grossly humid and hot</span>
+  <span class\="show">chuhogol</span><span class\="hide">temperate; mild in temperature</span>
+  <span class\="show">chokka</span><span class\="hide">(1) great in size or quantity<br>(2) manganimous; kind and moral</span>
+  <span class\="show">chakaeja</span><span class\="hide">increasing</span>
+  <span class\="show">cheikija</span><span class\="hide">additional</span>
+  <span class\="show">cholja</span><span class\="hide">verbal; pertaining to the spoken word</span>
+  <span class\="show">chalaeja</span><span class\="hide">speaking</span>
+  <span class\="show">cheilija</span><span class\="hide">spoken; said</span>
+  <span class\="show">chuloja</span><span class\="hide">vocal; pertaining to the voice</span>
+  <span class\="show">kichalja</span><span class\="hide">conversational</span>
+  <span class\="show">chagihaeja</span><span class\="hide">(1) rich, in the sense of having a lot; rich soil, rich food. typically compounded<br>(2) rich; wealthy</span>
+  <span class\="show">ichagaeja</span><span class\="hide">generous</span>
+  <span class\="show">deihija</span><span class\="hide">coloured</span>
+  <span class\="show">dohha</span><span class\="hide">colourful</span>
+  <span class\="show">dakikonna</span><span class\="hide">actionable, able to be done; within ones ability</span>
+  <span class\="show">dokija</span><span class\="hide">ritualistic; pertaining to or related to ritual</span>
+  <span class\="show">dokigol</span><span class\="hide">ritualistic; like a ritual</span>
+  <span class\="show">dakaeja</span><span class\="hide">(1) active<br>(2) functioning; functional</span>
+  <span class\="show">dukja</span><span class\="hide">hyperactive</span>
+  <span class\="show">deikija</span><span class\="hide">finished; done</span>
+  <span class\="show">idakaeja</span><span class\="hide">catalysing, in the sense of causing an event</span>
+  <span class\="show">ideikija</span><span class\="hide">catalysed, in the sense of an event being caused</span>
+  <span class\="show">dalaeja</span><span class\="hide">running</span>
+  <span class\="show">damaeja</span><span class\="hide">bleeding</span>
+  <span class\="show">dumja</span><span class\="hide">(1) grievous, severe<br>(2) serious<br>(3) used to describe personalities as serious, harsh, or strict</span>
+  <span class\="show">ideimija</span><span class\="hide">wounded</span>
+  <span class\="show">deisija</span><span class\="hide">dirty; unclean</span>
+  <span class\="show">dataeja</span><span class\="hide">compelling</span>
+  <span class\="show">deitija</span><span class\="hide">(1) driven; forced towards<br>(2) driven; operated by a driver<br>(3) driven; having focus and intent</span>
+  <span class\="show">dowwa</span><span class\="hide">black</span>
+  <span class\="show">gabaeja</span><span class\="hide">partaking; participating</span>
+  <span class\="show">galaeja</span><span class\="hide">comparative; performing the function of making comparisons</span>
+  <span class\="show">golla</span><span class\="hide">like; comparable; similar</span>
+  <span class\="show">mogalaeja</span><span class\="hide">(1) analytical<br>(2) scrutinising</span>
+  <span class\="show">ogalaeja</span><span class\="hide">(1) comparable<br>(2) equal or comparable in some quality or fashion<br>(3) similar</span>
+  <span class\="show">ganja</span><span class\="hide">ascetic; austere</span>
+  <span class\="show">ganaeja</span><span class\="hide">(1) poor; lacking in money or possessions<br>(2) deficient; lacking in something nonspecific</span>
+  <span class\="show">gunja</span><span class\="hide">destitute, impoverished</span>
+  <span class\="show">geinija</span><span class\="hide">absent; nonexistent</span>
+  <span class\="show">oganaeja</span><span class\="hide">absent; not present</span>
+  <span class\="show">paganaeja</span><span class\="hide">missing; lost</span>
+  <span class\="show">gayaeja</span><span class\="hide">remaining; to be that which is left after a subtractive or reductive process (i.e "the remaining fruit")</span>
+  <span class\="show">heidija</span><span class\="hide">(1) empty<br>(2) exhausted of options or material</span>
+  <span class\="show">hodda</span><span class\="hide">empty</span>
+  <span class\="show">hagikonna</span><span class\="hide">traversable</span>
+  <span class\="show">hagaeja</span><span class\="hide">going; travelling</span>
+  <span class\="show">heigija</span><span class\="hide">travelled</span>
+  <span class\="show">hahaeja</span><span class\="hide">thankful; grateful</span>
+  <span class\="show">heihaja</span><span class\="hide">thanked</span>
+  <span class\="show">halaeja</span><span class\="hide">comforting; comfortable</span>
+  <span class\="show">hulja</span><span class\="hide">most comforting; often translated as "true comfort" or "at-home comfort"<br>an elative version of halaeja, associated with coming home after a long time away, laying down after a long day of standing, the end of some kind of suffering, etc.</span>
+  <span class\="show">heilija</span><span class\="hide">comfortable; to be experiencing comfort</span>
+  <span class\="show">holla</span><span class\="hide">suitable; seemly; pleasing</span>
+  <span class\="show">heihalaeja</span><span class\="hide">nesting; in the process of building a nest or selecting or outfitting a den</span>
+  <span class\="show">yohalaeja</span><span class\="hide">(1) uncomfortable<br>(2) disturbing; troubling</span>
+  <span class\="show">yoheilija</span><span class\="hide">disquieted, disturbed</span>
+  <span class\="show">hamaeja</span><span class\="hide">needy</span>
+  <span class\="show">heimija</span><span class\="hide">needed</span>
+  <span class\="show">homma</span><span class\="hide">(1) requisite; necessary<br>(2) integral</span>
+  <span class\="show">honggol</span><span class\="hide">thunderous</span>
+  <span class\="show">hangaeja</span><span class\="hide">thundering; booming</span>
+  <span class\="show">hongnga</span><span class\="hide">loud</span>
+  <span class\="show">hawaeja</span><span class\="hide">wet</span>
+  <span class\="show">huwja</span><span class\="hide">saturated</span>
+  <span class\="show">howwa</span><span class\="hide">of the air, humid</span>
+  <span class\="show">iheiwija</span><span class\="hide">watered</span>
+  <span class\="show">hayaeja</span><span class\="hide">affectionate</span>
+  <span class\="show">heiyija</span><span class\="hide">loved</span>
+  <span class\="show">huyoja</span><span class\="hide">romantic; pertaining to romanticism</span>
+  <span class\="show">mohayaeja</span><span class\="hide">forlorn; sad or lonely</span>
+  <span class\="show">mohuyja</span><span class\="hide">romantic, in the sense of yearning for romance</span>
+  <span class\="show">jeilija</span><span class\="hide">short</span>
+  <span class\="show">joleija</span><span class\="hide">stubby</span>
+  <span class\="show">jolla</span><span class\="hide">short</span>
+  <span class\="show">jamaeja</span><span class\="hide">touching</span>
+  <span class\="show">jeimija</span><span class\="hide">touched</span>
+  <span class\="show">yojamaeja</span><span class\="hide">(1) leaving alone; avoiding<br>(2) ignoring<br>(3) not touching</span>
+  <span class\="show">yojeimija</span><span class\="hide">undesirable</span>
+  <span class\="show">kabaeja</span><span class\="hide">(1) hateful<br>(2) adversarial</span>
+  //  'eijja // -ful; adjectivising suffix meaning "full of"
+ // ganaeja // used in compounds to mean "lacking" or "without". wali ganae - lacking a tail
+  <span class\="show">keibija</span><span class\="hide">(1) hated; contemptible<br>(2) shoddy; cheap (in quality)</span>
+
+adv
+  otdani // once
+  juni // now
+  jujuni // right now
+  abansang // lightly (with small hits)
+  ojaeni // sufficiently
+  akuni // terribly
+  asuni // desperately
+  beik // less; decrease the quantity of a verb
+  bokei // least
+  bokka // a little
+  boteini // routinely; regularly
+  chako // more; increase the quantity of or intensify a verb
+  deikini // entirely; completely; wholly
+  dokkani // ditto
+  heimini // necessarily; as a requirement
+  hommani // ditto
+  hayaeni // lovingly
+  keinini // usually
+  okoneini // usually; commonly, with a connotation of what is expected
+  lihani // halfway
+  lanaeni // quickly; rushingly
+  lunni // immediately; suddenly; instantaneously
+  meipini // purposefully; deliberately
+  noko // even; expresses something unexpected or extreme, or otherwise pushing the boundaries of what is expected
+  nakaeni // soon - think this is actually a timing word or an adv of time?
+  nukani // inevitably; eventually
+  sahini // peacefully
+  tolla // really; truly
+  chultong // honestly; really; truly
+  yukani // pathetically; pitiably
+  deichnoni // supposedly
+  ihnoshani // in reverse; backwards
+  iheinshoni // ditto
+  kihnoshani // simultaneously
+  kihnoshaeni // ditto
+  juhyini // carefully; cautiously
+  keihgoni // progressively
+  kahigaeni // continuously
+  lamyani // usually; customarily; habitually (connotation of return)
+  masdani // cyclically
+  masdim // again
+  mossidani // usually; normally; regularly, frequently (connotation of repetition)
+  pugdoni // currently
+  pasheini // traditionally
+  sasyaeni // excessively; too
+  teipsoni // wholly; completely; entirely
+  wonnihani // tenderly; as if the one performing the action could be harmed in the process
+  mei // very
+  akuni // extremely; terribly
+  oni // only; singularly; just
+  junak // already
+  angin // still
+  mojaeni // in a satisfying way; in a way that brings contentment
+  mojeini // of a condition; met, fulfilled (could also mean content/satisfied but like ... mwehhh. it's rooted in mojei, "that which is satisfied")
+
+verb
+  <span class\="show">angsa</span><span class\="hide">to be; there is</span>
+  <span class\="show">aska</span><span class\="hide">to hear</span>
+  <span class\="show">aba</span><span class\="hide">to hit; to whack; to impact</span>
+  <span class\="show">acha</span><span class\="hide">(1) to enter; to go inside<br>(2) to introduce oneself, to make an entrance; acc or dat marks those to which the subject introduces themselves</span>
+  <span class\="show">ada</span><span class\="hide">(archaic) to move</span>
+  <span class\="show">aha</span><span class\="hide">to pair, to put together in twos; instr can mark something the direct object is paired with</span>
+  <span class\="show">aja</span><span class\="hide">to fill; to make full</span>
+  <span class\="show">aka</span><span class\="hide">(1) <i>intrans</i> to be evil; to have ill intent or bad morals<br>(2) <i>trans</i> to spread rot to; to make rotted</span>
+  <span class\="show">ala</span><span class\="hide">(1) to stand beside<br>(2) to ally with; <i>instr</i> marks the ally<br>(3) to give ones approval</span>
+  <span class\="show">ama <i>or</i> oma</span><span class\="hide">(1) <i>intrans</i> to be good<br>(2) <i>trans</i> to treat well or kindly</span>
+  <span class\="show">ana</span><span class\="hide">to adopt, not just of children but of anyone; to bring into the family</span>
+  <span class\="show">asa</span><span class\="hide">to die</span>
+  <span class\="show">ata <i>or</i> ota</span><span class\="hide">to be or become singular</span>
+
+verbtense
+  past (-ida)
+  present (-sa)
+  future (-igo)
+  habitual (-il / -gil)
+  emphatic habitual (-sa~gil)
+  desiderative (-ima / -ma)
+  hypothetical (gaen)
+  imperative (-iyo)
+
+verbvoice
+  passive (pa-)
+  middle / experiential (o- / cho-)
+  reciprocal (ki-)
+  causative (i-)
+  reflexive (hei-)
+  dative (mo-)
+  excessive (bu-)
+  reductive (lu-)
+  negative (yo-)
+  intensive (aXX)
+
+extrainclude
+  Also, use the adjective [adj] with or on the {subject|object|indirectobject|ablative|instrumental}.
+  Also, use the adverb [adv].
+  Also, use the {high formal|formal|casual|working} register.
+  Also, use the converb [converb].
+  Also, use the sentence-final particle [finalparticle].
+  Also, use <i>pei</i> with [Math.floor(Math.random() * (4 - 0) + 1)] valid verb tenses (yong, gaen, gil, ida).
+  Also, use the [verbtense] verb tense/s.
+  Also, negate the {subject|object|indirectobject|ablative|instrumental|verb}.
+  Also, use the [verbvoice] verb voice.
+  If the sentence does not already have {an object|an indirect object}, use <i>hei</i> for it.
+  Create a new sentence referring to an argument of the first, using a relevant class noun.
+  Use this sentence as a question, then create a realistic answer to it (and at least try to be more detailed than a yes/no!).
+  Use this sentence as an answer, then create a realistic question for it.
+  Use the genitive <i>la</i> with or on the {subject|object|indirectobject|ablative|instrumental}.
+  Use this sentence as an expression of {need|hope|possibility|obligation with tong|suggestion with muh}.
+  Use this sentence with a focus construction. If needed, you can take an argument and use it as the focus.
+  Reduplicate some part of this sentence.
+  Use a relative position word, like <i>cho</i> or <i>bak</i> with the location of this sentence.
+
+bonuschallenge
+  Use the thematic <i>pei</i> with or on the {subject|object|indirectobject|ablative|instrumental}.
+  Use a relative clause with or on the {subject|object|indirectobject|ablative|instrumental}.
+  Create another sentence on the same topic, this time dropping an argument (i.e the subject or direct object).
+  Augment the {subject|object|indirectobject|ablative|instrumental} with the word {taeji|kol|kol - also, use a measure word construction (i.e <i>kol gila long si</i>, all five lizards)|kolta|kolta - also, use a measure word construction (i.e <i>kolta gila san si</i>, every three lizards)|kolta - also, use a possessive (i.e <i>gila shi sila kolta</i>, each of the six lizards)}.
+  Use a serial verb construction, like 
+  Use a verbal noun phrase using the {object|indirectobject|ablative|instrumental}.
+  Use this sentence to express an attempt with <i>haga</i> or <i>mohaga</i>{.| and use the verb tense/s [verbtense] with it.}
+  Use this sentence as the starting point of a conversation on the topic. (The conversation can be as short or long as you find reasonable.)
+  Use this sentence to express a change in state with taba.
+
+// Tips:
+//  - Highlight multiple lines and press Tab or Shift+Tab to indent and un-indent them all an once
+//  - You can change the URL of your generator by clicking the "settings" button in the top-right
+//  - You can use the sparkle button in the lower-right of the screen to ask the AI to adjust the visual design of your generator.
+//  - Add background images, fonts, and other stuff with plugins:  perchance.org/plugins
+//  - Here are some generators you might like to import:  perchance.org/useful-generators
+//  - Read this page after reading the tutorial:  perchance.org/examples
+//  - There's a gear button in the top-left which you can use to make the lines wrap around when they reach the edge of the screen, and to change the font size. Also, if you add   $output=[this.joinItems("<br>")]   as the first or last item in your list, then writing [yourListName] will magically output all of the items joined together with <br> (which means "line break" in HTML - i.e. a line separator), rather than outputting a random item from the "yourListName" list.
+//  - Ask our friendly community members if you need help:  lemmy.world/c/perchance
+
+
+
+
