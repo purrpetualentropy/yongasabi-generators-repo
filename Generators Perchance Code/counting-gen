@@ -1,0 +1,122 @@
+title
+  Yongasabi Counting
+
+output
+  [n = glyphdisplayBox.checked, ""][i = imgBox.checked, ""]What is this number?<div class\="YongiBlock">{[d = digit.single.selectOne]^2|[d = "jok"]}</div>[if (n == true) {""} else {d}][if (i == true) {[img]} else {""}] ^[tensBox.checked]
+  [n = glyphdisplayBox.checked, ""]What is this number?<div class\="YongiBlock">[d = tens.selectOne.selectOne]</div>[if (n == true) {""} else {d}] ^[moreTensBox.checked]
+  [n = glyphdisplayBox.checked, ""]What is this number?<div class\="YongiBlock">[t = digit.single.selectOne.selectOne] [d = tens.selectOne.selectOne]</div>[if (n == true) {""} else {t}] [if (n == true) {""} else {d}] ^[moreTensBox.checked]
+  [n = glyphdisplayBox.checked, ""]What is this number?<div class\="YongiBlock">[d = hundreds.selectOne.selectOne.selectOne]</div>[if (n == true) {""} else {d}] ^[hundredsBox.checked]
+  [n = glyphdisplayBox.checked, ""]How many, and of what?<div class\="YongiBlock">[d = totalcounter.selectOne.selectOne.selectOne]</div>[if (n == true) {""} else {d}] ^[mwcBox.checked]
+
+digit
+  single
+    ota // 1
+    ha // 2
+    san // 3
+    sei // 4
+    long // 5
+    shi // 6
+    siba // 7
+    pal // 8
+    nan // 9
+  jok // 10
+
+tens
+  jok [digit.single.selectOne]
+
+hundreds
+  [digit.single.selectOne.selectOne] molag
+  [digit.single.selectOne.selectOne] molag [digit.single.selectOne.selectOne]
+  [digit.single.selectOne.selectOne] molag jok
+  [digit.single.selectOne.selectOne] molag [digit.single.selectOne.selectOne] jok
+  [digit.single.selectOne.selectOne] molag [digit.single.selectOne.selectOne] jok [digit.single.selectOne.selectOne]
+
+thousands
+  jok molag // 1k
+  [digit.single.selectOne.selectOne] jok molag // 2-9k
+// finish these pls
+
+totalcounter
+  [animcounter] si{ chako| beik|}
+  [animcounter]{ si chako| si beik|}haj [animcounter] si {chako|beik|}
+  [bangcounter] bang{ chako| beik|}
+  [bangcounter]{ bang chako| bang beik|}haj [bangcounter] bang
+  [peicounter] pei{ chako| beik|}
+  [peicounter]{ pei chako| pei beik|}haj [peicounter] pei
+
+// its kind of weird to say "five more fruit and 10 pebbles" - maybe quietly roll a chance to have a comparator, then implement comparator on both counters if yes? doesn't have to be the same comparator
+// Also, just start counting whatever the fuck you want with gi. There's so much stuff we can count. If it's a noun we can count it!!!
+
+animcounter
+  [animnoun] {[digit.single.selectOne.selectOne]|[tens.selectOne.selectOne]}
+
+bangcounter
+  [bangnoun] {[digit.single.selectOne.selectOne]|[tens.selectOne.selectOne]}
+
+peicounter
+  [peinoun] {[digit.single.selectOne.selectOne]|[tens.selectOne.selectOne]}
+
+animnoun
+  gila
+  molongjae
+  yongasabi
+  dang
+  ong
+  lam
+  salam // person
+  suy // animal
+  heikanae // that which meditates; iterator
+  mayaeja gila // walking lizard; green liz
+  noyya gila // green liz
+  paeh gila // hand lizard; pink liz
+  sojil gila // pink lizard
+  monna gila //  blue lizard
+  naw gila // rain lizard; salamander
+  lolanibi // creature of river; salamander
+  dowwim gila // brown lizard; caramel
+  kotuw // leaps most; cyan
+  katow gila // leap lizard; cyan
+  sei gila // death lizard; red liz
+  koddim gila // red lizard
+  kawla gila // pack lizard: orange lizard
+  boyya gila // orange liz
+  wuy gila // ground lizard: black liz
+  heichmug // that which hides itself; white liz
+  yoyila gila // white liz
+  sinawabi // creature of monsoons; eel
+  jalman // batfly
+  nonei // eggbug
+  japchei suy // noot
+  kamuy japchei suy // small noot: baby noot
+  toka suy // lampster
+  satidae // raindeer
+  palae // dropwig
+  keiji // spider
+  kojei // centipede
+  pusit // squid
+  heichu // snail
+  tuw // yeek
+  sub akae // kelp 
+  nowwis yihga // pole plant
+  nawisae // pole plant 
+  idhug // worm grass
+  bakunawa // leviathan
+
+bangnoun
+  akita
+  taehongja akita
+  tohung akita
+  akita taebad // lilypuck: spear leaf
+
+peinoun
+  peihi
+  tohung // bomb
+  mobei // pearl
+  mun // fruit
+  monna mun // blue fruit
+  anji // slime mold
+  mun eispo // fruit puff; dandelion peach
+  aspan tobudla mun // fruit of the breeze stalk; dandelion peach
+
+img
+  <br><br><img src\="https://file.garden/ZqKEHNruXT-CeLY-/Yongasabi%20Numbers/[d]_{f|s|p}.png"></img>
