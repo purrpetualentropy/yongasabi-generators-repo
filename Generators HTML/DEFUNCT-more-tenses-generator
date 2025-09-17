@@ -1,0 +1,25 @@
+<h1>[title]</h1>
+<p style="margin:1em auto; padding:0 1em; max-width:700px; font-size:18px;">[output]</p>
+<button onclick="update()">randomize</button>
+<br>
+<section style="text-align:center; padding: 0.75em 1.5em; font-size:18px;">
+		["&lt;p>"+pageDescription.joinItems("&lt;/p>&lt;p>")+"&lt;/p>"] 
+	</section>
+
+<style> html { color-scheme: light dark; }
+@font-face {  
+	font-family: "YongasabiBlock";
+	src: url("https://file.garden/ZqKEHNruXT-CeLY-/YongasabiBlock.ttf") format("truetype");
+}
+div.YongiBlock { 
+    font-family: YongasabiBlock;
+}
+
+section {
+		padding:1em;
+		border-radius:3px;
+		margin-top:1em
+    font-size: 18px;
+	}
+</style>
+<style> html { color-scheme: light dark; } </style>
