@@ -1,0 +1,28 @@
+<h1>[title]</h1>
+<div style="margin:1em auto; padding:0 1em; max-width:700px;">[output]</div>
+<button onclick="update()">randomize</button>
+<br>  <input type="checkbox" id="glyphdisplayBox"> Display only glyphs<br>
+<input type="checkbox" id="imgBox"> Display images of numbers<br>
+<input type="checkbox" id="tensBox" checked> Display numbers up to 10<br>
+<input type="checkbox" id="moreTensBox"> Display numbers between 10 to 99<br>
+<input type="checkbox" id="hundredsBox"> Display numbers between 100 to 999<br>
+<input type="checkbox" id="mwcBox"> Display measure word constructions<br><br>
+<p>As the actual numbers are not in the font, this generator uses images. I'd recommend disabling those if you have poor wifi.</p>
+<p><a href="https://perchance.org/yongasabi-generators-index">Yongasabi Generators Index</a></p>
+<!-- The line below makes it so if your device is in dark mode, then the default text color is switched to white, and the default background color is switch to black. -->
+<style> html { color-scheme: light dark; }
+@font-face {  
+	font-family: "YongasabiBlock";
+	src: url("https://file.garden/ZqKEHNruXT-CeLY-/YongasabiBlock.ttf") format("truetype");
+}
+div.YongiBlock { 
+    font-family: YongasabiBlock;
+}
+
+p {
+  margin-left: 5%;
+  margin-right: 5%;
+  bottom: 20px;
+  position: relative;
+}
+</style>
