@@ -1,0 +1,33 @@
+<h1>[title]</h1>
+<p style="margin:1em auto; padding:0 1em; max-width:700px; font-size: 18px;">[output]</p>
+<button onclick="update()">randomize</button>
+<section style="text-align:center; padding: 0.75em 1.5em; font-size: 18px;">
+Output types:<br>
+  <input type="checkbox" id="glyphdisplayBox"> Display only glyphs
+  <input type="checkbox" id="questionsallowed"> Questions allowed<br>
+  <input type="checkbox" id="subjMarkerBox" checked> Subject marker
+<input type="checkbox" id="locMarkerBox"> Locative marker<br>
+<input type="checkbox" id="accMarkerBox"> Accusative marker
+<input type="checkbox" id="datMarkerBox"> Dative marker<br>
+<input type="checkbox" id="ablMarkerBox"> Ablative marker
+<input type="checkbox" id="instrMarkerBox"> Instrumental marker
+</section>
+<section style="text-align:center; padding: 0.75em 1.5em; font-size: 18px;">
+		["&lt;p>"+pageDescription.joinItems("&lt;/p>&lt;p>")+"&lt;/p>"] <!-- This uses the pageDescription perchance list to format this section. I used this before I knew enough HTML to do it myself. -->
+	</section>
+
+<style> html { color-scheme: light dark; }
+@font-face {  
+	font-family: "YongasabiBlock";
+	src: url("https://file.garden/ZqKEHNruXT-CeLY-/YongasabiBlock.ttf") format("truetype");
+}
+div.YongiBlock { 
+    font-family: YongasabiBlock;
+}
+
+section {
+		padding:1em;
+		border-radius:3px;
+		margin-top:1em;
+	}
+</style>
