@@ -1,0 +1,173 @@
+title
+  Yongasabi Dates
+
+output
+  What day of the week is this in English?<br>[yongidays] ^[daysBox.checked]
+  What day of the week is this in Yongasabi?<br>[engdays] ^[daysBox.checked]
+  Which week of the month is this?<br>[yongiweeks] ^[weeksBox.checked]
+  Which is the {1st|2nd|3rd|4th|5th|6th} week of the month? ^[weeksBox.checked]
+  Which month is this in English?<br>[yongimonths] ^[monthsBox.checked]
+  Which month is this in Yongasabi?<br>{[engmonths]|[engnamedmonths]} ^[monthsBox.checked]
+  Which season is the following month in?<br>[yongimonths] ^[seasonsBox.checked]
+  What date is this in English?<br>[yongiordinaldates] ^[ordinalDateBox.checked]
+  What date is this in English?<br>[yongitraditionaldates] ^[traditionalDateBox.checked]
+  What date is this in Yongasabi?<br>[engordinaldates] ^[ordinalDateBox.checked]
+  What date is this in Yongasabi?<br>[engotherdates] ^[traditionalDateBox.checked]
+
+yongidays
+  takiyuni // mon; day of sun
+  nungyuni // tues; day of moon
+  muyoyuni // weds; day of stars/fortunes
+  suyyuni // thurs; day of beasts
+  kipyuni // fri; day of rest
+  jeiyuni ^[gregDays.checked] // sat; day of filling
+  hodayuni ^[gregDays.checked] // sun; day of emptying
+
+engdays
+  Monday
+  Tuesday
+  Wednesday
+  Thursday
+  Friday
+  Saturday ^[gregDays.checked]
+  Sunday ^[gregDays.checked]
+
+yongiweeks
+  hoda leing // empty; first week, new moon
+  lakno leing // emergence; second week, waxing crescent
+  tabo leing // growth; third week, waxing gibbous
+  jeija leing // fullness; fourth week, full moon
+  mabok leing // withdrawal; fifth week, waning gibbous
+  dahig leing // descent; sixth week, waning crescent
+
+yongimonths
+  yalo nung
+  taebi nung
+  mahin nung
+  weinho nung
+  paen nung
+  anji nung
+  bakunawa nung
+  gila nung
+  muyo nung
+  aspan nung
+  tanggo nung
+  shou nung
+
+engmonths
+  January
+  February
+  March
+  April
+  May
+  June
+  July
+  August
+  September
+  October
+  November
+  December
+
+engnamedmonths
+  Month of Awakening
+  Leaf Moon
+  Month of Companions
+  Velvet Moon
+  Blossoming Moon
+  Slime Mold Moon
+  Leviathan Moon
+  Lizard Moon
+  Star Moon
+  Breeze Moon
+  Vulture Moon
+  {Month of Possibility|Antler Moon}
+
+yongiseasons
+  naw
+  sinaw
+  kadolmak
+  yunwa
+
+numbers
+  1
+  2
+  3
+  4
+  5
+  6
+  7
+  8
+  9
+  0
+
+yearmaker
+  1[numbers][numbers][numbers]
+  2[numbers][numbers][numbers]
+
+numberedyongidays
+  {ha jok|jok|} ota{yo|} // 1st, 11th, 21st
+  {ha jok|jok|} ha{yo|} // 2nd, 12th, 22nd
+  {ha jok|jok|} san{ayo|} // 3rd, 13th, 23rd
+  {ha jok|jok|} sei{yo|} // 4th, 14th, 24th
+  {ha jok|jok|} long{ayo|} // 5th, 15th, 25th
+  {ha jok|jok|} shi{yo|} // 6th, 16th, 26th
+  {ha jok|jok|} siba{yo|} // 7th, 17th, 27th
+  {ha jok|jok|} pal{ayo|} // 8th, 18th, 28th
+  {ha jok|jok|} nan{ayo|} // 9th, 19th, 29th
+  jok{ayo|} // 10th
+  ha jok{ayo|} // 20th
+  san jok{ayo|} // 30th
+
+yongiordinaldates
+  [yearmaker] [yongimonths] // year + month
+  [yearmaker] [yongimonths] [numberedyongidays] // year + month + day
+  [yongimonths] [numberedyongidays] // month + day
+
+yongitraditionaldates
+  [yongimonths] [yongiweeks] [yongidays] // month + week + day
+  [yongimonths] [yongiweeks] // month + week
+  [yearmaker] [yongimonths] [yongiweeks] [yongidays] // year + month + week + day
+  [yearmaker] [yongimonths] [yongiweeks] // year + month + week
+
+numberedengdays
+  {1st|first}
+  {2nd|second}
+  {3rd|third}
+  {4th|fourth}
+  {5th|fifth}
+  {6th|sixth}
+  {7th|seventh}
+  {8th|eighth}
+  {9th|ninth}
+  {10th|tenth}
+  {11th|eleventh}
+  {12th|twelfth}
+  {13th|thirteenth}
+  {14th|fourteenth}
+  {15th|fifteenth}
+  {16th|sixteenth}
+  {17th|seventeenth}
+  {18th|eighteenth}
+  {19th|ninteenth}
+  {20th|twentyth}
+  {21st|twenty-first}
+  {22nd|twenty-second}
+  {23rd|twenty-third}
+  {24th|twenty-fourth}
+  {25th|twenty-fifth}
+  {26th|twenty-sixth}
+  {27th|twenty-seventh}
+  {28th|twenty-eighth}
+  {29th|twenty-ninth}
+  {30th|thirtyth}
+  // i hate this list
+
+engordinaldates
+  [yearmaker] [engmonths] // year + month
+  [yearmaker] [engmonths] [numberedengdays] // year + month + day
+  [engmonths] [numberedengdays] // month + day
+
+engotherdates // its not traditional, precisely...
+  [yearmaker]/[Math.floor(Math.random() * (12 - 1) + 1)]/[Math.floor(Math.random() * (31 - 1) + 1)] // these generate a random number btwn 1 and 12, and a rnd btwn 1 and 31, btw)
+
+
