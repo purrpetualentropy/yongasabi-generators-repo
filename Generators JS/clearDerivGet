@@ -1,0 +1,6 @@
+function clearDerivGet() {
+  const getDerivResult = document.getElementById("getDerivResult")
+  let confirmErase = confirm("Do you really want to erase the output?")
+
+  if (confirmErase == true) {getDerivResult.innerHTML = "plain verb, activPart, habitPart, passPart, supPart, dimin, augm, tool, locat"} else {}
+}
