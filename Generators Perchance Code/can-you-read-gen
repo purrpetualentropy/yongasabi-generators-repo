@@ -1,0 +1,43 @@
+generic = {import:generic-yongasabi-sentences}
+moretenses = {import:more-tenses-yongasabi-generator}
+
+title
+  Can You Read?
+  
+output
+  Type this sentence into the box below:<div class\="YongiBlock">[w = word.selectOne.selectOne]</div>
+
+input
+  nought
+
+word
+  [generic.subjmarkersentence.selectOne.selectOne][q = "{[generic.questiontone.selectOne]^[questionsallowed.checked]|}".selectOne.selectOne] ^[subjMarkerBox.checked && !moretensesBox.checked]
+  [generic.locationmarkersentence.selectOne.selectOne][q = "{[generic.questiontone.selectOne]^[questionsallowed.checked]|}".selectOne.selectOne] ^[locMarkerBox.checked && !moretensesBox.checked]
+  [generic.accusativemarkersentence.selectOne.selectOne][q = "{[generic.questiontone.selectOne]^[questionsallowed.checked]|}".selectOne.selectOne] ^[accMarkerBox.checked && !moretensesBox.checked]
+  [generic.dativemarkersentence.selectOne.selectOne][q = "{[generic.questiontone.selectOne]^[questionsallowed.checked]|}".selectOne.selectOne] ^[datMarkerBox.checked && !moretensesBox.checked]
+  [generic.ablativemarkersentence.selectOne.selectOne][q = "{[generic.questiontone.selectOne]^[questionsallowed.checked]|}".selectOne.selectOne] ^[ablMarkerBox.checked && !moretensesBox.checked]
+  [generic.instrumentalmarkersentence.selectOne.selectOne][q = "{[generic.questiontone.selectOne]^[questionsallowed.checked]|}".selectOne.selectOne] ^[instrMarkerBox.checked]
+  [moretenses.subjmarkersentence.selectOne.selectOne][q = "{[generic.questiontone.selectOne]^[questionsallowed.checked]|}".selectOne.selectOne] ^[moretensesBox.checked && subjMarkerBox.checked]
+  [moretenses.locationmarkersentence.selectOne.selectOne][q = "{[generic.questiontone.selectOne]^[questionsallowed.checked]|}".selectOne.selectOne] ^[moretensesBox.checked && locMarkerBox.checked]
+  [moretenses.accusativemarkersentence.selectOne.selectOne][q = "{[generic.questiontone.selectOne]^[questionsallowed.checked]|}".selectOne.selectOne] ^[moretensesBox.checked && accMarkerBox.checked]
+  [moretenses.dativemarkersentence.selectOne.selectOne][q = "{[generic.questiontone.selectOne]^[questionsallowed.checked]|}".selectOne.selectOne] ^[moretensesBox.checked && datMarkerBox.checked]
+  [moretenses.ablativemarkersentence.selectOne.selectOne][q = "{[generic.questiontone.selectOne]^[questionsallowed.checked]|}".selectOne.selectOne] ^[moretensesBox.checked && ablMarkerBox.checked]
+
+
+noinput
+  You need to type <i>something</i>.
+  Perhaps try typing something?
+  It seems you didn't input anything yet.
+  You can use the text box below to type.
+
+correct
+  Well done!
+  Good job!
+  Nice work.
+  Congrats!
+
+wrong
+  Maybe check for typos?
+  Are you sure your vowels are right?
+  Try this one again.
+  Sorry, not this time.
