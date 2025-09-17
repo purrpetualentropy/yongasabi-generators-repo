@@ -1,0 +1,40 @@
+<h1>[title]</h1>
+<p style="margin:1em auto; padding:0 1em; max-width:700px;">[output]</p>
+<button onclick="update()">randomize</button>
+<br><br>
+<textarea placeholder="firstword.worddef/secondword.worddef" oninput="textInput = this.value" style="width:250px; height:50px;"></textarea>
+<section id="defGetterResult">def getter results go here</section>
+<button onclick="defGetter()">getDef</button>
+<button onclick="clearDefGetter()">clear getDef</button><br><br>
+<input type="checkbox" id="funcListBox"> Output Functional List Items<br><br>
+<input type="checkbox" id="testGenBox"> Test the gen<br><br>
+<p style="margin-left:5%; margin-right:5%; bottom:20px; position: relative;">Huge, huge thanks to <a href="https://archiveofourown.org/works/43750800/chapters/110022960#workskin">AO3 user Skits</a> for the hover text CSS. You can hover over a word to show its definition and it's all thanks to them!</p>
+<p style="margin-left:5%; margin-right:5%; bottom:20px; position: relative;"><a href="https://perchance.org/yongasabi-generators-index">Yongasabi Generators Index</a></p>
+
+<!-- Some JS was removed here. Check defGetter and clearDefGetter in the Generators JS folder. -->
+<!-- The buttons above won't work without the JS. -->
+
+<style> html { color-scheme: light dark; } 
+html .show {
+  border-bottom: 3px dotted #06b;
+  cursor: pointer;
+  font-size: 1em;
+}
+
+html .hide {
+  display: none;
+}
+
+html .show:hover+.hide,
+html .hide:hover,
+html .show:focus + .hide {
+  display: block;
+  background-color: #06b;
+  color: #fff;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 1em;
+  margin-left: 3%;
+  margin-right: 3%;
+}
+</style>
