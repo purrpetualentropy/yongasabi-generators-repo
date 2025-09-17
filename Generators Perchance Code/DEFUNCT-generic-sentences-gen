@@ -1,0 +1,471 @@
+// Note: This generator really, really, really, REALLY sucks ass
+// Please don't reference it, even if you think the outputs are good.
+// If you need help or advice please just contact me directly. Don't use stuff from this generator.
+// You're allowed to, there's no restriction. But please don't do that to yourself.
+// Working on this generator was genuinely harmful to my mental health. Don't do this!!!
+
+title
+  Generic Yongasabi Sentences
+
+output
+  [n = glyphdisplayBox.checked, ""] Translate the following into English: <div class\="YongiBlock">[a = subjmarkersentence.selectOne.selectOne][q = "{[questiontone]^[questionsallowed.checked]|}".selectOne.selectOne]</div> [if (n == true) {""} else {a}][q] ^[subjMarkerBox.checked]
+  [n = glyphdisplayBox.checked, ""] Translate the following into English: <div class\="YongiBlock">[a = locationmarkersentence.selectOne.selectOne.selectOne][q = "{[questiontone]^[questionsallowed.checked]|}".selectOne.selectOne]</div> [if (n == true) {""} else {a}][q] ^[locMarkerBox.checked]
+  [n = glyphdisplayBox.checked, ""] Translate the following into English: <div class\="YongiBlock">[a = accusativemarkersentence.selectOne.selectOne][q = "{[questiontone]^[questionsallowed.checked]|}".selectOne.selectOne]</div>[if (n == true) {""} else {a}][q] ^[accMarkerBox.checked]
+  [n = glyphdisplayBox.checked, ""] Translate the following into English: <div class\="YongiBlock">[a = dativemarkersentence.selectOne.selectOne.selectOne][q = "{[questiontone]^[questionsallowed.checked]|}".selectOne.selectOne]</div>[if (n == true) {""} else {a}][q] ^[datMarkerBox.checked]
+  [n = glyphdisplayBox.checked, ""] Translate the following into English: <div class\="YongiBlock">[a = ablativemarkersentence.selectOne.selectOne.selectOne][q = "{[questiontone]^[questionsallowed.checked]|}".selectOne.selectOne]</div>[if (n == true) {""} else {a}][q] ^[ablMarkerBox.checked]
+  [n = glyphdisplayBox.checked, ""] Translate the following into English: <div class\="YongiBlock">[a = instrumentalmarkersentence.selectOne.selectOne.selectOne][q = "{[questiontone]^[questionsallowed.checked]|}".selectOne.selectOne]</div>[if (n == true) {""} else {a}][q] ^[instrMarkerBox.checked]
+ 
+pageDescription
+  <b>Please be aware</b> that this generator is considerably out of date when it comes to colour words. It will remain out of date for a long time because the generator is quite poorly written, and I'd like to know more JavaScript so I can rewrite it to be <i>much</i> better. And learning JS takes a long time.
+  This generator creates Yongasabi sentences using all of the case markers up to sang. It also uses ma to create simple question words out of existing sentences. I'm planning to add markers up to -ni.  
+  There <i>are</i> a few words included here that aren't in the lists given while reading through the document, but you shouldn't need to worry about that. If you don't recognise a word, maybe try the <a href\="https://docs.google.com/document/d/1Tll7H4qqslsbk1-U1rFnhHs5Au3Lawn3nLowXDmk6AY/edit">Yongasabi Dictionary</a>.
+  Also, check out the <a href\="https://docs.google.com/document/d/1GSldauQZAjrYEk7K16L3yYkUIdistcQs2MwI2tos_zY">glyph documentation</a>. There's a bunch of rules that you might miss by just reading the glyphs here.
+  Sentences will include markers from the sentences before them (so, accusative marker sentences can also use the locative and subject markers, but locative sentences cannot use the accusative marker).
+  <a href\="https://perchance.org/yongasabi-generators-index">Yongasabi Generators Index</a>
+
+
+questiontone // exists only bc i cant be fucked to figure out how to do it in curly brackets whiled keeping the output the same. i love making useless lists!!!!!!!!
+  , ma?
+  , ma.
+
+  
+animsubjects
+  verbend
+    hanitae
+    masinabi
+    pachmigae
+    yongasabi
+    molongjae
+    gila
+    sapinae
+    sattokubi
+    no
+  consend
+    tonun
+    pajmuy
+    dang
+    lam
+    lamlan
+    ong
+    taw
+    tawhoy
+    nohoy
+    mabkan // watcher!!
+
+inanimsubjects
+  verbend
+    peihi
+    akita
+    sotoka
+    meiki // meal
+    katae // machete
+  consend
+    masin
+    mun
+    satkan // ember
+    mok // food
+
+adj
+  koddim // red
+  maeja // good
+  kobba // bad
+  akija // evil
+  monna // blu
+  boyya // yelow
+  noyya //geen
+  soppim //ourple
+  nonija //orng
+  sojil // pink
+  dowwa // black
+  dowwim // brown
+  yoyila // white
+  lobba // grey
+  chuhogol // temperate
+  chah // hot
+  cheihija // lukewarm
+  choheija // sweltering
+  samuy // cold
+  seimyoja // cool: somewhat cold
+  samyeija // freezing: dangerously cold
+  lonna // fast
+  jommiy // confident
+  yojommiy // unconfident
+
+verbs
+  kat // to cut
+  pah // to grip: to hold
+  hanta // to hunt
+  is // to kill
+  mak // to eat
+  ab // to hit
+  akta // to spear
+  // go // to go
+  jamya // to convince
+  kadma // to redden
+  lan // to rush
+  may // to walk
+  nan // to see
+  satka // to burn
+  lamya // to return
+  yahla // to cook
+  mamya // to leave
+
+comparativenoun
+  masinabi
+  gila
+  [adj] yongasabi
+  [adj] molongjae
+  sotoka
+  satkan
+
+location
+  verbend
+    cho
+    {solani|solani cho}
+    {kin losei|kin losei cho}
+    jatoltak cho
+    kip cho
+    hanoltak cho
+  consend
+    bak
+    {jatoltak|jatoltak bak}
+    {kip|kip bak}
+    {hanoltak|hanoltak bak}
+    solani bak
+    kin losei bak
+
+vom // verbs of motion
+  //go
+  may
+  lan
+  lamya
+  nan // nansa is here bc i realised itd be stupid not to
+  mamya // to leave
+
+consumableobject
+  verbend
+    gila
+    meiki
+  consend
+    mun
+    mok
+    bol // meat
+
+consumableverb
+  kat // to cut
+  hanta // to hunt
+  mak // to eat
+  akta // to spear
+  satka // to burn
+  yahla // to cook
+
+consumablesubj
+  verbend
+    hanitae
+    masinabi
+    pachmigae
+    yongasabi
+    sapinae
+    sattokubi
+    no
+  consend
+    tonun
+    pajmuy
+    dang
+    lam
+    lamlan
+    ong
+    taw
+    tawhoy
+    nohoy
+    mabkan // watcher!!
+
+currsubj
+  {[animsubjects.verbend]{ga|hei}|[animsubjects.consend]{'ag|hei}}
+
+currobj
+  animate
+    {[animsubjects.verbend]do|[animsubjects.consend]'o}
+  inanimate
+    peihido
+    akitado
+    sotokado
+    satkan'o
+    masin'o
+    mun'o
+    mok'o
+
+// these 'curr' lists only exist because of a single accusative sentence. this generator is very jank
+
+inanimateaccusativeihate
+  [currsubj] [currobj.inanimate]
+
+thatoneaccusativeihate
+//  fuck you
+  [opcurrobj = currobj.animate, ""][currsubj] [if (opcurrobj != currsubj) {opcurrobj} else {opcurrobj = currobj.animate}] [thatoneaccusativeihateverbs.animate]sa
+  [inanimateaccusativeihate] [thatoneaccusativeihateverbs.inanimate]sa
+
+theotheraccusativeihate
+// fuck you !!!!
+  [opcurrsubj = currsubj, ""][currobj.animate] yong [if (opcurrsubj != currobj.animate) {opcurrsubj} else {opcurrsubj = currsubj}] [thatoneaccusativeihateverbs.animate]sa
+  [currobj.inanimate] yong [currsubj] [thatoneaccusativeihateverbs.inanimate]sa
+
+thatoneaccusativeihateverbs
+  inanimate
+    kat // to cut
+    hanta // to hunt
+    is // to kill
+    ab // to hit
+    akta // to spear
+    pah
+    satka
+    nan
+  animate
+    pah // to grip: to hold
+    jamya // to convince
+    nan // to see
+
+thatonedativeihate
+  [opcurrobj = currobj.animate, ""][currsubj] {[animsubjects.verbend]m|[animsubjects.consend]'im} [if (opcurrobj != currsubj) {opcurrobj} else {opcurrobj = currobj.animate}] {[thatoneaccusativeihateverbs.animate]{sa|sayong}|[thatoneaccusativeihateverbs.animate]{sa|sayong}}
+  [currsubj] {[animsubjects.verbend]m|[animsubjects.consend]'im} [currobj.inanimate] {[thatoneaccusativeihateverbs.inanimate]|[thatoneaccusativeihateverbs.inanimate]{sa|sayong}}
+ 
+theotherdativeihate
+  {[animsubjects.verbend]m|[animsubjects.consend]'im} yong [opcurrobj = currobj.animate, ""][currsubj] [if (opcurrobj != currsubj) {opcurrobj} else {opcurrobj = currobj.animate}] [thatoneaccusativeihateverbs.animate]{sa|sayong}
+  {[animsubjects.verbend]m|[animsubjects.consend]'im} yong [currsubj] [currobj.inanimate] [thatoneaccusativeihateverbs.inanimate]{sa|sayong}
+
+validoriginpoint
+  {solani|solani cho}
+  {kin losei|kin losei cho}
+  jatoltak cho
+  kip cho
+  hanoltak cho
+  bak
+  {jatoltak|jatoltak bak}
+  {kip|kip bak}
+  {hanoltak|hanoltak bak}
+  solani bak
+  kin losei bak
+  hanitae
+  masinabi
+  pachmigae
+  yongasabi
+  molongjae
+  sapinae
+  sattokubi
+  no
+  tonun
+  pajmuy
+  dang
+  lam
+  lamlan
+  ong
+  taw
+  tawhoy
+  nohoy
+  mabkan // watcher!!
+
+validtargetpoint
+  verbend
+    {solani|solani cho}
+    {kin losei|kin losei cho}
+    jatoltak cho
+    kip cho
+    hanoltak cho
+    hanitae
+    masinabi
+    pachmigae
+    yongasabi
+    molongjae
+    gila
+    sapinae
+    sattokubi
+    no
+  consend
+    bak
+    {jatoltak|jatoltak bak}
+    {kip|kip bak}
+    {hanoltak|hanoltak bak}
+    solani bak
+    kin losei bak
+    tonun
+    pajmuy
+    dang
+    lam
+    lamlan
+    ong
+    taw
+    tawhoy
+    nohoy
+    mabkan // watcher!!
+
+thatoneablativeihate
+// ugh ugh ugh uggh ugh i hate making these so much!!!!
+// inanimsubj is voming (excl. nansa: just write the damn verbs) from location/animsubj to location/animsubj. the start and end location cannot be the same: masin'ag jatoltakmok jatoltakdo go is NOT a valid sentence.
+  [curroriginpoint = validoriginpoint, ""][currdestinationpoint = validtargetpoint.consend, ""]{[adj] |}{[inanimsubjects.verbend]{ga|hei}|[inanimsubjects.consend]{'ag|hei}} [curroriginpoint]mok [if (currdestinationpoint != curroriginpoint) {currdestinationpoint} else {currdestinationpoint == validtargetpoint.consend}]'o {go|goyong|lansa|lansayong|lamyasa|lamyasayong} // x is going from y to z
+    [curroriginpoint = validoriginpoint, ""] [currdestinationpoint = validtargetpoint.verbend, ""] {[adj] |}{[inanimsubjects.verbend]{ga|hei}|[inanimsubjects.consend]{'ag|hei}} [curroriginpoint]mok [if (currdestinationpoint != curroriginpoint) {currdestinationpoint} else {currdestinationpoint == validtargetpoint.verbend}]do {go|goyong|lansa|lansayong|lamyasa|lamyasayong} // x is going from y to z
+ // x is going from y to z - verb edition. they're separated like this because i wanted to use the validtargetpoint list in constructing some instrumentals but needed it to not necessarily have the marker.
+  [curroriginpoint = validoriginpoint, ""] [currdestinationpoint = validtargetpoint.consend, ""][currdestinationpoint]'o yong {[adj] |}{[inanimsubjects.verbend]{ga|hei}|[inanimsubjects.consend]{'ag|hei}} [if (curroriginpoint != currdestinationpoint) {curroriginpoint} else {curroriginpoint == validoriginpoint}]mok {go|lansa|lamyasa} // its not z that x is going from y to
+  [curroriginpoint = validoriginpoint, ""] [currdestinationpoint = validtargetpoint.verbend, ""][currdestinationpoint]do yong {[adj] |}{[inanimsubjects.verbend]{ga|hei}|[inanimsubjects.consend]{'ag|hei}} [if (curroriginpoint != currdestinationpoint) {curroriginpoint} else {curroriginpoint == validoriginpoint}]mok {go|lansa|lamyasa} // its not z that x is going from y to
+  [curroriginpoint = validoriginpoint, ""] [currdestinationpoint = validtargetpoint.consend, ""] {[adj] |}{[inanimsubjects.verbend] yong{'ag|hei}|[inanimsubjects.consend] yong{'ag|hei}} [curroriginpoint]mok [if (currdestinationpoint != curroriginpoint) {currdestinationpoint} else {currdestinationpoint == validtargetpoint.consend}]'o {go|lansa|lamyasa} // its not x thats going from y to z
+  [curroriginpoint = validoriginpoint, ""] [currdestinationpoint = validtargetpoint.verbend, ""][curroriginpoint]mok yong {[adj] |}{[inanimsubjects.verbend]{ga|hei}|[inanimsubjects.consend]{'ag|hei}} [if (currdestinationpoint != curroriginpoint) {currdestinationpoint} else {currdestinationpoint == validtargetpoint.verbend}]do {go|lansa|lamyasa} // its not from y that x is going to z  
+
+thatoneinstrumentalihate
+ // sigh ok.
+  [currinstrumental = validoriginpoint, ""] [currdestinationpoint = validtargetpoint.consend, ""] [getcurrsubj = currsubj, ""] [getcurrsubj] [currinstrumental]sang [if (currdestinationpoint != currinstrumental) {currdestinationpoint} else if (currdestinationpoint != getcurrsubj) {currdestinationpoint} else {currdestinationpoint == validtargetpoint.consend}]'o {go|goyong|lansa|lansayong|lamyasa|lamyasayong} // x is going to y via/with z (i.e hanitaega yangseisang hanoltak'o go OR pajmuy'ag lamlansang solanido go)
+  [currinstrumental = validoriginpoint, ""] [currdestinationpoint = validtargetpoint.verbend, ""] [getcurrsubj = currsubj, ""] [getcurrsubj] [currinstrumental]sang [if (currdestinationpoint != currinstrumental) {currdestinationpoint} else if (currdestinationpoint != getcurrsubj) {currdestinationpoint} else {currdestinationpoint == validtargetpoint.verbend}]do {go|goyong|lansa|lansayong|lamyasa|lamyasayong} // ditto as above
+  [currinstrumental = instrumentalanim, ""] [getcurrsubj = consumablesubj.verbend, ""] [getcurrsubj]ga [if (currinstrumental != getcurrsubj) {currinstrumental} else (currinstrumental == instrumentalanim)]sang {chalsa|chalsayong} // x is/isnt speaking with y
+  [currinstrumental = instrumentalanim, ""] [getcurrsubj = consumablesubj.consend, ""] [getcurrsubj]'ag [if (currinstrumental != getcurrsubj) {currinstrumental} else (currinstrumental == instrumentalanim)]sang {chalsa|chalsayong} // ditto
+  [hitswithrock]
+
+hitswithrock // i hate this list. i dont have a method to check whether a word ends in a verb or consonant. so im just making a list. with every possible combination. kms
+  // ALSIO IUT DOESNT EVEN FUCKING GUARNATEE THAT THE SUBJ DIROBJ AND INDIROBJ ARE DIFFERENT!!! KMS!!!!!!!!!!!!!!!!!!!!!!!!!!
+  [getcurrsubj = consumablesubj.verbend, ""] [getcurrobj = consumablesubj.verbend, ""] [getcurrindir = consumablesubj.verbend, ""] [getcurrsubj]ga peihisang [if (getcurrindir != getcurrsubj) {getcurrindir} else {getcurrindir = consumablesubj.verbend}]m [if (getcurrobj != getcurrsubj && getcurrobj != getcurrindir) {getcurrobj} else {getcurrobj = consumablesubj.verbend}]do absa // vvv
+
+  [getcurrsubj = consumablesubj.consend, ""] [getcurrobj = consumablesubj.verbend, ""] [getcurrindir = consumablesubj.verbend, ""] [getcurrsubj]{'ag|hei} peihisang [if (getcurrindir != getcurrsubj) {getcurrindir} else {getcurrindir = consumablesubj.verbend}]m [if (getcurrobj != getcurrsubj && getcurrobj != getcurrindir) {getcurrobj} else {getcurrobj = consumablesubj.verbend}]do absa // cvv
+
+  [getcurrsubj = consumablesubj.verbend, ""] [getcurrobj = consumablesubj.consend, ""] [getcurrindir = consumablesubj.verbend, ""] [getcurrsubj]ga peihisang [if (getcurrindir != getcurrsubj) {getcurrindir} else {getcurrindir = consumablesubj.verbend}]m [if (getcurrobj != getcurrsubj && getcurrobj != getcurrindir) {getcurrobj} else {getcurrobj = consumablesubj.consend}]'o absa // vcv
+
+  [getcurrsubj = consumablesubj.consend, ""] [getcurrobj = consumablesubj.consend, ""] [getcurrindir = consumablesubj.verbend, ""] [getcurrsubj]{'ag|hei} peihisang [if (getcurrindir != getcurrsubj) {getcurrindir} else {getcurrindir = consumablesubj.verbend}]m [if (getcurrobj != getcurrsubj && getcurrobj != getcurrindir) {getcurrobj} else {getcurrobj = consumablesubj.consend}]'o absa // ccv
+
+  [getcurrsubj = consumablesubj.verbend, ""] [getcurrobj = consumablesubj.verbend, ""] [getcurrindir = consumablesubj.consend, ""] [getcurrsubj]ga peihisang [if (getcurrindir != getcurrsubj) {getcurrindir} else {getcurrindir = consumablesubj.consend}]'im [if (getcurrobj != getcurrsubj && getcurrobj != getcurrindir) {getcurrobj} else {getcurrobj = consumablesubj.verbend}]do absa // vvc
+
+  [getcurrsubj = consumablesubj.verbend, ""] [getcurrobj = consumablesubj.consend, ""] [getcurrindir = consumablesubj.consend, ""] [getcurrsubj]ga peihisang [if (getcurrindir != getcurrsubj) {getcurrindir} else {getcurrindir = consumablesubj.consend}]'im [if (getcurrobj != getcurrsubj && getcurrobj != getcurrindir) {getcurrobj} else {getcurrobj = consumablesubj.consend}]'o absa // vcc
+
+  [getcurrsubj = consumablesubj.consend, ""] [getcurrobj = consumablesubj.consend, ""] [getcurrindir = consumablesubj.consend, ""] [getcurrsubj]{'ag|hei} peihisang [if (getcurrindir != getcurrsubj) {getcurrindir} else {getcurrindir = consumablesubj.consend}]'im [if (getcurrobj != getcurrsubj && getcurrobj != getcurrindir) {getcurrobj} else {getcurrobj = consumablesubj.consend}]'o absa // ccc
+
+  [getcurrsubj = consumablesubj.consend, ""] [getcurrobj = consumablesubj.verbend, ""] [getcurrindir = consumablesubj.consend, ""] [getcurrsubj]{'ag|hei} peihisang [if (getcurrindir != getcurrsubj) {getcurrindir} else {getcurrindir = consumablesubj.consend}]'im [if (getcurrobj != getcurrsubj && getcurrobj != getcurrindir) {getcurrobj} else {getcurrobj = consumablesubj.verbend}]do absa // cvc
+
+  // there will be NO negated constructions. because i dont hate myself THAT much. youll have to imagine them
+
+instrumentalanim // copy of consumablesubj list but not organised by verb/cons ending
+  hanitae
+  masinabi
+  pachmigae
+  yongasabi
+  molongjae
+  sapinae
+  sattokubi
+  no
+  tonun
+  pajmuy
+  dang
+  lam
+  lamlan
+  ong
+  taw
+  tawhoy
+  nohoy
+  mabkan // watcher!!
+
+safinalparticle
+  chi
+  ndokana
+  ndokana yaso
+  dakanei
+
+subjmarkersentence
+  {[animsubjects.verbend]{ga|hei}|[animsubjects.consend]{'ag|hei}|[inanimsubjects.verbend]{ga|hei}|[inanimsubjects.consend]{'ag|hei}|kip{'ag|hei}|yangseiga|hanoltak{'ag|hei}} [adj] {sa|sayong}{[safinalparticle]|} // subj is adj
+  {[animsubjects.verbend]{ga|hei}|[animsubjects.consend]{'ag|hei}|[inanimsubjects.verbend]{ga|hei}|[inanimsubjects.consend]{'ag|hei}|kip{'ag|hei}|yangseiga|hanoltak{'ag|hei}} bu[adj] {sa|sayong}{[safinalparticle]|} // subj is/isnt too adj
+  {[animsubjects.verbend]{ga|hei}|[animsubjects.consend]{'ag|hei}|[inanimsubjects.verbend]{ga|hei}|[inanimsubjects.consend]{'ag|hei}|kip{'ag|hei}|yangseiga|hanoltak{'ag|hei}} lu[adj] sa{[safinalparticle]|} // subj is not adj enough
+  {[animsubjects.verbend]{ga|hei}|[animsubjects.consend]{'ag|hei}} {[verbs.selectOne]{sa|sayong}|[verbs.selectOne]{sa|sayong}}{[safinalparticle]|} // subj is/isnt verbing
+  {[animsubjects.verbend]{ga|hei}|[animsubjects.consend]{'ag|hei}} [comparativenoun.selectOne] {pagsa|pagsayong}{[safinalparticle]|} // subj is/isnt noun comparison <-- ah fuck i just realised, i should get a negative comparativenoun for this, shouldnt i?
+  [adj] yong {[animsubjects.verbend]{ga|hei}|[animsubjects.consend]{'ag|hei}|[inanimsubjects.verbend]{ga|hei}|[inanimsubjects.consend]{'ag|hei}|yangseiga|hanoltak{'ag|hei}} sa{[safinalparticle]|} // it's not [adj] that subject is
+
+locationmarkersentence
+  {[animsubjects.verbend]{ga|hei}|[animsubjects.consend]{'ag|hei}} {[location.verbend]wa|[location.consend]wa|{[animsubjects.verbend] jattowa|[animsubjects.consend] jattowa}} {sa|sayong} // subj is or is not at location
+  {[animsubjects.verbend]{ga|hei}|[animsubjects.consend]{'ag|hei}} {[location.verbend]wa|[location.consend]wa|{[animsubjects.verbend] jattowa|[animsubjects.consend] jattowa}} {sa|sayong} // in here twice so its just as likely to get a negative as a positive. yeah yeah yeah it doesnt matter i couldve done it in a more elegant way shhh go away
+  {[animsubjects.verbend] jattowa yong|[animsubjects.consend] jattowa yong} {[animsubjects.verbend]{ga|hei}|[animsubjects.consend]{'ag|hei}} sa // it's not [x] that [y] is with <-- having learned a little mroe about yong .. im not so confident about the translation of this sentence, but im confident it's grammatically correct
+  {[location.verbend]wa|[location.consend]wa} yong {[animsubjects.verbend]{ga|hei}|[animsubjects.consend]{'ag|hei}} sa // it's not [location] that subject is
+
+accusativemarkersentence
+  {[animsubjects.verbend]{ga|hei}|[animsubjects.consend]{'ag|hei}} {[location.verbend]do|[location.consend]'o} {[vom]{sa|sayong}|{go|goyong}} // verb-of-motioning to location
+  {[consumablesubj.verbend]{ga|hei}|[consumablesubj.consend]{'ag|hei}} {[adj] |}{[consumableobject.verbend]do|[consumableobject.consend]'o} [consumableverb]{sa|sayong} // [x] is [verb]ing [y]: specifically constructed to be stuff that can be eaten (so that there's no sentences like "artificer is eating saint") // now includes adjectives for the consumableoibj
+  {[location.verbend]do|[location.consend]'o} yong {[animsubjects.verbend]{ga|hei}|[animsubjects.consend]{'ag|hei}} {[vom]sa|go} // it's not location we're vom-ing
+  {[adj] |}{[consumableobject.verbend]do|[consumableobject.consend]'o} yong {[consumablesubj.verbend]{ga|hei}|[consumablesubj.consend]{'ag|hei}} [consumableverb]sa // its not consumableobj that x is consumableverbing
+  [thatoneaccusativeihate] // x is verbing y; the whole sentence is constructed in the thatoneaccusativeihate list because i was getting sentences like "survivor is burning the scavenger" and . i shrimply dont like to think of it
+  [theotheraccusativeihate] // its not x that y is verbing
+  // implementing the accusatives was awful and i hope to never have to do this kind of bullshit again but knowing this fucking generator, im going to do it thrice over. fuck my stupid baka life
+  // update: i had to rework the literal entire fucking way that it works twice over both to fix some truly awful sentences (see line 238) and because i had to make copies of these sentences, but now with datives.
+  
+dativemarkersentence
+  {[consumablesubj.verbend]{ga|hei}|[consumablesubj.consend]{'ag|hei}} {[consumablesubj.verbend]m|[consumablesubj.consend]'im} {[adj] |}{[consumableobject.verbend]do|[consumableobject.consend]'o} [consumableverb]{sa|sayong} // subj is consumableverbing obj for the sake of indirectobj
+  {[consumablesubj.verbend]m|[consumablesubj.consend]'im} yong {[consumablesubj.verbend]{ga|hei}|[consumablesubj.consend]{'ag|hei}} {[adj] |}{[consumableobject.verbend]do|[consumableobject.consend]'o} [consumableverb]sa // its not for the sake of indirobj that subj is consumableverbing obj
+  {[animsubjects.verbend]{ga|hei}|[animsubjects.consend]{'ag|hei}} {[location.verbend]m|[location.consend]'im} {[vom]{sa|sayong}|{go|goyong}} // verb-of-motioning towards, in the direction of: implying an attempt without inherently implying success
+  {[location.verbend.selectOne]m|[location.consend.selectOne]'im} yong {[animsubjects.verbend.selectOne]ga|[animsubjects.consend.selectOne]{'ag|hei}} {[vom]sa|go} // it's not location we're vom-ing towards
+  [thatonedativeihate] // x is verbing y for the sake of z
+  [theotherdativeihate] // its not for the sake of z that x is verbing y
+  // oh shit, shouldnt i have it's not x that y is verbing for z's sake? mok'o yong masinabiga hanitaem hantasa? it's not food that spearmaster is hunting for hunter's sake? ohhhh my god i hate this sentence so much. but i actually think i can construct it easily with some more power of the accusative i hate. FUCK mystupid baka life i have to do all that shit again
+
+ablativemarkersentence
+  {[animsubjects.verbend]{ga|hei}|[animsubjects.consend]{'ag|hei}|{[adj] |} [inanimsubjects.verbend]{ga|hei}|{[adj] |} [inanimsubjects.consend]{'ag|hei}} {[location.verbend]mok|[location.consend]mok} {sa|sayong} // subj is/isnt from location
+  {[animsubjects.verbend]{ga|hei}|[animsubjects.consend]{'ag|hei}} {[location.verbend]mok|[location.consend]mok} {[vom]{sa|sayong}|{go|goyong}} // subj is/isnt vom-ing from location
+  {[adj] |}{[inanimsubjects.verbend]{ga|hei}|[inanimsubjects.consend]{'ag|hei}} {[animsubjects.verbend]mok|[animsubjects.consend]mok} {sa|sayong} // inanim subj is/isnt from anim: i.e the message is from hunter
+  {[adj] |}{[inanimsubjects.verbend]{ga|hei}|[inanimsubjects.consend]{'ag|hei}} {[animsubjects.verbend]mok|[animsubjects.consend]mok} {[location.verbend]wa|[location.consend]wa|kaniwa} {sa|sayong} // the inanimsubj from animsubj is/isnt at location (incl. here)
+  {[adj] |}{meikiga|mok'ag} {gilamok|munmok|bolmok} {sa|sayong} // the meal/food is/isnt made of [x]
+  {gilamok|munmok|bolmok} yong {[adj] |}{meikiga|mok'ag} sa // its not [x] the meal is made of
+  {[location.verbend]mok|[location.consend]mok} yong {[animsubjects.verbend]{ga|hei}|[animsubjects.consend]{'ag|hei}|{[adj] |} [inanimsubjects.verbend]{ga|hei}|{[adj] |}[inanimsubjects.consend]{'ag|hei}} sa // its not location that subj is from
+  {[location.verbend]mok|[location.consend]mok} yong {[animsubjects.verbend]{ga|hei}|[animsubjects.consend]{'ag|hei}} {[vom]sa|go} // its not location subj is voming from
+  {[animsubjects.verbend] yong'ag|[animsubjects.consend] yong'ag|[inanimsubjects.verbend] yong'ag|[inanimsubjects.consend] yong'ag} {[location.verbend]mok|[location.consend]mok} sa // its not subj thats from location. again idk if thats legal but we'll put it in!
+  {[animsubjects.verbend] yong'ag|[animsubjects.consend] yong'ag} {[location.verbend]mok|[location.consend]mok} {[vom]sa|go} // its not subj thats voming from location
+  {[animsubjects.verbend]mok|[animsubjects.consend]mok} yong {[inanimsubjects.verbend]{ga|hei}|[inanimsubjects.consend]{'ag|hei}} sa // its not animsubj that inanimsubj is from
+ //ugh ugh ugh im so tired all th4ese negatives are hurting myh brain :( taw'ag fucking assa
+  {[inanimsubjects.verbend] yong'ag|[inanimsubjects.consend] yong'ag} {[animsubjects.verbend]mok|[animsubjects.consend]mok} sa //bbbb i forgot what this one is. it's not inanimsubj thats from animsubj
+  {[location.verbend]wa|[location.consend]wa|kaniwa} yong {[inanimsubjects.verbend]{ga|hei}|[inanimsubjects.consend]{'ag|hei}} {[animsubjects.verbend]mok|[animsubjects.consend]mok} sa // its not location that the inanimsubj from animsubj is at
+  [thatoneablativeihate] // inanimsubj is going from animsubj/location to animsubj/location: also includes its not inanimsubj, its not animsubnj/location its going from, and its not animsubj/location its going to. also, adjectives!
+
+instrumentalmarkersentence
+  {[consumablesubj.verbend]{ga|hei}|[consumablesubj.consend]{'ag|hei}} {tundo|yahilae|yuhlo|sotoka}sang yahlasa // x is cooking with y. tundo = wok, yahilae = slow cooker (in essence: dictionary says cooker; a pot or steamer that one can leave their ingredients in and then leave mostly unattended), yuhlo = generic kitchen implement: translated here as pot or pan
+  {[consumablesubj.verbend]{ga|hei}|[consumablesubj.consend]{'ag|hei}} {tundo|yahilae|yuhlo|sotoka}sang {gilado|meikido|mun'o|mok'o|bol'o} yahlasa // x is cooking y with z
+  {gilado|meikido|mun'o|mok'o|bol'o} yong {[consumablesubj.verbend]{ga|hei}|[consumablesubj.consend]{'ag|hei}} {tundo|yahilae|yuhlo|sotoka}sang yahlasa // not y that x is cooking with z
+  {tundo|yahilae|yuhlo|sotoka}sang yong {[consumablesubj.verbend]{ga|hei}|[consumablesubj.consend]{'ag|hei}} {gilado|meikido|mun'o|mok'o|bol'o} yahlasa // x isn't using z to cook y
+  {[consumablesubj.verbend]{ga|hei}|[consumablesubj.consend]{'ag|hei}} {tundo|yahilae|yuhlo|sotoka}sang {[consumablesubj.verbend]m|[consumablesubj.consend]'im} {gilado|meikido|mun'o|mok'o|bol'o} yahlasa // subj is cooking x with y for the sake of z
+  {tundo|yahilae|yuhlo|sotoka}sang yong {[consumablesubj.verbend]{ga|hei}|[consumablesubj.consend]{'ag|hei}} {[consumablesubj.verbend]m|[consumablesubj.consend]'im} {gilado|meikido|mun'o|mok'o|bol'o} yahlasa // subj isnt using y to cook x for the sake of z
+  {[consumablesubj.verbend]m|[consumablesubj.consend]'im} yong {[consumablesubj.verbend]{ga|hei}|[consumablesubj.consend]{'ag|hei}} {tundo|yahilae|yuhlo|sotoka}sang {gilado|meikido|mun'o|mok'o|bol'o} yahlasa // not for z's sake that subj is cooking x with y
+  {gilado|meikido|mun'o|mok'o|bol'o} yong {[consumablesubj.verbend]{ga|hei}|[consumablesubj.consend]{'ag|hei}} {tundo|yahilae|yuhlo|sotoka}sang {[consumablesubj.verbend]m|[consumablesubj.consend]'im} yahlasa // not x that subj is cooking with y for z's sake
+  {[consumablesubj.verbend]{ga|hei}|[consumablesubj.consend]{'ag|hei}} peihisang {[animsubjects.verbend]do|[animsubjects.consend]'o} absa // subj is hitting x with a rock
+  {[consumablesubj.verbend]{ga|hei}|[consumablesubj.consend]{'ag|hei}} {akita|sotoka|katae|kuto}sang hantasa // x is hunting with y
+  {[consumablesubj.verbend]{ga|hei}|[consumablesubj.consend]{'ag|hei}} {akita|sotoka|katae|kuto}sang {gilado|meikido|mun'o|mok'o|bol'o} hantasa // x is hunting y with z
+  {gilado|meikido|mun'o|mok'o|bol'o} yong {[consumablesubj.verbend]{ga|hei}|[consumablesubj.consend]{'ag|hei}} {akita|sotoka|katae|kuto}sang hantasa // not y that x is hunting with z
+  {akita|sotoka|katae|kuto}sang yong {[consumablesubj.verbend]{ga|hei}|[consumablesubj.consend]{'ag|hei}} {gilado|meikido|mun'o|mok'o|bol'o} hantasa // x isn't using z to hunt y
+  {[consumablesubj.verbend]{ga|hei}|[consumablesubj.consend]{'ag|hei}} {akita|sotoka|katae|kuto}sang {[consumablesubj.verbend]m|[consumablesubj.consend]'im} {gilado|meikido|mun'o|mok'o|bol'o} hantasa // subj is hunting x with y for the sake of z
+  {akita|sotoka|katae|kuto}sang yong {[consumablesubj.verbend]{ga|hei}|[consumablesubj.consend]{'ag|hei}} {[consumablesubj.verbend]m|[consumablesubj.consend]'im} {gilado|meikido|mun'o|mok'o|bol'o} hantasa // subj isnt using y to hunt x for the sake of z
+  {[consumablesubj.verbend]m|[consumablesubj.consend]'im} yong {[consumablesubj.verbend]{ga|hei}|[consumablesubj.consend]{'ag|hei}} {akita|sotoka|katae|kuto}sang {gilado|meikido|mun'o|mok'o|bol'o} hantasa // not for z's sake that subj is hunting x with y
+  {gilado|meikido|mun'o|mok'o|bol'o} yong {[consumablesubj.verbend]{ga|hei}|[consumablesubj.consend]{'ag|hei}} {akita|sotoka|katae|kuto}sang {[consumablesubj.verbend]m|[consumablesubj.consend]'im} hantasa // not x that subj is hunting with y for z's sake
+  {[consumablesubj.verbend]{ga|hei}|[consumablesubj.consend]{'ag|hei}} {akita|katae|kuto}sang katsa // x is cutting with y
+  {[consumablesubj.verbend]{ga|hei}|[consumablesubj.consend]{'ag|hei}} {akita|katae|kuto}sang {gilado|meikido|mun'o|mok'o|bol'o} katsa // x is cutting y with z
+  {gilado|meikido|mun'o|mok'o|bol'o} yong {[consumablesubj.verbend]{ga|hei}|[consumablesubj.consend]{'ag|hei}} {akita|katae|kuto}sang katsa // not y that x is cutting with z
+  {akita|katae|kuto}sang yong {[consumablesubj.verbend]{ga|hei}|[consumablesubj.consend]{'ag|hei}} {gilado|meikido|mun'o|mok'o|bol'o} katsa // x isn't using z to cut y
+  {[consumablesubj.verbend]{ga|hei}|[consumablesubj.consend]{'ag|hei}} {akita|katae|kuto}sang {[consumablesubj.verbend]m|[consumablesubj.consend]'im} {gilado|meikido|mun'o|mok'o|bol'o} katsa // subj is cutting x with y for the sake of z
+  {akita|katae|kuto}sang yong {[consumablesubj.verbend]{ga|hei}|[consumablesubj.consend]{'ag|hei}} {[consumablesubj.verbend]m|[consumablesubj.consend]'im} {gilado|meikido|mun'o|mok'o|bol'o} katsa // subj isnt using y to cut x for the sake of z
+  {[consumablesubj.verbend]m|[consumablesubj.consend]'im} yong {[consumablesubj.verbend]{ga|hei}|[consumablesubj.consend]{'ag|hei}} {akita|katae|kuto}sang {gilado|meikido|mun'o|mok'o|bol'o} katsa // not for z's sake that subj is cutting x with y
+  {gilado|meikido|mun'o|mok'o|bol'o} yong {[consumablesubj.verbend]{ga|hei}|[consumablesubj.consend]{'ag|hei}} {akita|katae|kuto}sang {[consumablesubj.verbend]m|[consumablesubj.consend]'im} katsa // not x that subj is cutting with y for z's sake
+  {[consumablesubj.verbend]{ga|hei}|[consumablesubj.consend]{'ag|hei}} {akita|kuto|yuhlo}sang maksa // x is eating with y
+  {[consumablesubj.verbend]{ga|hei}|[consumablesubj.consend]{'ag|hei}} {akita|kuto|yuhlo}sang {gilado|meikido|mun'o|mok'o|bol'o} maksa // x is eating y with z
+  {gilado|meikido|mun'o|mok'o|bol'o} yong {[consumablesubj.verbend]{ga|hei}|[consumablesubj.consend]{'ag|hei}} {akita|kuto|yuhlo}sang maksa // not y that x is eating with z
+  {akita|kuto|yuhlo}sang yong {[consumablesubj.verbend]{ga|hei}|[consumablesubj.consend]{'ag|hei}} {gilado|meikido|mun'o|mok'o|bol'o} maksa // x isn't using z to eat y
+  {[consumablesubj.verbend]{ga|hei}|[consumablesubj.consend]{'ag|hei}} {akita|kuto|yuhlo}sang {[consumablesubj.verbend]m|[consumablesubj.consend]'im} {gilado|meikido|mun'o|mok'o|bol'o} maksa // subj is eating x with y for the sake of z
+  {akita|kuto|yuhlo}sang yong {[consumablesubj.verbend]{ga|hei}|[consumablesubj.consend]{'ag|hei}} {[consumablesubj.verbend]m|[consumablesubj.consend]'im} {gilado|meikido|mun'o|mok'o|bol'o} maksa // subj isnt using y to eat x for the sake of z
+  {[consumablesubj.verbend]m|[consumablesubj.consend]'im} yong {[consumablesubj.verbend]{ga|hei}|[consumablesubj.consend]{'ag|hei}} {akita|kuto|yuhlo}sang {gilado|meikido|mun'o|mok'o|bol'o} maksa // not for z's sake that subj is eating x with y
+  {gilado|meikido|mun'o|mok'o|bol'o} yong {[consumablesubj.verbend]{ga|hei}|[consumablesubj.consend]{'ag|hei}} {akita|kuto|yuhlo}sang {[consumablesubj.verbend]m|[consumablesubj.consend]'im} maksa // not x that subj is eating with y for z's sake
+  {[consumablesubj.verbend]{ga|hei}|[consumablesubj.consend]{'ag|hei}} akitasang aktasa // x is spearing with y
+  {[consumablesubj.verbend]{ga|hei}|[consumablesubj.consend]{'ag|hei}} akitasang {gilado|meikido|mun'o|mok'o|bol'o} aktasa // x is spearing y with z
+  {gilado|meikido|mun'o|mok'o|bol'o} yong {[consumablesubj.verbend]{ga|hei}|[consumablesubj.consend]{'ag|hei}} akitasang aktasa // not y that x is spearing with z
+  akitasang yong {[consumablesubj.verbend]{ga|hei}|[consumablesubj.consend]{'ag|hei}} {gilado|meikido|mun'o|mok'o|bol'o} aktasa // x isn't using z to spear y
+  {[consumablesubj.verbend]{ga|hei}|[consumablesubj.consend]{'ag|hei}} akitasang {[consumablesubj.verbend]m|[consumablesubj.consend]'im} {gilado|meikido|mun'o|mok'o|bol'o} aktasa // subj is spearing x with y for the sake of z
+  akitasang yong {[consumablesubj.verbend]{ga|hei}|[consumablesubj.consend]{'ag|hei}} {[consumablesubj.verbend]m|[consumablesubj.consend]'im} {gilado|meikido|mun'o|mok'o|bol'o} aktasa // subj isnt using y to spear x for the sake of z
+  {[consumablesubj.verbend]m|[consumablesubj.consend]'im} yong {[consumablesubj.verbend]{ga|hei}|[consumablesubj.consend]{'ag|hei}} akitasang {gilado|meikido|mun'o|mok'o|bol'o} aktasa // not for z's sake that subj is spearing x with y
+  {gilado|meikido|mun'o|mok'o|bol'o} yong {[consumablesubj.verbend]{ga|hei}|[consumablesubj.consend]{'ag|hei}} akitasang {[consumablesubj.verbend]m|[consumablesubj.consend]'im} aktasa // not x that subj is spearing with y for z's sake
+  {[consumablesubj.verbend]{ga|hei}|[consumablesubj.consend]{'ag|hei}} sotokasang satkasa // x is burning with y
+  {[consumablesubj.verbend]{ga|hei}|[consumablesubj.consend]{'ag|hei}} sotokasang {gilado|meikido|mun'o|mok'o|bol'o} satkasa // x is burning y with z
+  {gilado|meikido|mun'o|mok'o|bol'o} yong {[consumablesubj.verbend]{ga|hei}|[consumablesubj.consend]{'ag|hei}} sotokasang satkasa // not y that x is burning with z
+  sotokasang yong {[consumablesubj.verbend]{ga|hei}|[consumablesubj.consend]{'ag|hei}} {gilado|meikido|mun'o|mok'o|bol'o} satkasa // x isn't using z to burn y
+  {[consumablesubj.verbend]{ga|hei}|[consumablesubj.consend]{'ag|hei}} sotokasang {[consumablesubj.verbend]m|[consumablesubj.consend]'im} {gilado|meikido|mun'o|mok'o|bol'o} satkasa // subj is burning x with y for the sake of z
+  sotokasang yong {[consumablesubj.verbend]{ga|hei}|[consumablesubj.consend]{'ag|hei}} {[consumablesubj.verbend]m|[consumablesubj.consend]'im} {gilado|meikido|mun'o|mok'o|bol'o} satkasa // subj isnt using y to burn x for the sake of z
+  {[consumablesubj.verbend]m|[consumablesubj.consend]'im} yong {[consumablesubj.verbend]{ga|hei}|[consumablesubj.consend]{'ag|hei}} sotokasang {gilado|meikido|mun'o|mok'o|bol'o} satkasa // not for z's sake that subj is burning x with y
+  {gilado|meikido|mun'o|mok'o|bol'o} yong {[consumablesubj.verbend]{ga|hei}|[consumablesubj.consend]{'ag|hei}} sotokasang {[consumablesubj.verbend]m|[consumablesubj.consend]'im} satkasa // not x that subj is burning with y for z's sake
+  [thatoneinstrumentalihate] // x is going to y via z (hanitaega yangseisang solanido go) + x is going to y with z (hanitaega masinabisang solanido go) + x is speaking with y (tonun'ag masinabisang chalsa
+  // also includes subj is hitting x with a rock for y's sake
+  // there are a fuckton of instrumental sentences here and i just wnt you to know i made them with find+replace in notepad. peace and love on planet earth
+
+
+
