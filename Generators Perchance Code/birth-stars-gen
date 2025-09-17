@@ -1,0 +1,91 @@
+title
+  Yongasabi Birth Date & Stars
+
+output
+  Awaiting input... ^[month == "temp (if you see this something is broken)" || month == "Select a month..."]
+  Your birthday is <b>[yongimonth], [yongiweek], [yongidate]</b>.<br><br><b>Your personality traits, based on your birth month:</b> [monthchecker]<br><br><b>Your spiritual tendencies & resolutions, based on your birth week:</b> [weekchecker]<br><br><b>Your life advice, based on your birth day:</b> [datechecker] ^[month != "temp (if you see this something is broken)"]
+
+pageDescription
+  This generator isn't fully accurate. In essence, it tries to figure out what your birth month, week and day would be if you had been born on the same day, in the Undergrowth AU.
+  For one, the days are off. Yongasabi's five-day week is not compatible with the Gregorian calendar's seven-day. Since the Yongasabi months always start on a takiyuni, we can count up from there and assign days to each date in the month, 1st through to 30th.
+  Obviously IRL the days aren't synced to the date at all, so anyone can be born on any day with any date. But since Saturday and Sunday don't exist, and thus don't have fortunes, being able to directly select the day you were born on would break the generator. So it may give you a Monday when you were born on a Thursday, etc.
+  Also, the 31st doesn't exist. When counting with the 5-day system, it lands on a takiyuni, but when counting with a 7-day system, it lands on a muyoyuni. This generator randomly chooses between the two. Again, not accurate, but it guarantees you get a fortune.
+  <a href\="https://docs.google.com/document/d/1ZV2i_2E55lWS5N-sz8st-FFfAmZ_rSYHeU5yJxaubY8/edit?tab\=t.0#heading\=h.9ox9m1kytdo">The Yongasabi Document</a> has a full list of fortunes for Mon - Fri, so if this generator gives you a day that isn't accurate you can check there. But the month and week will be accurate, since those are synced to IRL months & moon phases.
+
+month
+  temp (if you see this something is broken)
+
+week
+  temp
+
+date
+  temp
+
+yongimonth
+  temp ^[month == "temp (if you see this something is broken)" || month == "Select a month..."]
+  yalo nung ^[month == "January"]
+  cheinja nung ^[month == "February"]
+  mahin nung ^[month == "March"]
+  weinho nung ^[month == "April"]
+  paen nung ^[month == "May"]
+  anji nung ^[month == "June"]
+  bakunawa nung ^[month == "July"]
+  gila nung ^[month == "August"]
+  muyo nung ^[month == "September"]
+  aspan nung ^[month == "October"]
+  tanggo nung ^[month == "November"]
+  shou nung ^[month == "December"]
+
+yongiweek
+  temp ^[week == "temp"]
+  hoda leing ^[week == "New Moon"]
+  lakno leing ^[week == "Waxing Crescent"]
+  tabo leing ^[week == "Waxing Gibbous"]
+  jeija leing ^[week == "Full Moon"]
+  mabok leing ^[week == "Waning Gibbous"]
+  dahig leing ^[week == "Waning Crescent"]
+
+yongidate
+  temp ^[date == "temp"]
+  {takiyuni, day of sun|muyoyuni, day of stars & fortunes} ^[date == 31]
+  takiyuni, day of sun ^[date == 1 || date == 6 || date == 11 || date == 16 || date == 21 || date == 26]
+  nungyuni, day of moon ^[date == 2 || date == 7 || date == 12 || date == 17 || date == 22 || date == 27]
+  muyoyuni, day of stars & fortunes ^[date == 3 || date == 8 || date == 13 || date == 18 || date == 23 || date == 28]
+  suyyuni, day of beasts ^[date == 4 || date == 9 || date == 14 || date == 19 || date == 24 || date == 29]
+  kipyuni, day of rest ^[date == 5 || date == 10 || date == 15 || date == 20 || date == 25 || date == 30]
+
+monthchecker
+  temp value ^[month == "temp (if you see this something is broken)" || month == "Select a month..."]
+  Joyful, optimistic, outgoing, naive ^[month == "January"]
+  Pious, devout, disciplined, inflexible ^[month == "February"]
+  Sociable, affable, impractical ^[month == "March"]
+  Nurturing, kind, compassionate, self-sacrificing ^[month == "April"]
+  Passionate, romantic, expressive, sensitive, volatile ^[month == "May"]
+  Level-headed, severe, serious, cold ^[month == "June"]
+  Steadfast, loyal, dependable, stubborn ^[month == "July"]
+  Wild, spontaneous, impulsive, aggressive, rash ^[month == "August"]
+  Determined, confident, prideful, egotistical ^[month == "September"]
+  Flighty, expressive, versatile, air-headed ^[month == "October"]
+  Cautious, calculating, strategic, cowardly, uncertain ^[month == "November"]
+  Strong foresight, wise, ponderous, slow to act ^[month == "December"]
+
+weekchecker
+  temp ^[week == "temp"]
+  Attunement is high. Look inwards; resolve inner conflict. ^[week == "New Moon"]
+  Attunement wavers often. Problems are often interpersonal. Seek meaningful compromise. ^[week == "Waxing Crescent"]
+  Attunement is stubborn. Challenge your assumptions. See things as they are, not should be. ^[week == "Waxing Gibbous"]
+  Attunement is low. Look outwards; observe how everything is connected. ^[week == "Full Moon"]
+  Attunement is easily affected. Problem often arise outside. Your help may bring you peace. ^[week == "Waning Gibbous"]
+  Attunement is stable. Do not become stagnant. The world changes, respond accordingly. ^[week == "Waning Crescent"]
+
+datechecker
+  temp ^[yongidate == "temp"]
+  Remember others. Be considerate. Your consequences are never yours alone. ^[yongidate == "takiyuni, day of sun"]
+  Remember to act. Be decisive. Caution and care must not become inaction. ^[yongidate == "nungyuni, day of moon"]
+  Remember the path. Check ambitions. Strive, but do not overextend. ^[yongidate == "muyoyuni, day of stars & fortunes"]
+  Remember yourself. Do not be rash. Measured actions lead to long life. ^[yongidate == "suyyuni, day of beasts"]
+  Remember to rest. Take your time. Do not rush to break yourself. ^[yongidate == "kipyuni, day of rest"]
+
+
+
+
