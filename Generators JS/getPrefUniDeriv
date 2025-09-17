@@ -1,0 +1,10 @@
+function getPrefUniDeriv () {
+  const derivResultLoc = document.getElementById("getDerivResult");
+  let C = prompt("Root is?"); // C is root; it's C so that i can just
+  // write the actual deriv template in output
+  
+    let fullDeriv = "verb, vn, activPart, habitPart, passPart, augm" + "<br>" + `pae${C}a` + "<br>" + `o${C}a` + "<br>" + `ki${C}a` + "<br>" + `i${C}a` + "<br>" + `hei${C}a` + "<br>" + `mo${C}a` + "<br>" + `bu${C}a` + "<br>" + `lu${C}a` + "<br>" + `yo${C}a` + "<br>" + `pae${C}a` + "<br>" + `o${C}a` + "<br>" + `ki${C}a` + "<br>" + `i${C}o` + "<br>" + `hei${C}i` + "<br>" + `mo${C}o` + "<br>" + `bu${C}o` + "<br>" + `lu${C}o` + "<br>" + `yo${C}i` + "<br>" + `pae${C}ae` + "<br>" + `o${C}ae` + "<br>" + `ki${C}ae` + "<br>" + `i${C}ae` + "<br>" + `hei${C}ae` + "<br>" + `mo${C}ae` + "<br>" + `bu${C}ae` + "<br>" + `lu${C}ae` + "<br>" + `yo${C}ae` + "<br>" + `pae${C}u` + "<br>" + `o${C}u` + "<br>" + `ki${C}u` + "<br>" + `i${C}u` + "<br>" + `hei${C}u` + "<br>" + `mo${C}u` + "<br>" + `bu${C}u` + "<br>" + `lu${C}u` + "<br>" + `yo${C}u` + "<br>" + `pae${C}ei` + "<br>" + `o${C}ei` + "<br>" + `ki${C}ei` + "<br>" + `i${C}ei` + "<br>" + `hei${C}ei` + "<br>" + `mo${C}ei` + "<br>" + `bu${C}ei` + "<br>" + `lu${C}ei` + "<br>" + `yo${C}ei` + "<br>" + `pae${C}u'pae${C}u` + "<br>" + `o${C}u'o${C}u` + "<br>" + `ki${C}u'ki${C}u` + "<br>" + `i${C}u'i${C}u` + "<br>" + `hei${C}u'hei${C}u` + "<br>" + `mo${C}u'mo${C}u` + "<br>" + `bu${C}u'bu${C}u` + "<br>" + `lu${C}u'lu${C}u` + "<br>" + `yo${C}u'yo${C}u` + "<br>"
+
+    if (C == null) {getDerivResult.insertAdjacentHTML("beforeend", "")} else {derivResultLoc.insertAdjacentHTML("beforeend", fullDeriv)}
+
+}
