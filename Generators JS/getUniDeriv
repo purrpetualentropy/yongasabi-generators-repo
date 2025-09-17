@@ -1,0 +1,10 @@
+function getUniDeriv () {
+  const derivResultLoc = document.getElementById("getDerivResult");
+  let C = prompt("Root is?"); // C is root; it's C so that i can just
+  // write the actual deriv template in output
+  
+  let fullDeriv = "<br>" + `a${C}a` + "<br>" + `a${C}ae` + "<br>" + `a${C}u` + "<br>" + `ei${C}i` + "<br>" + `a${C}ei` + "<br>" + `a${C}an` + "<br>" + `a${C}u&#39;a${C}u` + "<br>" + `u${C}o` + "<br>" + `${C}alka`
+
+  if (C == null) {getDerivResult.insertAdjacentHTML("beforeend", "")} else {getDerivResult.insertAdjacentHTML("beforeend", fullDeriv)}
+
+}
