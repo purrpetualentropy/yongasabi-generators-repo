@@ -1,0 +1,14 @@
+<h1>[title]</h1>
+<p style="margin:1em auto; padding:0 1em; max-width:700px;">[output]</p>
+<button onclick="update()">randomize</button>
+<br>
+<input type="checkbox" id="gregDays"> Allow Gregorian days in Yongasabi<br>
+<input type="checkbox" id="daysBox" checked> Days
+<input type="checkbox" id="weeksBox"> Weeks
+<input type="checkbox" id="monthsBox"> Months<br>
+<input type="checkbox" id="seasonsBox"> Seasons
+<input type="checkbox" id="ordinalDateBox"> Ordinal dates<br>
+<input type="checkbox" id="traditionalDateBox"> Traditional dates<br><br>
+<p style="margin-left:5%; margin-right:5%; bottom:20px; position: relative;"><a href="https://perchance.org/yongasabi-generators-index">Yongasabi Generators Index</a></p>
+
+<style> html { color-scheme: light dark; } </style>
