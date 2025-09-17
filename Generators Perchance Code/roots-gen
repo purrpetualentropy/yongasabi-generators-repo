@@ -1,0 +1,364 @@
+title
+  Yongasabi Roots
+
+output
+  What is the meaning of this root?<br>{[irr]|[uni]|[bi]|[tri]|[quad]}
+  How would you form the [derivtype] derivation with the root {[uni]|[bi]|[tri]}?
+  Use the abilitative derivation [abilderiv] with the root {[uni]|[bi]|[tri]|[quad]}.
+  How would you form the [prefixderiv] derivation with the root {[uni]|[bi]|[tri]} when it is prefixed with [prefix]?
+  Is the root [tri] hard or soft?
+
+uni
+  <span class\="show">b</span><span class\="hide">hitting, impact</span>
+  <span class\="show">ch</span><span class\="hide">entering, entrances, inside, internality</span>
+  <span class\="show">d</span><span class\="hide">(archaic) movement</span>
+  <span class\="show">h</span><span class\="hide">two, pairs, doubles</span>
+  <span class\="show">k</span><span class\="hide">evil, demons, rot</span>
+  <span class\="show">l</span><span class\="hide">sides, standing beside</span>
+  <span class\="show">m</span><span class\="hide">good, goodness, improvement</span>
+  <span class\="show">n</span><span class\="hide">family</span>
+  <span class\="show">s</span><span class\="hide">death, dying, mortality</span>
+  <span class\="show">t</span><span class\="hide">singularity, isolation, the number one</span>
+
+bi
+  <span class\="show">b-k</span><span class\="hide">few, little in quantity, simplicity</span>
+  <span class\="show">b-n</span><span class\="hide">hope, optimism</span>
+  <span class\="show">b-s</span><span class\="hide">soiling, dirtying, messing, excrement</span>
+  <span class\="show">b-t</span><span class\="hide">work, occupation, labour</span>
+  <span class\="show">b-y</span><span class\="hide">yellow</span>
+  <span class\="show">ch-h</span><span class\="hide">hot, heat, warmth, warming</span>
+  <span class\="show">ch-k</span><span class\="hide">increasing, addition</span>
+  <span class\="show">ch-l</span><span class\="hide">speaking, speech</span>
+  <span class\="show">ch-g</span><span class\="hide">having, possessing</span>
+  <span class\="show">ch-m</span><span class\="hide">spit, saliva</span>
+  <span class\="show">ch-n</span><span class\="hide">packing, land, country</span>
+  <span class\="show">d-h</span><span class\="hide">colour, colouring, colouration</span>
+  <span class\="show">d-k</span><span class\="hide">doing, action, function</span>
+  <span class\="show">d-l</span><span class\="hide">running</span>
+  <span class\="show">d-m</span><span class\="hide">bleeding, blood, wounds</span>
+  <span class\="show">d-t</span><span class\="hide">driving, moving forward, impetus</span>
+  <span class\="show">d-w</span><span class\="hide">black</span>
+  <span class\="show">g-b</span><span class\="hide">taking, partaking, receiving</span>
+  <span class\="show">g-l</span><span class\="hide">face, likeness</span>
+  <span class\="show">g-l</span><span class\="hide">(broken root) lizards</span>
+  <span class\="show">g-n</span><span class\="hide">lacking, without, scarcity, poverty</span>
+  <span class\="show">g-w</span><span class\="hide">dancing, dance</span>
+  <span class\="show">g-y</span><span class\="hide">staying, not leaving, remaining</span>
+  <span class\="show">h-d</span><span class\="hide">emptiness, emptying, void, hoda, the step before ascension</span>
+  <span class\="show">h-g</span><span class\="hide">going, travel, journey</span>
+  <span class\="show">h-h</span><span class\="hide">thanks, gratitude</span>
+  <span class\="show">h-l</span><span class\="hide">comfort, relaxation</span>
+  <span class\="show">h-m</span><span class\="hide">need, requirement</span>
+  <span class\="show">h-ng</span><span class\="hide">thunder, booming, loud noise</span>
+  <span class\="show">h-w</span><span class\="hide">water, wet, wetness</span>
+  <span class\="show">h-y</span><span class\="hide">love, loving</span>
+  <span class\="show">j-l</span><span class\="hide">short, shortening</span>
+  <span class\="show">j-m</span><span class\="hide">contact, touch, surface, skin, fur</span>
+  <span class\="show">j-s</span><span class\="hide">squeezing, wringing, juice</span>
+  <span class\="show">k-b</span><span class\="hide">hatred, resentment, stone</span>
+  <span class\="show">k-ch</span><span class\="hide">scratching, itching</span>
+  <span class\="show">k-g</span><span class\="hide">breaking, destruction</span>
+  <span class\="show">k-h</span><span class\="hide">coughing</span>
+  <span class\="show">k-j</span><span class\="hide">legs, limbs, appendages</span>
+  <span class\="show">k-n</span><span class\="hide">knowing, knowledge, ability</span>
+  <span class\="show">k-ng</span><span class\="hide">making, creation</span>
+  <span class\="show">k-m</span><span class\="hide">types, categories, enumeration, diversity</span>
+  <span class\="show">k-p</span><span class\="hide">resting, shelter, home</span>
+  <span class\="show">k-sh</span><span class\="hide">crushing, squashing</span>
+  <span class\="show">k-t</span><span class\="hide">cutting, slicing, blades</span>
+  <span class\="show">k-t</span><span class\="hide">spears, piercing, penetration, going through</span>
+  <span class\="show">k-w</span><span class\="hide">asking, questions</span>
+  <span class\="show">l-b</span><span class\="hide">grey</span>
+  <span class\="show">l-g</span><span class\="hide">passing, passing by, forgoing, abstaining</span>
+  <span class\="show">l-h</span><span class\="hide">halves, halving</span>
+  <span class\="show">l-k</span><span class\="hide">place, placing, placement, putting</span>
+  <span class\="show">l-m</span><span class\="hide">aches, pain, hurting</span>
+  <span class\="show">l-n</span><span class\="hide">rushing, speed, haste</span>
+  <span class\="show">l-ng</span><span class\="hide">the number five, weeks</span>
+  <span class\="show">l-p</span><span class\="hide">bending</span>
+  <span class\="show">l-s</span><span class\="hide">closes, closing</span>
+  <span class\="show">l-y</span><span class\="hide">flashing, lightning, electricity</span>
+  <span class\="show">m-b</span><span class\="hide">rolling, roundness, scrolls</span>
+  <span class\="show">m-ch</span><span class\="hide">biting, teeth, fangs</span>
+  <span class\="show">m-d</span><span class\="hide">movement, motion</span>
+  <span class\="show">m-k</span><span class\="hide">eating, food</span>
+  <span class\="show">m-g</span><span class\="hide">shadows, following</span>
+  <span class\="show">m-h</span><span class\="hide">reading, fortune telling, maho</span>
+  <span class\="show">m-l</span><span class\="hide">size, measuring, measurements</span>
+  <span class\="show">m-n</span><span class\="hide">blue, medicine, medication, healing</span>
+  <span class\="show">m-p</span><span class\="hide">intent, meaning, purpose</span>
+  <span class\="show">m-s</span><span class\="hide">youth, siblings</span>
+  <span class\="show">m-sh</span><span class\="hide">gliding, swimming, boating</span>
+  <span class\="show">m-sh</span><span class\="hide">taste, flavour, delicious</span>
+  <span class\="show">m-y</span><span class\="hide">walking, paths, ways, methods, stars, astronomy</span>
+  <span class\="show">n-d</span><span class\="hide">tiredness, exhaustion</span>
+  <span class\="show">n-k</span><span class\="hide">coming, arrival, approaching, becoming</span>
+  <span class\="show">n-l</span><span class\="hide">breath, breathing, cloud shapes</span>
+  <span class\="show">n-j</span><span class\="hide">farewells, goodbyes</span>
+  <span class\="show">n-j</span><span class\="hide">slime mold, orange</span>
+  <span class\="show">n-n</span><span class\="hide">seeing, sight, eyes</span>
+  <span class\="show">n-ng</span><span class\="hide">keeping, guarding, protecting, staying, remaining</span>
+  <span class\="show">n-w</span><span class\="hide">rain</span>
+  <span class\="show">ng-ch</span><span class\="hide">writing</span>
+  <span class\="show">p-d</span><span class\="hide">throwing</span>
+  <span class\="show">p-h</span><span class\="hide">gripping, hands, holds</span>
+  <span class\="show">p-k</span><span class\="hide">fucking, sex, expletives</span>
+  <span class\="show">p-l</span><span class\="hide">falling, descent</span>
+  <span class\="show">p-n</span><span class\="hide">flowers, blossoming, flourishing</span>
+  <span class\="show">p-ng</span><span class\="hide">bottles</span>
+  <span class\="show">p-s</span><span class\="hide">distance, staying away</span>
+  <span class\="show">p-y</span><span class\="hide">sucking, suckling, breastfeeding</span>
+  <span class\="show">s-b</span><span class\="hide">crying, weeping, tears, weather, the number seven</span>
+  <span class\="show">s-d</span><span class\="hide">binding, tethers, sud, worldly tethers</span>
+  <span class\="show">s-g</span><span class\="hide">lateness, late, slowness</span>
+  <span class\="show">s-h</span><span class\="hide">peace, calm, soothing</span>
+  <span class\="show">s-k</span><span class\="hide">enjoyment, things</span>
+  <span class\="show">s-m</span><span class\="hide">spreading</span>
+  <span class\="show">s-n</span><span class\="hide">starting, beginning, heads</span>
+  <span class\="show">s-ng</span><span class\="hide">crossing, crosses</span>
+  <span class\="show">s-p</span><span class\="hide">wind, blowing, aeration</span>
+  <span class\="show">s-s</span><span class\="hide">shooting, archery, marksmanship, striking from a distance</span>
+  <span class\="show">s-w</span><span class\="hide">singing, poetry, oration</span>
+  <span class\="show">s-w</span><span class\="hide">sweeping</span>
+  <span class\="show">s-y</span><span class\="hide">life, living, vitality, habitation</span>
+  <span class\="show">sh-h</span><span class\="hide">branching, antlers, potential, potentiality, possibility</span>
+  <span class\="show">sh-m</span><span class\="hide">stress, distress, worry, pressure</span>
+  <span class\="show">sh-n</span><span class\="hide">age, elders, deference based on age</span>
+  <span class\="show">t-b</span><span class\="hide">growth, growing, becoming, plants</span>
+  <span class\="show">t-b</span><span class\="hide">chant, mantra, prayer</span>
+  <span class\="show">t-d</span><span class\="hide">foot, step</span>
+  <span class\="show">t-h</span><span class\="hide">surrounding, skirting, circumference</span>
+  <span class\="show">t-k</span><span class\="hide">sun, lanterns, illumination, light</span>
+  <span class\="show">t-l</span><span class\="hide">truth, reality, real</span>
+  <span class\="show">t-m</span><span class\="hide">swallowing, gulping</span>
+  <span class\="show">t-ng</span><span class\="hide">correct, correction, what is right</span>
+  <span class\="show">t-w</span><span class\="hide">jumping</span>
+  <span class\="show">w-k</span><span class\="hide">slapping, whacking</span>
+  <span class\="show">w-l</span><span class\="hide">stopping, ends, ending, tails</span>
+  <span class\="show">w-w</span><span class\="hide">laughing, laughter</span>
+  <span class\="show">w-y</span><span class\="hide">drinks, drinking</span>
+  <span class\="show">y-ch</span><span class\="hide">different, difference, differentiation, other</span>
+  <span class\="show">y-k</span><span class\="hide">failure</span>
+  <span class\="show">y-l</span><span class\="hide">awakening, alertness, white</span>
+  <span class\="show">y-m</span><span class\="hide">shame, dishonour, sorry</span>
+  <span class\="show">y-n</span><span class\="hide">days</span>
+  <span class\="show">y-ng</span><span class\="hide">opposition, negation, denial</span>
+  <span class\="show">y-s</span><span class\="hide">begging, pleading, asking</span>
+
+tri
+  <span class\="show">b-k-l</span><span class\="hide">exclusion, exception</span>
+  <span class\="show">b-k-l</span><span class\="hide">steam</span>
+  <span class\="show">b-k-n</span><span class\="hide">understanding, comprehension, awakening; carries a connotation of coming into awareness</span>
+  <span class\="show">b-l-k</span><span class\="hide">heavy, heaviness, weight, weighing</span>
+  <span class\="show">b-n-h</span><span class\="hide">numbers, counting</span>
+  <span class\="show">b-n-t</span><span class\="hide">wood, hardening off, lignification, erection</span>
+  <span class\="show">b-n-n</span><span class\="hide">watching, sentry, patrol</span>
+  <span class\="show">b-n-ng</span><span class\="hide">bags</span>
+  <span class\="show">b-t-d</span><span class\="hide">effect, influence, traces, marks</span>
+  <span class\="show">b-w-m</span><span class\="hide">sadness, grief, mourning</span>
+  <span class\="show">ch-d-w</span><span class\="hide">darkness, darkening, dimness</span>
+  <span class\="show">ch-k-ch</span><span class\="hide">writing</span>
+  <span class\="show">ch-k-n</span><span class\="hide">memory, remembrance</span>
+  <span class\="show">ch-m-g</span><span class\="hide">hiding, shadows, tents, covering</span>
+  <span class\="show">ch-n-j</span><span class\="hide">flatness, leaves, paper, sheets</span>
+  <span class\="show">ch-n-l</span><span class\="hide">clouds; cloud cover</span>
+  <span class\="show">ch-n-n</span><span class\="hide">insight</span>
+  <span class\="show">ch-p-h</span><span class\="hide">having, possession, wealth, money, riches</span>
+  <span class\="show">d-ch-n</span><span class\="hide">guessing, supposition, estimation</span>
+  <span class\="show">d-h-g</span><span class\="hide">descent, going down</span>
+  <span class\="show">d-k-g</span><span class\="hide">separation, division</span>
+  <span class\="show">d-k-n</span><span class\="hide">intelligence, cleverness</span>
+  <span class\="show">d-k-n</span><span class\="hide">smoke</span>
+  <span class\="show">d-l-g</span><span class\="hide">challenging, challenges, difficulty, entanglement</span>
+  <span class\="show">d-m-k</span><span class\="hide">washing, cleanliness</span>
+  <span class\="show">d-n-n</span><span class\="hide">finding, discovery, adventure</span>
+  <span class\="show">d-s-n</span><span class\="hide">drawing, recording, illustration, depiction, chronicles, recording</span>
+  <span class\="show">d-w-m</span><span class\="hide">brown</span>
+  <span class\="show">g-ch-n</span><span class\="hide">roughness, coarseness, rudeness</span>
+  <span class\="show">g-n-d</span><span class\="hide">grappling, wrestling</span>
+  <span class\="show">g-k-n</span><span class\="hide">thoughtlessness, stupidity</span>
+  <span class\="show">g-l-m</span><span class\="hide">backs, backing, support</span>
+  <span class\="show">g-l-y</span><span class\="hide">screaming, shouting, yelling, hollering</span>
+  <span class\="show">h-b-t</span><span class\="hide">frustrating, stifling, suppressing, thwarting</span>
+  <span class\="show">h-k-s</span><span class\="hide">fat, chubby, buxom</span>
+  <span class\="show">h-l-m</span><span class\="hide">folding, folds</span>
+  <span class\="show">h-n-l</span><span class\="hide">moment, pausing, wait</span>
+  <span class\="show">h-n-n</span><span class\="hide">transparency, seeing through, honesty, confession</span>
+  <span class\="show">h-n-sh</span><span class\="hide">mirrors, reflections, reversal</span>
+  <span class\="show">h-n-t</span><span class\="hide">hunting</span>
+  <span class\="show">h-n-w</span><span class\="hide">thinning, thinness, whisp</span>
+  <span class\="show">h-ng-l</span><span class\="hide">anger, enraging, rage</span>
+  <span class\="show">h-ng-s</span><span class\="hide">nature, the natural world</span>
+  <span class\="show">h-s-g</span><span class\="hide">opening</span>
+  <span class\="show">h-s-ng</span><span class\="hide">interposition, interposing, intervention, walls</span>
+  <span class\="show">h-w-l</span><span class\="hide">ice, freezing, solidity, coagulation</span>
+  <span class\="show">h-w-s</span><span class\="hide">boiling, seething, building pressure</span>
+  <span class\="show">j-d-n</span><span class\="hide">carrying, pregnancy</span>
+  <span class\="show">j-h-y</span><span class\="hide">caution, warning</span>
+  <span class\="show">j-l-m</span><span class\="hide">flying, flight</span>
+  <span class\="show">j-m-n</span><span class\="hide">play, practice, sparring</span>
+  <span class\="show">j-m-y</span><span class\="hide">convincing, reasoning</span>
+  <span class\="show">j-p-ch</span><span class\="hide">long, length, elongation (also refers to height)</span>
+  <span class\="show">j-t-t</span><span class\="hide">connection, joining</span>
+  <span class\="show">k-d-m</span><span class\="hide">red, embarrassment</span>
+  <span class\="show">k-h-g</span><span class\="hide">continuation, kohga, the continuous self, progress, progression</span>
+  <span class\="show">k-k-t</span><span class\="hide">interruption, cutting away, amputation</span>
+  <span class\="show">k-k-n</span><span class\="hide">consideration, deep thought</span>
+  <span class\="show">k-l-d</span><span class\="hide">clothing, clothes, adornment, garments</span>
+  <span class\="show">k-l-k</span><span class\="hide">gathering, collecting, bringing together</span>
+  <span class\="show">k-m-y</span><span class\="hide">smallness, diminutive, tiny, submission, domination</span>
+  <span class\="show">k-n-n</span><span class\="hide">turning, rotation</span>
+  <span class\="show">k-s-m</span><span class\="hide">enveloping, amidst (derivates as soft root)</span>
+  <span class\="show">k-s-ng</span><span class\="hide">k-s-ng using, utility (derivates as soft root)</span>
+  <span class\="show">k-t-k</span><span class\="hide">defecation, feces; poop</span>
+  <span class\="show">k-t-l</span><span class\="hide">mixing, admixture, solutions, confusion</span>
+  <span class\="show">k-t-w</span><span class\="hide">leaping</span>
+  <span class\="show">k-w-l</span><span class\="hide">grouping, batches, bundles, generational groups</span>
+  <span class\="show">k-w-m</span><span class\="hide">stacking, piling</span>
+  <span class\="show">k-w-y</span><span class\="hide">cute, endearing</span>
+  <span class\="show">k-y-w</span><span class\="hide">strength, confirmation, authority</span>
+  <span class\="show">l-k-k</span><span class\="hide">birth, birthing</span>
+  <span class\="show">l-k-n</span><span class\="hide">emerging, emergence, surfacing</span>
+  <span class\="show">l-k-sh</span><span class\="hide">grinding, milling</span>
+  <span class\="show">l-l-n</span><span class\="hide">streams, rivers, flowing</span>
+  <span class\="show">l-m-y</span><span class\="hide">return, returning, tradition, custom</span>
+  <span class\="show">m-b-k</span><span class\="hide">withdrawing, withdrawal, pulling away, fleeing</span>
+  <span class\="show">m-d-l</span><span class\="hide">middle, center</span>
+  <span class\="show">m-h-j</span><span class\="hide">taking usually by force, seizing, possession</span>
+  <span class\="show">m-h-n</span><span class\="hide">friends, friendship, companionship</span>
+  <span class\="show">m-h-w</span><span class\="hide">liquid, melting, acid</span>
+  <span class\="show">m-h-y</span><span class\="hide">wanting, desire</span>
+  <span class\="show">m-k-n</span><span class\="hide">dismissal, excuse, forgiveness</span>
+  <span class\="show">m-k-t</span><span class\="hide">many, multitudes, multiplication</span>
+  <span class\="show">m-l-k</span><span class\="hide">buying, selling, merchants, commerce</span>
+  <span class\="show">m-m-y</span><span class\="hide">leaving, exits, vacation, abandonment, abandoning</span>
+  <span class\="show">m-n-n</span><span class\="hide">beauty, fascination</span>
+  <span class\="show">m-ng-s</span><span class\="hide">substitution, replacement (derivates as hard root)</span>
+  <span class\="show">m-s-d</span><span class\="hide">cycles, repetition, repeating, menstruation</span>
+  <span class\="show">m-s-m</span><span class\="hide">smiling</span>
+  <span class\="show">m-s-n</span><span class\="hide">messages, messaging, communication</span>
+  <span class\="show">m-y-ng</span><span class\="hide">form, shape, sculpting</span>
+  <span class\="show">n-g-n</span><span class\="hide">against, opposing</span>
+  <span class\="show">n-l-k</span><span class\="hide">putting forward, projecting, affectation, thrusting</span>
+  <span class\="show">n-p-n</span><span class\="hide">names, naming, titles</span>
+  <span class\="show">n-n-k</span><span class\="hide">appearance, visage, appearing, apparating</span>
+  <span class\="show">n-s-m</span><span class\="hide">systems, organisation, institutions, tuning instruments</span>
+  <span class\="show">n-t-y</span><span class\="hide">preceding, before, the past</span>
+  <span class\="show">n-w-s</span><span class\="hide">disingenuity, false, falsehood, lies</span>
+  <span class\="show">p-g-d</span><span class\="hide">becoming, change</span>
+  <span class\="show">p-h-g</span><span class\="hide">overcoming, defeat, vanquishing</span>
+  <span class\="show">p-h-l</span><span class\="hide">hanging, dangling, hair</span>
+  <span class\="show">p-k-ng</span><span class\="hide">building, construction, architecture</span>
+  <span class\="show">p-k-n</span><span class\="hide">the world (archaic)</span>
+  <span class\="show">p-ng-k</span><span class\="hide">taste, flavour, savouriness</span>
+  <span class\="show">p-s-k</span><span class\="hide">sweetness, pleasantness, pastries</span>
+  <span class\="show">p-s-t</span><span class\="hide">squidcada</span>
+  <span class\="show">p-s-y</span><span class\="hide">after, following, the future</span>
+  <span class\="show">s-b-h</span><span class\="hide">swimming</span>
+  <span class\="show">s-h-m</span><span class\="hide">praise, value, worth, appraisal</span>
+  <span class\="show">s-j-l</span><span class\="hide">pink</span>
+  <span class\="show">s-l-g</span><span class\="hide">sitting, riding</span>
+  <span class\="show">s-l-m</span><span class\="hide">person, people</span>
+  <span class\="show">s-l-n</span><span class\="hide">surging, waves, salt, shore</span>
+  <span class\="show">s-m-m</span><span class\="hide">smells, odors, noses</span>
+  <span class\="show">s-n-b</span><span class\="hide">snow, winter</span>
+  <span class\="show">s-n-d</span><span class\="hide">sound, noise</span>
+  <span class\="show">s-n-w</span><span class\="hide">storms, monsoon, great rain</span>
+  <span class\="show">s-ng-j</span><span class\="hide">boxes, crates</span>
+  <span class\="show">s-ng-s</span><span class\="hide">distinction, distinct, focus</span>
+  <span class\="show">s-p-n</span><span class\="hide">suffering, endurance, martyrdom, patience</span>
+  <span class\="show">s-m-h</span><span class\="hide">permission, allowance, consent, authorisation</span>
+  <span class\="show">s-m-p</span><span class\="hide">happiness, joy</span>
+  <span class\="show">s-m-y</span><span class\="hide">cold, chill</span>
+  <span class\="show">s-s-n</span><span class\="hide">smoothness, fineness, sliding</span>
+  <span class\="show">s-s-y</span><span class\="hide">exceeding, surpassing, overtaking</span>
+  <span class\="show">s-t-d</span><span class\="hide">striding, large steps, aspiration</span>
+  <span class\="show">s-t-k</span><span class\="hide">fire, burning, spice</span>
+  <span class\="show">s-y-n</span><span class\="hide">jets, blasts, cyan</span>
+  <span class\="show">t-b-n</span><span class\="hide">hosting, entertaining guests, celebration (derivates as soft root)</span>
+  <span class\="show">t-ch-n</span><span class\="hide">covering, plates, scales</span>
+  <span class\="show">t-d-y</span><span class\="hide">straightness, straightening</span>
+  <span class\="show">t-h-ng</span><span class\="hide">explosions, bombs, detonation, trees, wood, orgasm</span>
+  <span class\="show">t-k-n</span><span class\="hide">thinking, thought; idea, pondering, ponderance</span>
+  <span class\="show">t-k-sh</span><span class\="hide">monsters, scaring, frightening</span>
+  <span class\="show">t-k-t</span><span class\="hide">happening, circumstance, events</span>
+  <span class\="show">t-l-g</span><span class\="hide">sleep</span>
+  <span class\="show">t-l-m</span><span class\="hide">lightness of weight</span>
+  <span class\="show">t-l-p</span><span class\="hide">hooks, hooking</span>
+  <span class\="show">t-l-w</span><span class\="hide">earth</span>
+  <span class\="show">t-n-d</span><span class\="hide">standing</span>
+  <span class\="show">t-n-k</span><span class\="hide">crawling</span>
+  <span class\="show">t-p-s</span><span class\="hide">finishing, completion</span>
+  <span class\="show">t-n-n</span><span class\="hide">storytelling, performance</span>
+  <span class\="show">t-s-d</span><span class\="hide">tenseness, tension, muscle</span>
+  <span class\="show">t-sh-p</span><span class\="hide">feeling, sensation, perception, emotion</span>
+  <span class\="show">t-sh-t</span><span class\="hide">readiness, preparation</span>
+  <span class\="show">t-t-b</span><span class\="hide">grass, sandals, shoes</span>
+  <span class\="show">w-k-n</span><span class\="hide">learning, study</span>
+  <span class\="show">w-n-h</span><span class\="hide">caressing, gentleness, softness, hugging</span>
+  <span class\="show">y-h-g</span><span class\="hide">ascent, going up, climbing</span>
+  <span class\="show">y-h-l</span><span class\="hide">cooking</span>
+  <span class\="show">y-k-n</span><span class\="hide">forgetting</span>
+  <span class\="show">y-l-l</span><span class\="hide">eggs</span>
+  <span class\="show">y-m-k</span><span class\="hide">weak, sickly, poison, affliction, festering</span>
+  <span class\="show">y-n-ng</span><span class\="hide">loss, losing as of losing possession, losing guard or keep over</span>
+  <span class\="show">y-ng-s</span><span class\="hide">wandering, nomads, Slugcats</span>
+  <span class\="show">y-ng-n</span><span class\="hide">wandering, nomads, Slugcats</span>
+  <span class\="show">y-n-w</span><span class\="hide">dry, dryness, lack of arousal</span>
+  <span class\="show">y-s-d</span><span class\="hide">resolution, untying (of knots)</span>
+  <span class\="show">y-sh-m</span><span class\="hide">letting go, release, relief, release from worry or stress</span>
+  <span class\="show">y-y-m</span><span class\="hide">apologising, apologies</span>
+
+quad
+  <span class\="show">b-k-n-w</span><span class\="hide">leviathans, giant serpents</span>
+  <span class\="show">h-g-w-n</span><span class\="hide">yesterday</span>
+  <span class\="show">l-sh-p-n</span><span class\="hide">villages, colony</span>
+  <span class\="show">m-l-ng-j</span><span class\="hide">scavengers</span>
+  <span class\="show">m-y-s-ng</span><span class\="hide">transgender, transness</span>
+  <span class\="show">n-k-w-n</span><span class\="hide">tomorrow</span>
+  <span class\="show">s-m-s-d</span><span class\="hide">years, the Great Cycle</span>
+  <span class\="show">s-p-s-l</span><span class\="hide">topics</span>
+  <span class\="show">t-k-w-n</span><span class\="hide">morning</span>
+
+irr
+  <span class\="show">'-ng-s</span><span class\="hide">existence, being</span>
+  <span class\="show">'-s-k</span><span class\="hide">hearing, ears</span>
+
+derivtype
+  verbal noun
+  active participle
+  habitual participle
+  passive participle
+  superlative participle
+  trait form
+  diminuitive
+  augmentative
+  tool noun
+  location or time noun
+
+abilderiv
+  <span class\="show">-ikana</span><span class\="hide"><i>v</i> to be able to</span>
+  <span class\="show">-ikanae</span><span class\="hide"><i>n</i>one who can enact the verb, with a connotation of knowledge, study, or authority</span>
+  <span class\="show">-ikun</span><span class\="hide"><i>n</i> one who is most able to enact the verb</span>
+  <span class\="show">-ikonna</span><span class\="hide"><i>adj</i> "-able" suffix; able to be / <i>n</i> "-ability" suffix</span>
+  <span class\="show">-ikonei</span><span class\="hide">superlative of the "-able" suffix</span>
+
+prefix
+  pa-
+  (ch)o-
+  ki-
+  (h)i-
+  hei-
+  mo-
+  bu-
+  lu-
+  yo-
+  aXX
+
+prefixderiv // just the deriv types that are prefixable
+  verbal noun
+  active participle
+  habitual participle
+  passive participle
+  superlative participle
+  augmentative
