@@ -1,0 +1,546 @@
+<h1>[title]</h1>
+<p style="margin:1em auto; padding:0 1em; max-width:700px;">[output]</p>
+<button onclick="update()">randomize</button>
+<br><br>
+<details>
+<summary><h3 style="display:inline-block">Notes</h3></summary>
+<p>Some roots don't follow derivation rules exactly, because of how their sounds interact, such as t-b-n.</p>
+<p><i>ng</i> is a sound that is preferred before another consonant rather than after, and it will never appear at the start of a word. Additionally, if a pattern would place <i>ng</i> directly after some sounds like <i>k</i> or <i>g</i>, then <i>ng</i> will switch places with the following vowel. For example, the tool noun of <i>k-s-ng</i> is not <i>kusngo</i> but <i>kusong</i>. However, the elative form <i>kosngei</i> does not change.</p>
+  <p>When it comes to derivation templates, a <b>C</b> represents a single consonant from the root. An <b>X</b> represents a consonant from the root that is doubled in the word (s-t-k + CaXXoCu = sattoku).</p>
+  <details>
+  <summary><h4 style="display:inline-block">Soft, Hard and Double Final trilats</h4></summary>
+  <p>(This whole thing is covered again later under the Prefixed Derivations header, but I'm also sticking it here.)</p>
+    
+<p>Trilaterals like to do fun things based on the consonants involved in them, which can change how they derivate in certain scenarios (like with prefixed verbal nouns).</p>
+<p>Soft roots are trilaterals that begin with "soft" consonants, including <i>h, l, m, n, ng, s, w,</i> and <i>y</i>.</p>
+<p><b>h-n-t</b> hunting<br>
+<b>s-n-b</b> snow<br>
+<b>y-k-n</b> forgetting, the unknown<br>
+<b>s-m-h</b> permission<br>
+<b>w-n-h</b> gentleness, caressing</p>
+
+<p>Hard roots are trilaterals that begin with "hard" consonants, including <i>b, d, k, p,</i> and <i>t</i>.</p>
+<p><b>k-m-y</b> smallness<br>
+<b>k-w-y</b> strength, power<br>
+<b>t-n-d</b> standing</p>
+
+<p>Conditional consonants include <i>ch, j,</i> and <i>sh</i>, which are considered hard before <i>l</i> and other conditional consonants, but soft before anything else.</p>
+<p><i>Hard</i><br>
+<b>j-l-m</b> flight<br>
+<b>j-sh-l</b> readiness, preparation</p>
+
+<p><i>Soft</i><br>
+<b>j-p-h</b> carrying, pregnancy</p>
+
+<p>Some other rules:</p>
+<p>If the middle radical is an <i>h</i>, then the root is treated as a double final, regardless if the root is hard or soft.</p>
+<p>If the first two consonants of a root are the same, then that root is considered soft regardless of whether the consonants themselves are hard, soft, or neutral.</p>
+<p>Double final roots are triconsonantal roots that have the same consonant for the second and third radicals, and have slightly different derivation patterns in some cases.</p>
+<p>If a root would fulfill multiple criteria, then the applicable category that is lowest on this list is used. For example, a soft double final root would derivate as a double final.</p>
+</details>
+<details><summary><h4 style="display:inline-block">Irregular Roots</h4></summary>
+
+<p>A while ago there was a subset of roots called open roots, that were sort of like trilaterals except the first radical didn't exist, and was denoted with a <b>'</b>. Most open roots that used to exist fell out of use or merged with their bilateral counterparts, but there are some that still exist like <b>'-ng-s</b> (which you can see in this generator).</p>
+
+<p>Since open roots are defunct and nonproductive, all nouns derived from them are considered broken. Because there are (two) irregular roots in this generator, I've included a table of their derivations, but new words are not made with this schema.</p>
+
+<table>
+<tr>
+<td><b>Plain/Citation Form<b></td>
+<td>aCCa</td>
+<td>-CCa</td>
+</tr>
+<tr>
+<td><b>Verbal Noun</b></td>
+<table>
+<tr>
+<td><b>Unfixed</b></td>
+<td>Varies</td>
+</tr>
+<tr>
+<td><b>pa-</b></td>
+<td>paeCCa</td>
+</tr>
+<tr>
+<td><b>(ch)o-</b></td>
+<td>oCCa</td>
+</tr>
+<tr>
+<td><b>ki-</b></td>
+<td>kiCCa</td>
+</tr>
+<tr>
+<td><b>(h)i-</b></td>
+<td>iCCo</td>
+</tr>
+<tr>
+<td><b>hei-</b></td>
+<td>heiCCi</td>
+</tr>
+<tr>
+<td><b>mo-</b></td>
+<td>moCCo</td>
+</tr>
+<tr>
+<td><b>bu-</b></td>
+<td>buCCo</td>
+</tr>
+<tr>
+<td><b>lu-</b></td>
+<td>luCCo</td>
+</tr>
+<tr>
+<td><b>yo-</b></td>
+<td>yoCCi</td>
+</tr>
+</table>
+  <table>
+</tr>
+<tr>
+<td><b>Active Participle</b></td>
+<td>aCCae</td>
+<td>-CCae</td>
+</tr>
+<tr>
+<td><b>Habitual Participle</b></td>
+<td>aCCu</td>
+</tr>
+<tr>
+<td><b>Passive Participle</b></td>
+<td>eiCCo</td>
+<td>-CCei</td>
+</tr>
+<tr>
+<td><b>Superlative Participle</b></td>
+<td>aCCei</td>
+</tr>
+<tr>
+<td><b>Trait Form</b></td>
+<td>XoXiCa</td>
+</tr>
+<tr>
+<td><b>Diminuitive</b></td>
+<td>aCCan</td>
+</tr>
+<tr>
+<td><b>Augmentative</b></td>
+<td>aXXoCu</td>
+</tr>
+<tr>
+<td><b>Tool</b></td>
+<td>uCCo</td>
+</tr>
+<tr>
+<td><b>Location</b></td>
+<td>aColCak</td>
+</tr>
+</table>
+</table>
+</details>
+  
+</details>
+
+<details>
+<summary><h3 style="display:inline-block">Regular Derivations</h3></summary>
+
+<details>
+<summary><h3 style="display:inline-block">Verbal Nouns</h3></summary>
+<p>Verbal nouns can have unpredictable forms, and some roots or verbs can have multiple verbal nouns if the root or verb pertains to different meanings. Historically, VNs existed before the consonantal root system was fully crystallised and systematised. As such, there's no specific pattern.</p>
+<p>The most common verbal noun forms tend to have an <b>a</b>, then an <b>o</b> or be monosyllabic.</p>
+<ul>
+<li>Unilateral: <b>aCo | Cv</b></li>
+<li>Bilateral: <b>CaCo | CvC</b></li>
+<li>Trilateral: <b>CaCCo</b></li>
+</ul>
+<p>There's very few unilateral roots, so they're best just memorised, but their verbal noun forms sometimes follow these patterns:</p>
+<ul>
+<li><b>Ci / aCi</b> - aki</li>
+<li><b>aCo</b></li>
+<li><b>vC</b></li>
+<li><b>Cei</b> - sei</li>
+<li><b>Cae</b> - mae</li>
+</ul>
+<p>Some possible verbal nouns that can be formed from bilateral roots:</p>
+<ul>
+<li><b>CvC</b> - mok, kat, nin, gan</li>
+<li><b>CvCv</b> - hago, nano, lani, gila</li>
+<li><b>CaeC</b> - taed, paeh</li>
+<li><b>CeiC</b> - seing</li>
+<li><b>CeiCo</b> - deito</li>
+</ul>
+<p>And for trilateral roots:</p>
+<ul>
+<li><b>CvCvC</b> - yokin, yongas, sapon, solan, sotok, hanil</li>
+<li><b>CvCvCv</b> - solani, akita, masida</li>
+<li><b>CvCCv</b> - mokti, malka, hanta</li>
+<li><b>CaeCvC</b> - baenang, taehong</li>
+<li><b>CuCvC</b></li>
+<li><b>CiCeiC</b></li>
+</ul>
+</details>
+
+<details>
+<summary><h3 style="display:inline-block">Active Participles</h3></summary>
+<p>Active participles concern someone or something performing the action. Their noun definitions are typically "one who does" based on the originating verb, like the English <i>-er</i> and <i>-or</i> endings, such as the words <i>runner, baker, iterator,</i> and <i>investigator</i>. However, very often they'll take on extended meanings.</p>
+<p><b>hanitae</b> - that which hunts; a hunter<br>
+<b>lamiyae</b> - that which returns; a scout<br>
+<b>sapinae</b> - that which suffers or endures; a saint</p>
+<p>They can also be used as basic adjectives based on the verb they're derived from, like <i>running, jumping, singing,</i> and <i>eating</i>.</p>
+<p><b>hanitae ong</b> - a hunting man<br>
+<b>lamiyae dang</b> - a returning woman<br>
+<b>sapinae lam</b> - a suffering person</p>
+<p>Unilateral roots take the form <b>aCae</b>. Bilateral roots take the form <b>CaCae</b>. Trilateral roots take the form <b>CaCiCae</b> unless they are double final (the same consonant for the second and third radicals). In this case, the active participle instead takes the form <b>CaCCae</b>.</p>
+</details>
+
+<details>
+<summary><h3 style="display:inline-block">Habitual Participles</h3></summary>
+<p>The habitual participle is like an elevated version of the active particle; it describes not just doing the action, but doing it often, a lot, or the most, as both an adjective and noun.</p>
+<p><b>tonun</b> - that which tells stories the most; an especially dedicated storyteller<br>
+<b>jomuy</b> - that which convinces the most; an ultimatum<br>
+<b>tuw</b> - that which jumps most; yeek<br>
+<b>dum</b> - bleeding most; grave, severe, serious, dire</p>
+
+<p>As adjectives, habitual participles tend to also represent an elevated or extreme version of the active participles. It's not the same as comparatives or superlatives formed with comparatives; rather, it's like the difference between calling something bad vs calling it terrible or awful. Different words that carry that same broader meaning, but with different connotations or imply different degrees.<p?
+<p><b>jomuy jumyo</b> - irrefutable reasons<br>
+<b>kut katae</b> - eviscerating blade<br>
+<b>dum pugdo</b> - dire circumstances</p>
+<p>Unilateral roots take the form <b>aCu</b>. Bilateral roots take the form <b>CuC</b>. Trilateral roots take the form <b>CoCuC</b>.</p>
+  <p><b>Note</b> that the bilateral habitual doesn't have a prefixed form and can't take prefixes.</p>
+</details>
+
+<details>
+<summary><h3 style="display:inline-block">Passive Participles</h3></summary>
+<p>These are the passive version of the active participle, describing "that to which the action is performed". The associated action might be done once, might be able to be done, or is commonly done.</p>
+<p><b>deiki</b> - that which is done; a project<br>
+<b>yeihlo</b> - that which is cooked; a recipe<br>
+<b>meiki</b> - that which is eaten; a meal</p>
+<p>In the case of a verb that doesn't take a direct object, the passive participles may concern some kind of oblique object, such as one marked with <i>sang</i>, or one marked with <i>wa</i> or <i>la</i> that defines where the action happened.</p>
+<p><b>eisi</b> - that with which one dies; a cause of death<br>
+<b>seinbo</b> - that with which one snows; a snowflake<br>
+<b>seilgo</b> - that with which one sits; a seat</p>
+<p>When used as an adjective, they describe the verb being done to the modified noun. These are most closely resembled by English's past participle: "to break" becomes "broken", "to eat" becomes "eaten".</p>
+<p>For intransitive verbs or other verbs without direct objects, their adjectives take on a meaning of "having experienced the verb" or "having been used to complete the verb", though these adjectives are infrequently used. Only some like <i>seilgoja</i> might see regular use. It is usual to paraphrase the statement to convey the same meaning.</p>
+<p><b>eisija wol</b> - a cause of death drink; a drink with which someone died<br>
+<i>paraphrased</i>  <b>salam'o isidani wol.</b> A drink that killed someone.<br>
+<b>seinboja panae</b> - snowed flowers; flowers that came down like snow<br>
+<i>paraphrased</i>  <b>sanbagolani palani panae.</b> Flowers that fall like snow.<br>
+<b>seilgoja peihi</b> - a sat-on stone<br>
+<i>paraphrased</i>  <b>pasalgasani peihi.</b> The stone that someone is using to sit.</p>
+<p>Unilateral roots take the form <b>eiCi</b>. Bilateral roots take the form <b>CeiCi</b>. Trilateral roots take the form <b>CeiCCo</b>.</p>
+</details>
+
+<details>
+<summary><h3 style="display:inline-block">Superlative Participle</h3></summary>
+<p>The superlative participle is like the habitual participle in that it is an elevated version of the passive participle and sometimes the adjectival. As a noun, it conveys a meaning "that to which the verb is done most". As an adjective, it is an elevated version of the passive participle ie less vs least; convinced vs zealous; deep vs expansive.</p>
+<p><b>tannei</b> - that which is told (as a story) the most; a legend<br>
+<b>jamyei</b> - that which is most convinced; a zealot</p>
+<p>Used as adjectives, the superlative participle can also act as the superlative or comparative for the passive participle in comparative statements, though this has a rather poetic sound and lacks some flexibility compared to using comparators.</p>
+<p><b>tannei yongasabi</b> - a legendary slugcat<br>
+<b>jamyei heikanae</b> - a zealous iterator</p>
+<p>Unilateral roots take the form <b>aCei</b>. Bilateral roots take the form <b>CoCei</b>. Trilateral roots take the form <b>CaCCei</b>. Note that the unilateral and open superlatives do not have prefixed forms and cannot take prefixes.</p>
+</details>
+<details>
+<summary><h3 style="display:inline-block">Trait Forms</h3></summary>
+<p>Trait forms, a derivation template that forms adjectivals. They derive some sort of trait or characteristic from a verb and can be used as either nouns or adjectives to reflect that meaning. As mentioned before, they are words whose noun and adjective definitions align very closely. Their meanings are sometimes but not always similar to the passive participle, and can sometimes take on more abstract meaning. This is the derivation where most colors and traits can be found.<br>
+Note that unlike most other derivations, adjectivals cannot take prefixes and only pertain to the meaning of the unprefixed verb.</p>
+<p><b>jommiy</b> - confident; confidence<br>
+<b>ponna</b> - beautiful; beauty<br>
+<b>mossa</b> - young; youth<br>
+<b>shonna</b> - old; age<br>
+<b>koddim</b> - red<br>
+<b>monna</b> - blue<br>
+<b>boyya</b> - yellow<br>
+<b>noyya</b> - green<br>
+<b>soppim</b> - purple<br>
+<b>dowwa</b> - black<br>
+<b>loyya</b> - grey</p>
+<p>Their definitions are generally related to something involving the verb, but their relationship is more nebulous and less definite than the participles. They can often have similar meanings to the passive participle, though often the trait form has a different meaning entirely.</p>
+<p>Adjectivals are the most typical form used for colors and traits. When used as an adjective, it conveys the trait as an adjective like "red". When used as a noun, it acts as a nominalized version of the adjective like "redness". Not all adjectivals have an English equivalent that captures this result/trait distinction. Neither do all roots form meaningful adjectivals. Adjectivals are typically reserved for verbs that create a meaningful change in state, so while "redden" and "die" have related adjectivals, "hit" does not. </p>
+<p><b>koddim</b> - red; redness<br>
+<b>monna</b> - blue; blueness<br>
+<b>mokka</b> - few; a little<br>
+<b>hongnga</b> - loud; loudness; volume<br>
+<b>koppa</b> - rested; restful</p>
+<p>Unilateral roots don't have an adjectival form, instead expressing traits in other ways, sometimes by attaching <i>-ja</i> to the verbal noun form, or by using a broken derivation. Bilateral roots take the form <b>CoXXa</b>. Trilateral roots take the form <b>CoXXiC</b>.</p>
+<p>Adjectivals can sometimes have less intuitive meanings than passive participles. Sometimes an adjectival can pertain to the core meaning of its verb, or it could be formed through metaphorical extension of the verb. A verb's passive participle and adjectival may be based on different interpretations or interpretations of the verb. In some extreme cases, an adjectival may have even codified a specific meaning while the meanings of all the rest of the verb's derivations have shifted to mean something different.</p>
+<p>In general, the adjectival concerns itself with the nature of the verb and that which the participants are involved in. Because of this, it helps to check a dictionary to find out what a specific adjectival means, as it may not be intuitive.</p>
+<p>Because the noun and adjective meanings of trait nouns align so closely, the adjectiviser is not necessary.</p>
+</details>
+
+<details>
+<summary><h3 style="display:inline-block">Diminuitives</h3></summary>
+<p>Diminuitives form a smaller version of a noun, often with cute connotations, sometimes used as nicknames for someone whose name or title shares a root. While other forms of diminuitives can be made with -i and saki, only the derivational diminuitive is relevant to this generator's purpose.</p>
+<p>Unilateral roots take the form <b>aCan</b>. Bilateral roots take the form <b>CaCan</b>. Trilateral roots take the form <b>CaCCan</b>.</p>
+<p><b>Note</b> that these cannot take prefixes.</p>
+</details>
+
+<details>
+<summary><h3 style="display:inline-block">Augmentatives</h3></summary>
+<p>Augmentatives are the opposite of diminuitives; instead of making something small, they make it large, usually with a connotation of grandeur or greatness, like an especially large and old tree or the ocean compared to the shoreline.</p>
+<p>Unilateral roots take the form <b>aXu'aXu</b>. Bilateral roots take the form <b>XiXaCu</b>. Trilateral roots take the form <b>CaXXoCu</b>.</p>
+</details>
+
+<details>
+<summary><h3 style="display:inline-block">Tool Nouns</h3></summary>
+<p>While many tools are derived through broken derivations, there is also a dedicated derivation for tool nouns. Tool nouns are things used to enact or accomplish their associated verb, though this is not always concrete. Though they tend to be physical objects, abstract or conceptual tool nouns are common too.</p>
+<p>Unilateral roots take the form <b>uCo</b>. Bilateral roots take the form <b>CuCo</b>. Trilateral roots take the form <b>CuCCo</b>.</p>
+<p><b>Note</b> that these cannot take prefixes.</p>
+</details>
+
+<details>
+<summary><h3 style="display:inline-block">Location and Time Nouns</h3></summary>
+<p>While many location and time nouns are broken derivations, there is also a dedicated template for deriving nouns with a meaning of "place or time where the verb happens". Their meanings tend to be fairly metaphorical and not always very intuitive, and place nouns tend to be much more common than time nouns.</p>
+<p>Unilateral roots take the form <b>Calka</b>. Bilateral roots take the form <b>CaColka</b>. Trilateral roots take the form <b>CaColCak</b>.</p>
+<p><b>Note</b> that these cannot take prefixes.</p>
+</details>
+</details>
+
+<details>
+
+<summary><h3 style="display:inline-block">Prefixed Derivations</h3></summary>
+  <p>Naturally, the derivation system works in tandem with the system of voice prefixes. As the verb prefixes allow us to derive new meaning from existing verbs, the derivational templates allow us to derive new meaning based on the prefixed verbs.</p>
+  <p><b>Please note</b> that when the passive prefix is applied to a unilateral root, it changes from <i>pa-</i> to <i>pae-</i>. Also, the bilateral habitual, unilateral and open superlatives, trait forms, diminuitives and augmentatives, and tool nouns, cannot be prefixed.</p>
+<p>Most derivational templates don't change at all when prefixed. The pattern stays the same as the prefix is added. Some prefixed derivations even exist where the prefix doesn't form a coherent and usable verb. However, some derivational templates do change somewhat to accommodate prefixes.</p>
+
+<details>
+  <summary><h4 style="display:inline-block">Soft, Hard and Double Final trilats</h4></summary>
+  <p>Trilaterals like to do fun things based on the consonants involved in them, which can change how they derivate in certain scenarios (like with prefixed verbal nouns).</p>
+<p>Soft roots are trilaterals that begin with "soft" consonants, including <i>h, l, m, n, ng, s, w,</i> and <i>y</i>.</p>
+<p><b>h-n-t</b> hunting<br>
+<b>s-n-b</b> snow<br>
+<b>y-k-n</b> forgetting, the unknown<br>
+<b>s-m-h</b> permission<br>
+<b>w-n-h</b> gentleness, caressing</p>
+
+<p>Hard roots are trilaterals that begin with "hard" consonants, including <i>b, d, k, p,</i> and <i>t</i>.</p>
+<p><b>k-m-y</b> smallness<br>
+<b>k-w-y</b> strength, power<br>
+<b>t-n-d</b> standing</p>
+
+<p>Conditional consonants include <i>ch, j,</i> and <i>sh</i>, which are considered hard before <i>l</i> and other conditional consonants, but soft before anything else.</p>
+<p><i>Hard</i><br>
+<b>j-l-m</b> flight<br>
+<b>j-sh-l</b> readiness, preparation</p>
+
+<p><i>Soft</i><br>
+<b>j-p-h</b> carrying, pregnancy</p>
+
+<p>Some other rules:</p>
+<p>If the middle radical is an <i>h</i>, then the root is treated as a double final, regardless if the root is hard or soft.</p>
+<p>If the first two consonants of a root are the same, then that root is considered soft regardless of whether the consonants themselves are hard, soft, or neutral.</p>
+<p>Double final roots are triconsonantal roots that have the same consonant for the second and third radicals, and have slightly different derivation patterns in some cases.</p>
+<p>If a root would fulfill multiple criteria, then the applicable category that is lowest on this list is used. For example, a soft double final root would derivate as a double final.</p>
+</details>
+  
+<details><summary><h3 style="display:inline-block">Verbal Nouns</h3></summary>
+<p>While verbal nouns are normally unpredictable and inconsistent, all prefixed verbal nouns have specific forms based on the prefix. There's a <i>lot</i> so I remade the table from the document, but if your device doesn't have great width you can also open a text-based list below it.</p>
+  <p>Also note, when it comes to prefixed trilaterals, any root with <i>h</i> as a middle radical is considered hard regardless of whether the root is actually hard or soft.</p>
+<details><summary><h4 style="display:inline-block">The Table</h4></summary>
+ <table class="inDetails">
+<tr>
+<th>Prefix</th>
+<th>Unilateral</th>
+<th>Bilateral</th>
+<th>Trilateral Soft</th>
+<th>Trilateral Hard & Double Final</th>
+</tr>
+<tr>
+<td><b>pa-</b></td>
+<td>paeCa</td>
+<td>paCaC</td>
+<td>paCCaC</td>
+<td>paCaCCa</td>
+</tr>
+<tr>
+<td><b>(ch)o-</b></td>
+<td>oCa</td>
+<td>oCaC</td>
+<td>oCCaC</td>
+<td>oCaCCa</td>
+</tr>
+<tr>
+<td><b>ki-</b></td>
+<td>kiCa</td>
+<td>kiCaC</td>
+<td>kiCCaC</td>
+<td>kiCaCCa</td>
+</tr>
+<tr>
+<td><b>(h)i-</b></td>
+<td>iCo</td>
+<td>iCoC</td>
+<td>iCCoC</td>
+<td>iCoCCa</td>
+</tr>
+<tr>
+<td><b>hei-</b></td>
+<td>heiCi</td>
+<td>heiCiC</td>
+<td>heiCCiC</td>
+<td>heiCiCCa</td>
+</tr>
+<tr>
+<td><b>mo-</b></td>
+<td>moCo</td>
+<td>moCoC</td>
+<td>moCCoC</td>
+<td>moCoCCa</td>
+</tr>
+<tr>
+<td><b>bu-</b></td>
+<td>buCo</td>
+<td>buCoC</td>
+<td>buCCoC</td>
+<td>buCoCCa</td>
+</tr>
+<tr>
+<td><b>lu-</b></td>
+<td>luCo</td>
+<td>luCoC</td>
+<td>luCCoC</td>
+<td>luCoCCa</td>
+</tr>
+<tr>
+<td><b>yo-</b></td>
+<td>yoCi</td>
+<td>yoCiC</td>
+<td>yoCCiC</td>
+<td>yoCiCCa</td>
+</tr>
+<tr>
+<td><b>aXX</b></td>
+<td>-</td>
+<td>aXXaC</td>
+<td>aXXaCCa</td>
+<td>aXXaCCa</td>
+</tr>
+</table>
+</details>
+<details><summary><h4 style="display:inline-block">The List</h4></summary>
+<p>When prefixing with <b>pa-</b>, <b>(ch)o-</b>, and <b>ki-</b>:<br>
+The unilateral takes the form <b>-Ca</b>.<br>
+The bilateral takes the form <b>-CaC</b>.<br>
+The trilateral soft takes the form <b>-CCaC</b>.<br>
+The trilateral hard and double radical take the form <b>-CaCCa</b>.</p>
+
+<p>When prefixing with <b>(h)i-</b>, <b>mo-</b>, <b>bu-</b>, and <b>lu-</b>:<br>
+The unilateral takes the form <b>-Co</b>.<br>
+The bilateral takes the form <b>-CoC</b>.<br>
+The trilateral soft takes the form <b>-CCoC</b>.<br>
+The trilateral hard and double radical take the form <b>-CoCCa</b>.</p>
+
+<p>When prefixing with <b>hei-</b> and <b>yo-</b>:<br>
+The unilateral takes the form <b>-Ci</b>.<br>
+The bilateral takes the form <b>-CiC</b>.<br>
+The trilateral soft takes the form <b>-CCiC</b>.<br>
+The trilateral hard and double radical take the form <b>-CiCCa</b>.</p>
+
+  <p>When prefixing with <b>aXX</b>:<br>
+The unilateral <b>cannot be prefixed</b> in this way.<br>
+The bilateral takes the form <b>aXXaC</b>.<br>
+The trilateral soft, hard and double radical take the form <b>aXXaCCa</b>.</p>
+  
+</details>
+</details>
+
+<details><summary><h3 style="display:inline-block">Other Changes</h3></summary>
+  <p>Any <b>unilateral</b> derivation that starts with an <b>a</b> has the initial <b>a</b> removed before the prefix is placed, and like usual <i>pa</i> becomes <i>pae-</i> when attached directly. Also, you can't form a prefixed unilateral superlative.</p>
+
+<p>One derivation that changes form is the passive participle, from <b>eiCi</b> to <b>-Cei</b>.</p>
+<p><b>i + eiki</b> > <b>ikei</b><br>
+<b>ki + eini</b> > <b>kinei</b><br>
+<b>mo + eimi</b> > <b>momei</b></p>
+
+<p>Also, because the unilateral augmentative is just the habitual reduplicated, both halves take the prefix.</p>
+<p><b>asu'asu</b> mass death; an epidemic<br>
+<b>isu'isu</b> a mass killing; genocide</p>
+
+<p><b>Bilaterals</b> remain largely unchanged, taking prefixes without a fuss except for the bilateral habitual, which doesn't take prefixes.</p>
+
+<p><b>Trilaterals</b> have a few more changes.</p>
+<p>Soft trilateral active participles change from <b>CaCiCae</b> to <b>-CCiCae</b>.</p>
+<p><b>chamigae</b> that which covers / hiding, especially in shadow<br>
+<b>pachmigae</b> that which is hidden / being hidden in shadow</p>
+
+<p>However, double final and hard roots take the same form as the verbal noun, replacing the final <b>a</b> with <b>ae</b>. This means that the middle vowel matches that of the prefixed verbal noun.</p>
+<p><b>bannae</b> that which watches<br>
+<b>kibannae</b> that which watches one another<br>
+<b>mobonnae</b> that which anticipates<br><br>
+<b>jattae</b> that which connects<br>
+<b>heihittae</b> that which connects to the self<br><br>
+<b>bawimae</b> that which is sad or mourns<br>
+<b>ibowmae</b> that which saddens<br>
+<b>kibawmae</b> that which mourns together<br>
+<b>mobowmae</b> that which mourns</p>
+
+<p>This also includes roots that have <i>h</i> as a middle radical, regardless of whether the root is hard or soft.</p>
+<p><b>dahigae</b> that which descends<br>
+<b>idohgae</b> that which drags down<br><br>
+<b>mahijae</b> that which 1. seizes 2. possesses<br>
+<b>pamahjae</b> that which is possessed</p>
+
+<p>The active participle of the intensive form always takes the same shape as the hard root, while maintaining the aXX.</p>
+<p><b>kahigae</b> that which continues<br>
+<b>akkahgae</b> that which continues forever</p>
+
+<p>Also, the trilateral habitual participle changes from <b>CoCuC</b> to <b>-CCuC</b>.</p>
+<p><b>jomuy</b> most convincing<br>
+<b>pajmuy</b> being convinced the most</p>
+</details>
+</details>
+
+<p style="margin-left:5%; margin-right:5%; bottom:20px; position: relative; font-size: 18px;"><a href="https://perchance.org/yongasabi-generators-index">Yongasabi Generators Index</a></p>
+  <button onclick="getUniDeriv()">getUniDeriv</button>
+  <button onclick="getPrefUniDeriv()">getPrefUniDeriv</button>
+  <button onclick="clearDerivGet()">clear derivs</button>
+<section id="getDerivResult">plain verb, activPart, habitPart, passPart, supPart, dimin, augm, tool, locat</section>  
+
+<!-- Some Javascript was removed here. Find it in Generators JS/getUniDeriv, Generators JS/getPrefUniDeriv and Generators JS/clearDerivGet -->
+<!-- Buttons above will not work without that JS. -->
+
+<style> html { color-scheme: light dark; } 
+details {
+  margin-left: 3%;
+  margin-right: 3%;
+  position: relative;
+  bottom: 20px;
+}
+
+table .inDetails {
+  padding: 10px;
+  width: 95%;
+  margin: auto;
+  border: 3px;
+}
+
+table {
+  margin: auto;
+}
+  
+th, td {
+  padding: 5px;
+}
+
+  html .show {
+  border-bottom: 3px dotted #06b;
+  cursor: pointer;
+  font-size: 1em;
+}
+
+html .hide {
+  display: none;
+}
+
+html .show:hover+.hide,
+html .hide:hover,
+html .show:focus + .hide {
+  display: block;
+  background-color: #06b;
+  color: #fff;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 1em;
+  margin-left: 3%;
+  margin-right: 3%;
+}
+</style>
