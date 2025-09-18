@@ -1,11 +1,7 @@
-// technically this function is unused and untested
-// but uh, it should work? lol
-// now i just need to write the function that'll call it ...
-
 function vowelChecker (word) {
-let finalChar = word.slice(-1)
-let hFinalChar = word.slice(-2)
-if (finalChar = "a" || "o" || "i" || "u" || "e") {return true} else if (hFinalChar = "ah" || "oh" || "ih" || "uh" || "eh") {return true} else {return false}
+let finalChar = word.slice(-1);
+let hFinalChar = word.slice(-2);
+if (finalChar == "a" || finalChar == "e" || finalChar == "i" || finalChar == "o" || finalChar == "u") {return true} else if (hFinalChar == "ah" || hFinalChar == "oh" || hFinalChar == "ih" || hFinalChar == "uh" || hFinalChar == "eh") {return true} else {return false};
 }
 
 // that if statement includes every vowel
