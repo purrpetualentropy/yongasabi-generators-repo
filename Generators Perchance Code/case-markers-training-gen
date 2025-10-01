@@ -1,0 +1,98 @@
+title
+  Yongasabi Case Markers Training
+
+output
+  Translate the following sentence into English:<br>[g = displayGlyphs.checked, ""] [n = noDisplayGlyphs.checked, ""] [sentence = sentenceCtor.selectOne.selectOne.selectOne, ""] [if (g == true && n == true) {"Nothing here."} else if (g == true && n != true) {`<div class="YongiBlock">${sentence}</div>`} else if (g == false && n == true) {[sentence]} else {`<div class="YongiBlock">${sentence}</div>${sentence}`}]
+
+subjectList
+  hanitae
+  masinabi
+  pachmigae
+  pajmuy
+  dang
+  lam
+  ong
+  yangsei
+  yongasabi
+  hanoltak
+  katae
+  masin
+  akita
+  tonun
+  sattokubi
+  lamlan
+  sapinae
+
+adjList
+  jommiy
+  yojommiy
+  koddim
+  katae
+  heismih
+  omi
+  paen
+  ipon
+  isaeja
+  isaegol
+  kataeja
+  jamiyaeja
+  maeja
+  oma
+  kobba
+  akija
+  monna
+  boyya
+  jogga
+  chanju
+  nonija
+  sojil
+  daw
+  yoyila
+  lobba
+  molla
+  kamuy
+  keimyo
+  jeipcho
+  jeili
+  jolla
+  chuhogol
+  chah
+  cheihi
+  chohei
+  samuy
+  seimyo
+  samyei
+
+verbList // all verbs should be in present tense for the time being
+  sa
+  katsa
+  pahsa
+  absa
+  assa
+  aktodasa
+  go
+  hantasa
+  jamyasa
+  kadmasa
+  lansa
+  maksa
+  maysa
+  nansa
+  satkasa
+
+locativeList
+  {hanitae|masinabi|pachmigae|pajmuy|dang|lam|ong|yongasabi} jatto
+  yangsei
+  hanoltak
+  kip
+  cho
+  bak
+  solani
+
+sentenceCtor
+  subj ^[subjBox.checked]
+    [subjectWord = subjectList.selectOne, ""][subjectWord = subjectWord.toString(), ""][caseSuffixer(subjectWord, "subj")] [verbList]
+    [subjectWord = subjectList.selectOne, ""][subjectWord = subjectWord.toString(), ""][caseSuffixer(subjectWord, "subj")] [adjList] sa
+  loc ^[locBox.checked]
+    [subjectWord = subjectList.selectOne, ""][subjectWord = subjectWord.toString(), ""][locWord = locativeList.selectOne, ""][locWord = locWord.toString(), ""][caseSuffixer(subjectWord, "subj")] [caseSuffixer(locWord, "loc")] sa
+    [subjectWord = subjectList.selectOne, ""][subjectWord = subjectWord.toString(), ""][locWord = locativeList.selectOne, ""][locWord = locWord.toString(), ""][caseSuffixer(subjectWord, "subj")] [caseSuffixer(locWord, "loc")] [verbList]
