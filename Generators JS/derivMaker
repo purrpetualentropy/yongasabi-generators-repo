@@ -1,0 +1,32 @@
+function derivMaker () {
+let userInput = prompt("wawa");
+let severedArray = userInput.split("/"); // b-ch-d/ch-d-y etc
+const resultLoc = document.getElementById("derivResults");
+let splitObj = {
+  temp: "define my pages"
+};
+let shortDef = "";
+
+for (let i = 0; i < severedArray.length; i++) {
+    splitObj["splitArray" + i] = severedArray[i].split("-");
+   };
+
+console.log("derivMaker is past severing arrays");
+
+// now we have splitArray1 b, ch, d & splitArray2 ch, d, y
+
+let fullDef = ""
+
+for (let i = 0; i < severedArray.length; i++) {
+// check length of array
+// if 2, use set 1, if 3, use set 2
+if (splitObj["splitArray" + i].length == 2) {shortDef = "<br>" + `${splitObj["splitArray" + i][0]}a${splitObj["splitArray" + i][1]}a` + "<br>" + `${splitObj["splitArray" + i][0]}a${splitObj["splitArray" + i][1]}ae` + "<br>" + `${splitObj["splitArray" + i][0]}u${splitObj["splitArray" + i][1]}` + "<br>" + `${splitObj["splitArray" + i][0]}ei${splitObj["splitArray" + i][1]}i` + "<br>" + `${splitObj["splitArray" + i][0]}o${splitObj["splitArray" + i][1]}ei` + "<br>" + `${splitObj["splitArray" + i][0]}o${splitObj["splitArray" + i][1]}${splitObj["splitArray" + i][1]}a` + "<br>" + `${splitObj["splitArray" + i][0]}i${splitObj["splitArray" + i][0]}a${splitObj["splitArray" + i][1]}u` + "<br>" + `${splitObj["splitArray" + i][0]}u${splitObj["splitArray" + i][1]}o` + "<br>" + `${splitObj["splitArray" + i][0]}a${splitObj["splitArray" + i][1]}olka`} else
+  if (splitObj["splitArray" + i].length == 3 && splitObj["splitArray" + i][1] != splitObj["splitArray" + i][2]) {shortDef = "<br>" + `${splitObj["splitArray" + i][0]}a${splitObj["splitArray" + i][1]}${splitObj["splitArray" + i][2]}a` + "<br>" + `${splitObj["splitArray" + i][0]}a${splitObj["splitArray" + i][1]}i${splitObj["splitArray" + i][2]}ae` + "<br>" + `${splitObj["splitArray" + i][0]}o${splitObj["splitArray" + i][1]}u${splitObj["splitArray" + i][2]}` + "<br>" + `${splitObj["splitArray" + i][0]}ei${splitObj["splitArray" + i][1]}${splitObj["splitArray" + i][2]}o` + "<br>" + `${splitObj["splitArray" + i][0]}a${splitObj["splitArray" + i][1]}${splitObj["splitArray" + i][2]}ei` + "<br>" + `${splitObj["splitArray" + i][0]}o${splitObj["splitArray" + i][1]}${splitObj["splitArray" + i][1]}i${splitObj["splitArray" + i][2]}` + "<br>" + `${splitObj["splitArray" + i][0]}a${splitObj["splitArray" + i][1]}${splitObj["splitArray" + i][1]}o${splitObj["splitArray" + i][2]}u` + "<br>" + `${splitObj["splitArray" + i][0]}u${splitObj["splitArray" + i][1]}${splitObj["splitArray" + i][2]}o` + "<br>" + `${splitObj["splitArray" + i][0]}a${splitObj["splitArray" + i][1]}ol${splitObj["splitArray" + i][2]}ak`} else
+if (splitObj["splitArray" + i].length == 3 && splitObj["splitArray" + i][1] == splitObj["splitArray" + i][2]) {shortDef = "<br>" + `${splitObj["splitArray" + i][0]}a${splitObj["splitArray" + i][1]}${splitObj["splitArray" + i][2]}a` + "<br>" + `${splitObj["splitArray" + i][0]}a${splitObj["splitArray" + i][1]}${splitObj["splitArray" + i][2]}ae` + "<br>" + `${splitObj["splitArray" + i][0]}o${splitObj["splitArray" + i][1]}u${splitObj["splitArray" + i][2]}` + "<br>" + `${splitObj["splitArray" + i][0]}ei${splitObj["splitArray" + i][1]}${splitObj["splitArray" + i][2]}o` + "<br>" + `${splitObj["splitArray" + i][0]}a${splitObj["splitArray" + i][1]}${splitObj["splitArray" + i][2]}ei` + "<br>" + `${splitObj["splitArray" + i][0]}o${splitObj["splitArray" + i][1]}${splitObj["splitArray" + i][1]}i${splitObj["splitArray" + i][2]}` + "<br>" + `${splitObj["splitArray" + i][0]}a${splitObj["splitArray" + i][1]}${splitObj["splitArray" + i][1]}o${splitObj["splitArray" + i][2]}u` + "<br>" + `${splitObj["splitArray" + i][0]}u${splitObj["splitArray" + i][1]}${splitObj["splitArray" + i][2]}o` + "<br>" + `${splitObj["splitArray" + i][0]}a${splitObj["splitArray" + i][1]}ol${splitObj["splitArray" + i][2]}ak`} else {console.log("defGetter failed checking length?")};
+  fullDef += shortDef;
+}
+
+console.log(`defGetter finished formatting shortDef is ${shortDef} fullDef is ${fullDef}`)
+
+  resultLoc.insertAdjacentHTML("beforeend", fullDef);
+}
