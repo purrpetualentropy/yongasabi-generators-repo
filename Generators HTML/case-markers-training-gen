@@ -1,0 +1,21 @@
+<h1>[title]</h1>
+<p style="margin:1em auto; padding:0 1em; max-width:700px;">[output]</p>
+<button onclick="update()">randomize</button>
+<p><a href="https://perchance.org/yongasabi-generators-index">Yongasabi Generators Index</a></p>
+
+<input type="checkbox" id="displayGlyphs"> Display only glyphs<br>
+<input type="checkbox" id="noDisplayGlyphs"> Do not display glyphs<br>
+<input type="checkbox" id="subjBox" checked> Subject marker sentences<br>
+<input type="checkbox" id="locBox"> Locative marker sentences
+
+<!-- this generator uses the vowelChecker and caseSuffixer JS & will break without it -->
+
+<style> html { color-scheme: light dark; } 
+@font-face {  
+	font-family: "YongasabiBlock";
+	src: url("https://file.garden/ZqKEHNruXT-CeLY-/YongasabiBlock.ttf") format("truetype");
+}
+div.YongiBlock { 
+    font-family: YongasabiBlock;
+}
+</style>
