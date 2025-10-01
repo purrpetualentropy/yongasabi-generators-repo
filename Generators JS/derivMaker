@@ -30,3 +30,8 @@ console.log(`defGetter finished formatting shortDef is ${shortDef} fullDef is ${
 
   resultLoc.insertAdjacentHTML("beforeend", fullDef);
 }
+
+// TODO
+// add functionality for uniderivs
+// add a clear function?
+// add functionality for prefixing
