@@ -1,6 +1,7 @@
 function derivMaker () {
 let userInput = prompt("wawa");
-let severedArray = userInput.split("/"); // b-ch-d/ch-d-y etc
+let severedArray = userInput.split("/"); // unilats must be surrounded by a -
+// -m-/b-y/s-t-d
 const resultLoc = document.getElementById("derivResults");
 let splitObj = {
   temp: "define my pages"
@@ -30,8 +31,3 @@ console.log(`defGetter finished formatting shortDef is ${shortDef} fullDef is ${
 
   resultLoc.insertAdjacentHTML("beforeend", fullDef);
 }
-
-// TODO
-// add functionality for uniderivs
-// add a clear function?
-// add functionality for prefixing
