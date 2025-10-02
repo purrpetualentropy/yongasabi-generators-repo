@@ -1,3 +1,5 @@
+// use derivMaker
+
 function getUniDeriv () {
   const derivResultLoc = document.getElementById("getDerivResult");
   let C = prompt("Root is?"); // C is root; it's C so that i can just
