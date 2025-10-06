@@ -1,0 +1,44 @@
+// this is meant to be used with the caseSuffixer
+// it formats tenses into their grammatical order
+// so that the caseSuffixer can just read tenses
+// one by one from the array
+
+function arrayFormatter (tensesArray) {
+    let formattedArray = [];
+    let n = 0;
+    let destroyIndex = 0;
+    let random = Math.floor(Math.random() * 2) + 1;
+    let pastIndex = 0;
+    let futureIndex = 0;
+    
+    console.log(`LOG: arrayFormatter read array ${tensesArray}!`);
+    
+    for (let i = 0; i < tensesArray.length; i++) { // for every single item within tensesArray
+        if (tensesArray.includes("present")) {console.log(`LOG: Tense present was detected at ${tensesArray.indexOf("present")}!`); formattedArray[n] = "present"; destroyIndex = tensesArray.indexOf("present"); tensesArray[destroyIndex] = n; n++; console.log(`LOG: after present formatted tensesArray now ${tensesArray} formattedArray now ${formattedArray}`); continue} else
+        
+        if (tensesArray.includes("abil")) {console.log(`LOG: Tense abil was detected at ${tensesArray.indexOf("abil")}!`); formattedArray[n] = "abil"; destroyIndex = tensesArray.indexOf("abil"); tensesArray[destroyIndex] = n; n++; console.log(`LOG: after abil formatted tensesArray now ${tensesArray} formattedArray now ${formattedArray}`); continue} else
+        
+        if (tensesArray.includes("des")) {console.log(`LOG: Tense des was detected at ${tensesArray.indexOf("des")}!`); formattedArray[n] = "des"; destroyIndex = tensesArray.indexOf("des"); tensesArray[destroyIndex] = n; n++; console.log(`LOG: After des formatted tensesArray now ${tensesArray} formattedArray now ${formattedArray}`); continue} else
+        
+        if (tensesArray.includes("imperative")) {console.log(`LOG: Tense imperative was detected at ${tensesArray.indexOf("imperative")}!`); formattedArray[n] = "imperative"; destroyIndex = tensesArray.indexOf("imperative"); tensesArray[destroyIndex] = n; n++; console.log(`LOG: after imperative formatted tensesArray now ${tensesArray} formattedArray now ${formattedArray}`); continue} else
+        
+        if (tensesArray.includes("hyp")) {console.log(`LOG: Tense hyp was detected at ${tensesArray.indexOf("hyp")}!`); formattedArray[n] = "hyp"; destroyIndex = tensesArray.indexOf("hyp"); tensesArray[destroyIndex] = n; n++; console.log(`LOG: after hyp formatted tensesArray now ${tensesArray} formattedArray now ${formattedArray}`); continue} else
+        
+        if (tensesArray.includes("neg")) {console.log(`LOG: Tense neg was detected at ${tensesArray.indexOf("neg")}!`); formattedArray[n] = "neg"; destroyIndex = tensesArray.indexOf("neg"); tensesArray[destroyIndex] = n; n++; console.log(`LOG: after neg formatted tensesArray now ${tensesArray} formattedArray now ${formattedArray}`); continue} else
+        
+        if (tensesArray.includes("habit")) {console.log(`LOG: Tense habit was detected at ${tensesArray.indexOf("habit")}!`); formattedArray[n] = "habit"; destroyIndex = tensesArray.indexOf("habit"); tensesArray[destroyIndex] = n; n++; console.log(`LOG: after habit formatted tensesArray now ${tensesArray} formattedArray now ${formattedArray}`); continue} else;
+        
+        if (tensesArray.includes("past")) {console.log(`LOG: Tense past was detected at ${tensesArray.indexOf("past")}!`); formattedArray[n] = "past"; destroyIndex = tensesArray.indexOf("past"); tensesArray[destroyIndex] = n; n++; console.log(`LOG: after past formatted tensesArray now ${tensesArray} formattedArray now ${formattedArray}`); continue} else;
+                
+        if (tensesArray.includes("future")) {console.log(`LOG: Tense future was detected at ${tensesArray.indexOf("future")}!`); formattedArray[n] = "future"; destroyIndex = tensesArray.indexOf("future"); tensesArray[destroyIndex] = n; n++; console.log(`LOG: after future formatted tensesArray now ${tensesArray} formattedArray now ${formattedArray}`); continue} else;
+        
+        {console.log(`ISSUE: Bottom of loop was reached. This shouldn't happen, it should just exit the loop after formatting all tenses in tensesArray. n is ${n}, i is ${i}, tensesArray is ${tensesArray} and length is ${tensesArray.length}, formattedArray is ${formattedArray}. There should be zero detectable tenses within tensesArray. Detectable tenses are present, abil, des, imperative, hyp, neg, habit, past, and future. This message may repeat.`)}
+
+    };
+
+  console.log(`LOG: Formatting was finished! n is ${n}, tensesArray is ${tensesArray}, formattedArray is ${formattedArray}!`);
+  console.log(`LOG: Now checking if both past and future are here...`);
+  if (formattedArray.includes("past") && formattedArray.includes("future") && random == 2) {pastIndex = formattedArray.indexOf("past"); futureIndex = formattedArray.indexOf("future"); formattedArray[pastIndex] = "future"; formattedArray[futureIndex] = "past"; console.log("LOG: Past and future were swapped!")} else if (formattedArray.includes("past") && formattedArray.includes("future") && random == 1) {console.log("LOG: Past and future were not swapped!")} else {console.log("LOG: Past && future could not be detected!")}
+  
+return;
+}
