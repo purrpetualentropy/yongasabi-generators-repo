@@ -1,4 +1,4 @@
-// this is meant to be used with the caseSuffixer
+// this is meant to be used with the tenseSuffixer
 // it formats tenses into their grammatical order
 // so that the caseSuffixer can just read tenses
 // one by one from the array
