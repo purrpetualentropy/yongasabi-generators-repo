@@ -1,4 +1,4 @@
-function tenseSuffixer (tensesArray) {
+  function tenseSuffixer (tensesArray) {
   let verbIndex = Math.floor(Math.random() * (verbList.length - 1 + 1));
   let verb = verbList[verbIndex].word;
   let verbLength = verbList[verbIndex].rootLength;
@@ -192,8 +192,9 @@ function tenseSuffixer (tensesArray) {
         
         case "future":
           console.log(`LOG: case future detected in currSuffix, should be index ${i} of formattedArray ${formattedArray}`);
-          if (prevSuffix == "present" || prevSuffix == "neg" || prevSuffix == "hyp" || prevSuffix == "habit" || prevSuffix == "past") {console.log(`LOG: prevSuffix ${prevSuffix} is present, neg, hyp, habit, or past, suffixing as -go!`); suffixedVerb += "go"; console.log(`verb ${verb} suffixed with future into ${suffixedVerb}`); prevSuffix = "future"} else
+          if (prevSuffix == "present" || prevSuffix == "neg" || prevSuffix == "habit" || prevSuffix == "past") {console.log(`LOG: prevSuffix ${prevSuffix} is present, neg, habit, or past, suffixing as -go!`); suffixedVerb += "go"; console.log(`verb ${verb} suffixed with future into ${suffixedVerb}`); prevSuffix = "future"} else
           if (prevSuffix == "des" || prevSuffix == "abil") {console.log(`LOG: prevSuffix is des or abil, post-fixing!`);  suffixedVerb = suffixedVerb.slice(0, suffixedVerb.length - 1); console.log(`LOG: post-fixed suffixedVerb now ${suffixedVerb}, suffixing as -igo!`); suffixedVerb += "igo"; console.log(`LOG: verb ${verb} suffixed with future into ${suffixedVerb}`); prevSuffix = "future"} else
+          if (prevSuffix == "hyp") {console.log(`LOG: prevSuffix is hyp, suffixing as 'go!`); suffixedVerb += "'go"; console.log(`verb ${verb} suffixed with future into ${suffixedVerb}`); prevSuffix = "future"} else
           if (prevSuffix == "TEMP") {suffixedVerb = cutVerb + "igo"; console.log(`verb ${verb} suffixed with future into ${suffixedVerb}`); prevSuffix = "future"} else
           {console.log(`ERROR: detected case future somehow failed to suffix? verbIndex ${verbIndex} verb ${verb} verbLength ${verbLength} cutVerb ${cutVerb} suffixedVerb ${suffixedVerb} currSuffix ${currSuffix} prevSuffix ${prevSuffix}`)};
           break;
@@ -301,7 +302,5 @@ function tenseSuffixer (tensesArray) {
   console.log(`LOG: verb ${verb} finished suffixing with length ${verbLength} tenses ${formattedArray} into ${suffixedVerb}!`);
   return suffixedVerb;
   } else {console.log(`ERROR: verbLength ${verbLength} couldn't be found. breaking`); return "FAILED, SEE CONSOLELOG"};
-
-  // once fully formatted, return suffixedVerb
-  // we still need to account for plain & polite
 }
+</script>
