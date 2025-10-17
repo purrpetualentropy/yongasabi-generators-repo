@@ -1,0 +1,129 @@
+function sentenceCtor (argsArray, tensesArray) {
+let sentenceType = Math.floor(Math.random() * (3 - 0 + 1));
+console.log(`LOG: sentenceCtor init with sentenceType ${sentenceType}`);
+// 0 == descriptive angsa sentence; sattoga koddim sa.
+// 1 == possessive angsa sentence; masinabiga akita sa.
+// 2 == locative angsa sentence; hanitaega kipwa sa.
+// 3 == typ verb sentence; pajmuy'ag katsa.
+// 4 == vom sentence; pachmigaegae solanido go.
+// 5 == consumable sentence; tonun'ag gilado yahlasa
+let sentence = "";
+let currArg = "";
+let currArgIndex = 0;
+let miniDict = []; // this will be the results of a filter
+// which we will then use to get a random index
+// and get the word
+
+switch (sentenceType) {
+  case 0:
+    console.log(`LOG: sentenceType 0 (descriptive angsa sentence) was detected. Proceeding without args.`);
+    miniDict = wordDict.filter((obj) => obj.subject.adj == true);
+    currArgIndex = Math.floor(Math.random() * (miniDict.length - 1 + 1));
+    console.log(`LOG: currArgIndex is ${currArgIndex}, which is ${miniDict[currArgIndex].word}`);
+    currArg = caseSuffixer(miniDict[currArgIndex].word, "subj");
+    sentence += currArg;
+    console.log(`LOG: word ${miniDict[currArgIndex].word} was added as subject. Sentence is ${sentence}.`);
+    miniDict = wordDict.filter((obj) => obj.type == "adj");
+    currArgIndex = Math.floor(Math.random() * (miniDict.length - 1 + 1));
+    sentence += " " + miniDict[currArgIndex].word;
+    console.log(`LOG: word ${miniDict[currArgIndex].word} was added as adj. Sentence is ${sentence}.`);
+    sentence += " " + "sa";
+    console.log(`LOG: sa was added as verb. Sentence is ${sentence}. sentenceSuffixer break & return.`);
+    break;
+  
+  case 1:
+    console.log(`LOG: sentenceType 1 (possessive angsa sentence) was detected. Proceeding without args.`);
+    miniDict = wordDict.filter((obj) => obj.subject.possess == true);
+    currArgIndex = Math.floor(Math.random() * (miniDict.length - 1 + 1));
+    console.log(`LOG: currArgIndex is ${currArgIndex}, which is ${miniDict[currArgIndex].word}`);
+    currArg = caseSuffixer(miniDict[currArgIndex].word, "subj");
+    sentence += currArg;
+    console.log(`LOG: word ${miniDict[currArgIndex].word} was added as subject. Sentence is ${sentence}.`);
+    miniDict = wordDict.filter((obj) => obj.possessable == true);
+    currArgIndex = Math.floor(Math.random() * (miniDict.length - 1 + 1));
+    sentence += " " + miniDict[currArgIndex].word;
+    console.log(`LOG: word ${miniDict[currArgIndex].word} was added as adj. Sentence is ${sentence}.`);
+    sentence += " " + "sa";
+    console.log(`LOG: sa was added as verb. Sentence is ${sentence}. sentenceSuffixer break & return.`);
+    break;
+    
+    
+    // btw, in case 2
+    // if we have something like
+    // yongasabiga yongasabi jattowa sa
+    // should we instead say
+    // yeichi yongasabiga yongasabi jattowa sa
+    // the other slugcat is with the slugcat/s
+    // or, a chance to say
+    // yongasabiga yeichi yongasabi jattowa sa
+    // the slugcat is with the other slugcat
+    // or! we can even do descriptors!
+    // nonija yongasabiga koddim yongasabi jattowa sa
+    // the orange slugcat is with the red slugcat
+    // food for thought. that last example kind of requires
+    // having better adjective handling tho
+    // and anyway, if we randomise the adjectives
+    // there's no guarantee they'll be different...
+    // in this case something like consumablelist would be of use
+    // but i dislike it
+    // we could build a list of adjectives that is identical
+    // to our dict's adjectives
+    // then use that as a consumablelist, write that variable, and then access it
+    // later to then get indexOf(wordDict.object.word == [adj])
+    // that seems kind of complicated tho ...
+  case 2:
+    console.log(`LOG: sentenceType 2 (locative angsa sentence) was detected. Proceeding without args.`);
+    miniDict = wordDict.filter((obj) => obj.subject.typ == true);
+    currArgIndex = Math.floor(Math.random() * (miniDict.length - 1 + 1));
+    console.log(`LOG: currArgIndex is ${currArgIndex}, which is ${miniDict[currArgIndex].word}`);
+    currArg = caseSuffixer(miniDict[currArgIndex].word, "subj");
+    sentence += currArg;
+    console.log(`LOG: word ${miniDict[currArgIndex].word} was added as subject. Sentence is ${sentence}.`);
+    miniDict = wordDict.filter((obj) => obj.locative.typ == true);
+    currArgIndex = Math.floor(Math.random() * (miniDict.length - 1 + 1));
+    if (miniDict[currArgIndex].animate == true) {currArg = miniDict[currArgIndex].word + " jatto"} else {currArg = miniDict[currArgIndex].word};
+    currArg = caseSuffixer(currArg, "loc");
+    sentence += " " + currArg
+    console.log(`LOG: word ${miniDict[currArgIndex].word} was added as loc. Sentence is ${sentence}.`);
+    sentence += " " + "sa";
+    console.log(`LOG: sa was added as verb. Sentence is ${sentence}. sentenceSuffixer break & return.`);
+    break;
+    
+    case 3:
+      console.log(`LOG: sentenceType 3 (typ verb sentence) was detected. Proceeding with args.`);
+      if (argsArray.includes("subj")) {console.log(`LOG: argsArray includes subj at ${argsArray.indexOf("subj")}. Proceed.`);
+         miniDict = wordDict.filter((obj) => obj.subject.typ == true);
+         currArgIndex = Math.floor(Math.random() * (miniDict.length - 1 + 1));
+         console.log(`LOG: currArgIndex is ${currArgIndex}, which is ${miniDict[currArgIndex].word}`);
+         currArg = caseSuffixer(miniDict[currArgIndex].word, "subj");
+         sentence += currArg;
+         console.log(`LOG: word ${miniDict[currArgIndex].word} was added as subject. Sentence is ${sentence}.`)} else
+      {console.log(`LOG: argsArray did not include subj. Getting next arg.`)};
+      if (argsArray.includes("loc")) {console.log(`LOG: argsArray includes loc at ${argsArray.indexOf("loc")}. Proceed.`);
+        miniDict = wordDict.filter((obj) => obj.locative.typ == true);
+        currArgIndex = Math.floor(Math.random() * (miniDict.length - 1 + 1));
+         if (miniDict[currArgIndex].animate == true) {currArg = miniDict[currArgIndex].word + " jatto"} else {currArg = miniDict[currArgIndex].word};
+         currArg = caseSuffixer(currArg, "loc");
+        sentence += " " + currArg;
+        console.log(`LOG: word ${miniDict[currArgIndex].word} was added as loc. Sentence is ${sentence}.`);
+      } else
+      {console.log(`LOG: argsArray did not include loc. Getting verb.`);
+      miniDict = wordDict.filter((obj) => obj.type == "verb");
+      currArgIndex = Math.floor(Math.random() * miniict.length - 1 + 1));
+      console.log(`LOG: currArgIndex is ${currArgIndex}, which is ${miniDict[currArgIndex].word}.`);
+      currArg = tenseSuffixer(miniDict[currArgIndex.word], tensesArray);
+      sentence += " " + currArg;
+      console.log(`LOG: word ${miniDict[currArgIndex].word} was added as verb. ${currArg} after suffixing. Sentence is ${sentence}. sentenceSuffixer break & return.`);
+      };
+      break;
+      
+  default:
+    console.log(`ERROR: case was not 0 - 5 (inclusive). Now dumping values sentenceType, sentence, currArg, miniDict, currArgIndex.`);
+    console.log(sentenceType, sentence, currArg, miniDict, currArgIndex);
+    sentence = "sentenceCtor failed, see consolelog";
+    break;
+
+}
+
+return sentence;
+}
