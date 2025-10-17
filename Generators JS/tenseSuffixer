@@ -1,7 +1,6 @@
-  function tenseSuffixer (tensesArray) {
-  let verbIndex = Math.floor(Math.random() * (verbList.length - 1 + 1));
-  let verb = verbList[verbIndex].word;
-  let verbLength = verbList[verbIndex].rootLength;
+  function tenseSuffixer (verb, tensesArray) {
+  let verbLength = for (let i = 0; i < wordDict.length; i++) {
+    if (wordDict[i].word == word) {verbLength = wordDict[i].rootLength} else {continue};
   let cutVerb = verb.slice(0, verb.length - 1);
   let formattedArray = [];
   let suffixedVerb = "TEMP";
