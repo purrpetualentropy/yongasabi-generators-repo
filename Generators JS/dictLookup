@@ -1,0 +1,21 @@
+function dictLookup (word) {
+  console.log(`LOG: dictLookup got word ${word}`);
+  word = word.trim();
+  let i = 0;
+  console.log(`LOG: dictLookup trimmed word into ${word}`);
+  let fullDef = "<b>" + word + "</b>" + "<br>";
+  for (i = 0; i < wordDict.length; i++) {
+    if (wordDict[i].word == word) {
+      fullDef += "<i>" + wordDict[i].type + "</i>" + "<br>";
+      for (let b = 0; b < wordDict[i].definition.length; b++) {
+        fullDef += [b+1] + ". " + wordDict[i].definition[b] + "<br>";
+        }
+      break} else {}};
+  console.log(`LOG: i is ${i}`)
+  if (i == wordDict.length) {fullDef += "Couldn't find the word '" + word + "' in the local dictionary. You may find it in the <a href='https://docs.google.com/document/d/1Tll7H4qqslsbk1-U1rFnhHs5Au3Lawn3nLowXDmk6AY/edit?pli=1&tab=t.0'>Yongasabi Dictionary</a> instead."}
+  document.getElementById("dictLookupReturnZone").innerHTML = fullDef;
+  // conceptual more complex returns:
+  // return by type? i.e type = noun, type = adj, type = verb
+  // return by root
+  // return by prefix ???
+}
