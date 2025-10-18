@@ -1,16 +1,23 @@
   function tenseSuffixer (verb, tensesArray) {
-  let verbLength = for (let i = 0; i < wordDict.length; i++) {
-    if (wordDict[i].word == word) {verbLength = wordDict[i].rootLength} else {continue};
+  let verbLength = ""
+      for (let i = 0; i < wordDict.length; i++) {
+    if (wordDict[i].word == verb) {verbLength = wordDict[i].rootLength} else {continue};
   let cutVerb = verb.slice(0, verb.length - 1);
   let formattedArray = [];
   let suffixedVerb = "TEMP";
   let currSuffix = "TEMP";
   let prevSuffix = "TEMP";
   
-  console.log(`LOG: verbIndex is ${verbIndex}! Found word ${verb} and length ${verbLength}! cutVerb is ${cutVerb}!`);
+  console.log(`LOG: Found word ${verb} and length ${verbLength}! cutVerb is ${cutVerb}!`);
   formattedArray = arrayFormatter(tensesArray);
   console.log(`LOG: tenseSuffixer received formattedArray ${formattedArray}! Proceed to suffixing!`);
   
+  if (verb == "sa" || verb == "go") {console.log(`LOG: sa or go was detected. Proceeding without tenses.`);
+    if (formattedArray.includes("neg")) {console.log(`LOG: neg tense was detected. Suffixing.`);
+    suffixedVerb = verb + "yong"} else
+    {console.log(`LOG: neg wasn't detected. Returning as sa or go.`);
+    suffifedVerb = verb;
+  }} else
   
   if (verbLength == 3) {console.log(`LOG: verbLength 3 detected!`);
     for (let i = 0; i < formattedArray.length; i++) {
@@ -302,4 +309,4 @@
   return suffixedVerb;
   } else {console.log(`ERROR: verbLength ${verbLength} couldn't be found. breaking`); return "FAILED, SEE CONSOLELOG"};
 }
-</script>
+  }
