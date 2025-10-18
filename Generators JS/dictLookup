@@ -1,21 +1,95 @@
-function dictLookup (word) {
-  console.log(`LOG: dictLookup got word ${word}`);
+function dictLookup (word, searchType) {
+  console.log(`LOG: dictLookup got word ${word} searchType ${searchType}`);
   word = word.trim();
   let i = 0;
+  let fullDef = "";
+  let miniDict = [];
   console.log(`LOG: dictLookup trimmed word into ${word}`);
-  let fullDef = "<b>" + word + "</b>" + "<br>";
-  for (i = 0; i < wordDict.length; i++) {
-    if (wordDict[i].word == word) {
-      fullDef += "<i>" + wordDict[i].type + "</i>" + "<br>";
-      for (let b = 0; b < wordDict[i].definition.length; b++) {
-        fullDef += [b+1] + ". " + wordDict[i].definition[b] + "<br>";
-        }
-      break} else {}};
+  
+  switch (searchType) {
+  
+  case "word":
+    fullDef = "<b>" + word + "</b>" + "<br>";
+    for (i = 0; i < wordDict.length; i++) {
+      if (wordDict[i].word == word) {
+        fullDef += "<i>" + wordDict[i].type + " | " + wordDict[i].root + "</i>" + "<br>";
+        for (let b = 0; b < wordDict[i].definition.length; b++) {
+          fullDef += [b+1] + ". " + wordDict[i].definition[b] + "<br>";
+          }
+        break} else {}
+        };
+        break;
+        
+  case "root":
+    fullDef = "<b>" + word + "</b> words:";
+    for (i = 0; i < wordDict.length; i++) {
+      if (wordDict[i].root == word) {
+        fullDef += "<br><br>" + "<b>" + wordDict[i].word + "</b> " + "<i>" + wordDict[i].type + "</i>" + "<br>";
+        for (let b = 0; b < wordDict[i].definition.length; b++) {
+          fullDef += [b+1] + ". " + wordDict[i].definition[b] + "<br>";
+          }
+        } else {}
+        };
+        break;
+
+  case "noun":
+    fullDef = "<details><summary>Words with type <b>noun</b>:</summary>";
+        for (i = 0; i < wordDict.length; i++) {
+      if (wordDict[i].type == searchType) {
+        fullDef += "<br><br>" + "<b>" + wordDict[i].word + "</b> " + "<i>" + wordDict[i].root + "</i>" + "<br>";
+        for (let b = 0; b < wordDict[i].definition.length; b++) {
+          fullDef += [b+1] + ". " + wordDict[i].definition[b] + "<br>";
+          }
+        } else if (i == wordDict.length && fullDef != "<details><summary>Words with type <b>noun</b>:</summary>") {fullDef += "</details>"}
+        };
+        break;
+        
+    case "adj":
+    fullDef = "<details><summary>Words with type <b>adj</b>:</summary>";
+        for (i = 0; i < wordDict.length; i++) {
+      if (wordDict[i].type == searchType) {
+        fullDef += "<br><br>" + "<b>" + wordDict[i].word + "</b> " + "<i>" + wordDict[i].root + "</i>" + "<br>";
+        for (let b = 0; b < wordDict[i].definition.length; b++) {
+          fullDef += [b+1] + ". " + wordDict[i].definition[b] + "<br>";
+          }
+        } else if (i == wordDict.length && fullDef != "<details><summary>Words with type <b>adj</b>:</summary>") {fullDef += "</details>"}
+        };
+        break;
+        
+  case "verb":
+    fullDef = "<details><summary>Words with type <b>verb</b>:</summary>";
+        for (i = 0; i < wordDict.length; i++) {
+      if (wordDict[i].type == searchType) {
+        fullDef += "<br><br>" + "<b>" + wordDict[i].word + "</b> " + "<i>" + wordDict[i].root + "</i>" + "<br>";
+        for (let b = 0; b < wordDict[i].definition.length; b++) {
+          fullDef += [b+1] + ". " + wordDict[i].definition[b] + "<br>";
+          }
+        } else if (i == wordDict.length && fullDef != "<details><summary>Words with type <b>verb</b>:</summary>") {fullDef += "</details>"}
+        };
+        break;
+        
+    case "rootLength":
+      word = Number(word);
+      fullDef = "<details><summary>Words with root length <b>" + word + "</b>:</summary>";
+        for (i = 0; i < wordDict.length; i++) {
+      if (wordDict[i].rootLength == word) {
+        fullDef += "<br><br>" + "<b>" + wordDict[i].word + "</b> " + "<i>" + wordDict[i].root + "</i>" + "<br>";
+        for (let b = 0; b < wordDict[i].definition.length; b++) {
+          fullDef += [b+1] + ". " + wordDict[i].definition[b] + "<br>";
+          }
+        } else if (i == wordDict.length && fullDef != "<details><summary>Words with root length <b>" + word + "</b>:</summary>") {fullDef += "</details>"}
+        };
+        break;
+      
+  }
+  
   console.log(`LOG: i is ${i}`)
-  if (i == wordDict.length) {fullDef += "Couldn't find the word '" + word + "' in the local dictionary. You may find it in the <a href='https://docs.google.com/document/d/1Tll7H4qqslsbk1-U1rFnhHs5Au3Lawn3nLowXDmk6AY/edit?pli=1&tab=t.0'>Yongasabi Dictionary</a> instead."}
+  if (i == wordDict.length && searchType == "word") {fullDef = "Couldn't find the word <b>'" + word + "'</b> in the local dictionary. You may find it in the <a href='https://docs.google.com/document/d/1Tll7H4qqslsbk1-U1rFnhHs5Au3Lawn3nLowXDmk6AY/edit?pli=1&tab=t.0'>Yongasabi Dictionary</a> instead."} else // word searchType shouldnt reach array.length
+  if (fullDef == "<b>" + word + "</b> words:" + "<br>" && searchType == "root") {fullDef = "Couldn't find any words matching the root <b>'" + word + "'</b> in the local dictionary. You may find words in the <a href='https://docs.google.com/document/d/1Tll7H4qqslsbk1-U1rFnhHs5Au3Lawn3nLowXDmk6AY/edit?pli=1&tab=t.0'>Yongasabi Dictionary</a> instead."} else
+  if (fullDef == "Words with type <b>verb</b>:<br>" || fullDef == "Words with type <b>adj</b>:<br>" || fullDef == "Words with type <b>noun</b>:<br>") {fullDef = "Couldn't find any words with the type <b>" +  searchType + "</b> in the local dictionary. You may find words in the <a href='https://docs.google.com/document/d/1Tll7H4qqslsbk1-U1rFnhHs5Au3Lawn3nLowXDmk6AY/edit?pli=1&tab=t.0'>Yongasabi Dictionary</a> instead."} else
+  if (fullDef == "<details><summary>Words with root length <b>" + word + "</b>:</summary>") {fullDef = "Couldn't find any words with a root length of <b>" + word + "</b> in the local dictionary. You may find words in the <a href='https://docs.google.com/document/d/1Tll7H4qqslsbk1-U1rFnhHs5Au3Lawn3nLowXDmk6AY/edit?pli=1&tab=t.0'>Yongasabi Dictionary</a> instead."}
   document.getElementById("dictLookupReturnZone").innerHTML = fullDef;
   // conceptual more complex returns:
-  // return by type? i.e type = noun, type = adj, type = verb
-  // return by root
   // return by prefix ???
+  // i think return IF prefixed may be better
 }
