@@ -1,5 +1,4 @@
-function sentenceCtor (argsArray, tensesArray) {
-let sentenceType = Math.floor(Math.random() * (3 - 0 + 1));
+function sentenceCtor (argsArray, tensesArray, sentenceType) {
 console.log(`LOG: sentenceCtor init with sentenceType ${sentenceType}`);
 // 0 == descriptive angsa sentence; sattoga koddim sa.
 // 1 == possessive angsa sentence; masinabiga akita sa.
@@ -7,12 +6,26 @@ console.log(`LOG: sentenceCtor init with sentenceType ${sentenceType}`);
 // 3 == typ verb sentence; pajmuy'ag katsa.
 // 4 == vom sentence; pachmigaegae solanido go.
 // 5 == consumable sentence; tonun'ag gilado yahlasa
+// sentenceType is taken in when calling the function so that
+// i can even out the chances in perchance
+// since rn there's as many angsa sentences as actual
+// verb sentences and that kinda just sucks
 let sentence = "";
 let currArg = "";
 let currArgIndex = 0;
 let miniDict = []; // this will be the results of a filter
 // which we will then use to get a random index
 // and get the word
+let negRnd = Math.floor(Math.random() * 2) + 1
+console.log(`negRnd is ${negRnd} negBox.value is ${negBox.value}`)
+if (negRnd == 1 && negBox.value == "on") {tensesArray = ["present", "neg"]; console.log(`LOG: tensesArray is ${tensesArray}.`)} else {tensesArray = ["present"]; console.log(`LOG: tensesArray is ${tensesArray}.`)}
+// i need to remove this when i port the more tenses gen to sentenceCtor
+// bc it can actually fuckin generate tensesArray
+// this is here bc in the case markers gen
+// it kept giving plain form negatives instead of
+// present tense negatives so i just
+// hardcoded it instead of trying to fix it 
+// (perchance really didnt want me to fix it)
 
 switch (sentenceType) {
   case 0:
@@ -91,14 +104,12 @@ switch (sentenceType) {
     
     case 3:
       console.log(`LOG: sentenceType 3 (typ verb sentence) was detected. Proceeding with args.`);
-      if (argsArray.includes("subj")) {console.log(`LOG: argsArray includes subj at ${argsArray.indexOf("subj")}. Proceed.`);
-         miniDict = wordDict.filter((obj) => obj.subject.typ == true);
-         currArgIndex = Math.floor(Math.random() * (miniDict.length - 1 + 1));
-         console.log(`LOG: currArgIndex is ${currArgIndex}, which is ${miniDict[currArgIndex].word}`);
-         currArg = caseSuffixer(miniDict[currArgIndex].word, "subj");
-         sentence += currArg;
-         console.log(`LOG: word ${miniDict[currArgIndex].word} was added as subject. Sentence is ${sentence}.`)} else
-      {console.log(`LOG: argsArray did not include subj. Getting next arg.`)};
+        miniDict = wordDict.filter((obj) => obj.subject.typ == true);
+        currArgIndex = Math.floor(Math.random() * (miniDict.length - 1 + 1));
+        console.log(`LOG: currArgIndex is ${currArgIndex}, which is ${miniDict[currArgIndex].word}`);
+        currArg = caseSuffixer(miniDict[currArgIndex].word, "subj");
+        sentence += currArg;
+        console.log(`LOG: word ${miniDict[currArgIndex].word} was added as subject. Sentence is ${sentence}.`);
       if (argsArray.includes("loc")) {console.log(`LOG: argsArray includes loc at ${argsArray.indexOf("loc")}. Proceed.`);
         miniDict = wordDict.filter((obj) => obj.locative.typ == true);
         currArgIndex = Math.floor(Math.random() * (miniDict.length - 1 + 1));
@@ -106,12 +117,19 @@ switch (sentenceType) {
          currArg = caseSuffixer(currArg, "loc");
         sentence += " " + currArg;
         console.log(`LOG: word ${miniDict[currArgIndex].word} was added as loc. Sentence is ${sentence}.`);
+        console.log(`LOG: Getting verb.`);
+      miniDict = wordDict.filter((obj) => obj.type == "verb");
+      currArgIndex = Math.floor(Math.random() * (miniDict.length - 1 + 1));
+      console.log(`LOG: currArgIndex is ${currArgIndex}, which is ${miniDict[currArgIndex].word}.`);
+      currArg = tenseSuffixer(miniDict[currArgIndex].word, tensesArray);
+      sentence += " " + currArg;
+      console.log(`LOG: word ${miniDict[currArgIndex].word} was added as verb. ${currArg} after suffixing. Sentence is ${sentence}. sentenceSuffixer break & return.`);
       } else
       {console.log(`LOG: argsArray did not include loc. Getting verb.`);
       miniDict = wordDict.filter((obj) => obj.type == "verb");
-      currArgIndex = Math.floor(Math.random() * miniict.length - 1 + 1));
+      currArgIndex = Math.floor(Math.random() * (miniDict.length - 1 + 1));
       console.log(`LOG: currArgIndex is ${currArgIndex}, which is ${miniDict[currArgIndex].word}.`);
-      currArg = tenseSuffixer(miniDict[currArgIndex.word], tensesArray);
+      currArg = tenseSuffixer(miniDict[currArgIndex].word, tensesArray);
       sentence += " " + currArg;
       console.log(`LOG: word ${miniDict[currArgIndex].word} was added as verb. ${currArg} after suffixing. Sentence is ${sentence}. sentenceSuffixer break & return.`);
       };
