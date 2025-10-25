@@ -1,0 +1,4 @@
+function clearDictLookup () {
+  let result = confirm("Clear the dictionary lookup results?");
+  if (result == true) {document.getElementById("dictLookupReturnZone").innerHTML = ""; console.log(`LOG: clearDictLookup cleared results.`)} else {};
+}
