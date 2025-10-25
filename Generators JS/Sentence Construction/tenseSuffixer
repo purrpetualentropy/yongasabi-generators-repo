@@ -9,7 +9,7 @@
   let prevSuffix = "TEMP";
   
   console.log(`LOG: Found word ${verb} and length ${verbLength}! cutVerb is ${cutVerb}!`);
-  formattedArray = arrayFormatter(tensesArray);
+  formattedArray = tensesArrayFormatter(tensesArray);
   console.log(`LOG: tenseSuffixer received formattedArray ${formattedArray}! Proceed to suffixing!`);
   
   if (verb == "sa" || verb == "go") {console.log(`LOG: sa or go was detected. Proceeding without tenses.`);
