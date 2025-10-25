@@ -6,10 +6,7 @@ console.log(`LOG: sentenceCtor init with sentenceType ${sentenceType}`);
 // 3 == typ verb sentence; pajmuy'ag katsa.
 // 4 == vom sentence; pachmigaegae solanido go.
 // 5 == consumable sentence; tonun'ag gilado yahlasa
-// sentenceType is taken in when calling the function so that
-// i can even out the chances in perchance
-// since rn there's as many angsa sentences as actual
-// verb sentences and that kinda just sucks
+let word = "";
 let sentence = "";
 let currArg = "";
 let currArgIndex = 0;
@@ -17,16 +14,11 @@ let miniDict = []; // this will be the results of a filter
 // which we will then use to get a random index
 // and get the word
 let negRnd = Math.floor(Math.random() * 2) + 1
-console.log(`negRnd is ${negRnd} negBox.value is ${negBox.value}`)
-if (negRnd == 1 && negBox.value == "on") {tensesArray = ["present", "neg"]; console.log(`LOG: tensesArray is ${tensesArray}.`)} else {tensesArray = ["present"]; console.log(`LOG: tensesArray is ${tensesArray}.`)}
-// i need to remove this when i port the more tenses gen to sentenceCtor
-// bc it can actually fuckin generate tensesArray
-// this is here bc in the case markers gen
-// it kept giving plain form negatives instead of
-// present tense negatives so i just
-// hardcoded it instead of trying to fix it 
-// (perchance really didnt want me to fix it)
+console.log(`LOG: negRnd is ${negRnd} negBox checked is ${document.getElementById('negBox').checked}`)
+if (negRnd == 1 && document.getElementById('negBox').checked) {tensesArray = ["present", "neg"]; console.log(`LOG: tensesArray is ${tensesArray}.`)} else {tensesArray = ["present"]; console.log(`LOG: tensesArray is ${tensesArray}.`)}
 
+argsArray = argsArrayFormatter(argsArray, sentenceType);
+  
 switch (sentenceType) {
   case 0:
     console.log(`LOG: sentenceType 0 (descriptive angsa sentence) was detected. Proceeding without args.`);
@@ -40,8 +32,8 @@ switch (sentenceType) {
     currArgIndex = Math.floor(Math.random() * (miniDict.length - 1 + 1));
     sentence += " " + miniDict[currArgIndex].word;
     console.log(`LOG: word ${miniDict[currArgIndex].word} was added as adj. Sentence is ${sentence}.`);
-    sentence += " " + "sa";
-    console.log(`LOG: sa was added as verb. Sentence is ${sentence}. sentenceSuffixer break & return.`);
+    if (tensesArray.includes("neg")) {sentence += " " + "sayong"} else {sentence += " " + "sa"};
+    console.log(`LOG: sa was added as verb. Sentence is ${sentence}. sentenceCtor break & return.`);
     break;
   
   case 1:
@@ -56,8 +48,8 @@ switch (sentenceType) {
     currArgIndex = Math.floor(Math.random() * (miniDict.length - 1 + 1));
     sentence += " " + miniDict[currArgIndex].word;
     console.log(`LOG: word ${miniDict[currArgIndex].word} was added as adj. Sentence is ${sentence}.`);
-    sentence += " " + "sa";
-    console.log(`LOG: sa was added as verb. Sentence is ${sentence}. sentenceSuffixer break & return.`);
+    if (tensesArray.includes("neg")) {sentence += " " + "sayong"} else {sentence += " " + "sa"};
+    console.log(`LOG: sa was added as verb. Sentence is ${sentence}. sentenceCtor break & return.`);
     break;
     
     
@@ -92,56 +84,101 @@ switch (sentenceType) {
     currArg = caseSuffixer(miniDict[currArgIndex].word, "subj");
     sentence += currArg;
     console.log(`LOG: word ${miniDict[currArgIndex].word} was added as subject. Sentence is ${sentence}.`);
-    miniDict = wordDict.filter((obj) => obj.locative.typ == true);
+    miniDict = wordDict.filter((obj) => obj.loc.typ == true && obj.type != "verb");
     currArgIndex = Math.floor(Math.random() * (miniDict.length - 1 + 1));
     if (miniDict[currArgIndex].animate == true) {currArg = miniDict[currArgIndex].word + " jatto"} else {currArg = miniDict[currArgIndex].word};
     currArg = caseSuffixer(currArg, "loc");
     sentence += " " + currArg
     console.log(`LOG: word ${miniDict[currArgIndex].word} was added as loc. Sentence is ${sentence}.`);
-    sentence += " " + "sa";
-    console.log(`LOG: sa was added as verb. Sentence is ${sentence}. sentenceSuffixer break & return.`);
+    if (tensesArray.includes("neg")) {sentence += " " + "sayong"} else {sentence += " " + "sa"};
+    console.log(`LOG: sa was added as verb. Sentence is ${sentence}. sentenceCtor break & return.`);
     break;
     
     case 3:
       console.log(`LOG: sentenceType 3 (typ verb sentence) was detected. Proceeding with args.`);
-        miniDict = wordDict.filter((obj) => obj.subject.typ == true);
-        currArgIndex = Math.floor(Math.random() * (miniDict.length - 1 + 1));
-        console.log(`LOG: currArgIndex is ${currArgIndex}, which is ${miniDict[currArgIndex].word}`);
-        currArg = caseSuffixer(miniDict[currArgIndex].word, "subj");
-        sentence += currArg;
-        console.log(`LOG: word ${miniDict[currArgIndex].word} was added as subject. Sentence is ${sentence}.`);
-      if (argsArray.includes("loc")) {console.log(`LOG: argsArray includes loc at ${argsArray.indexOf("loc")}. Proceed.`);
-        miniDict = wordDict.filter((obj) => obj.locative.typ == true);
-        currArgIndex = Math.floor(Math.random() * (miniDict.length - 1 + 1));
-         if (miniDict[currArgIndex].animate == true) {currArg = miniDict[currArgIndex].word + " jatto"} else {currArg = miniDict[currArgIndex].word};
-         currArg = caseSuffixer(currArg, "loc");
-        sentence += " " + currArg;
-        console.log(`LOG: word ${miniDict[currArgIndex].word} was added as loc. Sentence is ${sentence}.`);
-        console.log(`LOG: Getting verb.`);
-      miniDict = wordDict.filter((obj) => obj.type == "verb");
-      currArgIndex = Math.floor(Math.random() * (miniDict.length - 1 + 1));
-      console.log(`LOG: currArgIndex is ${currArgIndex}, which is ${miniDict[currArgIndex].word}.`);
-      currArg = tenseSuffixer(miniDict[currArgIndex].word, tensesArray);
+      sentenceType = "typ";
+      console.log(`LOG: Checking if subject should be forced.`);
+      if (argsArray.includes("subject")) {console.log(`LOG: subj is present. Moving on.`)} else
+      if (argsArray.includes("subject") == false) {console.log(`LOG: subj is not present. Detecting how to force...`);
+      if (argsArray.includes("voc")) {console.log(`LOG: voc is detected. Pushing at index 2.`); argsArray.splice(2, 0, "subject"); console.log(`LOG: argsArray is ${argsArray}`)} else {console.log(`LOG: voc wasn't detected. Pushing at index 1.`); argsArray.splice(1, 0, "subject"); console.log(`LOG: argsArray is ${argsArray}`)}};
+      console.log(`LOG: Entering for loop.`);
+        for (let i = 1; i < argsArray.length; i++) {
+          console.log(`argsArray[i] is ${argsArray[i]} i is ${i} sentenceType is ${sentenceType}`)
+          miniDict = wordDict.filter((obj) => obj[argsArray[i]][sentenceType] == true && obj.type != "verb" && obj.type != "adj");
+          currArgIndex = Math.floor(Math.random() * (miniDict.length - 1 + 1));
+          word = miniDict[currArgIndex].word;
+          currArg = caseSuffixer(word, argsArray[i], sentenceType);
+          console.log(`LOG: currArg is ${currArg} after case marked`);
+          sentence += " " + currArg;
+          console.log(`LOG: sentence is ${sentence} after added ${currArg}.`);
+        };
+      console.log(`LOG: Exited loop. Getting verb.`);
+      currArg = argsArray[0];
+      console.log(`LOG: currArg registered as ${currArg}. This should be 0 of ${argsArray}.`);
+      currArg = tenseSuffixer(currArg, tensesArray);
       sentence += " " + currArg;
-      console.log(`LOG: word ${miniDict[currArgIndex].word} was added as verb. ${currArg} after suffixing. Sentence is ${sentence}. sentenceSuffixer break & return.`);
-      } else
-      {console.log(`LOG: argsArray did not include loc. Getting verb.`);
-      miniDict = wordDict.filter((obj) => obj.type == "verb");
-      currArgIndex = Math.floor(Math.random() * (miniDict.length - 1 + 1));
-      console.log(`LOG: currArgIndex is ${currArgIndex}, which is ${miniDict[currArgIndex].word}.`);
-      currArg = tenseSuffixer(miniDict[currArgIndex].word, tensesArray);
-      sentence += " " + currArg;
-      console.log(`LOG: word ${miniDict[currArgIndex].word} was added as verb. ${currArg} after suffixing. Sentence is ${sentence}. sentenceSuffixer break & return.`);
-      };
+      console.log(`LOG: Verb is ${currArg} after suffixing. Sentence is ${sentence}. sentenceCtor break & return.`);
       break;
-      
+
+    case 4:
+      console.log(`LOG: sentenceType 4 (vom verb sentence) was detected. Proceeding with args.`);
+      sentenceType = "vom";
+      console.log(`LOG: Checking if subject should be forced.`);
+      if (argsArray.includes("subject")) {console.log(`LOG: subj is present. Moving on.`)} else
+      if (argsArray.includes("subject") == false) {console.log(`LOG: subj is not present. Detecting how to force...`);
+      if (argsArray.includes("voc")) {console.log(`LOG: voc is detected. Pushing at index 2.`); argsArray.splice(2, 0, "subject"); console.log(`LOG: argsArray is ${argsArray}`)} else {console.log(`LOG: voc wasn't detected. Pushing at index 1.`); argsArray.splice(1, 0, "subject"); console.log(`LOG: argsArray is ${argsArray}`)}};
+      console.log(`LOG: Entering for loop.`);
+        for (let i = 1; i < argsArray.length; i++) {
+          console.log(`argsArray[i] is ${argsArray[i]} i is ${i} sentenceType is ${sentenceType}`)
+          miniDict = wordDict.filter((obj) => obj[argsArray[i]][sentenceType] == true && obj.type != "verb" && obj.type != "adj");
+          currArgIndex = Math.floor(Math.random() * (miniDict.length - 1 + 1));
+          word = miniDict[currArgIndex].word;
+          currArg = caseSuffixer(word, argsArray[i], sentenceType);
+          console.log(`LOG: currArg is ${currArg} after case marked`);
+          sentence += " " + currArg;
+          console.log(`LOG: sentence is ${sentence} after added ${currArg}.`);
+        };
+      console.log(`LOG: Exited loop. Getting verb.`);
+      currArg = argsArray[0];
+      console.log(`LOG: currArg registered as ${currArg}. This should be 0 of ${argsArray}.`);
+      currArg = tenseSuffixer(currArg, tensesArray);
+      sentence += " " + currArg;
+      console.log(`LOG: Verb is ${currArg} after suffixing. Sentence is ${sentence}. sentenceCtor break & return.`);
+      break;
+
+    case 5:
+      console.log(`LOG: sentenceType 5 (consumable verb sentence) was detected. Proceeding with args.`);
+      sentenceType = "consumable";
+      console.log(`LOG: Checking if subject should be forced.`);
+      if (argsArray.includes("subject")) {console.log(`LOG: subj is present. Moving on.`)} else
+      if (argsArray.includes("subject") == false) {console.log(`LOG: subj is not present. Detecting how to force...`);
+      if (argsArray.includes("voc")) {console.log(`LOG: voc is detected. Pushing at index 2.`); argsArray.splice(2, 0, "subject"); console.log(`LOG: argsArray is ${argsArray}`)} else {console.log(`LOG: voc wasn't detected. Pushing at index 1.`); argsArray.splice(1, 0, "subject"); console.log(`LOG: argsArray is ${argsArray}`)}};
+      console.log(`LOG: Entering for loop.`);
+        for (let i = 1; i < argsArray.length; i++) {
+          console.log(`argsArray[i] is ${argsArray[i]} i is ${i} sentenceType is ${sentenceType}`)
+          miniDict = wordDict.filter((obj) => obj[argsArray[i]][sentenceType] == true && obj.type != "verb" && obj.type != "adj");
+          currArgIndex = Math.floor(Math.random() * (miniDict.length - 1 + 1));
+          word = miniDict[currArgIndex].word;
+          currArg = caseSuffixer(word, argsArray[i], sentenceType);
+          console.log(`LOG: currArg is ${currArg} after case marked`);
+          sentence += " " + currArg;
+          console.log(`LOG: sentence is ${sentence} after added ${currArg}.`);
+        };
+      console.log(`LOG: Exited loop. Getting verb.`);
+      currArg = argsArray[0];
+      console.log(`LOG: currArg registered as ${currArg}. This should be 0 of ${argsArray}.`);
+      currArg = tenseSuffixer(currArg, tensesArray);
+      sentence += " " + currArg;
+      console.log(`LOG: Verb is ${currArg} after suffixing. Sentence is ${sentence}. sentenceCtor break & return.`);
+      break;
+    
   default:
     console.log(`ERROR: case was not 0 - 5 (inclusive). Now dumping values sentenceType, sentence, currArg, miniDict, currArgIndex.`);
     console.log(sentenceType, sentence, currArg, miniDict, currArgIndex);
     sentence = "sentenceCtor failed, see consolelog";
     break;
 
-}
+};
 
 return sentence;
 }
