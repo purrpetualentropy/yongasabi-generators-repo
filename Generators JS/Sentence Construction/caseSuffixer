@@ -1,70 +1,78 @@
-function caseSuffixer (word, gramCase) {
-let vowelCheckerOutput = vowelChecker(word);
-console.log(`vowelChecker returned ${vowelCheckerOutput} on word ${word}`);
+function caseSuffixer (word, gramCase, sentenceType) {
+let vowelCheckerOutput = vowelChecker(word); // should output true or false
+console.log(`LOG: vowelChecker returned ${vowelCheckerOutput} on word ${word}`);
 let fixedCase = gramCase.toLowerCase();
-let suffixedWord = word
+let suffixedWord = word;
+let vomDirobjRnd = Math.floor(Math.random() * 2) + 1;
 
-// subj, loc, acc, dat, abl, instr, gen, them
-// 'ag, wa, 'o, 'im, mok, sang, la, pei
+// subj, timing, loc, abl, instr, indirobj, dest, dirobj, gen, voc
+// 'ag, n/a, wa, mok, sang, 'im, 'im, 'o (or pei if vom), la, ho
 switch (fixedCase) {
     case "subj":
-        console.log("Case subj was detected!");
+    case "subject":
+        console.log("LOG: Case subject was detected!");
         if (vowelCheckerOutput == true) {suffixedWord += "ga"} else {suffixedWord += "'ag"};
-        console.log(`Word ${word} was suffixed into ${suffixedWord}!`);
+        console.log(`LOG: Word ${word} was suffixed into ${suffixedWord}!`);
         return suffixedWord;
+        break;
+      
+      case "timing":
+        console.log("LOG: Case timing was detected! Returning normal!");
+        return word;
         break;
       
       case "loc":
-        console.log("Case loc was detected!");
+        console.log("LOG: Case loc was detected!");
         suffixedWord += "wa";
-        console.log(`Word ${word} was suffixed into ${suffixedWord}!`);
-        return suffixedWord;
-        break;
-      
-      case "acc":
-        console.log("Case acc was detected!");
-        if (vowelCheckerOutput == true) {suffixedWord += "do"} else {suffixedWord += "'o"};
-        console.log(`Word ${word} was suffixed into ${suffixedWord}!`);
-        return suffixedWord;
-        break;
-      
-      case "dat":
-        console.log("Case dat was detected!");
-        if (vowelCheckerOutput == true) {suffixedWord += "m"} else {suffixedWord += "'im"};
-        console.log(`Word ${word} was suffixed into ${suffixedWord}!`);
+        console.log(`LOG: Word ${word} was suffixed into ${suffixedWord}!`);
         return suffixedWord;
         break;
       
       case "abl":
-        console.log("Case abl was detected!");
+        console.log("LOG: Case abl was detected!");
         suffixedWord += "mok";
-        console.log(`Word ${word} was suffixed into ${suffixedWord}!`);
+        console.log(`LOG: Word ${word} was suffixed into ${suffixedWord}!`);
         return suffixedWord;
         break;
       
       case "instr":
-        console.log("Case instr was detected!");
+        console.log("LOG: Case instr was detected!");
         suffixedWord += "sang";
-        console.log(`Word ${word} was suffixed into ${suffixedWord}!`);
+        console.log(`LOG: Word ${word} was suffixed into ${suffixedWord}!`);
+        return suffixedWord;
+        break;
+      
+      case "dest":
+      case "indirobj":
+        console.log("LOG: Case indirobj or dest was detected!");
+        if (vowelCheckerOutput == true) {suffixedWord += "m"} else {suffixedWord += "'im"};
+        console.log(`LOG: Word ${word} was suffixed into ${suffixedWord}!`);
+        return suffixedWord;
+        break;
+      
+      case "dirobj":
+        console.log("LOG: Case dirobj was detected!");
+        if (sentenceType == 4 && vomDirobjRnd == 1 || document.getElementById('themBox').checked == false) {console.log(`LOG: sentenceType 4 (VOM) was detected. Using acc.`); if (vowelCheckerOutput == true) {suffixedWord += "do"} else {suffixedWord += "'o"}} else if (sentenceType == 4 && vomDirobjRnd == 2 && document.getElementById('themBox').checked) {console.log(`LOG: sentenceType 4 (VOM) was detected. Using them.`); suffixedWord += "pei"} else if (vowelCheckerOutput == true) {suffixedWord += "do"} else {suffixedWord += "'o"};
+        console.log(`LOG: Word ${word} was suffixed into ${suffixedWord}!`);
         return suffixedWord;
         break;
       
       case "gen":
-        console.log("Case gen was detected!");
+        console.log("LOG: Case gen was detected!");
         suffixedWord += "la";
-        console.log(`Word ${word} was suffixed into ${suffixedWord}!`);
+        console.log(`LOG: Word ${word} was suffixed into ${suffixedWord}!`);
         return suffixedWord;
         break;
         
-      case "them":
-        console.log("Case them was detected!");
-        suffixedWord += "pei";
-        console.log(`Word ${word} was suffixed into ${suffixedWord}!`);
+      case "voc":
+        console.log("LOG: Case voc was detected!");
+        suffixedWord += " ho";
+        console.log(`LOG: Word ${word} was suffixed into ${suffixedWord}!`);
         return suffixedWord;
         break;
         
     default:
-      console.log(`Case ${fixedCase} could not be found!`);
+      console.log(`LOG: Case ${fixedCase} could not be found!`);
       return "caseSuffixer failed, see consolelog";
 };
 }
