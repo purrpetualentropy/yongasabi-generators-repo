@@ -1,0 +1,88 @@
+function argsArrayFormatter(argsArray, sentenceType) {
+  let formattedArgsArray = [];
+  let verb = "";
+  let verbIndex = 0;
+  let miniDict = [];
+  let n = 1;
+  let destroyIndex = 0;
+  console.log(`LOG: argsArrayFormatter init with argsArray ${argsArray} sentenceType ${sentenceType}. Reformat sentenceType.`);
+  switch (sentenceType) {
+    case 0:
+      console.log(`LOG: argsArrayFormatter detected sentenceType 0, descriptive angsa sentence.`);
+      console.log(`LOG: We shouldn't be getting called for this. argsArray may be null. Return & breaking.`);
+      return "argsArrayFormatter shouldn't get called for this! You broke it!";
+      break;
+    case 1:
+      console.log(`LOG: argsArrayFormatter detected sentenceType 1, possessive angsa sentence.`);
+      console.log(`LOG: We shouldn't be getting called for this. argsArray may be null. Return & break.`);
+      return "argsArrayFormatter shouldn't get called for this! You broke it!";
+      break;
+    case 2:
+      console.log(`LOG: argsArrayFormatter detected sentenceType 2, locative angsa sentence.`);
+      console.log(`LOG: Still shouldn't be getting called for this. argsArray may be null. Return & break.`);
+      return "argsArrayFormatter shouldn't get called for this! You broke it!";
+      break;
+    case 3:
+      console.log(`LOG: argsArrayFormatter detected sentenceType 3, typ sentence. Re-assigning.`);
+      sentenceType = "typ";
+      console.log(`LOG: argsArrayFormatter reassigned sentenceType as ${sentenceType}. Breaking.`);
+      break;
+    case 4:
+      console.log(`LOG: argsArrayFormatter detected sentenceType 4, vom sentence. Re-assigning.`);
+      sentenceType = "vom";
+      console.log(`LOG: argsArrayFormatter reassigned sentenceType as ${sentenceType}. Breaking.`);
+      break;
+    case 5:
+      console.log(`LOG: argsArrayFormatter detected sentenceType 5, consumable sentence. Re-assigning.`);
+      sentenceType = "consumable";
+      console.log(`LOG: argsArrayFormatter reassigned sentenceType as ${sentenceType}. Breaking.`);
+      break;
+    
+    default:
+      console.log(`LOG: argsArrayFormatter couldn't detect legal sentenceType. Return & break.`);
+      return "argsArrayFormatter broke, see consolelog!!";
+      break;
+  }
+
+  
+  miniDict = wordDict.filter((obj) => obj.type == "verb" && obj.sentenceType == sentenceType);
+  console.log(`LOG: argsArrayFormatter miniDict is:`);
+  console.dir(miniDict);
+  verbIndex = Math.floor(Math.random() * (miniDict.length - 1 + 1));
+  verb = miniDict[verbIndex].word
+  formattedArgsArray[0] = verb;
+  console.log(`LOG: argsArrayFormatter got verb ${verb} from verbIndex ${verbIndex}. formattedArgsArray[0] is ${formattedArgsArray[0]}. Proceed to formatting.`);
+  
+  for (let i = 0; i < argsArray.length; i++) { 
+    if (argsArray.includes("subject") && miniDict[verbIndex].subject[sentenceType] == true) {console.log(`LOG: argsArrayFormatter detected subject at ${argsArray.indexOf("subject")} && is true!`); formattedArgsArray[n] = "subject"; destroyIndex = argsArray.indexOf("subject"); argsArray[destroyIndex] = n; n++; console.log(`LOG: after subj formatted argsArray now ${argsArray} formattedArgsArray now ${formattedArgsArray} n now ${n}`); continue} else
+    if (argsArray.includes("subject") && miniDict[verbIndex].subject[sentenceType] == false) {console.log(`LOG: argsArrayFormatter detected subject at ${argsArray.indexOf("subject")} && is false!`); destroyIndex = argsArray.indexOf("subject"); argsArray[destroyIndex] = n; console.log(`LOG: after subject removed argsarray now ${argsArray} formattedArgsArray now ${formattedArgsArray} n now ${n}`); continue} else
+    
+    if (argsArray.includes("timing") && miniDict[verbIndex].timing[sentenceType] == true) {console.log(`LOG: argsArrayFormatter detected timing at ${argsArray.indexOf("timing")} && is true!`); formattedArgsArray[n] = "timing"; destroyIndex = argsArray.indexOf("timing"); argsArray[destroyIndex] = n; n++; console.log(`LOG: after timing formatted argsArray now ${argsArray} formattedArgsArray now ${formattedArgsArray} n now ${n}`); continue} else
+    if (argsArray.includes("timing") && miniDict[verbIndex].timing[sentenceType] == false) {console.log(`LOG: argsArrayFormatter detected timing at ${argsArray.indexOf("timing")} && is false!`); destroyIndex = argsArray.indexOf("timing"); argsArray[destroyIndex] = n; console.log(`LOG: after timing removed argsarray now ${argsArray} formattedArgsArray now ${formattedArgsArray} n now ${n}`); continue} else
+    
+    if (argsArray.includes("loc") && miniDict[verbIndex].loc[sentenceType] == true) {console.log(`LOG: argsArrayFormatter detected loc at ${argsArray.indexOf("loc")} && is true!`); formattedArgsArray[n] = "loc"; destroyIndex = argsArray.indexOf("loc"); argsArray[destroyIndex] = n; n++; console.log(`LOG: after loc formatted argsArray now ${argsArray} formattedArgsArray now ${formattedArgsArray} n now ${n}`); continue} else
+    if (argsArray.includes("loc") && miniDict[verbIndex].loc[sentenceType] == false) {console.log(`LOG: argsArrayFormatter detected loc at ${argsArray.indexOf("loc")} && is false!`); destroyIndex = argsArray.indexOf("loc"); argsArray[destroyIndex] = n; console.log(`LOG: after loc removed argsarray now ${argsArray} formattedArgsArray now ${formattedArgsArray} n now ${n}`); continue} else
+    
+    if (argsArray.includes("abl") && miniDict[verbIndex].abl[sentenceType] == true) {console.log(`LOG: argsArrayFormatter detected abl at ${argsArray.indexOf("abl")} && is true!`); formattedArgsArray[n] = "abl"; destroyIndex = argsArray.indexOf("abl"); argsArray[destroyIndex] = n; n++; console.log(`LOG: after abl formatted argsArray now ${argsArray} formattedArgsArray now ${formattedArgsArray} n now ${n}`); continue} else
+    if (argsArray.includes("abl") && miniDict[verbIndex].abl[sentenceType] == false) {console.log(`LOG: argsArrayFormatter detected abl at ${argsArray.indexOf("abl")} && is false!`); destroyIndex = argsArray.indexOf("abl"); argsArray[destroyIndex] = n; console.log(`LOG: after abl removed argsarray now ${argsArray} formattedArgsArray now ${formattedArgsArray} n now ${n}`); continue} else
+    
+    if (argsArray.includes("instr") && miniDict[verbIndex].instr[sentenceType] == true) {console.log(`LOG: argsArrayFormatter detected instr at ${argsArray.indexOf("instr")} && is true!`); formattedArgsArray[n] = "instr"; destroyIndex = argsArray.indexOf("instr"); argsArray[destroyIndex] = n; n++; console.log(`LOG: after instr formatted argsArray now ${argsArray} formattedArgsArray now ${formattedArgsArray} n now ${n}`); continue} else
+    if (argsArray.includes("instr") && miniDict[verbIndex].instr[sentenceType] == false) {console.log(`LOG: argsArrayFormatter detected instr at ${argsArray.indexOf("instr")} && is false!`); destroyIndex = argsArray.indexOf("instr"); argsArray[destroyIndex] = n; console.log(`LOG: after instr removed argsarray now ${argsArray} formattedArgsArray now ${formattedArgsArray} n now ${n}`); continue} else
+    
+    if (argsArray.includes("indirobj") && miniDict[verbIndex].indirobj[sentenceType] == true) {console.log(`LOG: argsArrayFormatter detected indirobj at ${argsArray.indexOf("indirobj")} && is true!`); formattedArgsArray[n] = "indirobj"; destroyIndex = argsArray.indexOf("indirobj"); argsArray[destroyIndex] = n; n++; console.log(`LOG: after indirobj formatted argsArray now ${argsArray} formattedArgsArray now ${formattedArgsArray} n now ${n}`); continue} else
+    if (argsArray.includes("indirobj") && miniDict[verbIndex].indirobj[sentenceType] == false) {console.log(`LOG: argsArrayFormatter detected indirobj at ${argsArray.indexOf("indirobj")} && is false!`); destroyIndex = argsArray.indexOf("indirobj"); argsArray[destroyIndex] = n; console.log(`LOG: after indirobj removed argsarray now ${argsArray} formattedArgsArray now ${formattedArgsArray} n now ${n}`); continue} else
+    
+    if (argsArray.includes("dest") && miniDict[verbIndex].dest[sentenceType] == true) {console.log(`LOG: argsArrayFormatter detected dest at ${argsArray.indexOf("dest")} && is true!`); formattedArgsArray[n] = "dest"; destroyIndex = argsArray.indexOf("dest"); argsArray[destroyIndex] = n; n++; console.log(`LOG: after dest formatted argsArray now ${argsArray} formattedArgsArray now ${formattedArgsArray} n now ${n}`); continue} else
+    if (argsArray.includes("dest") && miniDict[verbIndex].dest[sentenceType] == false) {console.log(`LOG: argsArrayFormatter detected dest at ${argsArray.indexOf("dest")} && is false!`); destroyIndex = argsArray.indexOf("dest"); argsArray[destroyIndex] = n; console.log(`LOG: after dest removed argsarray now ${argsArray} formattedArgsArray now ${formattedArgsArray} n now ${n}`); continue} else
+  
+    if (argsArray.includes("dirobj") && miniDict[verbIndex].dirobj[sentenceType] == true) {console.log(`LOG: argsArrayFormatter detected dirobj at ${argsArray.indexOf("dirobj")} && is true!`); formattedArgsArray[n] = "dirobj"; destroyIndex = argsArray.indexOf("dirobj"); argsArray[destroyIndex] = n; n++; console.log(`LOG: after dirobj formatted argsArray now ${argsArray} formattedArgsArray now ${formattedArgsArray} n now ${n}`); continue} else
+    if (argsArray.includes("dirobj") && miniDict[verbIndex].dirobj[sentenceType] == false) {console.log(`LOG: argsArrayFormatter detected dirobj at ${argsArray.indexOf("dirobj")} && is false!`); destroyIndex = argsArray.indexOf("dirobj"); argsArray[destroyIndex] = n; console.log(`LOG: after dirobj removed argsarray now ${argsArray} formattedArgsArray now ${formattedArgsArray} n now ${n}`); continue} else {
+      console.group(`ERROR: Bottom of argsArrayFormatter loop was reached. Dumping values.`);
+    console.log(`argsArray ${argsArray} sentenceType ${sentenceType} formattedArgsArray ${formattedArgsArray} verb ${verb} verbIndex ${verbIndex} miniDict ${miniDict} n ${n} destroyIndex ${destroyIndex} i ${i} argsArray.length ${argsArray.length}`);
+    console.groupEnd()}
+  }
+  
+  console.log(`LOG: argsArray now exited loop. formattedArgsArray is ${formattedArgsArray}. Returning.`);
+  
+return formattedArgsArray;
+}
