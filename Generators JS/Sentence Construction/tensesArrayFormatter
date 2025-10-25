@@ -3,7 +3,7 @@
 // so that the tenseSuffixer can just read tenses
 // one by one from the array
 
-function arrayFormatter (tensesArray) {
+function tensesArrayFormatter (tensesArray) {
     let formattedArray = [];
     let n = 0;
     let destroyIndex = 0;
@@ -13,7 +13,7 @@ function arrayFormatter (tensesArray) {
     let impRandom = Math.floor(Math.random() * 2) + 1;
     let politeRandom = Math.floor(Math.random() * 2) + 1;
     
-    console.log(`LOG: arrayFormatter read array ${tensesArray}!`);
+    console.log(`LOG: tensesArrayFormatter read array ${tensesArray}!`);
         
         
     if (tensesArray.includes("plain") && politeRandom == 1) {console.log(`LOG: Tense plain was detected: proceeding WITH plain tenses!`); for (let i = 0; i < tensesArray.length; i++) { 
