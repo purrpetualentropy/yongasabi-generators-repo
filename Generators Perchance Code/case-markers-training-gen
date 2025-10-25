@@ -1,98 +1,34 @@
+// Gen created 17/09/2025
+// Last updated: 25/10/2025
+// The vast, VAST majority of this generator's functionality
+// is stored in the HTML as Javascript.
+// Perchance is only used so I can select based on checkboxes or not.
+
 title
   Yongasabi Case Markers Training
 
+
 output
-  Translate the following sentence into English:<br>[g = displayGlyphs.checked, ""] [n = noDisplayGlyphs.checked, ""] [sentence = sentenceCtor.selectOne.selectOne.selectOne, ""] [if (g == true && n == true) {"Nothing here."} else if (g == true && n != true) {`<div class="YongiBlock">${sentence}</div>`} else if (g == false && n == true) {[sentence]} else {`<div class="YongiBlock">${sentence}</div>${sentence}`}]
+  [g = displayGlyphs.checked, ""][n = noDisplayGlyphs.checked, ""][argsArray = args.consumableList.selectMany(1, argsCh + 1).joinItems(","), ""][argsArray = argsArray.split(","), ""][realType = sentenceType.selectOne, ""][realType = Number(realType), ""][sentence = sentenceCtor(argsArray, [""], realType), ""][if (g == true && n == true) {"Nothing here."} else if (g == true && n != true) {`<div class="YongiBlock">${sentence}</div>`} else if (g == false && n == true) {[sentence]} else {`<div class="YongiBlock">${sentence}</div>${sentence}`}]
 
-subjectList
-  hanitae
-  masinabi
-  pachmigae
-  pajmuy
-  dang
-  lam
-  ong
-  yangsei
-  yongasabi
-  hanoltak
-  katae
-  masin
-  akita
-  tonun
-  sattokubi
-  lamlan
-  sapinae
+tenseCh = [(document.querySelectorAll('input[class="tenseBox"]:checked')).length]
+argsCh = [(document.querySelectorAll('input[class="argBox"]:checked')).length]
 
-adjList
-  jommiy
-  yojommiy
-  koddim
-  katae
-  heismih
-  omi
-  paen
-  ipon
-  isaeja
-  isaegol
-  kataeja
-  jamiyaeja
-  maeja
-  oma
-  kobba
-  akija
-  monna
-  boyya
-  jogga
-  chanju
-  nonija
-  sojil
-  daw
-  yoyila
-  lobba
-  molla
-  kamuy
-  keimyo
-  jeipcho
-  jeili
-  jolla
-  chuhogol
-  chah
-  cheihi
-  chohei
-  samuy
-  seimyo
-  samyei
 
-verbList // all verbs should be in present tense for the time being
-  sa
-  katsa
-  pahsa
-  absa
-  assa
-  aktodasa
-  go
-  hantasa
-  jamyasa
-  kadmasa
-  lansa
-  maksa
-  maysa
-  nansa
-  satkasa
+sentenceType // uh eventually when we get all the other
+  // types in im pretty sure these aren't gonna matter
+  // 3 reg types and 3 sa types. it's equal
+  // but because we only have one reg type
+  // it needs weighing
+  0 ^0.167
+  1 ^0.167
+  2 ^[locBox.checked && 0.167]
+  3 ^0.5
 
-locativeList
-  {hanitae|masinabi|pachmigae|pajmuy|dang|lam|ong|yongasabi} jatto
-  yangsei
-  hanoltak
-  kip
-  cho
-  bak
-  solani
-
-sentenceCtor
-  subj ^[subjBox.checked]
-    [subjectWord = subjectList.selectOne, ""][subjectWord = subjectWord.toString(), ""][caseSuffixer(subjectWord, "subj")] [verbList]
-    [subjectWord = subjectList.selectOne, ""][subjectWord = subjectWord.toString(), ""][caseSuffixer(subjectWord, "subj")] [adjList] sa
+args
+  subject ^[subjBox.checked]
   loc ^[locBox.checked]
-    [subjectWord = subjectList.selectOne, ""][subjectWord = subjectWord.toString(), ""][locWord = locativeList.selectOne, ""][locWord = locWord.toString(), ""][caseSuffixer(subjectWord, "subj")] [caseSuffixer(locWord, "loc")] sa
-    [subjectWord = subjectList.selectOne, ""][subjectWord = subjectWord.toString(), ""][locWord = locativeList.selectOne, ""][locWord = locWord.toString(), ""][caseSuffixer(subjectWord, "subj")] [caseSuffixer(locWord, "loc")] [verbList]
+
+tenses
+  0
+  1
