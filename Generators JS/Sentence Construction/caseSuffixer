@@ -23,7 +23,9 @@ switch (fixedCase) {
       
       case "loc":
         console.log("LOG: Case loc was detected!");
-        suffixedWord += "wa";
+        for (i = 0; i < wordDict.length; i++) {
+      if (wordDict[i].word == word && wordDict[i].animate == true) {console.log(`LOG: word is animate! Suffixing with jatto!`); suffixedWord += " jattowa"; break} else {console.log(`LOG: word ${word} wasn't detected as animate at ${i} wordDict.animate ${wordDict[i].animate}! Suffixing with wa!`); suffixedWord += "wa"; break}
+      }
         console.log(`LOG: Word ${word} was suffixed into ${suffixedWord}!`);
         return suffixedWord;
         break;
