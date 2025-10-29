@@ -23,13 +23,16 @@ switch (fixedCase) {
       
       case "loc":
         console.log("LOG: Case loc was detected!");
+        console.group("Begin loc logging");
         for (i = 0; i < wordDict.length; i++) {
-      if (wordDict[i].word == word && wordDict[i].animate == true) {console.log(`LOG: word is animate! Suffixing with jatto!`); suffixedWord += " jattowa"; break} else {console.log(`LOG: word ${word} wasn't detected as animate at ${i} wordDict.animate ${wordDict[i].animate}! Suffixing with wa!`); suffixedWord += "wa"; break}
-      }
+          console.log(`i is ${i}, wordDict.length is ${wordDict.length}, wordDict.word is ${wordDict[i].word}, wordDict.animate is ${wordDict[i].animate}`)
+        if (wordDict[i].word == suffixedWord && wordDict[i].animate == true) {console.log(`LOG: Loop detected that ${wordDict[i].word} == ${suffixedWord} && ${wordDict[i].animate} == true`); suffixedWord += " jattowa"; break}
+          else if (wordDict[i].word == suffixedWord && wordDict[i].animate == false) {console.log(`LOG: Loop detected that ${wordDict[i].word} == ${suffixedWord} && ${wordDict[i].animate} == false`); suffixedWord += "wa"; break}
+        }
+        console.groupEnd()
         console.log(`LOG: Word ${word} was suffixed into ${suffixedWord}!`);
         return suffixedWord;
-        break;
-      
+        break;      
       case "abl":
         console.log("LOG: Case abl was detected!");
         suffixedWord += "mok";
