@@ -1,0 +1,6 @@
+function quizChecker (button) {
+  trueButton = document.querySelector('button[class="trueButton"]').value
+  if (button == trueButtonId) {alert("True! Good job!"); streakCounter++} else if (button != trueButtonId) {alert(`False! Sorry! The answer was ${trueButton}`); streakCounter = 0};
+  document.getElementById("streakCounterDisplay").innerHTML = "You have a streak of:<br><b>" + streakCounter + "</b>";
+  quizMaker(wordDict);
+}
