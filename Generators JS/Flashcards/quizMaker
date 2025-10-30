@@ -1,0 +1,248 @@
+function quizMaker (dict) {
+  // TODO:
+  // implement the ability to use multiple definitions
+  // (this is just gonna be writing def as an array, then
+  // selecting a random index of the array)
+  // write the dicts (ugh ugh ugh ugh ugh)
+  let trueWordIndex = Math.floor(Math.random() * (dict.length - 1 + 1));
+  let falseWordIndex = "";
+  let trueButtonIndex = Math.floor(Math.random() * 4) + 1;
+  let quizType = Math.floor(Math.random() * 2) + 1; 
+  let miniDict = [];
+  let destroyIndex = "";
+  
+  console.log(`LOG: quizMaker init with dict:`)
+  console.dir(dict);
+  console.log(`LOG: && quizMaker init with trueWordIndex ${trueWordIndex} trueButtonIndex ${trueButtonIndex} quizType ${quizType}`);
+
+  switch (quizType) {
+    case 1:
+      console.log(`LOG: quizType 1 (word in title) detected. Writing def to button.`);
+      document.getElementById("quizTitle").innerHTML = dict[trueWordIndex].word;
+      trueButtonId = "button" + trueButtonIndex;
+      document.getElementById("button" + trueButtonIndex).innerHTML = dict[trueWordIndex].def;
+      document.getElementById("button" + trueButtonIndex).setAttribute("value", dict[trueWordIndex].def);
+      document.getElementById("button" + trueButtonIndex).setAttribute("class", "trueButton");
+      console.log(`LOG: quizTitle should be written with ${dict[trueWordIndex].word}, button` + trueButtonIndex + ` should be written with ${dict[trueWordIndex].def}. trueButtonId is ${trueButtonId}`);
+      console.log(`LOG: now writing other buttons`);
+      miniDict = dict.filter((obj) => obj.def != button1.value && obj.def != button2.value && obj.def != button3.value && obj.def != button4.value);
+      console.log(`LOG: miniDict was written as:`);
+      console.dir(miniDict);
+      falseWordIndex = Math.floor(Math.random() * (miniDict.length - 1 + 1));
+      
+      if (trueButtonIndex == 1) {
+        console.log(`LOG: trueButtonIndex 1 detected, writing to 2, 3 and 4`);
+        console.log(`LOG: now writing button2`);
+        document.getElementById("button2").innerHTML = miniDict[falseWordIndex].def;
+        document.getElementById("button2").setAttribute("value", miniDict[falseWordIndex].def);
+        console.log(`LOG: button2 should be written! rewrite miniDict`);
+        miniDict = dict.filter((obj) => obj.def != button1.value && obj.def != button2.value && obj.def != button3.value && obj.def != button4.value);
+        console.log(`LOG: miniDict was written as:`);
+        console.dir(miniDict);
+        falseWordIndex = Math.floor(Math.random() * (miniDict.length - 1 + 1));
+        console.log(`LOG: now writing button3`);
+        document.getElementById("button3").innerHTML = miniDict[falseWordIndex].def;
+        document.getElementById("button3").setAttribute("value", miniDict[falseWordIndex].def);
+        console.log(`LOG: button3 should be written! rewrite miniDict`);
+        miniDict = dict.filter((obj) => obj.def != button1.value && obj.def != button2.value && obj.def != button3.value && obj.def != button4.value);
+        console.log(`LOG: miniDict was written as:`);
+        console.dir(miniDict);
+        falseWordIndex = Math.floor(Math.random() * (miniDict.length - 1 + 1));
+        console.log(`LOG: now writing button4`);
+        document.getElementById("button4").innerHTML = miniDict[falseWordIndex].def;
+        document.getElementById("button4").setAttribute("value", miniDict[falseWordIndex].def);
+        console.log(`LOG: all buttons should be written. breaking`);
+        break;
+      } else
+      if (trueButtonIndex == 2) {
+        console.log(`LOG: trueButtonIndex 2 detected, writing to 1, 3 and 4`);
+        console.log(`LOG: now writing button1`);
+        document.getElementById("button1").innerHTML = miniDict[falseWordIndex].def;
+        document.getElementById("button1").setAttribute("value", miniDict[falseWordIndex].def);
+        console.log(`LOG: button1 should be written! rewrite miniDict`);
+        miniDict = dict.filter((obj) => obj.def != button1.value && obj.def != button2.value && obj.def != button3.value && obj.def != button4.value);
+        console.log(`LOG: miniDict was written as:`);
+        console.dir(miniDict);
+        falseWordIndex = Math.floor(Math.random() * (miniDict.length - 1 + 1));
+        console.log(`LOG: now writing button3`);
+        document.getElementById("button3").innerHTML = miniDict[falseWordIndex].def;
+        document.getElementById("button3").setAttribute("value", miniDict[falseWordIndex].def);
+        console.log(`LOG: button3 should be written! rewrite miniDict`);
+        miniDict = dict.filter((obj) => obj.def != button1.value && obj.def != button2.value && obj.def != button3.value && obj.def != button4.value);
+        console.log(`LOG: miniDict was written as:`);
+        console.dir(miniDict);
+        falseWordIndex = Math.floor(Math.random() * (miniDict.length - 1 + 1));
+        console.log(`LOG: now writing button4`);
+        document.getElementById("button4").innerHTML = miniDict[falseWordIndex].def;
+        document.getElementById("button4").setAttribute("value", miniDict[falseWordIndex].def);
+        console.log(`LOG: all buttons should be written. breaking`);
+        break;
+      } else
+      if (trueButtonIndex == 3) {
+        console.log(`LOG: trueButtonIndex 3 detected, writing to 1, 2 and 4`);
+        console.log(`LOG: now writing button1`);
+        document.getElementById("button1").innerHTML = miniDict[falseWordIndex].def;
+        document.getElementById("button1").setAttribute("value", miniDict[falseWordIndex].def);
+        console.log(`LOG: button1 should be written! rewrite miniDict`);
+        miniDict = dict.filter((obj) => obj.def != button1.value && obj.def != button2.value && obj.def != button3.value && obj.def != button4.value);
+        console.log(`LOG: miniDict was written as:`);
+        console.dir(miniDict);
+        falseWordIndex = Math.floor(Math.random() * (miniDict.length - 1 + 1));
+        console.log(`LOG: now writing button2`);
+        document.getElementById("button2").innerHTML = miniDict[falseWordIndex].def;
+        document.getElementById("button2").setAttribute("value", miniDict[falseWordIndex].def);
+        console.log(`LOG: button2 should be written! rewrite miniDict`);
+        miniDict = dict.filter((obj) => obj.def != button1.value && obj.def != button2.value && obj.def != button3.value && obj.def != button4.value);
+        console.log(`LOG: miniDict was written as:`);
+        console.dir(miniDict);
+        falseWordIndex = Math.floor(Math.random() * (miniDict.length - 1 + 1));
+        console.log(`LOG: now writing button4`);
+        document.getElementById("button4").innerHTML = miniDict[falseWordIndex].def;
+        document.getElementById("button4").setAttribute("value", miniDict[falseWordIndex].def);
+        console.log(`LOG: all buttons should be written. breaking`);
+        break;
+      } else
+      if (trueButtonIndex == 4) {
+        console.log(`LOG: trueButtonIndex 4 detected, writing to 1, 2 and 3`);
+        console.log(`LOG: now writing button1`);
+        document.getElementById("button1").innerHTML = miniDict[falseWordIndex].def;
+        document.getElementById("button1").setAttribute("value", miniDict[falseWordIndex].def);
+        console.log(`LOG: button1 should be written! rewrite miniDict`);
+        miniDict = dict.filter((obj) => obj.def != button1.value && obj.def != button2.value && obj.def != button3.value && obj.def != button4.value);
+        console.log(`LOG: miniDict was written as:`);
+        console.dir(miniDict);
+        falseWordIndex = Math.floor(Math.random() * (miniDict.length - 1 + 1));
+        console.log(`LOG: now writing button2`);
+        document.getElementById("button2").innerHTML = miniDict[falseWordIndex].def;
+        document.getElementById("button2").setAttribute("value", miniDict[falseWordIndex].def);
+        console.log(`LOG: button2 should be written! rewrite miniDict`);
+        miniDict = dict.filter((obj) => obj.def != button1.value && obj.def != button2.value && obj.def != button3.value && obj.def != button4.value);
+        console.log(`LOG: miniDict was written as:`);
+        console.dir(miniDict);
+        falseWordIndex = Math.floor(Math.random() * (miniDict.length - 1 + 1));
+        console.log(`LOG: now writing button3`);
+        document.getElementById("button3").innerHTML = miniDict[falseWordIndex].def;
+        document.getElementById("button3").setAttribute("value", miniDict[falseWordIndex].def);
+        console.log(`LOG: all buttons should be written. breaking`);
+        break;
+      }
+      
+      break;
+
+    case 2:
+      console.log(`LOG: quizType 2 (def in title) detected. Writing word to button.`);
+      document.getElementById("quizTitle").innerHTML = dict[trueWordIndex].def;
+      document.getElementById("button" + trueButtonIndex).innerHTML = dict[trueWordIndex].word;
+      trueButtonId = "button" + trueButtonIndex;
+      document.getElementById("button" + trueButtonIndex).setAttribute("value", dict[trueWordIndex].word);
+      document.getElementById("button" + trueButtonIndex).setAttribute("class", "trueButton");
+      console.log(`LOG: quizTitle should be written with ${dict[trueWordIndex].def}, button` + trueButtonIndex + ` should be written with ${dict[trueWordIndex].word}. trueButtonId is ${trueButtonId}`);
+            console.log(`LOG: now writing other buttons`);
+      miniDict = dict.filter((obj) => obj.word != button1.value && obj.word != button2.value && obj.word != button3.value && obj.word != button4.value);
+      console.log(`LOG: miniDict was written as:`);
+      console.dir(miniDict);
+      falseWordIndex = Math.floor(Math.random() * (miniDict.length - 1 + 1));
+      
+      if (trueButtonIndex == 1) {
+        console.log(`LOG: trueButtonIndex 1 detected, writing to 2, 3 and 4`);
+        console.log(`LOG: now writing button2`);
+        document.getElementById("button2").innerHTML = miniDict[falseWordIndex].word;
+        document.getElementById("button2").setAttribute("value", miniDict[falseWordIndex].word);
+        console.log(`LOG: button2 should be written! rewrite miniDict`);
+        miniDict = dict.filter((obj) => obj.word != button1.value && obj.word != button2.value && obj.word != button3.value && obj.word != button4.value);
+        console.log(`LOG: miniDict was written as:`);
+        console.dir(miniDict);
+        falseWordIndex = Math.floor(Math.random() * (miniDict.length - 1 + 1));
+        console.log(`LOG: now writing button3`);
+        document.getElementById("button3").innerHTML = miniDict[falseWordIndex].word;
+        document.getElementById("button3").setAttribute("value", miniDict[falseWordIndex].word);
+        console.log(`LOG: button3 should be written! rewrite miniDict`);
+        miniDict = dict.filter((obj) => obj.word != button1.value && obj.word != button2.value && obj.word != button3.value && obj.word != button4.value);
+        console.log(`LOG: miniDict was written as:`);
+        console.dir(miniDict);
+        falseWordIndex = Math.floor(Math.random() * (miniDict.length - 1 + 1));
+        console.log(`LOG: now writing button4`);
+        document.getElementById("button4").innerHTML = miniDict[falseWordIndex].word;
+        document.getElementById("button4").setAttribute("value", miniDict[falseWordIndex].word);
+        console.log(`LOG: all buttons should be written. breaking`);
+        break;
+      } else
+      if (trueButtonIndex == 2) {
+        console.log(`LOG: trueButtonIndex 2 detected, writing to 1, 3 and 4`);
+        console.log(`LOG: now writing button1`);
+        document.getElementById("button1").innerHTML = miniDict[falseWordIndex].word;
+        document.getElementById("button1").setAttribute("value", miniDict[falseWordIndex].word);
+        console.log(`LOG: button1 should be written! rewrite miniDict`);
+        miniDict = dict.filter((obj) => obj.word != button1.value && obj.word != button2.value && obj.word != button3.value && obj.word != button4.value);
+        console.log(`LOG: miniDict was written as:`);
+        console.dir(miniDict);
+        falseWordIndex = Math.floor(Math.random() * (miniDict.length - 1 + 1));
+        console.log(`LOG: now writing button3`);
+        document.getElementById("button3").innerHTML = miniDict[falseWordIndex].word;
+        document.getElementById("button3").setAttribute("value", miniDict[falseWordIndex].word);
+        console.log(`LOG: button3 should be written! rewrite miniDict`);
+        miniDict = dict.filter((obj) => obj.word != button1.value && obj.word != button2.value && obj.word != button3.value && obj.word != button4.value);
+        console.log(`LOG: miniDict was written as:`);
+        console.dir(miniDict);
+        falseWordIndex = Math.floor(Math.random() * (miniDict.length - 1 + 1));
+        console.log(`LOG: now writing button4`);
+        document.getElementById("button4").innerHTML = miniDict[falseWordIndex].word;
+        document.getElementById("button4").setAttribute("value", miniDict[falseWordIndex].word);
+        console.log(`LOG: all buttons should be written. breaking`);
+        break;
+      } else
+      if (trueButtonIndex == 3) {
+        console.log(`LOG: trueButtonIndex 3 detected, writing to 1, 2 and 4`);
+        console.log(`LOG: now writing button1`);
+        document.getElementById("button1").innerHTML = miniDict[falseWordIndex].word;
+        document.getElementById("button1").setAttribute("value", miniDict[falseWordIndex].word);
+        console.log(`LOG: button1 should be written! rewrite miniDict`);
+        miniDict = dict.filter((obj) => obj.word != button1.value && obj.word != button2.value && obj.word != button3.value && obj.word != button4.value);
+        console.log(`LOG: miniDict was written as:`);
+        console.dir(miniDict);
+        falseWordIndex = Math.floor(Math.random() * (miniDict.length - 1 + 1));
+        console.log(`LOG: now writing button2`);
+        document.getElementById("button2").innerHTML = miniDict[falseWordIndex].word;
+        document.getElementById("button2").setAttribute("value", miniDict[falseWordIndex].word);
+        console.log(`LOG: button2 should be written! rewrite miniDict`);
+        miniDict = dict.filter((obj) => obj.word != button1.value && obj.word != button2.value && obj.word != button3.value && obj.word != button4.value);
+        console.log(`LOG: miniDict was written as:`);
+        console.dir(miniDict);
+        falseWordIndex = Math.floor(Math.random() * (miniDict.length - 1 + 1));
+        console.log(`LOG: now writing button4`);
+        document.getElementById("button4").innerHTML = miniDict[falseWordIndex].word;
+        document.getElementById("button4").setAttribute("value", miniDict[falseWordIndex].word);
+        console.log(`LOG: all buttons should be written. breaking`);
+        break;
+      } else
+      if (trueButtonIndex == 4) {
+        console.log(`LOG: trueButtonIndex 4 detected, writing to 1, 2 and 3`);
+        console.log(`LOG: now writing button1`);
+        document.getElementById("button1").innerHTML = miniDict[falseWordIndex].word;
+        document.getElementById("button1").setAttribute("value", miniDict[falseWordIndex].word);
+        console.log(`LOG: button1 should be written! rewrite miniDict`);
+        miniDict = dict.filter((obj) => obj.word != button1.value && obj.word != button2.value && obj.word != button3.value && obj.word != button4.value);
+        console.log(`LOG: miniDict was written as:`);
+        console.dir(miniDict);
+        falseWordIndex = Math.floor(Math.random() * (miniDict.length - 1 + 1));
+        console.log(`LOG: now writing button2`);
+        document.getElementById("button2").innerHTML = miniDict[falseWordIndex].word;
+        document.getElementById("button2").setAttribute("value", miniDict[falseWordIndex].word);
+        console.log(`LOG: button2 should be written! rewrite miniDict`);
+        miniDict = dict.filter((obj) => obj.word != button1.value && obj.word != button2.value && obj.word != button3.value && obj.word != button4.value);
+        console.log(`LOG: miniDict was written as:`);
+        console.dir(miniDict);
+        falseWordIndex = Math.floor(Math.random() * (miniDict.length - 1 + 1));
+        console.log(`LOG: now writing button3`);
+        document.getElementById("button3").innerHTML = miniDict[falseWordIndex].word;
+        document.getElementById("button3").setAttribute("value", miniDict[falseWordIndex].word);
+        console.log(`LOG: all buttons should be written. breaking`);
+        break;
+      }
+      break;
+      
+    default:
+      console.log(`LOG: quizType ${quizType} wasn't legal in switch. Breaking.`);
+      break;
+  }
+}
