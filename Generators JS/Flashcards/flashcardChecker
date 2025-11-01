@@ -1,0 +1,19 @@
+function flashcardChecker() {
+  if (typeof flipDisplay == "string") {
+    console.log(`LOG: flashcardChecker detected flipDisplay as string. Writing to button directly.`);
+    document.getElementById("flashcardButton").innerHTML = flipDisplay;
+    document.getElementById("flashcardButton").setAttribute("disabled");
+  } else
+  if (typeof flipDisplay == "object") {
+    console.log(`LOG: flashcardChecker detected flipDisplay as object. Writing with join.`);
+    let fullDef = "";
+    for (i = 0; i < flipDisplay.length; i++) {
+    fullDef += i+1 + ". " + flipDisplay[i] + "<br>";
+    }
+    document.getElementById("flashcardButton").innerHTML = fullDef;
+    document.getElementById("flashcardButton").setAttribute("disabled");
+  } else
+  { console.log(`LOG: couldn't detect typeof flipDisplay as string or object. typeof is ${typeof flipDisplay}, content is ${flipDisplay}.`)
+  document.getElementById("flashcardButton").innerHTML = "FLASHCARDCHECKER FAILED!!";
+  }
+}
