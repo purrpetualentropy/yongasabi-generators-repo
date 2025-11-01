@@ -12,6 +12,33 @@ function quizMaker (dict) {
   console.log(`LOG: quizMaker init with dict:`)
   console.dir(dict);
   console.log(`LOG: && quizMaker init with trueWordIndex ${trueWordIndex} trueButtonIndex ${trueButtonIndex} quizType ${quizType}`);
+  
+  if (document.getElementById("flashcardButton") != null) {
+    console.log(`LOG: flashcardButton was detected as true. Remove & init quizButtons.`);
+    document.getElementById("flashcardButton").remove();
+    let buttonSection = document.getElementById("buttonSection");
+    buttonSection.insertAdjacentHTML("beforeend", `<button onclick="quizChecker('button1')" id="button1" value="button1value">button1</button>`);
+    console.log(`LOG: button1 should be init`);
+    buttonSection.insertAdjacentHTML("beforeend", `<button onclick="quizChecker('button2')" id="button2" value="button2value">button2</button><br>`);
+    console.log(`LOG: button2 should be init`);
+    buttonSection.insertAdjacentHTML("beforeend", `<button onclick="quizChecker('button3')" id="button3" value="button3value">button3</button>`);
+    console.log(`LOG: button3 should be init`);
+    buttonSection.insertAdjacentHTML("beforeend", `<button onclick="quizChecker('button4')" id="button4" value="button4value">button4</button>`);
+    console.log(`LOG: button4 should be init, moving on`)} else
+    if (document.getElementById("flashcardButton") == null && document.getElementById("button1") != null)
+{console.log(`LOG: flashcardButton was detected as false && buttons are init. Moving on.`)} else
+if (document.getElementById("flashcardButton") == null && document.getElementById("button1") == null) {
+ console.log(`LOG: flashcardButton was detected as false && buttons were detected as false. Init buttons.`);
+ let buttonSection = document.getElementById("buttonSection");
+ buttonSection.insertAdjacentHTML("beforeend", `<button onclick="quizChecker('button1')" id="button1" value="button1value">button1</button>`);
+ console.log(`LOG: button1 should be init`);
+ buttonSection.insertAdjacentHTML("beforeend", `<button onclick="quizChecker('button2')" id="button2" value="button2value">button2</button><br>`);
+ console.log(`LOG: button2 should be init`);
+ buttonSection.insertAdjacentHTML("beforeend", `<button onclick="quizChecker('button3')" id="button3" value="button3value">button3</button>`);
+ console.log(`LOG: button3 should be init`);
+ buttonSection.insertAdjacentHTML("beforeend", `<button onclick="quizChecker('button4')" id="button4" value="button4value">button4</button>`);
+ console.log(`LOG: button4 should be init, moving on`)
+}
 
   switch (quizType) {
     case 1:
@@ -35,6 +62,7 @@ function quizMaker (dict) {
         console.log(`LOG: now writing button2`);
         document.getElementById("button2").innerHTML = miniDict[falseWordIndex].def[defIndex];
         document.getElementById("button2").setAttribute("value", miniDict[falseWordIndex].def[defIndex]);
+        document.getElementById("button2").setAttribute("class", "falseButton");
         console.log(`LOG: button2 should be written! rewrite miniDict`);
         miniDict = dict.filter((obj) => !obj.def.includes(button1.value) && !obj.def.includes(button2.value) && !obj.def.includes(button3.value) && !obj.def.includes(button4.value));
         console.log(`LOG: miniDict was written as:`);
@@ -44,6 +72,7 @@ function quizMaker (dict) {
         console.log(`LOG: now writing button3`);
         document.getElementById("button3").innerHTML = miniDict[falseWordIndex].def[defIndex];
         document.getElementById("button3").setAttribute("value", miniDict[falseWordIndex].def[defIndex]);
+        document.getElementById("button3").setAttribute("class", "falseButton");
         console.log(`LOG: button3 should be written! rewrite miniDict`);
         miniDict = dict.filter((obj) => !obj.def.includes(button1.value) && !obj.def.includes(button2.value) && !obj.def.includes(button3.value) && !obj.def.includes(button4.value));
         console.log(`LOG: miniDict was written as:`);
@@ -53,6 +82,7 @@ function quizMaker (dict) {
         console.log(`LOG: now writing button4`);
         document.getElementById("button4").innerHTML = miniDict[falseWordIndex].def[defIndex];
         document.getElementById("button4").setAttribute("value", miniDict[falseWordIndex].def[defIndex]);
+        document.getElementById("button4").setAttribute("class", "falseButton");
         console.log(`LOG: all buttons should be written. breaking`);
         break;
       } else
@@ -61,6 +91,7 @@ function quizMaker (dict) {
         console.log(`LOG: now writing button1`);
         document.getElementById("button1").innerHTML = miniDict[falseWordIndex].def[defIndex];
         document.getElementById("button1").setAttribute("value", miniDict[falseWordIndex].def[defIndex]);
+        document.getElementById("button1").setAttribute("class", "falseButton");
         console.log(`LOG: button1 should be written! rewrite miniDict`);
         miniDict = dict.filter((obj) => !obj.def.includes(button1.value) && !obj.def.includes(button2.value) && !obj.def.includes(button3.value) && !obj.def.includes(button4.value));
         console.log(`LOG: miniDict was written as:`);
@@ -70,6 +101,7 @@ function quizMaker (dict) {
         console.log(`LOG: now writing button3`);
         document.getElementById("button3").innerHTML = miniDict[falseWordIndex].def[defIndex];
         document.getElementById("button3").setAttribute("value", miniDict[falseWordIndex].def[defIndex]);
+        document.getElementById("button3").setAttribute("class", "falseButton");
         console.log(`LOG: button3 should be written! rewrite miniDict`);
         miniDict = dict.filter((obj) => !obj.def.includes(button1.value) && !obj.def.includes(button2.value) && !obj.def.includes(button3.value) && !obj.def.includes(button4.value));
         console.log(`LOG: miniDict was written as:`);
@@ -79,6 +111,7 @@ function quizMaker (dict) {
         console.log(`LOG: now writing button4`);
         document.getElementById("button4").innerHTML = miniDict[falseWordIndex].def[defIndex];
         document.getElementById("button4").setAttribute("value", miniDict[falseWordIndex].def[defIndex]);
+        document.getElementById("button4").setAttribute("class", "falseButton");
         console.log(`LOG: all buttons should be written. breaking`);
         break;
       } else
@@ -87,6 +120,7 @@ function quizMaker (dict) {
         console.log(`LOG: now writing button1`);
         document.getElementById("button1").innerHTML = miniDict[falseWordIndex].def[defIndex];
         document.getElementById("button1").setAttribute("value", miniDict[falseWordIndex].def[defIndex]);
+        document.getElementById("button1").setAttribute("class", "falseButton");
         console.log(`LOG: button1 should be written! rewrite miniDict`);
         miniDict = dict.filter((obj) => !obj.def.includes(button1.value) && !obj.def.includes(button2.value) && !obj.def.includes(button3.value) && !obj.def.includes(button4.value));
         console.log(`LOG: miniDict was written as:`);
@@ -96,6 +130,7 @@ function quizMaker (dict) {
         console.log(`LOG: now writing button2`);
         document.getElementById("button2").innerHTML = miniDict[falseWordIndex].def[defIndex];
         document.getElementById("button2").setAttribute("value", miniDict[falseWordIndex].def[defIndex]);
+        document.getElementById("button2").setAttribute("class", "falseButton");
         console.log(`LOG: button2 should be written! rewrite miniDict`);
         miniDict = dict.filter((obj) => !obj.def.includes(button1.value) && !obj.def.includes(button2.value) && !obj.def.includes(button3.value) && !obj.def.includes(button4.value));
         console.log(`LOG: miniDict was written as:`);
@@ -105,6 +140,7 @@ function quizMaker (dict) {
         console.log(`LOG: now writing button4`);
         document.getElementById("button4").innerHTML = miniDict[falseWordIndex].def[defIndex];
         document.getElementById("button4").setAttribute("value", miniDict[falseWordIndex].def[defIndex]);
+        document.getElementById("button4").setAttribute("class", "falseButton");
         console.log(`LOG: all buttons should be written. breaking`);
         break;
       } else
@@ -113,6 +149,7 @@ function quizMaker (dict) {
         console.log(`LOG: now writing button1`);
         document.getElementById("button1").innerHTML = miniDict[falseWordIndex].def[defIndex];
         document.getElementById("button1").setAttribute("value", miniDict[falseWordIndex].def[defIndex]);
+        document.getElementById("button1").setAttribute("class", "falseButton");
         console.log(`LOG: button1 should be written! rewrite miniDict`);
         miniDict = dict.filter((obj) => !obj.def.includes(button1.value) && !obj.def.includes(button2.value) && !obj.def.includes(button3.value) && !obj.def.includes(button4.value));
         console.log(`LOG: miniDict was written as:`);
@@ -122,6 +159,7 @@ function quizMaker (dict) {
         console.log(`LOG: now writing button2`);
         document.getElementById("button2").innerHTML = miniDict[falseWordIndex].def[defIndex];
         document.getElementById("button2").setAttribute("value", miniDict[falseWordIndex].def[defIndex]);
+        document.getElementById("button2").setAttribute("class", "falseButton");
         console.log(`LOG: button2 should be written! rewrite miniDict`);
         miniDict = dict.filter((obj) => !obj.def.includes(button1.value) && !obj.def.includes(button2.value) && !obj.def.includes(button3.value) && !obj.def.includes(button4.value));
         console.log(`LOG: miniDict was written as:`);
@@ -131,6 +169,7 @@ function quizMaker (dict) {
         console.log(`LOG: now writing button3`);
         document.getElementById("button3").innerHTML = miniDict[falseWordIndex].def[defIndex];
         document.getElementById("button3").setAttribute("value", miniDict[falseWordIndex].def[defIndex]);
+        document.getElementById("button3").setAttribute("class", "falseButton");
         console.log(`LOG: all buttons should be written. breaking`);
         break;
       }
@@ -157,6 +196,7 @@ function quizMaker (dict) {
         console.log(`LOG: now writing button2`);
         document.getElementById("button2").innerHTML = miniDict[falseWordIndex].word;
         document.getElementById("button2").setAttribute("value", miniDict[falseWordIndex].word);
+        document.getElementById("button2").setAttribute("class", "falseButton");
         console.log(`LOG: button2 should be written! rewrite miniDict`);
         miniDict = dict.filter((obj) => obj.word != button1.value && obj.word != button2.value && obj.word != button3.value && obj.word != button4.value);
         console.log(`LOG: miniDict was written as:`);
@@ -165,6 +205,7 @@ function quizMaker (dict) {
         console.log(`LOG: now writing button3`);
         document.getElementById("button3").innerHTML = miniDict[falseWordIndex].word;
         document.getElementById("button3").setAttribute("value", miniDict[falseWordIndex].word);
+        document.getElementById("button3").setAttribute("class", "falseButton");
         console.log(`LOG: button3 should be written! rewrite miniDict`);
         miniDict = dict.filter((obj) => obj.word != button1.value && obj.word != button2.value && obj.word != button3.value && obj.word != button4.value);
         console.log(`LOG: miniDict was written as:`);
@@ -173,6 +214,7 @@ function quizMaker (dict) {
         console.log(`LOG: now writing button4`);
         document.getElementById("button4").innerHTML = miniDict[falseWordIndex].word;
         document.getElementById("button4").setAttribute("value", miniDict[falseWordIndex].word);
+        document.getElementById("button4").setAttribute("class", "falseButton");
         console.log(`LOG: all buttons should be written. breaking`);
         break;
       } else
@@ -181,6 +223,7 @@ function quizMaker (dict) {
         console.log(`LOG: now writing button1`);
         document.getElementById("button1").innerHTML = miniDict[falseWordIndex].word;
         document.getElementById("button1").setAttribute("value", miniDict[falseWordIndex].word);
+        document.getElementById("button1").setAttribute("class", "falseButton");
         console.log(`LOG: button1 should be written! rewrite miniDict`);
         miniDict = dict.filter((obj) => obj.word != button1.value && obj.word != button2.value && obj.word != button3.value && obj.word != button4.value);
         console.log(`LOG: miniDict was written as:`);
@@ -189,6 +232,7 @@ function quizMaker (dict) {
         console.log(`LOG: now writing button3`);
         document.getElementById("button3").innerHTML = miniDict[falseWordIndex].word;
         document.getElementById("button3").setAttribute("value", miniDict[falseWordIndex].word);
+        document.getElementById("button3").setAttribute("class", "falseButton");
         console.log(`LOG: button3 should be written! rewrite miniDict`);
         miniDict = dict.filter((obj) => obj.word != button1.value && obj.word != button2.value && obj.word != button3.value && obj.word != button4.value);
         console.log(`LOG: miniDict was written as:`);
@@ -197,6 +241,7 @@ function quizMaker (dict) {
         console.log(`LOG: now writing button4`);
         document.getElementById("button4").innerHTML = miniDict[falseWordIndex].word;
         document.getElementById("button4").setAttribute("value", miniDict[falseWordIndex].word);
+        document.getElementById("button4").setAttribute("class", "falseButton");
         console.log(`LOG: all buttons should be written. breaking`);
         break;
       } else
@@ -205,6 +250,7 @@ function quizMaker (dict) {
         console.log(`LOG: now writing button1`);
         document.getElementById("button1").innerHTML = miniDict[falseWordIndex].word;
         document.getElementById("button1").setAttribute("value", miniDict[falseWordIndex].word);
+        document.getElementById("button1").setAttribute("class", "falseButton");
         console.log(`LOG: button1 should be written! rewrite miniDict`);
         miniDict = dict.filter((obj) => obj.word != button1.value && obj.word != button2.value && obj.word != button3.value && obj.word != button4.value);
         console.log(`LOG: miniDict was written as:`);
@@ -213,6 +259,7 @@ function quizMaker (dict) {
         console.log(`LOG: now writing button2`);
         document.getElementById("button2").innerHTML = miniDict[falseWordIndex].word;
         document.getElementById("button2").setAttribute("value", miniDict[falseWordIndex].word);
+        document.getElementById("button2").setAttribute("class", "falseButton");
         console.log(`LOG: button2 should be written! rewrite miniDict`);
         miniDict = dict.filter((obj) => obj.word != button1.value && obj.word != button2.value && obj.word != button3.value && obj.word != button4.value);
         console.log(`LOG: miniDict was written as:`);
@@ -221,6 +268,7 @@ function quizMaker (dict) {
         console.log(`LOG: now writing button4`);
         document.getElementById("button4").innerHTML = miniDict[falseWordIndex].word;
         document.getElementById("button4").setAttribute("value", miniDict[falseWordIndex].word);
+        document.getElementById("button4").setAttribute("class", "falseButton");
         console.log(`LOG: all buttons should be written. breaking`);
         break;
       } else
@@ -229,6 +277,7 @@ function quizMaker (dict) {
         console.log(`LOG: now writing button1`);
         document.getElementById("button1").innerHTML = miniDict[falseWordIndex].word;
         document.getElementById("button1").setAttribute("value", miniDict[falseWordIndex].word);
+        document.getElementById("button1").setAttribute("class", "falseButton");
         console.log(`LOG: button1 should be written! rewrite miniDict`);
         miniDict = dict.filter((obj) => obj.word != button1.value && obj.word != button2.value && obj.word != button3.value && obj.word != button4.value);
         console.log(`LOG: miniDict was written as:`);
@@ -237,6 +286,7 @@ function quizMaker (dict) {
         console.log(`LOG: now writing button2`);
         document.getElementById("button2").innerHTML = miniDict[falseWordIndex].word;
         document.getElementById("button2").setAttribute("value", miniDict[falseWordIndex].word);
+        document.getElementById("button2").setAttribute("class", "falseButton");
         console.log(`LOG: button2 should be written! rewrite miniDict`);
         miniDict = dict.filter((obj) => obj.word != button1.value && obj.word != button2.value && obj.word != button3.value && obj.word != button4.value);
         console.log(`LOG: miniDict was written as:`);
@@ -245,6 +295,7 @@ function quizMaker (dict) {
         console.log(`LOG: now writing button3`);
         document.getElementById("button3").innerHTML = miniDict[falseWordIndex].word;
         document.getElementById("button3").setAttribute("value", miniDict[falseWordIndex].word);
+        document.getElementById("button3").setAttribute("class", "falseButton");
         console.log(`LOG: all buttons should be written. breaking`);
         break;
       }
