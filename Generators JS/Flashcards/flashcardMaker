@@ -1,0 +1,56 @@
+unction flashcardMaker (dict) {
+  let cardType = Math.floor(Math.random() * 2) + 1;
+  let targetIndex = Math.floor(Math.random() * (dict.length - 1 + 1));
+  let defIndex = Math.floor(Math.random() * (dict[targetIndex].def.length - 1 + 1));
+  // 1 == word on button
+  // 2 == a def on button
+  
+  console.log(`LOG: flashcardMaker init with dict:`);
+  console.dir(dict);
+  console.log(`LOG: & cardType ${cardType} targetIndex ${targetIndex} defIndex ${defIndex}`);
+  
+  if (document.getElementById("button1") != null) {
+    console.log(`LOG: button1 was detected as true. Remove & init flashcardButton.`);
+    document.getElementById("button1").remove();
+    document.getElementById("button2").remove();
+    document.getElementById("button3").remove();
+    document.getElementById("button4").remove();
+    console.log(`LOG: buttons should be destroyed. Init flashcardButton.`);
+    let buttonSection = document.getElementById("buttonSection");
+    buttonSection.insertAdjacentHTML("beforeend", `<button onclick="flashcardChecker()" id="flashcardButton">flashcardButton</button>`);
+    console.log(`LOG: button should be init. Moving on.`);
+    } else
+  if (document.getElementById("button1") == null && document.getElementById("flashcardButton") == null || document.getElementById("button1") == null && document.getElementById("flashcardButton").disabled) {
+    console.log(`LOG: button1 was detected as false or disabled && flashcardButton was detected as false. Init.`);
+    let buttonSection = document.getElementById("buttonSection");
+    buttonSection.insertAdjacentHTML("beforeend", `<button onclick="flashcardChecker()" id="flashcardButton">flashcardButton</button>`);
+    console.log(`LOG: button should be init. Moving on.`);
+    } else
+  if (document.getElementById("flashcardButton") != null && document.getElementById("button1") == null) {
+    console.log(`LOG: flashcardButton was detected as true && button1 was detected as false. Moving on.`)
+    }
+
+switch (cardType) {
+    case 1:
+      console.log(`LOG: cardType was detected as 1. Writing word to button.`);
+      document.getElementById("quizTitle").innerHTML = "What is the definition of this word?";
+      document.getElementById("flashcardButton").innerHTML = dict[targetIndex].word;
+      console.log(`LOG: button should be written. Sending defs to flipDisplay.`);
+      flipDisplay = dict[targetIndex].def;
+      console.log(`LOG: flipDisplay is ${flipDisplay} with type ${typeof flipDisplay}. Now breaking.`);
+      break;
+      
+    case 2:
+      console.log(`LOG: cardType was detected as 2. Writing a def to button.`);
+      document.getElementById("quizTitle").innerHTML = "Which word has this definition?";
+      document.getElementById("flashcardButton").innerHTML = dict[targetIndex].def[defIndex];
+      console.log(`LOG: button should be written. Sending word to flipDisplay.`);
+      flipDisplay = dict[targetIndex].word;
+      console.log(`LOG: flipDisplay is ${flipDisplay} with type ${typeof flipDisplay}. Now breaking.`);
+      break;
+      
+    default:
+      console.log(`LOG: cardType wasn't detected as 1 or 2. cardType is ${cardType} with type ${typeof cardType}. Now breaking.`);
+      break;
+  }
+}
