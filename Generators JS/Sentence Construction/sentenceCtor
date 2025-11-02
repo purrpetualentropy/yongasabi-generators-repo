@@ -13,9 +13,14 @@ let currArgIndex = 0;
 let miniDict = []; // this will be the results of a filter
 // which we will then use to get a random index
 // and get the word
-let negRnd = Math.floor(Math.random() * 2) + 1
-console.log(`LOG: negRnd is ${negRnd} negBox checked is ${document.getElementById('negBox').checked}`)
-if (negRnd == 1 && document.getElementById('negBox').checked) {tensesArray = ["present", "neg"]; console.log(`LOG: tensesArray is ${tensesArray}.`)} else {tensesArray = ["present"]; console.log(`LOG: tensesArray is ${tensesArray}.`)}
+let usedArgs = [];
+let usedArgsIndex = 0;
+// let negRnd = Math.floor(Math.random() * 2) + 1
+// console.log(`LOG: negRnd is ${negRnd} negBox checked is ${document.getElementById('negBox').checked}`)
+// if (negRnd == 1 && document.getElementById('negBox').checked) {tensesArray = ["present", "neg"]; console.log(`LOG: tensesArray is ${tensesArray}.`)} else {tensesArray = ["present"]; console.log(`LOG: tensesArray is ${tensesArray}.`)}
+// the above three lines are
+// only used in the case markers dict
+// (perchance was fucking with me about the tenses and i just couldnt be bothered)
 
 argsArray = argsArrayFormatter(argsArray, sentenceType);
   
@@ -81,6 +86,10 @@ switch (sentenceType) {
     miniDict = wordDict.filter((obj) => obj.subject.typ == true);
     currArgIndex = Math.floor(Math.random() * (miniDict.length - 1 + 1));
     console.log(`LOG: currArgIndex is ${currArgIndex}, which is ${miniDict[currArgIndex].word}`);
+    usedArgs[usedArgsIndex] = miniDict[currArgIndex].word;
+    console.log(`LOG: word ${miniDict[currArgIndex].word} was added to usedArgs at position ${usedArgsIndex}`)
+    usedArgsIndex++;
+    console.log(`LOG: usedArgs is now ${usedArgs}`)
     currArg = caseSuffixer(miniDict[currArgIndex].word, "subj");
     sentence += currArg;
     console.log(`LOG: word ${miniDict[currArgIndex].word} was added as subject. Sentence is ${sentence}.`);
@@ -104,9 +113,13 @@ switch (sentenceType) {
       console.log(`LOG: Entering for loop.`);
         for (let i = 1; i < argsArray.length; i++) {
           console.log(`argsArray[i] is ${argsArray[i]} i is ${i} sentenceType is ${sentenceType}`)
-          miniDict = wordDict.filter((obj) => obj[argsArray[i]][sentenceType] == true && obj.type != "verb" && obj.type != "adj");
+          miniDict = wordDict.filter((obj) => obj[argsArray[i]][sentenceType] == true && obj.type != "verb" && obj.type != "adj" && usedArgs.includes(obj.word) == false);
           currArgIndex = Math.floor(Math.random() * (miniDict.length - 1 + 1));
           word = miniDict[currArgIndex].word;
+          console.log(`LOG: got word ${word} from miniDict ${miniDict}`);
+          usedArgs[usedArgsIndex] = miniDict[currArgIndex].word;
+          console.log(`LOG: word ${miniDict[currArgIndex].word} was added to usedArgs at ${usedArgsIndex}`);
+          console.log(`LOG: usedArgs is now ${usedArgs}`);
           currArg = caseSuffixer(word, argsArray[i], sentenceType);
           console.log(`LOG: currArg is ${currArg} after case marked`);
           sentence += " " + currArg;
@@ -130,9 +143,13 @@ switch (sentenceType) {
       console.log(`LOG: Entering for loop.`);
         for (let i = 1; i < argsArray.length; i++) {
           console.log(`argsArray[i] is ${argsArray[i]} i is ${i} sentenceType is ${sentenceType}`)
-          miniDict = wordDict.filter((obj) => obj[argsArray[i]][sentenceType] == true && obj.type != "verb" && obj.type != "adj");
+          miniDict = wordDict.filter((obj) => obj[argsArray[i]][sentenceType] == true && obj.type != "verb" && obj.type != "adj" && usedArgs.includes(obj.word) == false);
           currArgIndex = Math.floor(Math.random() * (miniDict.length - 1 + 1));
           word = miniDict[currArgIndex].word;
+          console.log(`LOG: got word ${word} from miniDict ${miniDict}`);
+          usedArgs[usedArgsIndex] = miniDict[currArgIndex].word;
+          console.log(`LOG: word ${miniDict[currArgIndex].word} was added to usedArgs at ${usedArgsIndex}`);
+          console.log(`LOG: usedArgs is now ${usedArgs}`);
           currArg = caseSuffixer(word, argsArray[i], sentenceType);
           console.log(`LOG: currArg is ${currArg} after case marked`);
           sentence += " " + currArg;
@@ -156,9 +173,13 @@ switch (sentenceType) {
       console.log(`LOG: Entering for loop.`);
         for (let i = 1; i < argsArray.length; i++) {
           console.log(`argsArray[i] is ${argsArray[i]} i is ${i} sentenceType is ${sentenceType}`)
-          miniDict = wordDict.filter((obj) => obj[argsArray[i]][sentenceType] == true && obj.type != "verb" && obj.type != "adj");
+          miniDict = wordDict.filter((obj) => obj[argsArray[i]][sentenceType] == true && obj.type != "verb" && obj.type != "adj" && usedArgs.includes(obj.word) == false);
           currArgIndex = Math.floor(Math.random() * (miniDict.length - 1 + 1));
           word = miniDict[currArgIndex].word;
+          console.log(`LOG: got word ${word} from miniDict ${miniDict}`);
+          usedArgs[usedArgsIndex] = miniDict[currArgIndex].word;
+          console.log(`LOG: word ${miniDict[currArgIndex].word} was added to usedArgs at ${usedArgsIndex}`);
+          console.log(`LOG: usedArgs is now ${usedArgs}`);
           currArg = caseSuffixer(word, argsArray[i], sentenceType);
           console.log(`LOG: currArg is ${currArg} after case marked`);
           sentence += " " + currArg;
