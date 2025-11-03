@@ -1,6 +1,16 @@
 function quizChecker (button) {
   trueButton = document.querySelector('button[class="trueButton"]').value
-  if (button == trueButtonId) {alert("True! Good job!"); streakCounter++} else if (button != trueButtonId) {alert(`False! Sorry! The answer was ${trueButton}`); streakCounter = 0};
-  document.getElementById("streakCounterDisplay").innerHTML = "You have a streak of:<br><b>" + streakCounter + "</b>";
-  quizMaker(wordDict);
+  falseButtonsList = Array.from(document.querySelectorAll('button[class="falseButton"]'));
+  
+  if (button == trueButtonId) {document.getElementById(trueButtonId).setAttribute("style", "background-color: green"); document.getElementById(falseButtonsList[0].id).setAttribute("style", "background-color: red"); document.getElementById(falseButtonsList[1].id).setAttribute("style", "background-color: red"); document.getElementById(falseButtonsList[2].id).setAttribute("style", "background-color: red"); alert("True! Good job!"); streakCounter++} else if (button != trueButtonId) {document.getElementById(trueButtonId).setAttribute("style", "background-color: green"); document.getElementById(falseButtonsList[0].id).setAttribute("style", "background-color: red"); document.getElementById(falseButtonsList[1].id).setAttribute("style", "background-color: red"); document.getElementById(falseButtonsList[2].id).setAttribute("style", "background-color: red"); alert(`False! Sorry! The answer was ${trueButton}`); streakCounter = 0}
+  
+  if (streakCounter >= 1000) {document.getElementById("streakCounterDisplay").innerHTML = "You have a streak of:<br><b>🔥🔥🔥 " + streakCounter + " 🔥🔥🔥</b><br>Five Pebbles is proud of you."} else
+  if (streakCounter >= 100) {document.getElementById("streakCounterDisplay").innerHTML = "You have a streak of:<br><b>💯🔥🔥 " + streakCounter + " 🔥🔥💯</b>"} else
+  if (streakCounter >= 80) {document.getElementById("streakCounterDisplay").innerHTML = "You have a streak of:<br><b>🎉💥 " + streakCounter + " 💥🎉</b>"} else
+  if (streakCounter >= 60) {document.getElementById("streakCounterDisplay").innerHTML = "You have a streak of:<br><b>🎉🔥 " + streakCounter + " 🔥🎉</b>"} else
+  if (streakCounter >= 40) {document.getElementById("streakCounterDisplay").innerHTML = "You have a streak of:<br><b>🔥🔥 " + streakCounter + " 🔥🔥</b>"} else
+  if (streakCounter >= 20) {document.getElementById("streakCounterDisplay").innerHTML = "You have a streak of:<br><b>🔥 " + streakCounter + " 🔥</b>"} else
+  if (streakCounter < 20) {document.getElementById("streakCounterDisplay").innerHTML = "You have a streak of:<br><b>" + streakCounter + "</b>"}
+  // if anybody reaches 1k
+  // i'll ... uh idk what i'll do.
 }
