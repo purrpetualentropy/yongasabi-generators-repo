@@ -1,4 +1,5 @@
-unction flashcardMaker (dict) {
+function flashcardMaker (index) {
+  let dict = allArrays[index];
   let cardType = Math.floor(Math.random() * 2) + 1;
   let targetIndex = Math.floor(Math.random() * (dict.length - 1 + 1));
   let defIndex = Math.floor(Math.random() * (dict[targetIndex].def.length - 1 + 1));
