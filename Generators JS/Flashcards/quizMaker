@@ -1,4 +1,7 @@
-function quizMaker (dict) {
+function quizMaker (index) {
+  index = Number(index);
+  console.log(`LOG: index is ${index} typeof is ${typeof index}`);
+  let dict = allArrays[index];
   // TODO:
   // write the dicts (ugh ugh ugh ugh ugh)
   let trueWordIndex = Math.floor(Math.random() * (dict.length - 1 + 1));
@@ -26,7 +29,15 @@ function quizMaker (dict) {
     buttonSection.insertAdjacentHTML("beforeend", `<button onclick="quizChecker('button4')" id="button4" value="button4value">button4</button>`);
     console.log(`LOG: button4 should be init, moving on`)} else
     if (document.getElementById("flashcardButton") == null && document.getElementById("button1") != null)
-{console.log(`LOG: flashcardButton was detected as false && buttons are init. Moving on.`)} else
+{console.log(`LOG: flashcardButton was detected as false && buttons are init. Checking style.`);
+if (document.getElementById("button1").hasAttribute("style")) {
+console.log(`LOG: attribute style was found on button1. Clearing style.`);
+document.getElementById("button1").removeAttribute("style");
+document.getElementById("button2").removeAttribute("style");
+document.getElementById("button3").removeAttribute("style");
+document.getElementById("button4").removeAttribute("style");
+console.log(`LOG: styles should be cleared.`)} else
+if (document.getElementById("button1").hasAttribute("style") == false) {console.log(`LOG: style wasn't found. Moving on.`)}} else
 if (document.getElementById("flashcardButton") == null && document.getElementById("button1") == null) {
  console.log(`LOG: flashcardButton was detected as false && buttons were detected as false. Init buttons.`);
  let buttonSection = document.getElementById("buttonSection");
