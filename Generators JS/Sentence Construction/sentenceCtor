@@ -89,7 +89,7 @@ switch (sentenceType) {
     console.log(`LOG: currArgIndex is ${currArgIndex}, which is ${miniDict[currArgIndex].word}`);
     usedArgs[usedArgsIndex] = miniDict[currArgIndex].word;
     console.log(`LOG: word ${miniDict[currArgIndex].word} was added to usedArgs at position ${usedArgsIndex}`)
-    usedArgsIndex = usedArgsIndex++;
+    usedArgsIndex += 1;
     console.log(`LOG: usedArgs is now ${usedArgs}`)
     currArg = caseSuffixer(miniDict[currArgIndex].word, "subj");
     sentence += currArg;
@@ -122,7 +122,7 @@ switch (sentenceType) {
           usedArgs[usedArgsIndex] = miniDict[currArgIndex].word;
           console.log(`LOG: word ${miniDict[currArgIndex].word} was added to usedArgs at ${usedArgsIndex}`);
           console.log(`LOG: usedArgs is now ${usedArgs}`);
-          usedArgsIndex = usedArgsIndex++
+          usedArgsIndex += 1;
           currArg = caseSuffixer(word, argsArray[i], sentenceType);
           console.log(`LOG: currArg is ${currArg} after case marked`);
           sentence += " " + currArg;
@@ -154,7 +154,7 @@ switch (sentenceType) {
           usedArgs[usedArgsIndex] = miniDict[currArgIndex].word;
           console.log(`LOG: word ${miniDict[currArgIndex].word} was added to usedArgs at ${usedArgsIndex}`);
           console.log(`LOG: usedArgs is now ${usedArgs}`);
-          usedArgsIndex = usedArgsIndex++
+          usedArgsIndex += 1;
           currArg = caseSuffixer(word, argsArray[i], sentenceType);
           console.log(`LOG: currArg is ${currArg} after case marked`);
           sentence += " " + currArg;
@@ -186,7 +186,7 @@ switch (sentenceType) {
           usedArgs[usedArgsIndex] = miniDict[currArgIndex].word;
           console.log(`LOG: word ${miniDict[currArgIndex].word} was added to usedArgs at ${usedArgsIndex}`);
           console.log(`LOG: usedArgs is now ${usedArgs}`);
-          usedArgsIndex = usedArgsIndex++
+          usedArgsIndex += 1;
           currArg = caseSuffixer(word, argsArray[i], sentenceType);
           console.log(`LOG: currArg is ${currArg} after case marked`);
           sentence += " " + currArg;
