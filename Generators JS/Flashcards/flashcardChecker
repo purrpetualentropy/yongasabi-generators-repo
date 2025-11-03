@@ -1,8 +1,8 @@
 function flashcardChecker() {
   if (typeof flipDisplay == "string") {
     console.log(`LOG: flashcardChecker detected flipDisplay as string. Writing to button directly.`);
+      if (document.getElementById("yongiDisplay").checked) {document.getElementById("flashcardButton").setAttribute("class", "YongiBlock")}
     document.getElementById("flashcardButton").innerHTML = flipDisplay;
-    document.getElementById("flashcardButton").setAttribute("disabled");
   } else
   if (typeof flipDisplay == "object") {
     console.log(`LOG: flashcardChecker detected flipDisplay as object. Writing with join.`);
@@ -10,8 +10,8 @@ function flashcardChecker() {
     for (i = 0; i < flipDisplay.length; i++) {
     fullDef += i+1 + ". " + flipDisplay[i] + "<br>";
     }
+    if (document.getElementById("yongiDisplay").checked) {document.getElementById("flashcardButton").setAttribute("class", "awawa")}
     document.getElementById("flashcardButton").innerHTML = fullDef;
-    document.getElementById("flashcardButton").setAttribute("disabled");
   } else
   { console.log(`LOG: couldn't detect typeof flipDisplay as string or object. typeof is ${typeof flipDisplay}, content is ${flipDisplay}.`)
   document.getElementById("flashcardButton").innerHTML = "FLASHCARDCHECKER FAILED!!";
