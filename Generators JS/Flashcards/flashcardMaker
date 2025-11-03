@@ -35,6 +35,7 @@ switch (cardType) {
     case 1:
       console.log(`LOG: cardType was detected as 1. Writing word to button.`);
       document.getElementById("quizTitle").innerHTML = "What is the definition of this word?";
+      if (document.getElementById("yongiDisplay").checked) {document.getElementById("flashcardButton").setAttribute("class", "YongiBlock")}
       document.getElementById("flashcardButton").innerHTML = dict[targetIndex].word;
       console.log(`LOG: button should be written. Sending defs to flipDisplay.`);
       flipDisplay = dict[targetIndex].def;
