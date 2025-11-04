@@ -47,9 +47,9 @@ function tensesArrayFormatter (tensesArray) {
         
         if (tensesArray.includes("plain")) {console.log(`LOG: Tense plain was detected at ${tensesArray.indexOf("plain")}!`); destroyIndex = tensesArray.indexOf("plain"); tensesArray[destroyIndex] = n; console.log(`LOG: after plain formatted tensesArray now ${tensesArray} formattedArray now ${formattedArray}`); continue} else
         
-        if (tensesArray.includes("abil")) {console.log(`LOG: Tense abil was detected at ${tensesArray.indexOf("abil")}!`); formattedArray[n] = "abil"; destroyIndex = tensesArray.indexOf("abil"); tensesArray[destroyIndex] = n; n++; console.log(`LOG: after abil formatted tensesArray now ${tensesArray} formattedArray now ${formattedArray}`); continue} else
+        if (tensesArray.includes("abil")) {console.log(`LOG: Tense abil was detected at ${tensesArray.indexOf("abil")}!`); destroyIndex = tensesArray.indexOf("abil"); tensesArray[destroyIndex] = n; n++; console.log(`LOG: after abil formatted tensesArray now ${tensesArray} formattedArray now ${formattedArray}`); continue} else
         
-        if (tensesArray.includes("des")) {console.log(`LOG: Tense des was detected at ${tensesArray.indexOf("des")}!`); formattedArray[n] = "des"; destroyIndex = tensesArray.indexOf("des"); tensesArray[destroyIndex] = n; n++; console.log(`LOG: After des formatted tensesArray now ${tensesArray} formattedArray now ${formattedArray}`); continue} else
+        if (tensesArray.includes("des")) {console.log(`LOG: Tense des was detected at ${tensesArray.indexOf("des")}!`); destroyIndex = tensesArray.indexOf("des"); tensesArray[destroyIndex] = n; n++; console.log(`LOG: After des formatted tensesArray now ${tensesArray} formattedArray now ${formattedArray}`); continue} else
         
         if (tensesArray.includes("neg")) {console.log(`LOG: Tense neg was detected at ${tensesArray.indexOf("neg")}!`); formattedArray[n] = "neg"; destroyIndex = tensesArray.indexOf("neg"); tensesArray[destroyIndex] = n; n++; console.log(`LOG: after neg formatted tensesArray now ${tensesArray} formattedArray now ${formattedArray}`); continue} else
         
