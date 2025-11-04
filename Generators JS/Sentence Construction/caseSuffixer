@@ -57,7 +57,7 @@ switch (fixedCase) {
       
       case "dirobj":
         console.log("LOG: Case dirobj was detected!");
-        if (sentenceType == 4 && vomDirobjRnd == 1 || document.getElementById('themBox').checked == false) {console.log(`LOG: sentenceType 4 (VOM) was detected. Using acc.`); if (vowelCheckerOutput == true) {suffixedWord += "do"} else {suffixedWord += "'o"}} else if (sentenceType == 4 && vomDirobjRnd == 2 && document.getElementById('themBox').checked) {console.log(`LOG: sentenceType 4 (VOM) was detected. Using them.`); suffixedWord += "pei"} else if (vowelCheckerOutput == true) {suffixedWord += "do"} else {suffixedWord += "'o"};
+        if (sentenceType == 4 && vomDirobjRnd == 1 || sentenceType == "vom" && vomDirobjRnd == 1 || document.getElementById('themBox').checked == false) {console.log(`LOG: sentenceType 4 (VOM) was detected. Using acc.`); if (vowelCheckerOutput == true) {suffixedWord += "do"} else {suffixedWord += "'o"}} else if (sentenceType == 4 && vomDirobjRnd == 2 && document.getElementById('themBox').checked || sentenceType == "vom" && vomDirobjRnd == 2 && document.getElementById('themBox').checked) {console.log(`LOG: sentenceType 4 (VOM) was detected. Using them.`); suffixedWord += "pei"} else if (vowelCheckerOutput == true) {suffixedWord += "do"} else {suffixedWord += "'o"};
         console.log(`LOG: Word ${word} was suffixed into ${suffixedWord}!`);
         return suffixedWord;
         break;
