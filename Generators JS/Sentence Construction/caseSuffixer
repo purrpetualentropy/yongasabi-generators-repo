@@ -4,6 +4,7 @@ console.log(`LOG: vowelChecker returned ${vowelCheckerOutput} on word ${word}`);
 let fixedCase = gramCase.toLowerCase();
 let suffixedWord = word;
 let vomDirobjRnd = Math.floor(Math.random() * 2) + 1;
+let focRnd = Math.floor(Math.random() * 2) + 1;
 
 // subj, timing, loc, abl, instr, indirobj, dest, dirobj, gen, voc
 // 'ag, n/a, wa, mok, sang, 'im, 'im, 'o (or pei if vom), la, ho
@@ -14,11 +15,12 @@ switch (fixedCase) {
       console.log(`LOG: Word ${word} was suffixed into ${suffixedWord}!`);
       return suffixedWord;
       break;
-
+    
     case "subj":
     case "subject":
         console.log("LOG: Case subject was detected!");
-        if (vowelCheckerOutput == true) {suffixedWord += "ga"} else {suffixedWord += "'ag"};
+        if (focRnd == 1 || document.getElementById("focBox").checked == false) {console.log(`LOG: focRnd is 1, suffixing subject like normal`); 
+        if (vowelCheckerOutput == true) {suffixedWord += "ga"} else {suffixedWord += "'ag"}} else if (focRnd == 2 && document.getElementById("focBox").checked == true) {console.log(`LOG: focRnd is 2, suffixing as hei`); suffixedWord += "hei"}
         console.log(`LOG: Word ${word} was suffixed into ${suffixedWord}!`);
         return suffixedWord;
         break;
@@ -39,7 +41,8 @@ switch (fixedCase) {
         console.groupEnd()
         console.log(`LOG: Word ${word} was suffixed into ${suffixedWord}!`);
         return suffixedWord;
-        break;      
+        break;
+      
       case "abl":
         console.log("LOG: Case abl was detected!");
         suffixedWord += "mok";
