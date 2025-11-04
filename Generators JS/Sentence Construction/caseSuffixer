@@ -8,6 +8,13 @@ let vomDirobjRnd = Math.floor(Math.random() * 2) + 1;
 // subj, timing, loc, abl, instr, indirobj, dest, dirobj, gen, voc
 // 'ag, n/a, wa, mok, sang, 'im, 'im, 'o (or pei if vom), la, ho
 switch (fixedCase) {
+    case "focus":
+      console.log("LOG: Case focus was detected!");
+      suffixedWord += "hei";
+      console.log(`LOG: Word ${word} was suffixed into ${suffixedWord}!`);
+      return suffixedWord;
+      break;
+
     case "subj":
     case "subject":
         console.log("LOG: Case subject was detected!");
