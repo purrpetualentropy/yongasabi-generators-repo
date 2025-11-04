@@ -78,7 +78,7 @@ switch (fixedCase) {
         
       case "voc":
         console.log("LOG: Case voc was detected!");
-        suffixedWord += " ho";
+        suffixedWord += " ho,";
         console.log(`LOG: Word ${word} was suffixed into ${suffixedWord}!`);
         return suffixedWord;
         break;
