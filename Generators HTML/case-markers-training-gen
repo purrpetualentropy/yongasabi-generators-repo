@@ -17,8 +17,8 @@
 <option value="verb">Verbs</option>
 </select><br><br>
 <input type="checkbox" id="displayGlyphs"> <label for="displayGlyphs">Display only glyphs</label>
-<input type="checkbox" id="noDisplayGlyphs"> <label for="noDisplayGlyphs">Do not display glyphs</label><br>
-<input type="checkbox" id="negBox" class="tenseBox"> <label for="negBox">Allow negation</label>
+<input type="checkbox" id="noDisplayGlyphs"> <label for="noDisplayGlyphs">Do not display glyphs</label>
+<input type="checkbox" id="negBox" class="tenseBox"> <label for="negBox">Allow negation</label><br><br>
 <input type="checkbox" id="subjBox" checked> <label for="subjBox">Subject marker sentences</label>
 <input type="checkbox" id="locBox" class="argBox"> <label for="locBox">Locative marker sentences</label><br>
 <input type="checkbox" id="ablBox" class="argBox"> <label for="ablBox">Ablative marker sentences</label>
@@ -26,11 +26,16 @@
 <input type="checkbox" id="indirobjBox" class="argBox"> <label for="indirobjBox">Allow indirect objects</label>
 <input type="checkbox" id="destBox" class="argBox"> <label for="destBox">Allow destinations of verbs of motion</label><br>
 <input type="checkbox" id="dirobjBox" class="argBox"> <label for="dirobjBox">Accusative marker sentences</label>
-<input type="checkbox" id="themBox"> <label for="themBox">Thematic marker sentences</label>
+<input type="checkbox" id="themBox"> <label for="themBox">Allow thematic marker for VOM direct objects</label><br>
+<input type="checkbox" id="vocBox"> <label for="vocBox">Allow the vocative</label>
+<input type="checkbox" id="focBox"> <label for="focBox">Allow replacing subject marker with focus marker</label><br>
+<input type="checkbox" id="questionBox"> <label for="questionBox">Allow questions</label><br>
+<input type="checkbox" id="genBox"> <label for="genBox">Allow adjectives & the genitive marker</label>
 
-<p>The renovations are finished! This generator is purely JavaScript. <b>Known issues:</b><br>
-- Certain verbs can take improper direct objects (for example, <i>yongasabido hantasa</i>)<br>
-If you encounter issues, please let me know @identityarchitect on Tumblr or on the Adamantine's Drainbox thread of the <a href="https://yongasabi.freeforums.net/">Yongasabi Forums</a>.
+<p>The renovations are finished! This generator is almost entirely JavaScript. <b>Known issues:</b><br>
+- A bunch of location words (like <i>sallonu</i>) are mistakenly set to be indirect objects of some verbs (i.e "She is hitting on behalf of the shoreline"). This is not supposed to be the case. Please tell me if you see one of these words being the indirect object like that.<br>
+- Adjectives and the genitive marker can now be used and I'm worried they're going to break or do something stupid. Let me know if something breaks or if a weird sentence gets generated.
+  If you encounter any issues, please let me know @identityarchitect on Tumblr or on the Adamantine's Drainbox thread of the <a href="https://yongasabi.freeforums.net/">Yongasabi Forums</a>.
 </p>
 
 <p><a href="https://perchance.org/yongasabi-generators-index">Yongasabi Generators Index</a></p>
