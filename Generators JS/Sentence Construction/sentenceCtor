@@ -19,11 +19,15 @@ let miniDict = []; // this will be the results of a filter
 // and get the word
 let usedArgs = [];
 let usedArgsIndex = 0;
+let adjAttach = false;
+let adjMiniDict = [];
+let genMiniDict = [];
+let adjIndex = 0;
 let negRnd = Math.floor(Math.random() * 2) + 1
 console.log(`LOG: negRnd is ${negRnd} negBox checked is ${document.getElementById('negBox').checked}`)
 if (negRnd == 1 && document.getElementById('negBox').checked) {tensesArray = ["present", "neg"]; console.log(`LOG: tensesArray is ${tensesArray}.`)} else {tensesArray = ["present"]; console.log(`LOG: tensesArray is ${tensesArray}.`)}
 
-argsArray = argsArrayFormatter(argsArray, sentenceType);
+if (sentenceType == 3 || sentenceType == 4 || sentenceType == 5) {argsArray = argsArrayFormatter(argsArray, sentenceType)} else {console.log(`LOG: sentenceType wasn't detected as 3, 4 or 5, so argsArrayFormatter wasn't called. sentenceType is ${sentenceType}`)}
   
 switch (sentenceType) {
   case 0:
@@ -51,9 +55,20 @@ switch (sentenceType) {
     miniDict = wordDict.filter((obj) => obj.subject.possess == true && obj.type != "verb");
     currArgIndex = Math.floor(Math.random() * (miniDict.length - 1 + 1));
     console.log(`LOG: currArgIndex is ${currArgIndex}, which is ${miniDict[currArgIndex].word}`);
+    usedArgs[usedArgsIndex] = miniDict[currArgIndex].word;
+    console.log(`LOG: word ${miniDict[currArgIndex].word} was added to usedArgs at ${usedArgsIndex}`);
+    console.log(`LOG: usedArgs is now ${usedArgs}`);
+    usedArgsIndex += 1;
     currArg = caseSuffixer(miniDict[currArgIndex].word, "subj");
     sentence += currArg;
     console.log(`LOG: word ${miniDict[currArgIndex].word} was added as subject. Sentence is ${sentence}.`);
+    if (argsArray.includes("adjective")) {console.log(`LOG: adjective was detecting. Using genitive.`)
+                miniDict = wordDict.filter((obj) => obj.gen.possess == true && usedArgs.includes(obj.word) == false)
+                                         currArgIndex = Math.floor(Math.random() * (miniDict.length - 1 + 1));
+                                         console.log(`LOG: word is ${miniDict[currArgIndex].word}`);
+                                         sentence += " " + miniDict[currArgIndex].word + "la";
+                                         console.log(`LOG: sentence is now ${sentence}`)} else
+                                         {console.log(`LOG: argsArray was not detected to include adjective. argsArray is ${argsArray}`)}
     miniDict = wordDict.filter((obj) => obj.possessable == true);
     currArgIndex = Math.floor(Math.random() * (miniDict.length - 1 + 1));
     sentence += " " + miniDict[currArgIndex].word;
@@ -125,7 +140,8 @@ switch (sentenceType) {
       if (argsArray.includes("voc")) {console.log(`LOG: voc is detected. Pushing at index 2.`); argsArray.splice(2, 0, "subject"); console.log(`LOG: argsArray is ${argsArray}`)} else {console.log(`LOG: voc wasn't detected. Pushing at index 1.`); argsArray.splice(1, 0, "subject"); console.log(`LOG: argsArray is ${argsArray}`)}};
       console.log(`LOG: Entering for loop.`);
         for (let i = 1; i < argsArray.length; i++) {
-          if (argsArray[i] == "question") {console.log(`LOG: 'question' detected at ${i}, skipping`); break}
+          if (argsArray[i] == "question") {console.log(`LOG: 'question' detected at ${i}, skipping`); continue}
+          if (argsArray[i] == "adjective") {console.log(`LOG: adjective was detected. Setting adjAttach to true and continuing.`); adjAttach = true; console.log(`LOG: adjAttach is now ${adjAttach}. Continuing loop.`); continue}
           console.log(`argsArray[i] is ${argsArray[i]} i is ${i} sentenceType is ${sentenceType}`)
           miniDict = wordDict.filter((obj) => obj[argsArray[i]][sentenceType] == true && obj.type != "verb" && obj.type != "adj" && usedArgs.includes(obj.word) == false);
           currArgIndex = Math.floor(Math.random() * (miniDict.length - 1 + 1));
@@ -137,8 +153,57 @@ switch (sentenceType) {
           console.log(`LOG: usedArgs is now ${usedArgs}`);
           usedArgsIndex += 1;
           currArg = caseSuffixer(word, argsArray[i], sentenceType);
-          console.log(`LOG: currArg is ${currArg} after case marked`);
-          sentence += " " + currArg;
+          console.log(`LOG: currArg is ${currArg} after case marked. now checking for adjective`);
+          if (adjAttach == false) {console.log(`LOG: adjAttach is false, value is ${adjAttach}. adding to sentence`); sentence += " " + currArg} else
+          if (adjAttach == true) {console.log(`LOG: adjAttach is true. Checking possessability.`)
+              if (miniDict[currArgIndex].possessable == true) {console.log(`LOG: possessable is true. Getting adjs and gens.`)
+                                                            adjMiniDict = wordDict.filter((obj) => obj.type == "adj" && usedArgs.includes(obj.word) == false);
+                                                            genMiniDict = (wordDict.filter((obj) => usedArgs.includes(obj.word) == false && obj.gen[sentenceType] == true))
+                                                               for (let n = 0; n < genMiniDict.length; n++) {
+                                                                 adjMiniDict.push(genMiniDict[n]);
+                                                                 console.log(`LOG: pushed ${genMiniDict[n]}`)
+                                                               };
+                                                            console.log(`LOG: adjMiniDict is:`);
+                                                            console.dir(adjMiniDict);
+                                                            console.log(`LOG: now selecting adj...`);
+                                                            adjIndex = Math.floor(Math.random() * (miniDict.length - 1 + 1));
+                                                            word = adjMiniDict[adjIndex].word;
+                                                            usedArgs[usedArgsIndex] = adjMiniDict[adjIndex].word;
+                                                            console.log(`LOG: word ${adjMiniDict[adjIndex].word} was added to usedArgs at ${usedArgsIndex}`);
+                                                            console.log(`LOG: usedArgs is now ${usedArgs}`);
+                                                            usedArgsIndex += 1;
+                                                            console.log(`LOG: got word ${word} from adjMiniDict at index ${adjIndex}`);
+                                                              if (adjMiniDict[adjIndex].gen[sentenceType] == true) {
+                                                                console.log(`LOG: selected word is genitive, suffixing`)
+                                                                word += "la";
+                                                                console.log(`LOG: word is now ${word}, adding to sentence`);
+                                                                adjAttach = false;
+                                                                sentence += " " + word + " " + currArg;
+                                                                console.log(`LOG: sentence is ${sentence} after added ${word} and ${currArg}`)
+                                                                  } else
+                                                              if (adjMiniDict[adjIndex].gen[sentenceType] == false) {
+                                                                console.log(`LOG: selected word is not genitive, adding`);
+                                                                sentence += " " + word + " " + currArg;
+                                                                adjAttach = false;
+                                                                console.log(`LOG: sentence is ${sentence} after added ${word} and ${currArg}`)
+                                                                  }
+                                                              } else
+          if (miniDict[currArgIndex].possessable == false) {console.log(`LOG: possessable is false. Getting adjs.`)
+                                                            adjMiniDict = wordDict.filter((obj) => obj.type == "adj" && usedArgs.includes(obj.word) == false);
+                                                            console.log(`LOG: adjMiniDict is:`);
+                                                            console.dir(adjMiniDict);
+                                                            console.log(`LOG: now selecting adj...`);
+                                                            adjIndex = Math.floor(Math.random() * (miniDict.length - 1 + 1));
+                                                            word = adjMiniDict[adjIndex].word;
+                                                            usedArgs[usedArgsIndex] = adjMiniDict[adjIndex].word;
+                                                            console.log(`LOG: word ${adjMiniDict[adjIndex].word} was added to usedArgs at ${usedArgsIndex}`);
+                                                            console.log(`LOG: usedArgs is now ${usedArgs}`);
+                                                            usedArgsIndex += 1;
+                                                            sentence += " " + word + " " + currArg;
+                                                            adjAttach = false;
+                                                            console.log(`LOG: sentence is ${sentence} after added ${word} and ${currArg}`)
+                                                                  }
+                                                              }
           console.log(`LOG: sentence is ${sentence} after added ${currArg}.`);
         };
       console.log(`LOG: Exited loop. Getting verb.`);
@@ -162,7 +227,8 @@ switch (sentenceType) {
       if (argsArray.includes("voc")) {console.log(`LOG: voc is detected. Pushing at index 2.`); argsArray.splice(2, 0, "subject"); console.log(`LOG: argsArray is ${argsArray}`)} else {console.log(`LOG: voc wasn't detected. Pushing at index 1.`); argsArray.splice(1, 0, "subject"); console.log(`LOG: argsArray is ${argsArray}`)}};
       console.log(`LOG: Entering for loop.`);
         for (let i = 1; i < argsArray.length; i++) {
-          if (argsArray[i] == "question") {console.log(`LOG: 'question' detected at ${i}, skipping`); break}
+          if (argsArray[i] == "question") {console.log(`LOG: 'question' detected at ${i}, skipping`); continue}
+          if (argsArray[i] == "adjective") {console.log(`LOG: adjective was detected. Setting adjAttach to true and continuing.`); adjAttach = true; console.log(`LOG: adjAttach is now ${adjAttach}. Continuing loop.`); continue}
           console.log(`argsArray[i] is ${argsArray[i]} i is ${i} sentenceType is ${sentenceType}`)
           miniDict = wordDict.filter((obj) => obj[argsArray[i]][sentenceType] == true && obj.type != "verb" && obj.type != "adj" && usedArgs.includes(obj.word) == false);
           currArgIndex = Math.floor(Math.random() * (miniDict.length - 1 + 1));
@@ -174,8 +240,57 @@ switch (sentenceType) {
           console.log(`LOG: usedArgs is now ${usedArgs}`);
           usedArgsIndex += 1;
           currArg = caseSuffixer(word, argsArray[i], sentenceType);
-          console.log(`LOG: currArg is ${currArg} after case marked`);
-          sentence += " " + currArg;
+          console.log(`LOG: currArg is ${currArg} after case marked. now checking for adjective`);
+          if (adjAttach == false) {console.log(`LOG: adjAttach is false, value is ${adjAttach}. adding to sentence`); sentence += " " + currArg} else
+          if (adjAttach == true) {console.log(`LOG: adjAttach is true. Checking possessability.`)
+              if (miniDict[currArgIndex].possessable == true) {console.log(`LOG: possessable is true. Getting adjs and gens.`)
+                                                            adjMiniDict = wordDict.filter((obj) => obj.type == "adj" && usedArgs.includes(obj.word) == false);
+                                                            genMiniDict = (wordDict.filter((obj) => usedArgs.includes(obj.word) == false && obj.gen[sentenceType] == true))
+                                                               for (let n = 0; n < genMiniDict.length; n++) {
+                                                                 adjMiniDict.push(genMiniDict[n]);
+                                                                 console.log(`LOG: pushed ${genMiniDict[n]}`)
+                                                               };
+                                                            console.log(`LOG: adjMiniDict is:`);
+                                                            console.dir(adjMiniDict);
+                                                            console.log(`LOG: now selecting adj...`);
+                                                            adjIndex = Math.floor(Math.random() * (miniDict.length - 1 + 1));
+                                                            word = adjMiniDict[adjIndex].word;
+                                                            usedArgs[usedArgsIndex] = adjMiniDict[adjIndex].word;
+                                                            console.log(`LOG: word ${adjMiniDict[adjIndex].word} was added to usedArgs at ${usedArgsIndex}`);
+                                                            console.log(`LOG: usedArgs is now ${usedArgs}`);
+                                                            usedArgsIndex += 1;
+                                                            console.log(`LOG: got word ${word} from adjMiniDict at index ${adjIndex}`);
+                                                              if (adjMiniDict[adjIndex].gen[sentenceType] == true) {
+                                                                console.log(`LOG: selected word is genitive, suffixing`)
+                                                                word += "la";
+                                                                console.log(`LOG: word is now ${word}, adding to sentence`);
+                                                                adjAttach = false;
+                                                                sentence += " " + word + " " + currArg;
+                                                                console.log(`LOG: sentence is ${sentence} after added ${word} and ${currArg}`)
+                                                                  } else
+                                                              if (adjMiniDict[adjIndex].gen[sentenceType] == false) {
+                                                                console.log(`LOG: selected word is not genitive, adding`);
+                                                                sentence += " " + word + " " + currArg;
+                                                                adjAttach = false;
+                                                                console.log(`LOG: sentence is ${sentence} after added ${word} and ${currArg}`)
+                                                                  }
+                                                              } else
+          if (miniDict[currArgIndex].possessable == false) {console.log(`LOG: possessable is false. Getting adjs.`)
+                                                            adjMiniDict = wordDict.filter((obj) => obj.type == "adj" && usedArgs.includes(obj.word) == false);
+                                                            console.log(`LOG: adjMiniDict is:`);
+                                                            console.dir(adjMiniDict);
+                                                            console.log(`LOG: now selecting adj...`);
+                                                            adjIndex = Math.floor(Math.random() * (miniDict.length - 1 + 1));
+                                                            word = adjMiniDict[adjIndex].word;
+                                                            usedArgs[usedArgsIndex] = adjMiniDict[adjIndex].word;
+                                                            console.log(`LOG: word ${adjMiniDict[adjIndex].word} was added to usedArgs at ${usedArgsIndex}`);
+                                                            console.log(`LOG: usedArgs is now ${usedArgs}`);
+                                                            usedArgsIndex += 1;
+                                                            sentence += " " + word + " " + currArg;
+                                                            adjAttach = false;
+                                                            console.log(`LOG: sentence is ${sentence} after added ${word} and ${currArg}`)
+                                                                  }
+                                                              }
           console.log(`LOG: sentence is ${sentence} after added ${currArg}.`);
         };
       console.log(`LOG: Exited loop. Getting verb.`);
@@ -199,7 +314,8 @@ switch (sentenceType) {
       if (argsArray.includes("voc")) {console.log(`LOG: voc is detected. Pushing at index 2.`); argsArray.splice(2, 0, "subject"); console.log(`LOG: argsArray is ${argsArray}`)} else {console.log(`LOG: voc wasn't detected. Pushing at index 1.`); argsArray.splice(1, 0, "subject"); console.log(`LOG: argsArray is ${argsArray}`)}};
       console.log(`LOG: Entering for loop.`);
         for (let i = 1; i < argsArray.length; i++) {
-          if (argsArray[i] == "question") {console.log(`LOG: 'question' detected at ${i}, skipping`); break}
+          if (argsArray[i] == "question") {console.log(`LOG: 'question' detected at ${i}, skipping`); continue}
+          if (argsArray[i] == "adjective") {console.log(`LOG: adjective was detected. Setting adjAttach to true and continuing.`); adjAttach = true; console.log(`LOG: adjAttach is now ${adjAttach}. Continuing loop.`); continue}
           console.log(`argsArray[i] is ${argsArray[i]} i is ${i} sentenceType is ${sentenceType}`)
           miniDict = wordDict.filter((obj) => obj[argsArray[i]][sentenceType] == true && obj.type != "verb" && obj.type != "adj" && usedArgs.includes(obj.word) == false);
           currArgIndex = Math.floor(Math.random() * (miniDict.length - 1 + 1));
@@ -211,8 +327,58 @@ switch (sentenceType) {
           console.log(`LOG: usedArgs is now ${usedArgs}`);
           usedArgsIndex += 1;
           currArg = caseSuffixer(word, argsArray[i], sentenceType);
-          console.log(`LOG: currArg is ${currArg} after case marked`);
-          sentence += " " + currArg;
+          console.log(`LOG: currArg is ${currArg} after case marked. now checking for adjective`);
+          if (adjAttach == false) {console.log(`LOG: adjAttach is false, value is ${adjAttach}. adding to sentence`); sentence += " " + currArg} else
+          if (adjAttach == true) {console.log(`LOG: adjAttach is true. Checking possessability.`)
+              if (miniDict[currArgIndex].possessable == true) {console.log(`LOG: possessable is true. Getting adjs and gens.`)
+                                                            adjMiniDict = wordDict.filter((obj) => obj.type == "adj" && usedArgs.includes(obj.word) == false);
+                                                            genMiniDict = (wordDict.filter((obj) => usedArgs.includes(obj.word) == false && obj.gen[sentenceType] == true))
+                                                               for (let n = 0; n < genMiniDict.length; n++) {
+                                                                 adjMiniDict.push(genMiniDict[n]);
+                                                                 console.log(`LOG: pushed ${genMiniDict[n]}`)
+                                                               };
+                                                            console.log(`LOG: adjMiniDict is:`);
+                                                            console.dir(adjMiniDict);
+                                                            console.log(`LOG: now selecting adj...`);
+                                                            adjIndex = Math.floor(Math.random() * (miniDict.length - 1 + 1));
+                                                            word = adjMiniDict[adjIndex].word;
+                                                            usedArgs[usedArgsIndex] = adjMiniDict[adjIndex].word;
+                                                            console.log(`LOG: word ${adjMiniDict[adjIndex].word} was added to usedArgs at ${usedArgsIndex}`);
+                                                            console.log(`LOG: usedArgs is now ${usedArgs}`);
+                                                            usedArgsIndex += 1;
+                                                            console.log(`LOG: got word ${word} from adjMiniDict at index ${adjIndex}`);
+                                                              if (adjMiniDict[adjIndex].gen[sentenceType] == true) {
+                                                                console.log(`LOG: selected word is genitive, suffixing`)
+                                                                word += "la";
+                                                                console.log(`LOG: word is now ${word}, adding to sentence`);
+                                                                adjAttach = false;
+                                                                sentence += " " + word + " " + currArg;
+                                                                console.log(`LOG: sentence is ${sentence} after added ${word} and ${currArg}`)
+                                                                  } else
+                                                              if (adjMiniDict[adjIndex].gen[sentenceType] == false) {
+                                                                console.log(`LOG: selected word is not genitive, adding`);
+                                                                sentence += " " + word + " " + currArg;
+                                                                adjAttach = false;
+                                                                console.log(`LOG: sentence is ${sentence} after added ${word} and ${currArg}`)
+                                                                  }
+                                                              } else
+          if (miniDict[currArgIndex].possessable == false) {console.log(`LOG: possessable is false. Getting adjs.`)
+                                                            adjMiniDict = wordDict.filter((obj) => obj.type == "adj" && usedArgs.includes(obj.word) == false);
+                                                            console.log(`LOG: adjMiniDict is:`);
+                                                            console.dir(adjMiniDict);
+                                                            console.log(`LOG: now selecting adj...`);
+                                                            adjIndex = Math.floor(Math.random() * (miniDict.length - 1 + 1));
+                                                            word = adjMiniDict[adjIndex].word;
+                                                            usedArgs[usedArgsIndex] = adjMiniDict[adjIndex].word;
+                                                            console.log(`LOG: word ${adjMiniDict[adjIndex].word} was added to usedArgs at ${usedArgsIndex}`);
+                                                            console.log(`LOG: usedArgs is now ${usedArgs}`);
+                                                            usedArgsIndex += 1;
+                                                            sentence += " " + word + " " + currArg;
+                                                            adjAttach = false;
+                                                            console.log(`LOG: sentence is ${sentence} after added ${word} and ${currArg}`)
+                                                                  }
+                                                              } else
+                                                              {console.log(`LOG: huh?? bwuh??? adjAttach is ${adjAttach}`)}
           console.log(`LOG: sentence is ${sentence} after added ${currArg}.`);
         };
       console.log(`LOG: Exited loop. Getting verb.`);
