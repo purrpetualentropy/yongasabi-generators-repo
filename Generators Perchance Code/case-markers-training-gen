@@ -1,16 +1,21 @@
 // Gen created 17/09/2025
-// Last updated: 26/10/2025
-// The vast majority of this generator's functionality
-// is in the JavaScript.
-// Perchance makes certain things more convenient for me, so I use it.
+// Last updated: 05/11/2025
+// Adjectives and the genitive have been added!!!!
+// I think that's our last todo for this generator!
+// We can now fully focus on updating tenseSuffixer and such.
+// WOO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// Everybody say thank you Akizet!!!!!!!!!
 
 
+// [let tensesArray = ["present"]][tenseCheck = tenses.selectOne][if (negBox == true && tenseCheck == 1) {tensesArray[1] = "neg"} else {} ""]
+// is the code I was using to make an array in perchance
+// I just hardcoded it into the sentenceCtor
 title
   Yongasabi Case Markers Training
 
 
 output
-  [g = displayGlyphs.checked, ""][n = noDisplayGlyphs.checked, ""][argsArray = args.consumableList.selectMany(1, argsCh + 1).joinItems(","), ""][argsArray = argsArray.split(","), ""][realType = sentenceType.selectOne, ""][realType = Number(realType), ""][sentence = sentenceCtor(argsArray, [""], realType), ""][if (g == true && n == true) {"Nothing here."} else if (g == true && n != true) {`<div class="YongiBlock">${sentence}</div>`} else if (g == false && n == true) {[sentence]} else {`<div class="YongiBlock">${sentence}</div>${sentence}`}]
+  Translate the following sentence into English:<br>[g = displayGlyphs.checked, ""][n = noDisplayGlyphs.checked, ""][argsArray = args.consumableList.selectMany(1, argsCh + 1).joinItems(","), ""][argsArray = argsArray.split(","), ""][realType = sentenceType.selectOne, ""][realType = Number(realType), ""][sentence = sentenceCtor(argsArray, [""], realType), ""][if (g == true && n == true) {"Nothing here."} else if (g == true && n != true) {`<div class="YongiBlock">${sentence}</div>`} else if (g == false && n == true) {[sentence]} else {`<div class="YongiBlock">${sentence}</div>${sentence}`}]
 
 tenseCh = [(document.querySelectorAll('input[class="tenseBox"]:checked')).length]
 argsCh = [(document.querySelectorAll('input[class="argBox"]:checked')).length]
@@ -19,12 +24,13 @@ argsCh = [(document.querySelectorAll('input[class="argBox"]:checked')).length]
 sentenceType
   0
   1
-  2
+  2 ^[locBox.checked]
   3
   4
   5
 
 args
+  voc ^[vocBox.checked]
   subject ^[subjBox.checked]
   loc ^[locBox.checked]
   abl ^[ablBox.checked]
@@ -32,6 +38,8 @@ args
   indirobj ^[indirobjBox.checked]
   dest ^[destBox.checked]
   dirobj ^[dirobjBox.checked]
+  question ^[questionBox.checked]
+  adjective ^[genBox.checked]
 
 tenses
   0
