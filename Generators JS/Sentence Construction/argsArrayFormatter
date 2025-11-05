@@ -5,6 +5,8 @@ function argsArrayFormatter(argsArray, sentenceType) {
   let miniDict = [];
   let n = 1;
   let destroyIndex = 0;
+  let adjPresent = false;
+  let adjIndex = 1;
   console.log(`LOG: argsArrayFormatter init with argsArray ${argsArray} sentenceType ${sentenceType}. Reformat sentenceType.`);
   switch (sentenceType) {
     case 0:
@@ -54,6 +56,7 @@ function argsArrayFormatter(argsArray, sentenceType) {
   console.log(`LOG: argsArrayFormatter got verb ${verb} from verbIndex ${verbIndex}. formattedArgsArray[0] is ${formattedArgsArray[0]}. Proceed to formatting.`);
   
   for (let i = 0; i < argsArray.length; i++) { 
+    if (argsArray.includes("adjective")) {console.log(`LOG: argsArrayFormatter detected adjective at ${argsArray.indexOf("adjective")}`); adjPresent = true; destroyIndex = argsArray.indexOf("adjective"); argsArray[destroyIndex] = n; console.log(`LOG: adjPresent should now be true, is ${adjPresent}, argsArray should no longer have adjective, is ${argsArray}`); continue} else
     if (argsArray.includes("voc")) {console.log(`LOG: argsArrayFormatter detected voc at ${argsArray.indexOf("voc")}`); formattedArgsArray[n] = "voc"; destroyIndex = argsArray.indexOf("voc"); argsArray[destroyIndex] = n; n++; console.log(`LOG: after voc formatted argsArray now ${argsArray} formattedArgsArray now ${formattedArgsArray} n now ${n}`); continue} else
       
     if (argsArray.includes("subject") && miniDict[verbIndex].subject[sentenceType] == true) {console.log(`LOG: argsArrayFormatter detected subject at ${argsArray.indexOf("subject")} && is true!`); formattedArgsArray[n] = "subject"; destroyIndex = argsArray.indexOf("subject"); argsArray[destroyIndex] = n; n++; console.log(`LOG: after subj formatted argsArray now ${argsArray} formattedArgsArray now ${formattedArgsArray} n now ${n}`); continue} else
@@ -86,7 +89,25 @@ function argsArrayFormatter(argsArray, sentenceType) {
     console.groupEnd()}
   }
   
-  console.log(`LOG: argsArray now exited loop. formattedArgsArray is ${formattedArgsArray}. Returning.`);
+  console.log(`LOG: argsArray now exited loop. formattedArgsArray is ${formattedArgsArray}. Checking for adj.`);
+
+  if (adjPresent == true && formattedArgsArray.includes("question")) 
+  {console.log(`LOG: adj was detected, adjPresent is ${adjPresent}, && question was detected in formattedArgsArray, frmArgsArray is ${formattedArgsArray}, now adding`);
+    adjIndex = Math.floor(Math.random() * ((formattedArgsArray.length - 2) - 1 + 1) + 1);
+    console.log(`LOG: adjIndex is now ${adjIndex}, formattedArgsArray.length is ${formattedArgsArray.length}, now inserting`);
+    formattedArgsArray.splice(adjIndex, 0, "adjective");
+    adjPresent = false;
+    console.log(`LOG: after adjective inserted at ${adjIndex} formattedArgsArray is ${formattedArgsArray}, returning`)
+} else
+  if (adjPresent == true && formattedArgsArray.includes("question") == false) 
+  {console.log(`LOG: adj was detected, adjPresent is ${adjPresent}, && question was NOT detected in formattedArgsArray, frmArgsArray is ${formattedArgsArray}, now adding`);
+    adjIndex = Math.floor(Math.random() * ((formattedArgsArray.length - 1) - 1 + 1) + 1);
+    console.log(`LOG: adjIndex is now ${adjIndex}, formattedArgsArray.length is ${formattedArgsArray.length}, now inserting`);
+    formattedArgsArray.splice(adjIndex, 0, "adjective");
+    adjPresent = false;
+    console.log(`LOG: after adjective inserted at ${adjIndex} formattedArgsArray is ${formattedArgsArray}, returning`)
+} else
+if (adjPresent == false) {console.log(`LOG: adjPresent is false. Returning.`)}
   
   return formattedArgsArray;
 }
