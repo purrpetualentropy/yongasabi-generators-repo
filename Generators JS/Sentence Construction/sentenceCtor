@@ -23,9 +23,6 @@ let adjAttach = false;
 let adjMiniDict = [];
 let genMiniDict = [];
 let adjIndex = 0;
-let negRnd = Math.floor(Math.random() * 2) + 1
-console.log(`LOG: negRnd is ${negRnd} negBox checked is ${document.getElementById('negBox').checked}`)
-if (negRnd == 1 && document.getElementById('negBox').checked) {tensesArray = ["present", "neg"]; console.log(`LOG: tensesArray is ${tensesArray}.`)} else {tensesArray = ["present"]; console.log(`LOG: tensesArray is ${tensesArray}.`)}
 
 if (sentenceType == 3 || sentenceType == 4 || sentenceType == 5) {argsArray = argsArrayFormatter(argsArray, sentenceType)} else {console.log(`LOG: sentenceType wasn't detected as 3, 4 or 5, so argsArrayFormatter wasn't called. sentenceType is ${sentenceType}`)}
   
@@ -42,7 +39,7 @@ switch (sentenceType) {
     currArgIndex = Math.floor(Math.random() * (miniDict.length - 1 + 1));
     sentence += " " + miniDict[currArgIndex].word;
     console.log(`LOG: word ${miniDict[currArgIndex].word} was added as adj. Sentence is ${sentence}.`);
-    if (tensesArray.includes("neg")) {sentence += " " + "sayong"} else {sentence += " " + "sa"};
+    sentence += " " + tenseSuffixer("angsa", tensesArray)
     console.log(`LOG: sa was added as verb. Sentence is ${sentence}.`);
     if (argsArray.includes("question")) {console.log(`LOG: 'question' was detected at ${argsArray.indexOf("question")}`);
           sentence += ", ma?";
@@ -73,7 +70,7 @@ switch (sentenceType) {
     currArgIndex = Math.floor(Math.random() * (miniDict.length - 1 + 1));
     sentence += " " + miniDict[currArgIndex].word;
     console.log(`LOG: word ${miniDict[currArgIndex].word} was added as adj. Sentence is ${sentence}.`);
-    if (tensesArray.includes("neg")) {sentence += " " + "sayong"} else {sentence += " " + "sa"};
+    sentence += " " + tenseSuffixer("angsa", tensesArray)
     console.log(`LOG: sa was added as verb. Sentence is ${sentence}.`);
     if (argsArray.includes("question")) {console.log(`LOG: 'question' was detected at ${argsArray.indexOf("question")}`);
           sentence += ", ma?";
@@ -123,7 +120,7 @@ switch (sentenceType) {
     currArg = caseSuffixer(currArg, "loc");
     sentence += " " + currArg
     console.log(`LOG: word ${miniDict[currArgIndex].word} was added as loc. Sentence is ${sentence}.`);
-    if (tensesArray.includes("neg")) {sentence += " " + "sayong"} else {sentence += " " + "sa"};
+    sentence += " " + tenseSuffixer("angsa", tensesArray)
     console.log(`LOG: sa was added as verb. Sentence is ${sentence}.`);
     if (argsArray.includes("question")) {console.log(`LOG: 'question' was detected at ${argsArray.indexOf("question")}`);
           sentence += ", ma?";
