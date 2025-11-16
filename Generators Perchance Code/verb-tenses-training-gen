@@ -1,0 +1,59 @@
+// gen made 05/10/2025
+// last update: 16/11/2025
+// Some timing words added.
+
+// todo:
+// Fix the polite & imperative tenses 
+// so that the subject is actually the vocative.
+// I can't access formattedArray from in here. Shit.
+// That's a thing for the JS sentenceCtor, then!
+
+// Add handling for daka verbs.
+// ADVERBS!!!!!!!!
+
+minTenses = [document.getElementById("minTenses").value]
+maxTenses = [document.getElementById("maxTenses").value]
+
+title
+  Yongasabi Verb Tenses Training
+
+output
+  [console.log(`minTenses is ${minTenses} maxTenses is ${maxTenses}`), ""]Translate the following sentence into English:<br>[g = displayGlyphs.checked, ""][n = noDisplayGlyphs.checked, ""][argsArray = args.consumableList.selectMany(1, argsCh).joinItems(","), ""][argsArray = argsArray.split(","), ""][tensesArray = tenses.consumableList.selectMany(minTenses, maxTenses).joinItems(","), ""][tensesArray = tensesArray.split(","), ""][realType = sentenceType.selectOne, ""][realType = Number(realType), ""][sentence = sentenceCtor(argsArray, tensesArray, realType), ""][if (g == true && n == true) {"Nothing here."} else if (g == true && n != true) {`<div class="YongiBlock">${sentence}</div>`} else if (g == false && n == true) {[sentence]} else {`<div class="YongiBlock">${sentence}</div>${sentence}`}]
+
+tenseCh = [(document.querySelectorAll('input[class="tenseBox"]:checked')).length]
+argsCh = [(document.querySelectorAll('input[class="argBox"]:checked')).length]
+
+
+sentenceType
+  0
+  1
+  2 ^[locBox.checked]
+  3
+  4
+  5
+
+args
+  voc ^[vocBox.checked]
+  subject ^[subjBox.checked]
+  timing ^[timingBox.checked]
+  loc ^[locBox.checked]
+  abl ^[ablBox.checked]
+  instr ^[instrBox.checked]
+  indirobj ^[indirobjBox.checked]
+  dest ^[destBox.checked]
+  dirobj ^[dirobjBox.checked]
+  question ^[questionBox.checked]
+  adjective ^[genBox.checked]
+
+tenses
+  plain ^[plainBox.checked]
+  present ^[presentBox.checked]
+  past ^[pastBox.checked]
+  future ^[futureBox.checked]
+  des ^[desBox.checked]
+  imperative ^[imperativeBox.checked]
+  abil ^[abilBox.checked]
+  polite ^[politeBox.checked]
+  neg ^[negBox.checked]
+  hyp ^[hypBox.checked]
+  habit ^[habitBox.checked]
