@@ -1,10 +1,7 @@
 // Gen created 17/09/2025
-// Last updated: 05/11/2025
-// Adjectives and the genitive have been added!!!!
-// I think that's our last todo for this generator!
-// We can now fully focus on updating tenseSuffixer and such.
-// WOO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-// Everybody say thank you Akizet!!!!!!!!!
+// Last updated: 16/11/2025
+// Added a note about repeating case markers & word order.
+// A few timing words added.
 
 
 // [let tensesArray = ["present"]][tenseCheck = tenses.selectOne][if (negBox == true && tenseCheck == 1) {tensesArray[1] = "neg"} else {} ""]
@@ -32,6 +29,7 @@ sentenceType
 args
   voc ^[vocBox.checked]
   subject ^[subjBox.checked]
+  timing ^[timingBox.checked]
   loc ^[locBox.checked]
   abl ^[ablBox.checked]
   instr ^[instrBox.checked]
