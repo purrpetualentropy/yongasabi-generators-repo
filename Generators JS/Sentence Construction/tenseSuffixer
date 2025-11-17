@@ -185,7 +185,8 @@
         
         case "polite":
           console.log(`LOG: case polite detected in currSuffix, should be index ${i} of formattedArray ${formattedArray}`);
-          suffixedVerb += " yaso";
+          if (prevSuffix != "TEMP") {suffixedVerb += " yaso"} else
+          {suffixedVerb = verb + " yaso"}
           prevSuffix = "polite";
           console.log(`LOG: verb ${verb} suffixed with polite into ${suffixedVerb}`);
           break;
@@ -281,8 +282,8 @@
           
         case "polite":
           console.log(`LOG: case polite detected in currSuffix, should be index ${i} of formattedArray ${formattedArray}`);
-          suffixedVerb += " yaso";
-          prevSuffix = "polite";
+          if (prevSuffix != "TEMP") {suffixedVerb += " yaso"} else
+          {suffixedVerb = verb + " yaso"}
           console.log(`LOG: verb ${verb} suffixed with polite into ${suffixedVerb}`);
           break;
           
@@ -369,8 +370,8 @@
           
         case "polite":
           console.log(`LOG: case polite detected in currSuffix, should be index ${i} of formattedArray ${formattedArray}`);
-          suffixedVerb += " yaso";
-          prevSuffix = "polite";
+          if (prevSuffix != "TEMP") {suffixedVerb += " yaso"} else
+          {suffixedVerb = verb + " yaso"}
           console.log(`LOG: verb ${verb} suffixed with polite into ${suffixedVerb}`);
           break;
           
