@@ -163,7 +163,7 @@ switch (sentenceType) {
                                                             console.log(`LOG: adjMiniDict is:`);
                                                             console.dir(adjMiniDict);
                                                             console.log(`LOG: now selecting adj...`);
-                                                            adjIndex = Math.floor(Math.random() * (miniDict.length - 1 + 1));
+                                                            adjIndex = Math.floor(Math.random() * (adjMiniDict.length - 1 + 1));
                                                             word = adjMiniDict[adjIndex].word;
                                                             usedArgs[usedArgsIndex] = adjMiniDict[adjIndex].word;
                                                             console.log(`LOG: word ${adjMiniDict[adjIndex].word} was added to usedArgs at ${usedArgsIndex}`);
@@ -190,7 +190,7 @@ switch (sentenceType) {
                                                             console.log(`LOG: adjMiniDict is:`);
                                                             console.dir(adjMiniDict);
                                                             console.log(`LOG: now selecting adj...`);
-                                                            adjIndex = Math.floor(Math.random() * (miniDict.length - 1 + 1));
+                                                            adjIndex = Math.floor(Math.random() * (adjMiniDict.length - 1 + 1));
                                                             word = adjMiniDict[adjIndex].word;
                                                             usedArgs[usedArgsIndex] = adjMiniDict[adjIndex].word;
                                                             console.log(`LOG: word ${adjMiniDict[adjIndex].word} was added to usedArgs at ${usedArgsIndex}`);
@@ -250,7 +250,7 @@ switch (sentenceType) {
                                                             console.log(`LOG: adjMiniDict is:`);
                                                             console.dir(adjMiniDict);
                                                             console.log(`LOG: now selecting adj...`);
-                                                            adjIndex = Math.floor(Math.random() * (miniDict.length - 1 + 1));
+                                                            adjIndex = Math.floor(Math.random() * (adjMiniDict.length - 1 + 1));
                                                             word = adjMiniDict[adjIndex].word;
                                                             usedArgs[usedArgsIndex] = adjMiniDict[adjIndex].word;
                                                             console.log(`LOG: word ${adjMiniDict[adjIndex].word} was added to usedArgs at ${usedArgsIndex}`);
@@ -277,7 +277,7 @@ switch (sentenceType) {
                                                             console.log(`LOG: adjMiniDict is:`);
                                                             console.dir(adjMiniDict);
                                                             console.log(`LOG: now selecting adj...`);
-                                                            adjIndex = Math.floor(Math.random() * (miniDict.length - 1 + 1));
+                                                            adjIndex = Math.floor(Math.random() * (adjMiniDict.length - 1 + 1));
                                                             word = adjMiniDict[adjIndex].word;
                                                             usedArgs[usedArgsIndex] = adjMiniDict[adjIndex].word;
                                                             console.log(`LOG: word ${adjMiniDict[adjIndex].word} was added to usedArgs at ${usedArgsIndex}`);
@@ -337,7 +337,7 @@ switch (sentenceType) {
                                                             console.log(`LOG: adjMiniDict is:`);
                                                             console.dir(adjMiniDict);
                                                             console.log(`LOG: now selecting adj...`);
-                                                            adjIndex = Math.floor(Math.random() * (miniDict.length - 1 + 1));
+                                                            adjIndex = Math.floor(Math.random() * (adjMiniDict.length - 1 + 1));
                                                             word = adjMiniDict[adjIndex].word;
                                                             usedArgs[usedArgsIndex] = adjMiniDict[adjIndex].word;
                                                             console.log(`LOG: word ${adjMiniDict[adjIndex].word} was added to usedArgs at ${usedArgsIndex}`);
@@ -364,7 +364,7 @@ switch (sentenceType) {
                                                             console.log(`LOG: adjMiniDict is:`);
                                                             console.dir(adjMiniDict);
                                                             console.log(`LOG: now selecting adj...`);
-                                                            adjIndex = Math.floor(Math.random() * (miniDict.length - 1 + 1));
+                                                            adjIndex = Math.floor(Math.random() * (adjMiniDict.length - 1 + 1));
                                                             word = adjMiniDict[adjIndex].word;
                                                             usedArgs[usedArgsIndex] = adjMiniDict[adjIndex].word;
                                                             console.log(`LOG: word ${adjMiniDict[adjIndex].word} was added to usedArgs at ${usedArgsIndex}`);
