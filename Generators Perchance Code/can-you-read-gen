@@ -1,34 +1,62 @@
-generic = {import:generic-yongasabi-sentences}
-moretenses = {import:more-tenses-yongasabi-generator}
+// Last updated: 17/11/2025
+// Code up to date with other gens.
+
+streak = 0
+
+tenseCh = [(document.querySelectorAll('input[class="tenseBox"]:checked')).length]
+argsCh = [(document.querySelectorAll('input[class="argBox"]:checked')).length]
+minTenses = [document.getElementById("minTenses").value]
+maxTenses = [document.getElementById("maxTenses").value]
 
 title
-  Can You Read?
+  Can You Read Yongasabi?
   
 output
-  Type this sentence into the box below:<div class\="YongiBlock">[w = word.selectOne.selectOne]</div>
+  Type this sentence into the box below:<div class \="YongiBlock">[w = word.selectOne.selectOne.selectOne]</div> ^[!answerBox.checked]
+  Type this sentence into the box below:<div class\="YongiBlock">[w = word.selectOne.selectOne.selectOne]</div><details><summary>See answer</summary>"[w]"</details> ^[answerBox.checked]
 
 input
   nought
 
 word
-  [generic.subjmarkersentence.selectOne.selectOne][q = "{[generic.questiontone.selectOne]^[questionsallowed.checked]|}".selectOne.selectOne] ^[subjMarkerBox.checked && !moretensesBox.checked]
-  [generic.locationmarkersentence.selectOne.selectOne][q = "{[generic.questiontone.selectOne]^[questionsallowed.checked]|}".selectOne.selectOne] ^[locMarkerBox.checked && !moretensesBox.checked]
-  [generic.accusativemarkersentence.selectOne.selectOne][q = "{[generic.questiontone.selectOne]^[questionsallowed.checked]|}".selectOne.selectOne] ^[accMarkerBox.checked && !moretensesBox.checked]
-  [generic.dativemarkersentence.selectOne.selectOne][q = "{[generic.questiontone.selectOne]^[questionsallowed.checked]|}".selectOne.selectOne] ^[datMarkerBox.checked && !moretensesBox.checked]
-  [generic.ablativemarkersentence.selectOne.selectOne][q = "{[generic.questiontone.selectOne]^[questionsallowed.checked]|}".selectOne.selectOne] ^[ablMarkerBox.checked && !moretensesBox.checked]
-  [generic.instrumentalmarkersentence.selectOne.selectOne][q = "{[generic.questiontone.selectOne]^[questionsallowed.checked]|}".selectOne.selectOne] ^[instrMarkerBox.checked]
-  [moretenses.subjmarkersentence.selectOne.selectOne][q = "{[generic.questiontone.selectOne]^[questionsallowed.checked]|}".selectOne.selectOne] ^[moretensesBox.checked && subjMarkerBox.checked]
-  [moretenses.locationmarkersentence.selectOne.selectOne][q = "{[generic.questiontone.selectOne]^[questionsallowed.checked]|}".selectOne.selectOne] ^[moretensesBox.checked && locMarkerBox.checked]
-  [moretenses.accusativemarkersentence.selectOne.selectOne][q = "{[generic.questiontone.selectOne]^[questionsallowed.checked]|}".selectOne.selectOne] ^[moretensesBox.checked && accMarkerBox.checked]
-  [moretenses.dativemarkersentence.selectOne.selectOne][q = "{[generic.questiontone.selectOne]^[questionsallowed.checked]|}".selectOne.selectOne] ^[moretensesBox.checked && datMarkerBox.checked]
-  [moretenses.ablativemarkersentence.selectOne.selectOne][q = "{[generic.questiontone.selectOne]^[questionsallowed.checked]|}".selectOne.selectOne] ^[moretensesBox.checked && ablMarkerBox.checked]
+  [argsArray = args.consumableList.selectMany(1, argsCh).joinItems(","), ""][argsArray = argsArray.split(","), ""][tensesArray = tenses.consumableList.selectMany(minTenses, maxTenses).joinItems(","), ""][tensesArray = tensesArray.split(","), ""][realType = sentenceType.selectOne, ""][realType = Number(realType), ""][sentence = sentenceCtor(argsArray, tensesArray, realType)]
 
+sentenceType
+  0
+  1
+  2 ^[locBox.checked]
+  3
+  4
+  5
+
+args
+  voc ^[vocBox.checked]
+  subject ^[subjBox.checked]
+  timing ^[timingBox.checked]
+  loc ^[locBox.checked]
+  abl ^[ablBox.checked]
+  instr ^[instrBox.checked]
+  indirobj ^[indirobjBox.checked]
+  dest ^[destBox.checked]
+  dirobj ^[dirobjBox.checked]
+  question ^[questionBox.checked]
+  adjective ^[genBox.checked]
+
+tenses
+  plain ^[plainBox.checked]
+  present ^[presentBox.checked]
+  past ^[pastBox.checked]
+  future ^[futureBox.checked]
+  des ^[desBox.checked]
+  imperative ^[imperativeBox.checked]
+  abil ^[abilBox.checked]
+  polite ^[politeBox.checked]
+  neg ^[negBox.checked]
+  hyp ^[hypBox.checked]
+  habit ^[habitBox.checked]
 
 noinput
-  You need to type <i>something</i>.
-  Perhaps try typing something?
   It seems you didn't input anything yet.
-  You can use the text box below to type.
 
 correct
   Well done!
