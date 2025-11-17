@@ -1,8 +1,3 @@
-// this is meant to be used with the tenseSuffixer
-// it formats tenses into their grammatical order
-// so that the tenseSuffixer can just read tenses
-// one by one from the array
-
 function tensesArrayFormatter (tensesArray) {
     let formattedArray = [];
     let n = 0;
@@ -16,7 +11,7 @@ function tensesArrayFormatter (tensesArray) {
     console.log(`LOG: tensesArrayFormatter read array ${tensesArray}!`);
         
         
-    if (tensesArray.includes("plain") && politeRandom == 1) {console.log(`LOG: Tense plain was detected: proceeding WITH plain tenses!`); for (let i = 0; i < tensesArray.length; i++) { 
+    if (tensesArray.includes("plain") && tensesArray.length == 1 || tensesArray.includes("polite") && tensesArray.length == 1 || tensesArray.includes("plain") && politeRandom == 1 || tensesArray.includes("polite") && politeRandom == 1) {console.log(`LOG: Tense plain or polite was detected: proceeding WITH plain tenses! tensesArray.length is ${tensesArray.length}`); for (let i = 0; i < tensesArray.length; i++) { 
         if (tensesArray.includes("present")) {console.log(`LOG: Tense present was detected at ${tensesArray.indexOf("present")}!`); destroyIndex = tensesArray.indexOf("present"); tensesArray[destroyIndex] = n; console.log(`LOG: after present formatted tensesArray now ${tensesArray} formattedArray now ${formattedArray}`); continue} else
         
         if (tensesArray.includes("plain")) {console.log(`LOG: Tense plain was detected at ${tensesArray.indexOf("plain")}!`); formattedArray[n] = "plain"; destroyIndex = tensesArray.indexOf("plain"); tensesArray[destroyIndex] = n; n++; console.log(`LOG: after plain formatted tensesArray now ${tensesArray} formattedArray now ${formattedArray}`); continue} else
@@ -42,7 +37,7 @@ function tensesArrayFormatter (tensesArray) {
         {console.log(`ISSUE: Bottom of loop was reached. THIS IS NORMAL IF BOTH NEG AND IMPERATIVE ARE PRESENT!!! You should NEVER see this behaviour if they are not both present within the array. n is ${n}, i is ${i}, tensesArray is ${tensesArray} and length is ${tensesArray.length}, formattedArray is ${formattedArray}. There should be zero detectable tenses within tensesArray. Detectable tenses are present, abil, des, imperative, hyp, neg, habit, past, and future. This message may repeat.`)}
 
     }} else   
-    if (tensesArray.includes("imperative") && impRandom == 1) {console.log(`LOG: Tense imperative was detected: proceeding WITH imperative tenses!`); for (let i = 0; i < tensesArray.length; i++) { 
+    if (tensesArray.includes("imperative") && tensesArray.length == 1 || tensesArray.includes("imperative") && impRandom == 1) {console.log(`LOG: Tense imperative was detected: proceeding WITH imperative tenses!`); for (let i = 0; i < tensesArray.length; i++) { 
         if (tensesArray.includes("present")) {console.log(`LOG: Tense present was detected at ${tensesArray.indexOf("present")}!`); destroyIndex = tensesArray.indexOf("present"); tensesArray[destroyIndex] = n; console.log(`LOG: after present formatted tensesArray now ${tensesArray} formattedArray now ${formattedArray}`); continue} else
         
         if (tensesArray.includes("plain")) {console.log(`LOG: Tense plain was detected at ${tensesArray.indexOf("plain")}!`); destroyIndex = tensesArray.indexOf("plain"); tensesArray[destroyIndex] = n; console.log(`LOG: after plain formatted tensesArray now ${tensesArray} formattedArray now ${formattedArray}`); continue} else
