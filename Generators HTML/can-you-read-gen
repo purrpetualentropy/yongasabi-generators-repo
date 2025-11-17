@@ -1,33 +1,64 @@
 <h1>[title]</h1>
 <p style="margin:1em auto; padding:0 1em; max-width:700px; font-size:18px;">[output]</p>
-<button onclick="input = 'nought', update()">randomize & clear input</button>
-<p id="checker">[if (input == "nought") {noinput} else if (input == w) {correct} else {wrong}]</p>
-<textarea oninput="input = this.value" placeholder="Type here..." style="width:250px; height:50px;"></textarea>
-<button onclick="update(checker)">Check</button><br>
-<p class="checkbox"><input type="checkbox" id="questionsallowed"> Questions allowed<br>
-  <input type="checkbox" id="subjMarkerBox" checked> Subject marker
-<input type="checkbox" id="locMarkerBox"> Locative marker<br>
-<input type="checkbox" id="accMarkerBox"> Accusative marker
-<input type="checkbox" id="datMarkerBox"> Dative marker<br>
-<input type="checkbox" id="ablMarkerBox"> Ablative marker
-<input type="checkbox" id="instrMarkerBox"> Instrumental marker<br>
-<input type="checkbox" id="moretensesBox"> Additional tenses</p>
+<button onclick="input = 'nought', document.getElementById('inputZone').value = '', document.getElementById('checker').innerHTML = '', update()">randomize & clear input</button>
+<p id="checker">Your results will be displayed here.</p>
+<p id="streak">You have a streak of: <b>[streak]</b></p>
+<textarea id="inputZone" oninput="input = this.value" placeholder="Type here..." style="width:250px; height:50px;"></textarea>
+<button onclick="if (input == 'nought') {document.getElementById('checker').innerHTML = [noinput]} else if (input == [w]) {streak = streak + 1; document.getElementById('streak').innerHTML = 'You have a streak of: <b>' + streak + '</b>'; document.getElementById('checker').innerHTML = [correct]} else {streak = 0; document.getElementById('streak').innerHTML = 'You have a streak of: <b>' + streak + '</b>'; document.getElementById('checker').innerHTML = [wrong]}">Check</button><br>
+<details><summary>Tense Customisation</summary>
+<input type="checkbox" id="presentBox" class="tenseBox" checked> <label for="presentBox">Present tense</label>
+<input type="checkbox" id="pastBox" class="tenseBox"> <label for="pastBox">Past tense</label>
+<input type="checkbox" id="futureBox" class="tenseBox"> <label for="futureBox">Future tense</label><br>
+  
+  
+<input type="checkbox" id="habitBox" class="tenseBox"> <label for="habitBox">Habitual tense</label>
+<input type="checkbox" id="desBox" class="tenseBox"> <label for="desBox">Desiderative tense</label>
+<input type="checkbox" id="abilBox" class="tenseBox"> <label for="abilBox">Abilitative tense</label><br>
+  
+<input type="checkbox" id="plainBox" class="tenseBox"> <label for="plainBox">Plain form / deontic tense</label>
+<input type="checkbox" id="politeBox" class="tenseBox"> <label for="politeBox">Allow politeness (yaso)</label>
+<input type="checkbox" id="imperativeBox" class="tenseBox"> <label for="imperativeBox">Imperative tense</label><br>
+  
+<input type="checkbox" id="negBox" class="tenseBox"> <label for="negBox">Allow negation</label>
+<input type="checkbox" id="hypBox" class="tenseBox"> <label for="hypBox">Hypothetical tense</label><br>
+<input type="number" id="minTenses" min=1 max=[tenseCh] value=1 oninput="minTenses = Number(this.value)"> Minimum tenses<br>
+<input type="number" id="maxTenses" min=1 max=[tenseCh] value=1 oninput="maxTenses = Number(this.value)"> Maximum tenses
 
-<p class="desc">If the additional tenses box is checked, you will <i>only</i> receive additional tense outputs (i.e no present tense).</p>
+<p>Due to technical limitations, you must press the "randomise" button before changes to the min or max tenses will update.</p>
+<p>Genuinely sorry about that, will work on a fix.</p>
+<p>Also it seems that on some devices you may be able to select a minimum or maximum higher than the amount of tenses you're permitting with the checkboxes. This'll cause the generator to use tenses you've not permitted.</p>
+
+</details>
+
+<details><summary>Sentence Type Customisation (incl. glyphs)</summary>
+<input type="checkbox" id="answerBox"> <label for="answerBox">Permit viewing the answer</label><br>
+<input type="checkbox" id="subjBox" checked> <label for="subjBox">Subject marker sentences</label>
+<input type="checkbox" id="locBox" class="argBox"> <label for="locBox">Locative marker sentences</label><br>
+<input type="checkbox" id="ablBox" class="argBox"> <label for="ablBox">Ablative marker sentences</label>
+<input type="checkbox" id="instrBox" class="argBox"> <label for="instrBox">Instrumental marker sentences</label><br>
+<input type="checkbox" id="indirobjBox" class="argBox"> <label for="indirobjBox">Allow indirect objects</label>
+<input type="checkbox" id="destBox" class="argBox"> <label for="destBox">Allow destinations of verbs of motion</label><br>
+<input type="checkbox" id="dirobjBox" class="argBox"> <label for="dirobjBox">Accusative marker sentences</label>
+<input type="checkbox" id="themBox"> <label for="themBox">Allow thematic marker for VOM direct objects</label><br>
+<input type="checkbox" id="vocBox" class="argBox"> <label for="vocBox">Allow the vocative</label>
+<input type="checkbox" id="focBox"> <label for="focBox">Allow replacing subject marker with focus marker</label><br>
+<input type="checkbox" id="questionBox" class="argBox"> <label for="questionBox">Allow questions</label><br>
+<input type="checkbox" id="genBox" class="argBox"> <label for="genBox">Allow adjectives & the genitive marker</label>
+<input type="checkbox" id="timingBox" class="argBox"> <label for="timingBox">Allow timing words</label>
+</details>
+<p>You can use the text box below to search for the definition of a word (you should search for the word without case markers, and plain form verbs). The results will be displayed below.</p>
+<p id="dictLookupReturnZone"></p>
+<input type="text" id="dictLookup" oninput="lookupWord = this.value">
+<button onclick="dictLookup(lookupWord, lookupType)">lookup</button>
+<button onclick="clearDictLookup()">clear</button>
+<p>Search by...</p>
+<select name="dictLookupSearchType" id="dictLookupSearchType" oninput="lookupType = this.value" value="word">
+<option value="word">Word</option>
+<option value="root">Root</option>
+<option value="rootLength">Root length</option>
+<option value="noun">Nouns</option>
+<option value="adj">Adjectives</option>
+<option value="verb">Verbs</option>
+</select>
+<p>When the hypothetical and future tenses are used together (gaengo), you'll need to write them as gaen'go. With the apostrophe. It's a technical limitation related to the font.</p>
 <p style="margin-left:5%; margin-right:5%; bottom:20px; position: relative;"><a href="https://perchance.org/yongasabi-generators-index">Yongasabi Generators Index</a></p>
-<!-- The line below makes it so if your device is in dark mode, then the default text color is switched to white, and the default background color is switch to black. -->
-<style> html { color-scheme: light dark; } 
-
-@font-face {  
-	font-family: "YongasabiBlock";
-	src: url("https://file.garden/ZqKEHNruXT-CeLY-/YongasabiBlock.ttf") format("truetype");
-}
-div.YongiBlock { 
-    font-family: YongasabiBlock;
-}
-
-p.desc {
-
-  padding: 20px
-}
-</style>
