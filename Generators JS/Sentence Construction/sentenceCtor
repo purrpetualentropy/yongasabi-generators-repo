@@ -185,7 +185,7 @@ switch (sentenceType) {
                                                                 console.log(`LOG: sentence is ${sentence} after added ${word} and ${currArg}`)
                                                                   }
                                                               } else
-          if (miniDict[currArgIndex].possessable == false) {console.log(`LOG: possessable is false. Getting adjs.`)
+          if (miniDict[currArgIndex].possessable == false || miniDict[currArgIndex].possessable == undefined) {console.log(`LOG: possessable is false or undefined (if undefined, presuming false). Getting adjs.`)
                                                             adjMiniDict = wordDict.filter((obj) => obj.type == "adj" && usedArgs.includes(obj.word) == false);
                                                             console.log(`LOG: adjMiniDict is:`);
                                                             console.dir(adjMiniDict);
@@ -272,7 +272,7 @@ switch (sentenceType) {
                                                                 console.log(`LOG: sentence is ${sentence} after added ${word} and ${currArg}`)
                                                                   }
                                                               } else
-          if (miniDict[currArgIndex].possessable == false) {console.log(`LOG: possessable is false. Getting adjs.`)
+          if (miniDict[currArgIndex].possessable == false || miniDict[currArgIndex].possessable == undefined) {console.log(`LOG: possessable is false or undefined (if undefined, presuming false). Getting adjs.`)
                                                             adjMiniDict = wordDict.filter((obj) => obj.type == "adj" && usedArgs.includes(obj.word) == false);
                                                             console.log(`LOG: adjMiniDict is:`);
                                                             console.dir(adjMiniDict);
@@ -359,7 +359,7 @@ switch (sentenceType) {
                                                                 console.log(`LOG: sentence is ${sentence} after added ${word} and ${currArg}`)
                                                                   }
                                                               } else
-          if (miniDict[currArgIndex].possessable == false) {console.log(`LOG: possessable is false. Getting adjs.`)
+          if (miniDict[currArgIndex].possessable == false || miniDict[currArgIndex].possessable == undefined) {console.log(`LOG: possessable is false or undefined (if undefined, presuming false). Getting adjs.`)
                                                             adjMiniDict = wordDict.filter((obj) => obj.type == "adj" && usedArgs.includes(obj.word) == false);
                                                             console.log(`LOG: adjMiniDict is:`);
                                                             console.dir(adjMiniDict);
@@ -375,7 +375,7 @@ switch (sentenceType) {
                                                             console.log(`LOG: sentence is ${sentence} after added ${word} and ${currArg}`)
                                                                   }
                                                               } else
-                                                              {console.log(`LOG: huh?? bwuh??? adjAttach is ${adjAttach}`)}
+                                                              {console.log(`LOG: what happened??? why does this never log??????`)}
           console.log(`LOG: sentence is ${sentence} after added ${currArg}.`);
         };
       console.log(`LOG: Exited loop. Getting verb.`);
