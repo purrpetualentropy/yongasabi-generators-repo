@@ -1,3 +1,39 @@
+function getTimingConverb () {
+  const candidates = wordDict.filter(w =>
+    w.type === "converb" &&
+    w.clause?.timing === true &&
+    w.allowsDisconnectedClauses === true
+  );
+
+  if (candidates.length === 0) return null;
+
+  return candidates[Math.floor(Math.random() * candidates.length)].word;
+}
+
+const hasTimingConverb = argsArray.includes("timing");
+
+if (hasTimingConverb) {
+  const converb = getTimingConverb();
+
+  if (converb) {
+    const argsWithoutTiming = argsArray.filter(a => a !== "timing");
+    const firstSentence = sentenceCtor(
+
+      argsWithoutTiming,
+      tensesArray,
+      sentenceType
+    );
+
+    const secondSentence = sentenceCtor(
+      argsWithoutTiming,
+      tensesArray,
+      sentenceType
+    );
+
+    return `${firstSentence}, ${converb} ${secondSentence}`;
+  }
+}
+
 function sentenceCtor (argsArray, tensesArray, sentenceType) {
 console.log(`LOG: sentenceCtor init with sentenceType ${sentenceType}`);
 // 0 == descriptive angsa sentence; sattoga koddim sa.
@@ -104,6 +140,7 @@ switch (sentenceType) {
     // that seems kind of complicated tho ...
   case 2:
     console.log(`LOG: sentenceType 2 (locative angsa sentence) was detected. Proceeding without args.`);
+
     miniDict = wordDict.filter((obj) => obj.subject.typ == true && obj.type != "verb");
     currArgIndex = Math.floor(Math.random() * (miniDict.length - 1 + 1));
     console.log(`LOG: currArgIndex is ${currArgIndex}, which is ${miniDict[currArgIndex].word}`);
@@ -138,6 +175,10 @@ switch (sentenceType) {
       console.log(`LOG: Entering for loop.`);
         for (let i = 1; i < argsArray.length; i++) {
           if (argsArray[i] == "question") {console.log(`LOG: 'question' detected at ${i}, skipping`); continue}
+          if (argsArray[i] === "timing") {
+          console.log(`LOG: 'timing' detected at ${i}, skipping argument binding`);
+    continue;
+  }
           if (argsArray[i] == "adjective") {console.log(`LOG: adjective was detected. Setting adjAttach to true and continuing.`); adjAttach = true; console.log(`LOG: adjAttach is now ${adjAttach}. Continuing loop.`); continue}
           console.log(`argsArray[i] is ${argsArray[i]} i is ${i} sentenceType is ${sentenceType}`)
           miniDict = wordDict.filter((obj) => obj[argsArray[i]][sentenceType] == true && obj.type != "verb" && obj.type != "adj" && usedArgs.includes(obj.word) == false);
@@ -225,6 +266,10 @@ switch (sentenceType) {
       console.log(`LOG: Entering for loop.`);
         for (let i = 1; i < argsArray.length; i++) {
           if (argsArray[i] == "question") {console.log(`LOG: 'question' detected at ${i}, skipping`); continue}
+          if (argsArray[i] === "timing") {
+          console.log(`LOG: 'timing' detected at ${i}, skipping argument binding`);
+          continue;
+  }
           if (argsArray[i] == "adjective") {console.log(`LOG: adjective was detected. Setting adjAttach to true and continuing.`); adjAttach = true; console.log(`LOG: adjAttach is now ${adjAttach}. Continuing loop.`); continue}
           console.log(`argsArray[i] is ${argsArray[i]} i is ${i} sentenceType is ${sentenceType}`)
           miniDict = wordDict.filter((obj) => obj[argsArray[i]][sentenceType] == true && obj.type != "verb" && obj.type != "adj" && usedArgs.includes(obj.word) == false);
@@ -312,6 +357,10 @@ switch (sentenceType) {
       console.log(`LOG: Entering for loop.`);
         for (let i = 1; i < argsArray.length; i++) {
           if (argsArray[i] == "question") {console.log(`LOG: 'question' detected at ${i}, skipping`); continue}
+            if (argsArray[i] === "timing") {
+              console.log(`LOG: 'timing' detected at ${i}, skipping argument binding`);
+              continue;
+  }
           if (argsArray[i] == "adjective") {console.log(`LOG: adjective was detected. Setting adjAttach to true and continuing.`); adjAttach = true; console.log(`LOG: adjAttach is now ${adjAttach}. Continuing loop.`); continue}
           console.log(`argsArray[i] is ${argsArray[i]} i is ${i} sentenceType is ${sentenceType}`)
           miniDict = wordDict.filter((obj) => obj[argsArray[i]][sentenceType] == true && obj.type != "verb" && obj.type != "adj" && usedArgs.includes(obj.word) == false);

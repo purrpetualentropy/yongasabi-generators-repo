@@ -1780,6 +1780,30 @@ const wordDict = [{ word: "hanitae",
     dest: {adj: false, possess: false, typ: false, vom: false, consumable: false},
     dirobj: {adj: false, possess: false, typ: true, vom: false, consumable: false}
 },
+{
+  word: "yeichi",
+  definition: ["then", "after that"],
+  root: "y-ch",
+  prefix: "none",
+  rootLength: 2,
+  animate: false,
+  type: "converb",
+
+  timing: {
+    adj: false,
+    possess: false,
+    typ: false,
+    vom: false,
+    consumable: false
+  },
+
+  clause: {
+    timing: true
+  },
+
+  binds: "sentence",
+  allowsDisconnectedClauses: true
+},
 { word: "satka", 
   definition: ["to burn"],
   root: "s-t-k",
