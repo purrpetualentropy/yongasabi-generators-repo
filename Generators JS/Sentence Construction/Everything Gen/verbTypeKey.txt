@@ -1,0 +1,9 @@
+0 - descriptive angsa
+1 - possessive angsa
+2 - locative angsa
+3 - VOM
+4 - hanta, maka
+5 - kapa
+6 - asa
+    regarding 4, 5, and 6, we may need to split them into "slugcat" and "non-slugcat", for lack of a better word
+    gila hantasa shouldnt take the same dirbojs as yongasabi hantasa

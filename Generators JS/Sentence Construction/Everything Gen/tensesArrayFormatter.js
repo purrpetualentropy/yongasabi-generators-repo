@@ -1,0 +1,124 @@
+export function tensesArrayFormatter (tensesArray) {
+    let formattedArray = [];
+    let n = 0;
+    let destroyIndex = 0;
+    let pfRandom = Math.floor(Math.random() * 2) + 1;
+    let pastIndex = 0;
+    let futureIndex = 0;
+    let impRandom = Math.floor(Math.random() * 2) + 1;
+    let politeRandom = Math.floor(Math.random() * 2) + 1;
+
+    console.log(`LOG: tensesArrayFormatter read array ${tensesArray}!`);
+
+
+    if (tensesArray.includes("plain") && tensesArray.length == 1 || tensesArray.includes("polite") && tensesArray.length == 1 || tensesArray.includes("plain") && politeRandom == 1 || tensesArray.includes("polite") && politeRandom == 1) {console.log(`LOG: Tense plain or polite was detected: proceeding WITH plain tenses! tensesArray.length is ${tensesArray.length}`); for (let i = 0; i < tensesArray.length; i++) {
+        if (tensesArray.includes("present")) {console.log(`LOG: Tense present was detected at ${tensesArray.indexOf("present")}!`); destroyIndex = tensesArray.indexOf("present"); tensesArray[destroyIndex] = n; console.log(`LOG: after present formatted tensesArray now ${tensesArray} formattedArray now ${formattedArray}`); continue} else
+
+        if (tensesArray.includes("plain")) {console.log(`LOG: Tense plain was detected at ${tensesArray.indexOf("plain")}!`); formattedArray[n] = "plain"; destroyIndex = tensesArray.indexOf("plain"); tensesArray[destroyIndex] = n; n++; console.log(`LOG: after plain formatted tensesArray now ${tensesArray} formattedArray now ${formattedArray}`); continue} else
+
+        if (tensesArray.includes("abil")) {console.log(`LOG: Tense abil was detected at ${tensesArray.indexOf("abil")}!`); destroyIndex = tensesArray.indexOf("abil"); tensesArray[destroyIndex] = n; console.log(`LOG: after abil formatted tensesArray now ${tensesArray} formattedArray now ${formattedArray}`); continue} else
+
+        if (tensesArray.includes("des")) {console.log(`LOG: Tense des was detected at ${tensesArray.indexOf("des")}!`); destroyIndex = tensesArray.indexOf("des"); tensesArray[destroyIndex] = n; console.log(`LOG: After des formatted tensesArray now ${tensesArray} formattedArray now ${formattedArray}`); continue} else
+
+        if (tensesArray.includes("neg")) {console.log(`LOG: Tense neg was detected at ${tensesArray.indexOf("neg")}!`); formattedArray[n] = "neg"; destroyIndex = tensesArray.indexOf("neg"); tensesArray[destroyIndex] = n; n++; console.log(`LOG: after neg formatted tensesArray now ${tensesArray} formattedArray now ${formattedArray}`); continue} else
+
+        if (tensesArray.includes("imperative")) {console.log(`LOG: Tense imperative was detected at ${tensesArray.indexOf("imperative")}!`); destroyIndex = tensesArray.indexOf("imperative"); tensesArray[destroyIndex] = n; console.log(`LOG: after imperative formatted tensesArray now ${tensesArray} formattedArray now ${formattedArray}`); continue} else
+
+        if (tensesArray.includes("polite")) {console.log(`LOG: Tense polite was detected at ${tensesArray.indexOf("polite")}!`); formattedArray[n] = "polite"; destroyIndex = tensesArray.indexOf("polite"); tensesArray[destroyIndex] = n; n++; console.log(`LOG: after polite formatted tensesArray now ${tensesArray} formattedArray now ${formattedArray}`); continue} else
+
+        if (tensesArray.includes("hyp")) {console.log(`LOG: Tense hyp was detected at ${tensesArray.indexOf("hyp")}!`); destroyIndex = tensesArray.indexOf("hyp"); tensesArray[destroyIndex] = n; console.log(`LOG: after hyp formatted tensesArray now ${tensesArray} formattedArray now ${formattedArray}`); continue} else
+
+        if (tensesArray.includes("habit")) {console.log(`LOG: Tense habit was detected at ${tensesArray.indexOf("habit")}!`); destroyIndex = tensesArray.indexOf("habit"); tensesArray[destroyIndex] = n; console.log(`LOG: after habit formatted tensesArray now ${tensesArray} formattedArray now ${formattedArray}`); continue} else;
+
+        if (tensesArray.includes("past")) {console.log(`LOG: Tense past was detected at ${tensesArray.indexOf("past")}!`); destroyIndex = tensesArray.indexOf("past"); tensesArray[destroyIndex] = n; console.log(`LOG: after past formatted tensesArray now ${tensesArray} formattedArray now ${formattedArray}`); continue} else;
+
+        if (tensesArray.includes("future")) {console.log(`LOG: Tense future was detected at ${tensesArray.indexOf("future")}!`); destroyIndex = tensesArray.indexOf("future"); tensesArray[destroyIndex] = n; console.log(`LOG: after future formatted tensesArray now ${tensesArray} formattedArray now ${formattedArray}`); continue} else;
+
+        {console.log(`ISSUE: Bottom of loop was reached. THIS IS NORMAL IF BOTH NEG AND IMPERATIVE ARE PRESENT!!! You should NEVER see this behaviour if they are not both present within the array. n is ${n}, i is ${i}, tensesArray is ${tensesArray} and length is ${tensesArray.length}, formattedArray is ${formattedArray}. There should be zero detectable tenses within tensesArray. Detectable tenses are present, abil, des, imperative, hyp, neg, habit, past, and future. This message may repeat.`)}
+
+    }} else
+    if (tensesArray.includes("imperative") && tensesArray.length == 1 || tensesArray.includes("imperative") && impRandom == 1) {console.log(`LOG: Tense imperative was detected: proceeding WITH imperative tenses!`); for (let i = 0; i < tensesArray.length; i++) {
+        if (tensesArray.includes("present")) {console.log(`LOG: Tense present was detected at ${tensesArray.indexOf("present")}!`); destroyIndex = tensesArray.indexOf("present"); tensesArray[destroyIndex] = n; console.log(`LOG: after present formatted tensesArray now ${tensesArray} formattedArray now ${formattedArray}`); continue} else
+
+        if (tensesArray.includes("plain")) {console.log(`LOG: Tense plain was detected at ${tensesArray.indexOf("plain")}!`); destroyIndex = tensesArray.indexOf("plain"); tensesArray[destroyIndex] = n; console.log(`LOG: after plain formatted tensesArray now ${tensesArray} formattedArray now ${formattedArray}`); continue} else
+
+        if (tensesArray.includes("abil")) {console.log(`LOG: Tense abil was detected at ${tensesArray.indexOf("abil")}!`); destroyIndex = tensesArray.indexOf("abil"); tensesArray[destroyIndex] = n; n++; console.log(`LOG: after abil formatted tensesArray now ${tensesArray} formattedArray now ${formattedArray}`); continue} else
+
+        if (tensesArray.includes("des")) {console.log(`LOG: Tense des was detected at ${tensesArray.indexOf("des")}!`); destroyIndex = tensesArray.indexOf("des"); tensesArray[destroyIndex] = n; n++; console.log(`LOG: After des formatted tensesArray now ${tensesArray} formattedArray now ${formattedArray}`); continue} else
+
+        if (tensesArray.includes("neg")) {console.log(`LOG: Tense neg was detected at ${tensesArray.indexOf("neg")}!`); formattedArray[n] = "neg"; destroyIndex = tensesArray.indexOf("neg"); tensesArray[destroyIndex] = n; n++; console.log(`LOG: after neg formatted tensesArray now ${tensesArray} formattedArray now ${formattedArray}`); continue} else
+
+        if (tensesArray.includes("imperative")) {console.log(`LOG: Tense imperative was detected at ${tensesArray.indexOf("imperative")}!`); formattedArray[n] = "imperative"; destroyIndex = tensesArray.indexOf("imperative"); tensesArray[destroyIndex] = n; n++; console.log(`LOG: after imperative formatted tensesArray now ${tensesArray} formattedArray now ${formattedArray}`); continue} else
+
+        if (tensesArray.includes("polite")) {console.log(`LOG: Tense polite was detected at ${tensesArray.indexOf("polite")}!`); destroyIndex = tensesArray.indexOf("polite"); tensesArray[destroyIndex] = n; console.log(`LOG: after polite formatted tensesArray now ${tensesArray} formattedArray now ${formattedArray}`); continue} else
+
+        if (tensesArray.includes("hyp")) {console.log(`LOG: Tense hyp was detected at ${tensesArray.indexOf("hyp")}!`); destroyIndex = tensesArray.indexOf("hyp"); tensesArray[destroyIndex] = n; console.log(`LOG: after hyp formatted tensesArray now ${tensesArray} formattedArray now ${formattedArray}`); continue} else
+
+        if (tensesArray.includes("habit")) {console.log(`LOG: Tense habit was detected at ${tensesArray.indexOf("habit")}!`); destroyIndex = tensesArray.indexOf("habit"); tensesArray[destroyIndex] = n; console.log(`LOG: after habit formatted tensesArray now ${tensesArray} formattedArray now ${formattedArray}`); continue} else;
+
+        if (tensesArray.includes("past")) {console.log(`LOG: Tense past was detected at ${tensesArray.indexOf("past")}!`); destroyIndex = tensesArray.indexOf("past"); tensesArray[destroyIndex] = n; console.log(`LOG: after past formatted tensesArray now ${tensesArray} formattedArray now ${formattedArray}`); continue} else;
+
+        if (tensesArray.includes("future")) {console.log(`LOG: Tense future was detected at ${tensesArray.indexOf("future")}!`); destroyIndex = tensesArray.indexOf("future"); tensesArray[destroyIndex] = n; console.log(`LOG: after future formatted tensesArray now ${tensesArray} formattedArray now ${formattedArray}`); continue} else;
+
+        {console.log(`ISSUE: Bottom of loop was reached. THIS IS NORMAL IF BOTH NEG AND IMPERATIVE ARE PRESENT!!! You should NEVER see this behaviour if they are not both present within the array. n is ${n}, i is ${i}, tensesArray is ${tensesArray} and length is ${tensesArray.length}, formattedArray is ${formattedArray}. There should be zero detectable tenses within tensesArray. Detectable tenses are present, abil, des, imperative, hyp, neg, habit, past, and future. This message may repeat.`)}
+
+    }}
+
+    else if (tensesArray.includes("imperative") && impRandom == 2) {console.log("LOG: Tense imperative was detected, proceeding WITHOUT imperative!"); for (let i = 0; i < tensesArray.length; i++) { // for every single item within tensesArray
+        if (tensesArray.includes("present")) {console.log(`LOG: Tense present was detected at ${tensesArray.indexOf("present")}!`); formattedArray[n] = "present"; destroyIndex = tensesArray.indexOf("present"); tensesArray[destroyIndex] = n; n++; console.log(`LOG: after present formatted tensesArray now ${tensesArray} formattedArray now ${formattedArray}`); continue} else
+
+        if (tensesArray.includes("plain")) {console.log(`LOG: Tense plain was detected at ${tensesArray.indexOf("plain")}!`); destroyIndex = tensesArray.indexOf("plain"); tensesArray[destroyIndex] = n; console.log(`LOG: after plain destroyed tensesArray now ${tensesArray} formattedArray now ${formattedArray}`); continue} else
+
+        if (tensesArray.includes("abil")) {console.log(`LOG: Tense abil was detected at ${tensesArray.indexOf("abil")}!`); formattedArray[n] = "abil"; destroyIndex = tensesArray.indexOf("abil"); tensesArray[destroyIndex] = n; n++; console.log(`LOG: after abil formatted tensesArray now ${tensesArray} formattedArray now ${formattedArray}`); continue} else
+
+        if (tensesArray.includes("des")) {console.log(`LOG: Tense des was detected at ${tensesArray.indexOf("des")}!`); formattedArray[n] = "des"; destroyIndex = tensesArray.indexOf("des"); tensesArray[destroyIndex] = n; n++; console.log(`LOG: After des formatted tensesArray now ${tensesArray} formattedArray now ${formattedArray}`); continue} else
+
+        if (tensesArray.includes("imperative")) {console.log(`LOG: Tense imperative was detected at ${tensesArray.indexOf("imperative")}!`); destroyIndex = tensesArray.indexOf("imperative"); tensesArray[destroyIndex] = n; console.log(`LOG: imperative should be destroyed! tensesArray now ${tensesArray}, formattedArray now ${formattedArray}`); continue} else
+
+        if (tensesArray.includes("polite")) {console.log(`LOG: Tense polite was detected at ${tensesArray.indexOf("polite")}!`); destroyIndex = tensesArray.indexOf("polite"); tensesArray[destroyIndex] = n; console.log(`LOG: after polite destroyed tensesArray now ${tensesArray} formattedArray now ${formattedArray}`); continue} else
+
+        if (tensesArray.includes("hyp")) {console.log(`LOG: Tense hyp was detected at ${tensesArray.indexOf("hyp")}!`); formattedArray[n] = "hyp"; destroyIndex = tensesArray.indexOf("hyp"); tensesArray[destroyIndex] = n; n++; console.log(`LOG: after hyp formatted tensesArray now ${tensesArray} formattedArray now ${formattedArray}`); continue} else
+
+        if (tensesArray.includes("neg") && !tensesArray.includes("imperative")) {console.log(`LOG: Tense neg was detected at ${tensesArray.indexOf("neg")}!`); formattedArray[n] = "neg"; destroyIndex = tensesArray.indexOf("neg"); tensesArray[destroyIndex] = n; n++; console.log(`LOG: after neg formatted tensesArray now ${tensesArray} formattedArray now ${formattedArray}`); continue} else
+
+        if (tensesArray.includes("habit")) {console.log(`LOG: Tense habit was detected at ${tensesArray.indexOf("habit")}!`); formattedArray[n] = "habit"; destroyIndex = tensesArray.indexOf("habit"); tensesArray[destroyIndex] = n; n++; console.log(`LOG: after habit formatted tensesArray now ${tensesArray} formattedArray now ${formattedArray}`); continue} else;
+
+        if (tensesArray.includes("past")) {console.log(`LOG: Tense past was detected at ${tensesArray.indexOf("past")}!`); formattedArray[n] = "past"; destroyIndex = tensesArray.indexOf("past"); tensesArray[destroyIndex] = n; n++; console.log(`LOG: after past formatted tensesArray now ${tensesArray} formattedArray now ${formattedArray}`); continue} else;
+
+        if (tensesArray.includes("future")) {console.log(`LOG: Tense future was detected at ${tensesArray.indexOf("future")}!`); formattedArray[n] = "future"; destroyIndex = tensesArray.indexOf("future"); tensesArray[destroyIndex] = n; n++; console.log(`LOG: after future formatted tensesArray now ${tensesArray} formattedArray now ${formattedArray}`); continue} else;
+
+        {console.log(`ISSUE: Bottom of loop was reached. THIS IS NORMAL IF BOTH NEG AND IMPERATIVE ARE PRESENT!!! You should NEVER see this behaviour if they are not both present within the array. n is ${n}, i is ${i}, tensesArray is ${tensesArray} and length is ${tensesArray.length}, formattedArray is ${formattedArray}. There should be zero detectable tenses within tensesArray. Detectable tenses are present, abil, des, imperative, hyp, neg, habit, past, and future. This message may repeat.`)}
+
+    }} else {console.log("LOG: Could not detect tense imperative or polite! Proceeding without it; IF IT IS PRESENT IT WILL BE DESTROYED!!"); for (let i = 0; i < tensesArray.length; i++) { // for every single item within tensesArray
+        if (tensesArray.includes("present")) {console.log(`LOG: Tense present was detected at ${tensesArray.indexOf("present")}!`); formattedArray[n] = "present"; destroyIndex = tensesArray.indexOf("present"); tensesArray[destroyIndex] = n; n++; console.log(`LOG: after present formatted tensesArray now ${tensesArray} formattedArray now ${formattedArray}`); continue} else
+
+        if (tensesArray.includes("plain")) {console.log(`LOG: Tense plain was detected at ${tensesArray.indexOf("plain")}!`); destroyIndex = tensesArray.indexOf("plain"); tensesArray[destroyIndex] = n; console.log(`LOG: after plain formatted tensesArray now ${tensesArray} formattedArray now ${formattedArray}`); continue} else
+
+        if (tensesArray.includes("abil")) {console.log(`LOG: Tense abil was detected at ${tensesArray.indexOf("abil")}!`); formattedArray[n] = "abil"; destroyIndex = tensesArray.indexOf("abil"); tensesArray[destroyIndex] = n; n++; console.log(`LOG: after abil formatted tensesArray now ${tensesArray} formattedArray now ${formattedArray}`); continue} else
+
+        if (tensesArray.includes("des")) {console.log(`LOG: Tense des was detected at ${tensesArray.indexOf("des")}!`); formattedArray[n] = "des"; destroyIndex = tensesArray.indexOf("des"); tensesArray[destroyIndex] = n; n++; console.log(`LOG: After des formatted tensesArray now ${tensesArray} formattedArray now ${formattedArray}`); continue} else
+
+        if (tensesArray.includes("imperative")) {console.log(`LOG: Tense imperative was detected at ${tensesArray.indexOf("imperative")}!`); destroyIndex = tensesArray.indexOf("imperative"); tensesArray[destroyIndex] = n; console.log(`LOG: imperative should be destroyed! tensesArray now ${tensesArray}, formattedArray now ${formattedArray}`); continue} else
+
+        if (tensesArray.includes("polite")) {console.log(`LOG: Tense polite was detected at ${tensesArray.indexOf("polite")}!`); destroyIndex = tensesArray.indexOf("polite"); tensesArray[destroyIndex] = n; console.log(`LOG: after polite formatted tensesArray now ${tensesArray} formattedArray now ${formattedArray}`); continue} else
+
+        if (tensesArray.includes("hyp")) {console.log(`LOG: Tense hyp was detected at ${tensesArray.indexOf("hyp")}!`); formattedArray[n] = "hyp"; destroyIndex = tensesArray.indexOf("hyp"); tensesArray[destroyIndex] = n; n++; console.log(`LOG: after hyp formatted tensesArray now ${tensesArray} formattedArray now ${formattedArray}`); continue} else
+
+        if (tensesArray.includes("neg") && !tensesArray.includes("imperative")) {console.log(`LOG: Tense neg was detected at ${tensesArray.indexOf("neg")}!`); formattedArray[n] = "neg"; destroyIndex = tensesArray.indexOf("neg"); tensesArray[destroyIndex] = n; n++; console.log(`LOG: after neg formatted tensesArray now ${tensesArray} formattedArray now ${formattedArray}`); continue} else
+
+        if (tensesArray.includes("habit")) {console.log(`LOG: Tense habit was detected at ${tensesArray.indexOf("habit")}!`); formattedArray[n] = "habit"; destroyIndex = tensesArray.indexOf("habit"); tensesArray[destroyIndex] = n; n++; console.log(`LOG: after habit formatted tensesArray now ${tensesArray} formattedArray now ${formattedArray}`); continue} else;
+
+        if (tensesArray.includes("past")) {console.log(`LOG: Tense past was detected at ${tensesArray.indexOf("past")}!`); formattedArray[n] = "past"; destroyIndex = tensesArray.indexOf("past"); tensesArray[destroyIndex] = n; n++; console.log(`LOG: after past formatted tensesArray now ${tensesArray} formattedArray now ${formattedArray}`); continue} else;
+
+        if (tensesArray.includes("future")) {console.log(`LOG: Tense future was detected at ${tensesArray.indexOf("future")}!`); formattedArray[n] = "future"; destroyIndex = tensesArray.indexOf("future"); tensesArray[destroyIndex] = n; n++; console.log(`LOG: after future formatted tensesArray now ${tensesArray} formattedArray now ${formattedArray}`); continue} else;
+
+        {console.log(`ISSUE: Bottom of loop was reached. THIS IS NORMAL IF BOTH NEG AND IMPERATIVE ARE PRESENT!!! You should NEVER see this behaviour if they are not both present within the array. n is ${n}, i is ${i}, tensesArray is ${tensesArray} and length is ${tensesArray.length}, formattedArray is ${formattedArray}. There should be zero detectable tenses within tensesArray. Detectable tenses are present, abil, des, imperative, hyp, neg, habit, past, and future. This message may repeat.`)}
+    }}
+
+    console.log(`LOG: Formatting was finished! n is ${n}, tensesArray is ${tensesArray}, formattedArray is ${formattedArray}!`);
+    console.log(`LOG: Now checking if both past and future are here...`);
+    if (formattedArray.includes("past") && formattedArray.includes("future") && pfRandom == 2) {pastIndex = formattedArray.indexOf("past"); futureIndex = formattedArray.indexOf("future"); formattedArray[pastIndex] = "future"; formattedArray[futureIndex] = "past"; console.log("LOG: Past and future were swapped!")} else if (formattedArray.includes("past") && formattedArray.includes("future") && pfRandom == 1) {console.log("LOG: Past and future were not swapped!")} else {console.log("LOG: Past && future could not be detected!")}
+
+    console.log(`LOG: formattedArray now ${formattedArray}, returning`);
+    return formattedArray;
+}
