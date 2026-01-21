@@ -1,4 +1,8 @@
-export function tenseSuffixer(verb, verbLength, tensesArray) {
+function tenseSuffixer(verb, tensesArray) {
+  let verbLength = 0;
+  for (i = 0; i < wordDict.length; i++) {
+      if (wordDict[i].word == verb) {verbLength = wordDict[i].rootLength; break}
+        };
     let cutVerb = verb.slice(0, verb.length - 1);
     let suffixedVerb = "TEMP";
     let currSuffix = "TEMP";
