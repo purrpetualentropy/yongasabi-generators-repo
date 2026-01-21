@@ -5,6 +5,9 @@ import { caseSuffixer } from "./caseSuffixer.js";
 import { vowelChecker } from "./caseSuffixer.js";
 import { tensesArrayFormatter } from "./tensesArrayFormatter.js";
 import { argsArrayFormatter } from "./argsArrayFormatter.js";
+// these imports need to be removed when we put it into a page
+// since it'll all be on the same page
+// and also it shouldn't call itself at the top, that's just for testing purposes
 
 function sentenceCtor (wordDict) {
     // we need to be receiving a tenses array, an args array, a pre verb alterations array, and a post verb alterations array (whenver we figure out how to do that)
@@ -29,6 +32,8 @@ function sentenceCtor (wordDict) {
     let altersDict = [];
     let alterIndex;
     // let rnd = Math.floor(Math.random() * 2) + 1;
+    // args, tenses, preVAlters, postVAlters, and verbType should all be randomised
+    // they're hard-coded for testing purposes
 
     // regarding config:
     // we should write to global variables, as decided previously
@@ -369,4 +374,5 @@ function sentenceCtor (wordDict) {
     // because things like -tto or -dakanei need to be suffixed onto the verb, but ma and pei shouldn't be
     console.log(`LOG: sentenceString now "${sentenceString}", return`);
     return sentenceString;
+
 }
