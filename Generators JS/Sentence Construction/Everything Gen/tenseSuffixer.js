@@ -1,11 +1,150 @@
 export function tenseSuffixer(verb, verbLength, tensesArray) {
     let cutVerb = verb.slice(0, verb.length - 1);
+    let dakaVerb = verb.slice( verb.length - 4) == "daka";
     let suffixedVerb = "TEMP";
     let currSuffix = "TEMP";
     let prevSuffix = "TEMP";
     let rnd = Math.floor(Math.random() * 2) + 1;
 
-    console.log(`LOG: Found word ${verb} and length ${verbLength}! cutVerb is ${cutVerb}!`);
+    console.groupCollapsed("tenseSuffixer log begin");
+    console.log(`LOG: Found word ${verb} and length ${verbLength}! cutVerb is ${cutVerb}! dakaVerb is ${dakaVerb}!`);
+
+    if (dakaVerb) {
+        console.log(`LOG: dakaVerb detected!`);
+        for (let i = 0; i < tensesArray.length; i++) {
+            currSuffix = tensesArray[i];
+            switch (currSuffix) {
+                case "present":
+                    console.log(`LOG: case present detected in currSuffix, should be index ${i} of formattedArray ${tensesArray}`);
+                    if (tensesArray.length == 1) {
+                        console.log(`LOG: tensesArray has length of 1, writing das`);
+                        suffixedVerb = "das";
+                        prevSuffix = "present";
+                        console.log(`LOG: verb ${verb} suffixed with present into ${suffixedVerb}`);
+                    } else
+                    {console.log(`LOG: tensesArray has non-1 length, writing dasa`);
+                    suffixedVerb = "dasa";
+                    prevSuffix = "present";
+                    console.log(`LOG: verb ${verb} suffixed with present into ${suffixedVerb}`)}
+                    break;
+
+                case "plain":
+                    console.log(`LOG: case plain detected in currSuffix, should be index ${i} of formattedArray ${tensesArray}`);
+                    suffixedVerb = "daka";
+                    prevSuffix = "plain";
+                    console.log(`LOG: verb ${verb} suffixed with plain into ${suffixedVerb}`);
+                    break;
+
+                case "abil":
+                    console.log(`LOG: case abil detected in currSuffix, should be index ${i} of formattedArray ${tensesArray}`);
+                    if (prevSuffix == "present") {console.log(`LOG: prevSuffix is present, suffixing as -ka`); suffixedVerb += "ka"} else
+                    if (prevSuffix == "TEMP") {console.log(`LOG: prevSuffix is null, suffix totally`); suffixedVerb = "dika"}
+                    prevSuffix = "abil";
+                    console.log(`LOG: verb ${verb} suffixed with abil into ${suffixedVerb}`);
+                    break;
+
+                case "des":
+                    console.log(`LOG: case des detected in currSuffix, should be index ${i} of formattedArray ${tensesArray}`);
+                    if (prevSuffix == "abil") {console.log(`LOG: abil detected in prevSuffix, post-fixing!`);
+                        suffixedVerb = suffixedVerb.slice(0, suffixedVerb.length - 1);
+                        console.log(`LOG: sliced into ${suffixedVerb}!`);
+                        suffixedVerb += "ima";
+                    } else
+                    if (prevSuffix == "present") {console.log(`LOG: present detected in prevSuffix, suffixing as -ma`);
+                    suffixedVerb += "ma"} else
+                    if (prevSuffix == "TEMP") {console.log(`LOG: prevSuffix is null, suffix totally`); suffixedVerb = "dima"}
+                    prevSuffix = "des";
+                    console.log(`LOG: verb ${verb} suffixed with des into ${suffixedVerb}`)
+                    break;
+
+                case "hyp":
+                    if (prevSuffix == "TEMP") {console.log(`LOG: prevSuffix is null, suffix totally`); suffixedVerb = "daka gaen"} else
+                    suffixedVerb += " gaen";
+                    prevSuffix = "hyp";
+                    console.log(`LOG: verb ${verb} suffixed with hyp into ${suffixedVerb}`);
+                    break;
+
+                case "neg":
+                    if (prevSuffix == "des" || prevSuffix == "hyp" || prevSuffix == "plain") {console.log(`LOG: des, hyp or plain were detected. adding neg as own word`); suffixedVerb += " yong"} else
+                    if (prevSuffix == "TEMP") {console.log(`LOG: prevSuffix is null, suffix totally`); suffixedVerb = "dayong"} else
+                    {suffixedVerb += "yong"}
+                    prevSuffix = "neg";
+                    console.log(`LOG: verb ${verb} suffixed with neg into ${suffixedVerb}`);
+                    break;
+
+                case "imperative":
+                    console.log(`LOG: case imperative detected in currSuffix, should be index ${i} of formattedArray ${tensesArray}`);
+                    if (prevSuffix == "neg") {suffixedVerb += "iyo"} else
+                    {suffixedVerb = "diyo"}
+                    console.log(`LOG: verb ${verb} suffixed with imperative into ${suffixedVerb}`);
+                    prevSuffix = "imperative";
+                    break;
+
+                case "polite":
+                    console.log(`LOG: case polite detected in currSuffix, should be index ${i} of formattedArray ${tensesArray}`);
+                    if (prevSuffix == "TEMP") {suffixedVerb = "daka yaso"} else
+                    {suffixedVerb += " yaso"}
+                    console.log(`LOG: verb ${verb} suffixed with polite into ${suffixedVerb}`);
+                    prevSuffix = "polite";
+                    break;
+
+                case "habit":
+                    console.log(`LOG: case habit detected in currSuffix, should be index ${i} of formattedArray ${tensesArray}`);
+                    if (prevSuffix == "present" || prevSuffix == "neg") {console.log(`present or neg detected in prevSuffix`); suffixedVerb += "gil"} else
+                    if (prevSuffix == "des" || prevSuffix == "abil") {console.log(`LOG: des or abil detected in prevSuffix, post-fixing`);
+                        suffixedVerb = suffixedVerb.slice(0, suffixedVerb.length - 1);
+                        console.log(`LOG: sliced into ${suffixedVerb}!`);
+                        suffixedVerb += "il"} else
+                    if (prevSuffix == "hyp") {console.log(`LOG: hyp was detected, suffixing as -il`); suffixedVerb += "il"} else
+                    if (prevSuffix == "TEMP") {console.log(`LOG: prevSuffix is null, suffix wholly`); suffixedVerb = "dil"} else
+                    {suffixedVerb += "gil"}
+                    prevSuffix = "habit";
+                    console.log(`LOG: verb ${verb} suffixed with habit into ${suffixedVerb}`);
+                    break;
+
+                case "past":
+                    console.log(`LOG: case past detected in currSuffix, should be index ${i} of formattedArray ${tensesArray}`);
+                    if (prevSuffix == "des" || "abil") {console.log(`LOG: des or abil detected in prevSuffix, post-fixing`);
+                        suffixedVerb = suffixedVerb.slice(0, suffixedVerb.length - 1);
+                        console.log(`LOG: sliced into ${suffixedVerb}!`);
+                        suffixedVerb += "ida"} else
+                    if (prevSuffix == "TEMP") {console.log(`LOG: prevSuffix is null, suffix wholly`); suffixedVerb = "dida"} else
+                    {suffixedVerb += "da"}
+                    prevSuffix = "past";
+                    console.log(`LOG: verb ${verb} suffixed with past into ${suffixedVerb}`);
+                    break;
+
+                case "future":
+                    console.log(`LOG: case past detected in currSuffix, should be index ${i} of formattedArray ${tensesArray}`);
+                    if (prevSuffix == "des" || "abil") {console.log(`LOG: des or abil detected in prevSuffix, post-fixing`);
+                        suffixedVerb = suffixedVerb.slice(0, suffixedVerb.length - 1);
+                        console.log(`LOG: sliced into ${suffixedVerb}!`);
+                        suffixedVerb += "igo"} else
+                    if (prevSuffix == "hyp") {console.log(`LOG: hyp detected, separating`); suffixedVerb += "'go"}
+                    if (prevSuffix == "TEMP") {console.log(`LOG: prevSuffix is null, suffix wholly`); suffixedVerb = "digo"} else
+                    {suffixedVerb += "go"}
+                    prevSuffix = "future";
+                    console.log(`LOG: verb ${verb} suffixed with past into ${suffixedVerb}`);
+                    break;
+            }
+        }
+
+    if (verb == "daka") {
+        console.log(`LOG: verb itself is daka, return normalstyle`);
+        console.groupEnd();
+        return suffixedVerb;
+    } else
+    {console.log(`LOG: verb itself is not daka, suffix`);
+    suffixedVerb = verb.slice(0, verb.length - 4) + suffixedVerb
+    console.log(`LOG: suffixedVerb now ${suffixedVerb}, return`);
+    console.groupEnd();
+    return suffixedVerb;}
+    // once we've finished writing the suffixes, we need to check if the verb itself == daka without cutting
+    // if it does, just return suffixedVerb
+    // otherwise return verb.slice(0, verb.length - 4) + suffixedVerb
+    // to account for angchidaka and stuff
+    // obviously if we just returned suffixedVerb angchidaka would become just daka
+    }
 
     if (verb == "angsa") {console.log(`LOG: angsa was detected. FML`);
         for (let i = 0; i < tensesArray.length; i++) {
@@ -107,6 +246,7 @@ export function tenseSuffixer(verb, verbLength, tensesArray) {
 
         }
         console.log(`LOG: verb ${verb} finished suffixing with tenses ${tensesArray} into ${suffixedVerb}!`);
+        console.groupEnd();
         return suffixedVerb;
     } else
 
@@ -206,6 +346,7 @@ export function tenseSuffixer(verb, verbLength, tensesArray) {
                     break;
             }}
         console.log(`LOG: verb ${verb} finished suffixing with length ${verbLength} tenses ${tensesArray} into ${suffixedVerb}!`);
+        console.groupEnd();
         return suffixedVerb;
     } else
     if (verbLength == 2) {console.log(`LOG: verbLength 2 detected!`);
@@ -304,6 +445,7 @@ export function tenseSuffixer(verb, verbLength, tensesArray) {
                     break;
             }}
         console.log(`LOG: verb ${verb} finished suffixing with length ${verbLength} tenses ${tensesArray} into ${suffixedVerb}!`);
+        console.groupEnd();
         return suffixedVerb;
     } else
     if (verbLength == 1) {console.log(`LOG: verbLength 1 detected!`);
@@ -401,6 +543,7 @@ export function tenseSuffixer(verb, verbLength, tensesArray) {
                     break;
             }}
         console.log(`LOG: verb ${verb} finished suffixing with length ${verbLength} tenses ${tensesArray} into ${suffixedVerb}!`);
+        console.groupEnd();
         return suffixedVerb;
-    } else {console.log(`ERROR: verbLength ${verbLength} couldn't be found. breaking`); return "FAILED, SEE CONSOLELOG"}
+    } else {console.groupEnd(); console.error(`ERROR: verbLength ${verbLength} couldn't be found. breaking`); return "FAILED, SEE CONSOLELOG"}
 }
