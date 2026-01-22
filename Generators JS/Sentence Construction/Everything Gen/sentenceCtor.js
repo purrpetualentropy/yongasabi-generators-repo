@@ -11,10 +11,11 @@ function sentenceCtor (wordDict) {
     // in the website version we won't be receiving wordDict as it'll be global
     let sentenceArray = [];
     let sentenceString;
-    let argsArray = ["timing", "locative", "instrumental", "indirobj", "destination", "vocative", "dirobj", "subject"];
+    let argsArray = ["vocative", "subject", "timing", "locative", "instrumental", "ablative", "indirobj", "destination", "dirobj"];
     // call argsArrayFormatter, get our args, verb, and verb type
     // then filter() into miniDict
-    let verbType = 4;
+    let verbTypesArray = [0, 1, 2, 3, 4, 4.1, 4.2, 5, 6, 7, 8, 9, 10];
+    let verbType = verbTypesArray[Math.floor(Math.random() * (verbTypesArray.length - 1 + 1))];
     let miniDict;
     let argsDict;
     let currArg;
@@ -23,10 +24,10 @@ function sentenceCtor (wordDict) {
     let usedArgs = [];
     let usedArgsIndex = 0;
     let sentenceArrayIndex = 0;
-    let tensesArray = ["neg", "imperative"];
+    let tensesArray = ["present"];
     let isNonTemporal;
-    let preVAlters = ["compound"];
-    let postVAlters = ["sentence-final particle"];
+    let preVAlters = ["compound", "possessed", "adj"];
+    let postVAlters = [];
     let altersDict = [];
     let alterIndex;
     // let rnd = Math.floor(Math.random() * 2) + 1;
@@ -39,7 +40,7 @@ function sentenceCtor (wordDict) {
 
     // TODO BEFORE PORT:
     // implement pei + tensing (req changes to sentenceCtor and tenseSuffixer)
-    // implement tensing for daka, haga, and paga
+    // implement tensing for haga and paga
     // consider methods for implementing extended questions w/ angsa types
         // we won't actually implement them because it's scary
     // properly implement forced args
@@ -55,6 +56,12 @@ function sentenceCtor (wordDict) {
     // refine the adj matching system. "gila jamiyaeja sa" is not accurate
     // to this end ... i think just a "personReq" thing is enough which checks if it inherits from index 0
     // of inheritableDict
+
+    // negated args should come after vocative
+    // no ho, ong'o yong ...
+
+    // also, negated compounds should be moved in their totality
+    // currently only the head is moved
 
     // TODO AFTER PORT:
     // re-implement various currently missing features like focRnd
@@ -259,6 +266,7 @@ function sentenceCtor (wordDict) {
                 // get a word with the same type as our current alteration that hasn't been used in the sentence
                 argsDict = miniDict.filter((obj) => obj.type == preVAlters[i] && usedArgs.includes(obj.word) == false);
                 alterIndex = Math.floor(Math.random() * (argsDict.length - 1 + 1));
+                console.dir(argsDict)
                 console.log(`LOG: alterObj is:`);
                 console.dir(argsDict[alterIndex]);
                 if (argsDict[alterIndex].animateReq == true) {sentenceArray.splice(sentenceArray.findIndex(object => {

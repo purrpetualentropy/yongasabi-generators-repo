@@ -180,7 +180,18 @@ export const wordDict = [{ word: "hanitae",
         temporalTense: inheritableDict[0].temporalTense,
         nonTemporalTenses: inheritableDict[0].nonTemporalTenses,
         bannedTense: inheritableDict[0].bannedTense,
-        args: inheritableDict[0].args
+        args: {
+        vocative: [-1],
+        genitive: true,
+        subject: [0, 1, 2, 3, 4, 4.1, 4.2, 5, 6, 7, 8, 9, 10],
+        timing: [-1],
+        locative: [2, 3, 4, 4.1, 4.2, 5, 6, 7, 8, 9, 10],
+        ablative: [3, 8],
+        instrumental: [3, 4, 4.1, 4.2, 5, 7, 8, 10],
+        indirobj: [3, 4, 4.1, 4.2, 5, 7, 8, 10],
+        destination: [3],
+        dirobj: [7, 8, 9]
+}
     },
     { word: "no",
         definition: ["2nd person pronoun; you"],
@@ -208,7 +219,18 @@ export const wordDict = [{ word: "hanitae",
         temporalTense: inheritableDict[0].temporalTense,
         nonTemporalTenses: inheritableDict[0].nonTemporalTenses,
         bannedTense: inheritableDict[0].bannedTense,
-        args: inheritableDict[0].args
+        args: {
+            vocative: [-1],
+            genitive: true,
+            subject: [0, 1, 2, 3, 4, 4.1, 4.2, 5, 6, 7, 8, 9, 10],
+            timing: [-1],
+            locative: [2, 3, 4, 4.1, 4.2, 5, 6, 7, 8, 9, 10],
+            ablative: [3, 8],
+            instrumental: [3, 4, 4.1, 4.2, 5, 7, 8, 10],
+            indirobj: [3, 4, 4.1, 4.2, 5, 7, 8, 10],
+            destination: [3],
+            dirobj: [7, 8, 9]
+        }
     },
     { word: "nohoy",
         definition: ["2nd person plural; you all", "literally no and the group marker 'hoy' combined"],
@@ -1024,8 +1046,7 @@ export const wordDict = [{ word: "hanitae",
         bannedTense: inheritableDict[2].bannedTense,
         args: inheritableDict[2].args
     },
-    {
-        word: "seimyo",
+    { word: "seimyo",
         definition: ["cool; mildly or uncomfortably cold"],
         root: "s-m-y",
         prefix: "none",
@@ -2086,8 +2107,8 @@ export const wordDict = [{ word: "hanitae",
     },
     { word: "paha",
         definition: ["to hold; to grasp"],
-        root: "k-d-m",
-        rootLength: 3,
+        root: "p-h",
+        rootLength: 2,
         prefix: "none",
         animate: true,
         type: "verb",
@@ -2119,7 +2140,60 @@ export const wordDict = [{ word: "hanitae",
         animate: false,
         type: "verb",
         legalVTypes: [-1],
-        verbType: [0, 1, 2], // desc angsa, poss angsa, loc angsa
+        verbType: [0], // desc angsa
+        legalAlters: ["adverb"],
+        temporalTense: "any",
+        nonTemporalTenses: true,
+        bannedTense: "none",
+        dirobjThem: false,
+        args: {
+            vocative: true,
+            genitive: false,
+            subject: true,
+            timing: false,
+            locative: false,
+            ablative: false,
+            instrumental: false,
+            indirobj: false,
+            destination: false,
+            dirobj: true
+        }},
+    { word: "angsa",
+        definition: ["to be; to exist"],
+        root: "'-ng-s",
+        prefix: "none",
+        rootLength: "irregular",
+        animate: false,
+        type: "verb",
+        legalVTypes: [-1],
+        verbType: [1], // poss angsa
+        legalAlters: ["adverb"],
+        temporalTense: "any",
+        nonTemporalTenses: true,
+        bannedTense: "none",
+        dirobjThem: false,
+        args: {
+            vocative: true,
+            genitive: false,
+            subject: true,
+            timing: false,
+            locative: false,
+            ablative: false,
+            instrumental: false,
+            indirobj: false,
+            destination: false,
+            dirobj: true
+        }
+    },
+    { word: "angsa",
+        definition: ["to be; to exist"],
+        root: "'-ng-s",
+        prefix: "none",
+        rootLength: "irregular",
+        animate: false,
+        type: "verb",
+        legalVTypes: [-1],
+        verbType: [2], // loc angsa
         legalAlters: ["adverb"],
         temporalTense: "any",
         nonTemporalTenses: true,
@@ -2135,7 +2209,10 @@ export const wordDict = [{ word: "hanitae",
             instrumental: false,
             indirobj: false,
             destination: false,
-            dirobj: true
+            dirobj: false
         }
     }
+    // this is a really stupid band-aid solution
+    // i'd like to update these to not be true/false but instead to use an array of verbTypes
+    // but i'll do that later
     ]
