@@ -5,18 +5,16 @@ import { caseSuffixer } from "./caseSuffixer.js";
 import { vowelChecker } from "./caseSuffixer.js";
 import { tensesArrayFormatter } from "./tensesArrayFormatter.js";
 import { argsArrayFormatter } from "./argsArrayFormatter.js";
-// these imports need to be removed when we put it into a page
-// since it'll all be on the same page
-// and also it shouldn't call itself at the top, that's just for testing purposes
 
 function sentenceCtor (wordDict) {
-    // we need to be receiving a tenses array, an args array, a pre verb alterations array, and a post verb alterations array (whenver we figure out how to do that)
+    // we need to be receiving a verb type, a tenses array, an args array, a pre verb alterations array, and a post verb alterations array
+    // in the website version we won't be receiving wordDict as it'll be global
     let sentenceArray = [];
     let sentenceString;
     let argsArray = ["timing", "locative", "instrumental", "indirobj", "destination", "vocative", "dirobj", "subject"];
     // call argsArrayFormatter, get our args, verb, and verb type
     // then filter() into miniDict
-    let verbType = 3;
+    let verbType = 4;
     let miniDict;
     let argsDict;
     let currArg;
@@ -25,15 +23,13 @@ function sentenceCtor (wordDict) {
     let usedArgs = [];
     let usedArgsIndex = 0;
     let sentenceArrayIndex = 0;
-    let tensesArray = ["imperative"];
+    let tensesArray = ["neg", "imperative"];
     let isNonTemporal;
     let preVAlters = ["compound"];
     let postVAlters = ["sentence-final particle"];
     let altersDict = [];
     let alterIndex;
     // let rnd = Math.floor(Math.random() * 2) + 1;
-    // args, tenses, preVAlters, postVAlters, and verbType should all be randomised
-    // they're hard-coded for testing purposes
 
     // regarding config:
     // we should write to global variables, as decided previously
@@ -41,54 +37,36 @@ function sentenceCtor (wordDict) {
     // then we will read from global variables instead of needing to use getElementById every time
     // o7
 
-    // TODO:
-    // change to replace subject marker with focus marker (use rnd for this)
-    // also, don't store rnd in a variable? i don't think that's necessary. i think we can just write the randomisation
-    // and then use it in an if statement
-    // like if (math.rnd == 1) {do} else {not}
+    // TODO BEFORE PORT:
+    // implement pei + tensing (req changes to sentenceCtor and tenseSuffixer)
+    // implement tensing for daka, haga, and paga
+    // consider methods for implementing extended questions w/ angsa types
+        // we won't actually implement them because it's scary
+    // properly implement forced args
+        // i think forced args will be a continuous filter
+        // i.e verbDict.filter((obj) => obj.args[forceArgs[i]] == true) in a loop
+        // if we then create an array of required args, this should be simple enough in argsArrayFormatter
+        // this also makes me wonder about having individually forced args
+        // like the locative is permitted and can show up but the dirbj is forced?
+        // that sounds like a lot of work though.
+    // add aliases, also add aliases to dictLookup
+    // tidy dictLookup. it sucks. why the fuck do we loop over the whole array just filter()
+    // ADD TONE. PLEASE. put a "." or "?" at the end of a sentence.
+    // refine the adj matching system. "gila jamiyaeja sa" is not accurate
+    // to this end ... i think just a "personReq" thing is enough which checks if it inherits from index 0
+    // of inheritableDict
 
-    // reformat other generators to work with these new systems
+    // TODO AFTER PORT:
+    // re-implement various currently missing features like focRnd
+        //
+    // tidy the variables
+    // reformat other gens
 
     // update the github
 
-    // tidy the variables a bit, i believe that we can have less than this
-
-    // port and fix for website
-
-    // implement pei and its tensing
-
-    // tensing for daka, haga, and paga
-
-    // extended questions w/ angsa types (i.e "how red is artificer", "how much / what kind of fruit does watcher have")
-
-    // force args config option that actually removes verbs w/o the arg from the pool (how?)
-    // or rather how to do that without having to loop over a verb's entire args
-    // i know how to do this!
-    // 1. in argsArrayFormatter, create a new array, bannedVerbs
-    // 2. if forcing is active, when we get a verb, we check that all of its arg values are equal to the corresponding
-    // argBox.checked value (i.e wordDict[targetIndex].args.subject == subjBox.checked)
-    // hmm no i wonder if we can do that better
-    // because it means that, say, if destination isn't checked, only verbs that can NEVER have destination will show up
-    // when we dont care if destination is true or false because it's not checked
-    // so ... we don't wanna have to do a loop
-    // but i want to be able to ONLY check for checked args when forcing
-    // in theory we can just add the forced args to an array, but then there's not really a difference between looping
-    // over every arg
-
-    // we're adding an "aliases" array to word objs like "-wa" so that people can search for them without needing
-    // to guess what specifically they need to search for.
-    // this is also going to be useful in the case of yangsa, so we need to add that functionality to the actual
-    // verb-getting / searching parts
-
-    // bannedTenses array for certain things
-    // i recall thinking this was a good idea, but not the specific things it would be good for
-    // iirc, just random non-temporal tenses?
-    // ahh right i rember. "ma" shouldn't be used with the imperative ("hanitae ho laniyo ma")
-    // can ma be used with other stuff...? yes
-    // so i'm going to make it not an array for now
-
 
     console.log(`LOG: sentenceCtor awake. Calling tensesArrayFormatter.`);
+    console.groupCollapsed("sentenceCtor logs");
     tensesArray = tensesArrayFormatter(tensesArray);
     console.log(`LOG: tensesArray now ${tensesArray}. Checking temporal.`);
     // if tensesarray does not include present, past, future, or habitual, it is considered to have zero temporal tenses
@@ -242,31 +220,32 @@ function sentenceCtor (wordDict) {
                 console.log(`LOG: selected compoundType is ${compoundType}, corresponding compoundPosition is ${compoundPosition}.`);
                 if (compoundPosition == compoundType + "-head") {
                     console.log(`LOG: word is a head, find dependents`);
-                    argsDict = miniDict.filter((obj) => obj.compoundTypes != undefined && obj.compoundTypes.includes(compoundType) && usedArgs.includes(obj.word) == false && obj.compoundPart.includes(compoundType + "-dependent"));
+                    targetIndex = sentenceArray.findIndex(object => {
+                        return object.word == altersDict[targetIndex].word && !object.legalAlters.includes("none")
+                    })
+                    argsDict = miniDict.filter((obj) => obj.compoundTypes != undefined && obj.compoundTypes.includes(compoundType) && usedArgs.includes(obj.word) == false && obj.compoundPart.includes(compoundType + "-dependent") && obj.args[sentenceArray[targetIndex].arg].includes(verbType));
                     alterIndex = Math.floor(Math.random() * (argsDict.length - 1 + 1));
                     // get a word that can be used as the dependent
                     console.log(`LOG: alterObj is:`);
                     console.groupCollapsed("alterObj");
                     console.dir(argsDict[alterIndex]);
                     console.groupEnd();
-                    sentenceArray.splice(sentenceArray.findIndex(object => {
-                        return object.word == altersDict[targetIndex].word && !object.legalAlters.includes("none")
-                    }), 0, {word: argsDict[alterIndex].word, arg: preVAlters[i], legalAlters: ["none"]})
+                    sentenceArray.splice(targetIndex, 0, {word: argsDict[alterIndex].word, arg: preVAlters[i], legalAlters: ["none"]})
                     // insert the dependent before the target word
                     console.dir(`LOG: sentenceArray now ${sentenceArray}`);
                 } else
                 if (compoundPosition == compoundType + "-dependent") {
                     console.log(`LOG: word is a dependent, find heads`)
-                    argsDict = miniDict.filter((obj) => obj.compoundTypes != undefined && obj.compoundTypes.includes(compoundType) && usedArgs.includes(obj.word) == false && obj.compoundPart.includes(compoundType + "-head"));
+                    targetIndex = sentenceArray.findIndex(object => {
+                        return object.word == altersDict[targetIndex].word && !object.legalAlters.includes("none")
+                    });
+                    argsDict = miniDict.filter((obj) => obj.compoundTypes != undefined && obj.compoundTypes.includes(compoundType) && usedArgs.includes(obj.word) == false && obj.compoundPart.includes(compoundType + "-head") && obj.args[sentenceArray[targetIndex].arg].includes(verbType));
                     alterIndex = Math.floor(Math.random() * (argsDict.length - 1 + 1));
                     // get a word that can be used as the head
                     console.log(`LOG: alterObj is:`);
                     console.groupCollapsed("alterObj");
                     console.dir(argsDict[alterIndex]);
                     console.groupEnd();
-                    targetIndex = sentenceArray.findIndex(object => {
-                        return object.word == altersDict[targetIndex].word && !object.legalAlters.includes("none")
-                    });
                     sentenceArray.splice(targetIndex + 1, 0, {word: argsDict[alterIndex].word, arg: sentenceArray[targetIndex].arg, legalAlters: ["none"]});
                     sentenceArray[targetIndex].arg = "compound"
                     console.dir(`LOG: sentenceArray now ${sentenceArray}`);
@@ -361,7 +340,7 @@ function sentenceCtor (wordDict) {
         console.log(`LOG: preVAlters includes compound. case suffixing`);
         for (let i = 0; i < sentenceArray.findIndex(object => {return object.arg == "verb"}); i++) {
             // enter a for loop where we caseSuffix every single word except the verb
-            sentenceArray[i].word = caseSuffixer(sentenceArray[i].word, sentenceArray[i].arg, sentenceArray[i].animate, argsArray[0].dirobjThem, argsArray[0].word == "angsa")
+            sentenceArray[i].word = caseSuffixer(sentenceArray[i].word, sentenceArray[i].arg, sentenceArray[i].animate, argsArray[0].dirobjThem, argsArray[0].word == "angsa");
         }
     }
 
@@ -373,6 +352,6 @@ function sentenceCtor (wordDict) {
     // joinWith is a property that only post-v alters have
     // because things like -tto or -dakanei need to be suffixed onto the verb, but ma and pei shouldn't be
     console.log(`LOG: sentenceString now "${sentenceString}", return`);
+    console.groupEnd();
     return sentenceString;
-
 }
