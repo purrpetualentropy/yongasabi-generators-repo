@@ -31,7 +31,7 @@ export function caseSuffixer (word, gramCase, animate, themFlag, isAngsa) {
         case "loc":
         case "locative":
             console.log("LOG: Case loc was detected!");
-            if (animate == true) {suffixedWord += " jatto wa"} else if (animate == false) {suffixedWord += "wa"}
+            if (animate == true) {suffixedWord += " jattowa"} else if (animate == false) {suffixedWord += "wa"}
             console.log(`LOG: Word ${word} was suffixed into ${suffixedWord}!`);
             return suffixedWord;
 

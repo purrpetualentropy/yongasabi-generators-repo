@@ -2,8 +2,27 @@
 1 - possessive angsa
 2 - locative angsa
 3 - VOM
-4 - hanta, maka
+4 - hanta, kata, satka
+    maka should be split from this
+    possibly kata is both hanta and maka type?
+    but then "cutting the soup"
+    yeah kata may need to be its own thing
+4.1 - maka
+    we're allowed to use decimals like this because our verbTypes will be a long list in perchance
+    so we can just code it like that
+4.2 - aktodaka
+    i think the way the dict will end up shaking out is that each whole number covers a particular "topic"
+    you can see the similarities between hanta and aktodaka, and aktodaka and kata
+    and ultimately the goal of much of those things is to eat, or get food
+    so yeah. use whole numbers to indicate "relation". that way we can still split as we need
+    without making things extremely confusing and having maka be verbType 8 and yahla verbType 19 or something
 5 - kapa
 6 - asa
     regarding 4, 5, and 6, we may need to split them into "slugcat" and "non-slugcat", for lack of a better word
     gila hantasa shouldnt take the same dirbojs as yongasabi hantasa
+    i wonder if that's a useful case for decimals
+    but we should think lots more on this before we do any form of splitting
+7 - jamya, kadma
+8 - nana
+9 - aba
+10 - paha
