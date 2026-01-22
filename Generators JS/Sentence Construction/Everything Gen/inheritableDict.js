@@ -9,27 +9,27 @@ export const inheritableDict = [
         // similarly, index is never read
         // it is also just so that i know which index to point at
         // when inheriting
-        legalVTypes: [0, 1, 2, 3, 4, 4.1, 5, 6],
+        legalVTypes: [0, 1, 2, 3, 4, 4.1, 4.2, 5, 6, 7, 8, 9, 10],
         legalAlters: ["adjective", "negation"],
         temporalTense: "any",
         nonTemporalTenses: true,
         bannedTense: "none",
         args: {
-            vocative: [0, 1, 2, 3, 4, 4.1, 5, 6],
+            vocative: [0, 1, 2, 3, 4, 4.1, 4.2, 5, 6, 7, 8, 9, 10],
             genitive: true,
-            subject: [0, 1, 2, 3, 4, 4.1, 5, 6],
+            subject: [0, 1, 2, 3, 4, 4.1, 4.2, 5, 6, 7, 8, 9, 10],
             timing: [-1],
-            locative: [2, 3, 4, 4.1, 5, 6],
-            ablative: [3],
-            instrumental: [3, 4, 4.1, 5],
-            indirobj: [3, 4, 4.1, 5],
+            locative: [2, 3, 4, 4.1, 4.2, 5, 6, 7, 8, 9, 10],
+            ablative: [3, 8],
+            instrumental: [3, 4, 4.1, 4.2, 5, 7, 8, 10],
+            indirobj: [3, 4, 4.1, 4.2, 5, 7, 8, 10],
             destination: [3],
-            dirobj: [-1]
+            dirobj: [7, 8, 9]
         }
     },
     { type: "lizard",
       index: 1,
-      legalVTypes: [0, 2, 3, 4, 4.1, 6],
+      legalVTypes: [0, 2, 3, 4, 4.1, 4.2, 6, 8, 9],
       legalAlters: ["adjective", "negation"],
       temporalTense: "any",
       nonTemporalTenses: true,
@@ -44,7 +44,7 @@ export const inheritableDict = [
         instrumental: [3, 6],
         indirobj: [-1],
         destination: [3],
-        dirobj: [4, 4.1]}
+        dirobj: [4, 4.1, 4.2, 8, 9]}
     },
     { type: "adjective",
         index: 2,
@@ -70,13 +70,13 @@ export const inheritableDict = [
         index: 3,
         // as you can see we don't encode tense info in here
         // because it'll differ between timing words, like nakwon "tomorrow" and hagwon "yesterday"
-        legalVTypes: [2, 3, 4, 4.1, 5, 6],
+        legalVTypes: [2, 3, 4, 4.1, 4.2, 5, 6, 7, 8, 9, 10],
         legalAlters: ["negation"],
         args: {
             vocative: [-1],
             genitive: [-1],
             subject: [-1],
-            timing: [2, 3, 4, 4.1, 5, 6],
+            timing: [2, 3, 4, 4.1, 4.2, 5, 6, 7, 8, 9, 10],
             locative: [-1],
             ablative: [-1],
             instrumental: [-1],
@@ -87,7 +87,7 @@ export const inheritableDict = [
     },
     { type: "angsa possessable",
         index: 4,
-        legalVTypes: [1],
+        legalVTypes: [1, 8, 10],
         legalAlters: ["adjective", "possessed", "negation"],
         temporalTense: "any",
         nonTemporalTenses: true,
@@ -102,12 +102,12 @@ export const inheritableDict = [
             instrumental: [-1],
             indirobj: [-1],
             destination: [-1],
-            dirobj: [1]
+            dirobj: [1, 8, 10]
         }
     },
     { type: "edible and possessable",
       index: 5,
-      legalVTypes: [1, 4.1],
+      legalVTypes: [1, 4.1, 8, 10],
         // words that use this are basically identical to angsa possessable ones
         // execpt for their args, which include maka
         // so only the differences are written here, and they'll inherit from angsa possessable otherwise
@@ -123,7 +123,7 @@ export const inheritableDict = [
         instrumental: [-1],
         indirobj: [-1],
         destination: [-1],
-        dirobj: [1, 4.1]
+        dirobj: [1, 4.1, 8, 10]
       }},
     { type: "spearable huntable possessable and edible",
         // batfly, eggbug, meal/food, etc
@@ -132,7 +132,7 @@ export const inheritableDict = [
         // also no bread, as bread is not spearable or huntable
         // unless you live in bugsnax world i guess
       index: 6,
-      legalVTypes: [1, 4, 4.1, 4.2],
+      legalVTypes: [1, 4, 4.1, 4.2, 8, 10],
         legalAlters: ["negation"],
         temporalTense: "any",
         nonTemporalTenses: true,
@@ -147,13 +147,13 @@ export const inheritableDict = [
           instrumental: [-1],
           indirobj: [-1],
           destination: [-1],
-          dirobj: [1, 4, 4.1, 4.2]
+          dirobj: [1, 4, 4.1, 4.2, 8, 10]
       }},
     { type: "UNspearable huntable possessable and edible",
         // stuff like bol, gulay, which can be hunted for and cut and eaten but not speared
         // "she is spearing the vegetables" girl okay calm down a little
         index: 7,
-        legalVTypes: [1, 4, 4.1],
+        legalVTypes: [1, 4, 4.1, 8, 10],
         legalAlters: ["negation"],
         temporalTense: "any",
         nonTemporalTenses: true,
@@ -168,6 +168,26 @@ export const inheritableDict = [
             instrumental: [-1],
             indirobj: [-1],
             destination: [-1],
-            dirobj: [1, 4, 4.1]
-        }}
+            dirobj: [1, 4, 4.1, 8, 10]
+        }},
+    { type: "position words",
+    index: 8,
+        legalVTypes: [0, 2, 3, 4, 4.1, 4.2, 5, 6, 7, 8, 9, 10],
+        legalAlters: ["adjective", "negation", "compound"],
+        temporalTense: "any",
+        nonTemporalTenses: true,
+        bannedTense: "none",
+        args: {
+            vocative: [-1],
+            genitive: [-1],
+            subject: [0],
+            timing: [-1],
+            locative: [2, 3, 4, 4.1, 4.2, 5, 6, 7, 8, 9, 10],
+            ablative: [3, 8],
+            instrumental: [3],
+            indirobj: [-1],
+            destination: [3],
+            dirobj: [3, 8]
+        }
+    }
 ]
