@@ -7,15 +7,16 @@ import { tensesArrayFormatter } from "./tensesArrayFormatter.js";
 import { argsArrayFormatter } from "./argsArrayFormatter.js";
 
 function sentenceCtor (wordDict) {
+    console.log(`LOG: rnd is ${Math.floor(Math.random() * (2 - 1 + 1)) + 1}`)
     // we need to be receiving a verb type, a tenses array, an args array, a pre verb alterations array, and a post verb alterations array
     // in the website version we won't be receiving wordDict as it'll be global
     let sentenceArray = [];
     let sentenceString;
-    let argsArray = ["vocative", "subject", "locative"];
+    let argsArray = ["vocative", "subject", "timing", "locative", "ablative", "instrumental", "destination", "indirobj", "dirobj"];
     // call argsArrayFormatter, get our args, verb, and verb type
     // then filter() into miniDict
-   // let verbTypesArray = [0, 1, 2, 3, 4, 4.1, 4.2, 5, 6, 7, 8, 9, 10];
-    let verbType = 3;
+    // let verbTypesArray = [0, 1, 2, 3, 4, 4.1, 4.2, 5, 6, 7, 8, 9, 10];
+    let verbType = 4.1
         // verbTypesArray[Math.floor(Math.random() * (verbTypesArray.length - 1 + 1))];
     let miniDict;
     let argsDict;
@@ -27,7 +28,7 @@ function sentenceCtor (wordDict) {
     let sentenceArrayIndex = 0;
     let tensesArray = ["present"];
     let isNonTemporal;
-    let preVAlters = ["compound", "negation"];
+    let preVAlters = [];
     let postVAlters = [];
     let altersDict = [];
     let alterIndex;
@@ -41,9 +42,14 @@ function sentenceCtor (wordDict) {
 
     // TODO BEFORE PORT:
     // implement pei + tensing (req changes to sentenceCtor and tenseSuffixer)
+        // i might do thsi when working on the tenses dict
+        // since case markers gen shouldnt use pei anyway
+
     // implement tensing for haga and paga
+
     // consider methods for implementing extended questions w/ angsa types
         // we won't actually implement them because it's scary
+
     // properly implement forced args
         // i think forced args will be a continuous filter
         // i.e verbDict.filter((obj) => obj.args[forceArgs[i]] == true) in a loop
@@ -51,14 +57,21 @@ function sentenceCtor (wordDict) {
         // this also makes me wonder about having individually forced args
         // like the locative is permitted and can show up but the dirbj is forced?
         // that sounds like a lot of work though.
-    // add aliases, also add aliases to dictLookup
+
+    // add aliases to dictLookup
+
     // tidy dictLookup. it sucks. why the fuck do we loop over the whole array just filter()
+
     // ADD TONE. PLEASE. put a "." or "?" at the end of a sentence.
+
     // refine the adj matching system. "gila jamiyaeja sa" is not accurate
     // to this end ... i think just a "personReq" thing is enough which checks if it inherits from index 0
     // of inheritableDict
         // ok, but what do we check that it's inheriting?
         // we can't check args bc tawhoy and taw don't inherit args (bc vocative)
+
+    // adjust wordDict verbs to use an array of verbTypes for their args, not just true/false
+    // also, dlete the angsa duplicates
 
     // TODO AFTER PORT:
     // re-implement various currently missing features like focRnd
@@ -94,13 +107,19 @@ function sentenceCtor (wordDict) {
         // and we can't use it to write an argument
         console.log(`argsArray[i] is ${argsArray[i]} i is ${i} verbType is ${verbType}`);
         argsDict = miniDict.filter((obj) => Array.from(obj.args[argsArray[i]]).includes(verbType) && usedArgs.includes(obj.word) == false);
+        argsDict = argsDict.filter((obj) => obj.aliases == undefined || obj.aliases && usedArgs.some(item => obj.aliases.includes(item)))
         // from the list of all valid words, get all words that can be the current argument for this verb type & that we haven't already used in the sentence
         // we can't run includes() on something that isn't an array, so we should
         // write -1 into every word that cannot be a specific argument
         targetIndex = Math.floor(Math.random() * (argsDict.length - 1 + 1));
         // select a random word from the list
-        word = argsDict[targetIndex].word;
-        // and get its word parameter
+        if (argsDict[targetIndex].aliases == undefined) {console.log(`LOG: has no aliases, use word`); word = argsDict[targetIndex].word} else
+        if (argsDict[targetIndex].aliases != undefined && (Math.floor(Math.random() * (2 - 1 + 1)) + 1) == 1) {
+            console.log(`LOG: has aliases, use aliases`);
+            word = argsDict[targetIndex].aliases[Math.floor(Math.random() * (argsDict[targetIndex].aliases.length - 1 + 1))]} else
+        if (argsDict[targetIndex].aliases != undefined && (Math.floor(Math.random() * (2 - 1 + 1)) + 1) == 2)
+        {console.log(`LOG: has aliases, use word`); word = argsDict[targetIndex].word}
+        // and get its word parameter, or a random alias if it has aliases
         console.log(`sentenceCtor LOG: got word ${word} from argsDict:`);
         console.groupCollapsed("argsDict");
         console.dir(argsDict);
@@ -124,6 +143,7 @@ function sentenceCtor (wordDict) {
         if ((verbType == 0 || verbType == 1) && argsArray[i] == "dirobj") {console.log(`sentenceCtor LOG: angsa dirobj detected, no case suffix`); currArg = word} else
         {console.log(`sentenceCtor LOG: angsa dirobj NOT detected, case suffix`); currArg = caseSuffixer(word, argsArray[i], argsDict[targetIndex].animate, argsArray[0].dirobjThem)}} else
         {currArg = word}
+        // does this also break negation ...?
         // because of the way compounds work, they need sentenceObjs to not be case suffixed
         // but it's inconvenient, so if we don't need to worry about that, then we just suffix now
         sentenceArray[sentenceArrayIndex] = { word: currArg, arg: argsArray[i], legalAlters: argsDict[targetIndex].legalAlters, animate: argsDict[targetIndex].animate }
@@ -134,8 +154,8 @@ function sentenceCtor (wordDict) {
         sentenceArrayIndex += 1;
         // write the current word (suffixed) into the array, and also some extra info that we need later for things like adjectives
         // then increase the index by 1
-        usedArgs[usedArgsIndex] = argsDict[targetIndex].word;
-        console.log(`sentenceCtor LOG: word ${argsDict[targetIndex].word} was added to usedArgs at ${usedArgsIndex}`);
+        usedArgs[usedArgsIndex] = word;
+        console.log(`sentenceCtor LOG: word ${word} was added to usedArgs at ${usedArgsIndex}`);
         console.log(`sentenceCtor LOG: usedArgs is now ${usedArgs}`);
         usedArgsIndex += 1;
         // also add the word to the used args list and increase the index at which we write into used args
@@ -251,15 +271,22 @@ function sentenceCtor (wordDict) {
             case "possessed":
                 console.log(`LOG: possession was detected, doing genitive stuff`);
                 argsDict = miniDict.filter((obj) => obj.args.genitive == true && usedArgs.includes(obj.word) == false);
+                argsDict = argsDict.filter((obj) => obj.aliases == undefined || obj.aliases && usedArgs.some(item => obj.aliases.includes(item)))
                 alterIndex = Math.floor(Math.random() * (argsDict.length - 1 + 1));
                 // get a word that can be used as the genitive
                 console.log(`LOG: alterObj is:`);
                 console.groupCollapsed("alterObj");
                 console.dir(argsDict[alterIndex]);
                 console.groupEnd();
+                if (argsDict[targetIndex].aliases == undefined) {console.log(`LOG: has no aliases, use word`); word = argsDict[targetIndex].word} else
+                if (argsDict[targetIndex].aliases != undefined && (Math.floor(Math.random() * (2 - 1 + 1)) + 1) == 1) {
+                    console.log(`LOG: has aliases, use aliases`);
+                    word = argsDict[targetIndex].aliases[Math.floor(Math.random() * (argsDict[targetIndex].aliases.length - 1 + 1))]} else
+                if (argsDict[targetIndex].aliases != undefined && (Math.floor(Math.random() * (2 - 1 + 1)) + 1) == 2)
+                {console.log(`LOG: has aliases, use word`); word = argsDict[targetIndex].word}
                 sentenceArray.splice(sentenceArray.findIndex(obj => {
                      return obj.word == altersDict[targetIndex].word && obj.legalAlters.includes(preVAlters[i])
-                }), 0, {word: caseSuffixer(argsDict[alterIndex].word, "gen", argsDict[alterIndex].animate, false), arg: preVAlters[i], legalAlters: ["none"]})
+                }), 0, {word: caseSuffixer(word, "gen", argsDict[alterIndex].animate, false), arg: preVAlters[i], legalAlters: ["none"]})
                 // casesuffix it and put it in the sentence
                 sentenceArray[sentenceArray.findIndex(obj => {
                      return obj.word == altersDict[targetIndex].word && obj.legalAlters.includes(preVAlters[i])})].legalAlters = ["none"];
