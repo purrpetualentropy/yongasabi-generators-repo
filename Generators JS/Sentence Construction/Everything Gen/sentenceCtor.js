@@ -11,11 +11,12 @@ function sentenceCtor (wordDict) {
     // in the website version we won't be receiving wordDict as it'll be global
     let sentenceArray = [];
     let sentenceString;
-    let argsArray = ["vocative", "subject", "timing", "locative", "instrumental", "ablative", "indirobj", "destination", "dirobj"];
+    let argsArray = ["vocative", "subject", "locative"];
     // call argsArrayFormatter, get our args, verb, and verb type
     // then filter() into miniDict
-    let verbTypesArray = [0, 1, 2, 3, 4, 4.1, 4.2, 5, 6, 7, 8, 9, 10];
-    let verbType = verbTypesArray[Math.floor(Math.random() * (verbTypesArray.length - 1 + 1))];
+   // let verbTypesArray = [0, 1, 2, 3, 4, 4.1, 4.2, 5, 6, 7, 8, 9, 10];
+    let verbType = 3;
+        // verbTypesArray[Math.floor(Math.random() * (verbTypesArray.length - 1 + 1))];
     let miniDict;
     let argsDict;
     let currArg;
@@ -26,7 +27,7 @@ function sentenceCtor (wordDict) {
     let sentenceArrayIndex = 0;
     let tensesArray = ["present"];
     let isNonTemporal;
-    let preVAlters = ["compound", "possessed", "adj"];
+    let preVAlters = ["compound", "negation"];
     let postVAlters = [];
     let altersDict = [];
     let alterIndex;
@@ -56,12 +57,8 @@ function sentenceCtor (wordDict) {
     // refine the adj matching system. "gila jamiyaeja sa" is not accurate
     // to this end ... i think just a "personReq" thing is enough which checks if it inherits from index 0
     // of inheritableDict
-
-    // negated args should come after vocative
-    // no ho, ong'o yong ...
-
-    // also, negated compounds should be moved in their totality
-    // currently only the head is moved
+        // ok, but what do we check that it's inheriting?
+        // we can't check args bc tawhoy and taw don't inherit args (bc vocative)
 
     // TODO AFTER PORT:
     // re-implement various currently missing features like focRnd
@@ -158,7 +155,7 @@ function sentenceCtor (wordDict) {
 
     for (let i = 0; i < preVAlters.length; i++) {
     console.log(`LOG: top of preVAlters loop. preVAlters is ${preVAlters}, i is ${i}, preVAlters[i] is ${preVAlters[i]}`);
-    altersDict = sentenceArray.filter((obj) => obj.legalAlters.includes(preVAlters[i]));
+    altersDict = sentenceArray.filter((obj) => obj.legalAlters.includes(preVAlters[i]) && obj.arg != "vocative");
     // get a list of every word in the sentence that can take the current alteration
     console.log(`LOG: altersDict now:`);
     console.groupCollapsed("altersDict");
@@ -176,19 +173,76 @@ function sentenceCtor (wordDict) {
             case "negation":
                 console.log(`LOG: negation was detected. Negating.`);
                 // do not get a word from the dictionary, just write 'yong'
-                sentenceArray.splice(0, 0, {word: altersDict[targetIndex].word, arg: altersDict[targetIndex].arg, legalAlters: ["none"]});
-                sentenceArray.splice(1, 0, {word: "yong", arg: "negation", legalAlters: ["none"]});
-                // put the negated word and yong at the start of the sentence
-                console.log(`LOG: items moved. sentenceArray now:`);
-                console.groupCollapsed("sentenceArray");
-                console.dir(sentenceArray);
-                console.groupEnd();
-                console.log(`LOG: now removing old target item.`);
-                sentenceArray.splice(sentenceArray.findIndex(object => {
-                    return object.word == altersDict[targetIndex].word && !object.legalAlters.includes("none")
-                }), 1);
-                // remove the negated word from its old position in the sentence
-                console.log(`LOG: item removed. sentenceArray now:`);
+
+                if (sentenceArray[sentenceArray.findIndex(object => {
+                    return object.word == altersDict[targetIndex].word})].isCompound == undefined) {
+                    console.log(`LOG: target word is NOT a compound, do normal`)
+                if (argsArray.includes("vocative")) {
+                    sentenceArray.splice(sentenceArray.findIndex(object => {
+                        return object.arg == "vocative"}) + 1, 0, {word: altersDict[targetIndex].word, arg: altersDict[targetIndex].arg, legalAlters: ["none"], animate: altersDict[targetIndex].animate});
+                    sentenceArray.splice(sentenceArray.findIndex(object => {
+                        return object.arg == "vocative"}) + 2, 0, {word: "yong", arg: "negation", legalAlters: ["none"]})
+                    // place the negated word and yong after the vocative
+
+                    sentenceArray.splice(sentenceArray.findIndex(object => {
+                        return object.word == altersDict[targetIndex].word && !object.legalAlters.includes("none")
+                    }), 1);
+                    // and remove the old word
+                    console.log(`LOG: sentenceArray now:`);
+                    console.groupCollapsed("sentenceArray");
+                    console.dir(sentenceArray);
+                    console.groupEnd();
+                } else
+                {sentenceArray.splice(0, 0, {word: altersDict[targetIndex].word, arg: altersDict[targetIndex].arg, legalAlters: ["none"], animate: altersDict[targetIndex].animate});
+                    sentenceArray.splice(1, 0, {word: "yong", arg: "negation", legalAlters: ["none"], animate: false})
+                    sentenceArray.splice(sentenceArray.findIndex(object => {
+                        return object.word == altersDict[targetIndex].word && !object.legalAlters.includes("none")
+                    }), 1)
+                    // if the vocative isn't present, just move it to the start of the sentence
+                    console.log(`LOG: sentenceArray now:`);
+                    console.groupCollapsed("sentenceArray");
+                    console.dir(sentenceArray);
+                    console.groupEnd()}}
+                else
+                if (sentenceArray[sentenceArray.findIndex(object => {
+                    return object.word == altersDict[targetIndex].word})].isCompound == true) {
+                    console.log(`LOG: target word IS a compound, do compound stuff`);
+                    if (argsArray.includes("vocative")) {
+                        console.log(`LOG: voc is present`);
+                        sentenceArray.splice(sentenceArray.findIndex(object => {
+                            return object.arg == "vocative"}) + 1, 0, {word: sentenceArray[sentenceArray.findIndex(object => {return object.compoundPart == "dependent"})].word, arg: sentenceArray[sentenceArray.findIndex(object => {return object.compoundPart == "dependent"})].arg, legalAlters: ["none"], animate: sentenceArray[sentenceArray.findIndex(object => {return object.compoundPart == "dependent"})].animate});
+                        sentenceArray.splice(sentenceArray.findIndex(object => {
+                            return object.arg == "vocative"}) + 2, 0, {word: sentenceArray[sentenceArray.findIndex(object => {return object.compoundPart == "head"})].word, arg: sentenceArray[sentenceArray.findIndex(object => {return object.compoundPart == "head"})].arg, legalAlters: ["none"], animate: sentenceArray[sentenceArray.findIndex(object => {return object.compoundPart == "head"})].animate});
+                        sentenceArray.splice(sentenceArray.findIndex(object => {
+                            return object.arg == "vocative"}) + 3, 0, {word: "yong", arg: "negation", legalAlters: ["none"], animate: false});
+                        // do the same as above, except move both parts of the compound
+                        // (we can be certain that words with the compoundPart property are the old words and not the negated ones
+                        // because we never write that property while negating them; it's not longer necessary, as negated words
+                        // cannot take any further alterations)
+                        sentenceArray.splice(sentenceArray.findIndex(object => {return object.compoundPart == "dependent"}), 1);
+                        sentenceArray.splice(sentenceArray.findIndex(object => {return object.compoundPart == "head"}), 1)
+                        // then remove the old words like usual
+                        console.log(`LOG: sentenceArray now:`);
+                        console.groupCollapsed("sentenceArray");
+                        console.dir(sentenceArray);
+                        console.groupEnd();
+                    } else
+                    {
+                        console.log(`LOG: voc not present`);
+                        sentenceArray.splice(0, 0, {word: sentenceArray[sentenceArray.findIndex(object => {return object.compoundPart == "dependent"})].word, arg: sentenceArray[sentenceArray.findIndex(object => {return object.compoundPart == "dependent"})].arg, legalAlters: ["none"], animate: sentenceArray[sentenceArray.findIndex(object => {return object.compoundPart == "dependent"})].animate});
+                        sentenceArray.splice(1, 0, {word: sentenceArray[sentenceArray.findIndex(object => {return object.compoundPart == "head"})].word, arg: sentenceArray[sentenceArray.findIndex(object => {return object.compoundPart == "head"})].arg, legalAlters: ["none"], animate: sentenceArray[sentenceArray.findIndex(object => {return object.compoundPart == "head"})].animate});
+                        sentenceArray.splice(2, 0, {word: "yong", arg: "negation", legalAlters: ["none"], animate: false});
+                        sentenceArray.splice(sentenceArray.findIndex(object => {return object.compoundPart == "dependent"}), 1);
+                        sentenceArray.splice(sentenceArray.findIndex(object => {return object.compoundPart == "head"}), 1)
+                        // all the same stuff, but without moving it ahead of the vocative, as the voc isn't present
+                        console.log(`LOG: sentenceArray now:`);
+                        console.groupCollapsed("sentenceArray");
+                        console.dir(sentenceArray);
+                        console.groupEnd();
+
+                    }
+                }
+                console.log(`LOG: items moved and removed. sentenceArray now:`);
                 console.groupCollapsed("sentenceArray");
                 console.dir(sentenceArray);
                 console.groupEnd();
@@ -222,7 +276,7 @@ function sentenceCtor (wordDict) {
                 let compoundTypeArray = miniDict[miniDict.findIndex(obj => {return obj.word == altersDict[targetIndex].word})].compoundTypes;
                 let compoundType = compoundTypeArray[Math.floor(Math.random() * (compoundTypeArray.length - 1 + 1))];
                 let compoundPosition = miniDict[miniDict.findIndex(obj => {return obj.word == altersDict[targetIndex].word})].compoundPart.find((string) => string.startsWith(compoundType + "-") == true);
-                // do a bunch of shenanigans to get a compoundType and the selected word's compount position
+                // do a bunch of shenanigans to get a compoundType and the selected word's compound position
                 // in the case of "kip cho", "kip" is the dependent and "cho" is the head
                 console.log(`LOG: selected compoundType is ${compoundType}, corresponding compoundPosition is ${compoundPosition}.`);
                 if (compoundPosition == compoundType + "-head") {
@@ -237,7 +291,9 @@ function sentenceCtor (wordDict) {
                     console.groupCollapsed("alterObj");
                     console.dir(argsDict[alterIndex]);
                     console.groupEnd();
-                    sentenceArray.splice(targetIndex, 0, {word: argsDict[alterIndex].word, arg: preVAlters[i], legalAlters: ["none"]})
+                    sentenceArray.splice(targetIndex, 0, {word: argsDict[alterIndex].word, arg: preVAlters[i], legalAlters: ["none"], isCompound: true, compoundPart: "dependent"})
+                    sentenceArray[targetIndex + 1].isCompound = true;
+                    sentenceArray[targetIndex + 1].compoundPart = "head";
                     // insert the dependent before the target word
                     console.dir(`LOG: sentenceArray now ${sentenceArray}`);
                 } else
@@ -253,9 +309,12 @@ function sentenceCtor (wordDict) {
                     console.groupCollapsed("alterObj");
                     console.dir(argsDict[alterIndex]);
                     console.groupEnd();
-                    sentenceArray.splice(targetIndex + 1, 0, {word: argsDict[alterIndex].word, arg: sentenceArray[targetIndex].arg, legalAlters: ["none"]});
+                    sentenceArray.splice(targetIndex + 1, 0, {word: argsDict[alterIndex].word, arg: sentenceArray[targetIndex].arg, legalAlters: ["none"], isCompound: true, compoundPart: "head"});
                     sentenceArray[targetIndex].arg = "compound"
-                    console.dir(`LOG: sentenceArray now ${sentenceArray}`);
+                    sentenceArray[targetIndex].isCompound = true;
+                    sentenceArray[targetIndex].compoundPart = "dependent";
+                    console.log(`sentenceArray now:`);
+                    console.dir(sentenceArray)
                     // insert the head after the target word
                 }
                 break;
