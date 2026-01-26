@@ -7,7 +7,6 @@ import { tensesArrayFormatter } from "./tensesArrayFormatter.js";
 import { argsArrayFormatter } from "./argsArrayFormatter.js";
 
 function sentenceCtor (wordDict) {
-    console.log(`LOG: rnd is ${Math.floor(Math.random() * (2 - 1 + 1)) + 1}`)
     // we need to be receiving a verb type, a tenses array, an args array, a pre verb alterations array, and a post verb alterations array
     // in the website version we won't be receiving wordDict as it'll be global
     let sentenceArray = [];
@@ -16,7 +15,7 @@ function sentenceCtor (wordDict) {
     // call argsArrayFormatter, get our args, verb, and verb type
     // then filter() into miniDict
     // let verbTypesArray = [0, 1, 2, 3, 4, 4.1, 4.2, 5, 6, 7, 8, 9, 10];
-    let verbType = 4.3
+    let verbType = 0
         // verbTypesArray[Math.floor(Math.random() * (verbTypesArray.length - 1 + 1))];
     let miniDict;
     let argsDict;
@@ -28,7 +27,7 @@ function sentenceCtor (wordDict) {
     let sentenceArrayIndex = 0;
     let tensesArray = ["present"];
     let isNonTemporal;
-    let preVAlters = [];
+    let preVAlters = ["adjective"];
     let postVAlters = ["sentence-final particle"];
     let altersDict = [];
     let alterIndex;
@@ -47,6 +46,10 @@ function sentenceCtor (wordDict) {
         // since case markers gen shouldnt use pei anyway
 
     // implement tensing for haga and paga
+    // sigh but i want both of these. ok this is our final to-do and of course it's the worst one
+    // good luck soldier o7
+
+    // we're not implementing pei yet, nor extended questions, and the numbers problem is part of extended questions
 
     // consider methods for implementing extended questions w/ angsa types
         // we won't actually implement them because it's scary
@@ -92,8 +95,27 @@ function sentenceCtor (wordDict) {
     // 1. cut numbers up into individual numbers. 1234 - [1, 2, 3, 4]
     // 2. how do we know which number is which? how do we know that 1 isn't the digit and 2 isn't the tens?
     // 3. easy. we flip 'em and count upwards.
-    // how do we know when to stop? or like,
+    // how do we know when to stop? or like, how far is too far
+    //
 
+
+
+    // refine the adj matching system. "gila jamiyaeja sa" is not accurate
+    // to this end ... i think just a "personReq" thing is enough which checks if it inherits from index 0
+    // of inheritableDict
+        // ok, but what do we check that it's inheriting?
+        // we can't check args bc tawhoy and taw don't inherit args (bc vocative)
+        // in theory the verb types will always be the same ... we can check that
+        // but.................. bwuh this doesn't feel like a very good solution
+        // wait this doesn't even help lmfao because it'll just look at inheritable dict
+        // persons can have essentially any verb type - SO CAN TIMING WORDS
+        // so it'd have to be a property anyway. ok good great let me go do that
+
+    // TODO AFTER PORT:
+    // re-implement various currently missing features like focRnd
+    // tidy the variables
+    // reformat other gens
+    // update the github
     // properly implement forced args
         // i think forced args will be a continuous filter
         // i.e verbDict.filter((obj) => obj.args[forceArgs[i]] == true) in a loop
@@ -101,39 +123,6 @@ function sentenceCtor (wordDict) {
         // this also makes me wonder about having individually forced args
         // like the locative is permitted and can show up but the dirbj is forced?
         // that sounds like a lot of work though.
-
-    // ADD TONE. PLEASE. put a "." or "?" at the end of a sentence.
-        // so the thing about tone is that it's haaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaard :(((
-        // because we need to care about post-finals like ma
-        // and about question words like sidei, or like ...
-        // we can't say "bannoga mun pei mokkitdei sa" without it being a question
-        // so it should TAKE a question tone
-        // my take is ........ hmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
-        // ok, here's my take. some words get a sentenceTone property
-        // by default this is "." but these words can make it something else
-        // when writing stuff, in any situation, we check if its sentenceTone != undefined, and if so, we set sentenceTone to ?
-        // multiple words............ in theory we only ever set it to "?" so i don't think it matters
-        // ok im gonna go implement byebye
-
-    // refine the adj matching system. "gila jamiyaeja sa" is not accurate
-    // to this end ... i think just a "personReq" thing is enough which checks if it inherits from index 0
-    // of inheritableDict
-        // ok, but what do we check that it's inheriting?
-        // we can't check args bc tawhoy and taw don't inherit args (bc vocative)
-
-    // adjust wordDict verbs to use an array of verbTypes for their args, not just true/false
-    // also, dlete the angsa duplicate
-
-    // adjust argsArrayFormatter to be able to use aliases
-
-    // TODO AFTER PORT:
-    // re-implement various currently missing features like focRnd
-        //
-    // tidy the variables
-    // reformat other gens
-
-    // update the github
-
 
     console.log(`LOG: sentenceCtor awake. Calling tensesArrayFormatter.`);
     console.groupCollapsed("sentenceCtor logs");
@@ -179,12 +168,16 @@ function sentenceCtor (wordDict) {
         console.groupEnd();
         if (argsArray[i] == "dirobj" && verbType == 0) {
             console.log(`LOG: desc angsa dirobj detected, checking animReq`);
-            if (argsDict[targetIndex].animateReq == true && sentenceArray[sentenceArray.findIndex(obj => {return obj.arg == "subject"})].animate == true) {console.log(`LOG: animateReq is true, but subject is animate, do nothing`)}
-            if (argsDict[targetIndex].animateReq == true && sentenceArray[sentenceArray.findIndex(obj => {return obj.arg == "subject"})].animate == false) {console.log(`LOG: animateReq is true but subject is not animate, re-roll`);
-                argsDict = miniDict.filter((obj) => Array.from(obj.args[argsArray[i]]).includes(verbType) && usedArgs.includes(obj.word) == false && argsDict.animateReq == false);
+            if (argsDict[targetIndex].animateReq == true && sentenceArray[sentenceArray.findIndex(obj => {return obj.arg == "subject"})].animate == true  || argsDict[targetIndex].personReq == true && sentenceArray[sentenceArray.findIndex(obj => {return obj.arg == "subject"})].isPerson == true)
+            {console.log(`LOG: animateReq / personReq is true, but subject is animate / person, do nothing`)} else
+            if (argsDict[targetIndex].animateReq == true && sentenceArray[sentenceArray.findIndex(obj => {return obj.arg == "subject"})].animate == false  || argsDict[targetIndex].personReq == true && sentenceArray[sentenceArray.findIndex(obj => {return obj.arg == "subject"})].isPerson == false)
+            {console.log(`LOG: animateReq / personReq is true but subject is not animate / person, re-roll`);
+                argsDict = miniDict.filter((obj) => Array.from(obj.args[argsArray[i]]).includes(verbType) && usedArgs.includes(obj.word) == false && obj.animateReq == false && obj.personReq == false);
                 targetIndex = Math.floor(Math.random() * (argsDict.length - 1 + 1));
+                console.dir(argsDict);
                 word = argsDict[targetIndex].word} else
-            if (argsDict[targetIndex].animateReq == false || argsDict[targetIndex].animateReq == undefined || argsDict[targetIndex.animateReq == null]) {console.log(`LOG: animReq is ${argsDict[targetIndex].animateReq}, word is ${argsDict[targetIndex].word}, do nothing`)}
+            if (argsDict[targetIndex].animateReq == false || argsDict[targetIndex].animateReq == undefined || argsDict[targetIndex].animateReq == null || argsDict[targetIndex].personReq == false || argsDict[targetIndex].personReq == undefined || argsDict[targetIndex].personReq == null)
+            {console.log(`LOG: animReq / personReq is false, do nothing`)}
         }
             // some adjectives cannot be used on inanimate words (i.e jamiyae 'convincing')
             // we check if it's a descriptive angsa sentence (i.e 'hanitaega koddim sa')
@@ -199,7 +192,7 @@ function sentenceCtor (wordDict) {
         // does this also break negation ...?
         // because of the way compounds work, they need sentenceObjs to not be case suffixed
         // but it's inconvenient, so if we don't need to worry about that, then we just suffix now
-        sentenceArray[sentenceArrayIndex] = { word: currArg, arg: argsArray[i], legalAlters: argsDict[targetIndex].legalAlters, animate: argsDict[targetIndex].animate }
+        sentenceArray[sentenceArrayIndex] = { word: currArg, arg: argsArray[i], legalAlters: argsDict[targetIndex].legalAlters, animate: argsDict[targetIndex].animate, isPerson: argsDict[targetIndex].isPerson }
         console.log(`sentenceCtor LOG: sentenceArray now:`);
         console.groupCollapsed("sentenceArray");
         console.dir(sentenceArray);
@@ -216,7 +209,14 @@ function sentenceCtor (wordDict) {
         // if the word should implement a sentence tone (i.e 'ma', the question marker, should use '?') do it now
     }
     console.log(`sentenceCtor LOG: exited loop. Writing verb.`);
-    sentenceArray[sentenceArrayIndex] = {word: argsArray[0].word, arg: "verb", legalAlters: argsArray[0].legalAlters};
+    console.dir(argsArray[0])
+    if (argsArray[0].aliases == undefined) {console.log(`LOG: has no aliases, use word`); word = argsArray[0].word} else
+    if (argsArray[0].aliases != undefined && (Math.floor(Math.random() * (2 - 1 + 1)) + 1) == 1) {
+        console.log(`LOG: has aliases, use aliases`);
+        word = argsArray[0].aliases[Math.floor(Math.random() * (argsArray[0].aliases.length - 1 + 1))]} else
+    if (argsArray[0].aliases != undefined && (Math.floor(Math.random() * (2 - 1 + 1)) + 1) == 2)
+    {console.log(`LOG: has aliases, use word`); word = argsArray[0].word}
+    sentenceArray[sentenceArrayIndex] = {word: word, arg: "verb", legalAlters: argsArray[0].legalAlters};
     sentenceArrayIndex += 1;
     // add the verb to the last index in the sentence
     console.log(`sentenceCtor LOG: verb written, sentenceArray now:`);
@@ -410,17 +410,21 @@ function sentenceCtor (wordDict) {
                 }
                 break;
 
+            case "adj":
             case "adjective":
             case "adverb":
                 console.log(`LOG: adj or adverb was detected, inserting immediately before`);
                 // get a word with the same type as our current alteration that hasn't been used in the sentence
-                argsDict = miniDict.filter((obj) => obj.type == preVAlters[i] && usedArgs.includes(obj.word) == false);
+                argsDict = wordDict.filter((obj) => obj.type == preVAlters[i] && usedArgs.includes(obj.word) == false);
                 alterIndex = Math.floor(Math.random() * (argsDict.length - 1 + 1));
                 console.dir(argsDict)
                 console.log(`LOG: alterObj is:`);
                 console.dir(argsDict[alterIndex]);
-                if (argsDict[alterIndex].animateReq == true) {sentenceArray.splice(sentenceArray.findIndex(object => {
-                     return object.word == altersDict[targetIndex].word && object.legalAlters.includes(preVAlters[i]) && object.animate == true
+                if (argsDict[alterIndex].animateReq == true && argsDict[alterIndex].personReq == true) {sentenceArray.splice(sentenceArray.findIndex(object => {
+                     return object.word == altersDict[targetIndex].word && object.legalAlters.includes(preVAlters[i]) && object.animate == true && object.isPerson == true
+                }), 0, {word: argsDict[alterIndex].word, arg: preVAlters[i], legalAlters: ["none"]})} else
+                if (argsDict[alterIndex].animateReq == true && argsDict[alterIndex].personReq == false) {sentenceArray.splice(sentenceArray.findIndex(object => {
+                    return object.word == altersDict[targetIndex].word && object.legalAlters.includes(preVAlters[i]) && object.animate == true
                 }), 0, {word: argsDict[alterIndex].word, arg: preVAlters[i], legalAlters: ["none"]})} else
                 {sentenceArray.splice(sentenceArray.findIndex(object => {
                      return object.word == altersDict[targetIndex].word && object.legalAlters.includes(preVAlters[i])
@@ -428,6 +432,8 @@ function sentenceCtor (wordDict) {
                 // find the index of an object with the same word as our selected word, which is legal to alter
                 // and insert our word immediately before it
                 // we know for a fact that all adjectives and adverbs will have some animateReq definition
+                // and we know that personReq must be animateReq by nature, so there's no point checking
+                // if animateReq is false but personReq is true
                 console.log(`LOG: spliced at ${sentenceArray.findIndex(object => {
                     return object.word == altersDict[targetIndex].word && object.legalAlters.includes(preVAlters[i])
                 })} sentenceArray now:`);
@@ -492,7 +498,7 @@ function sentenceCtor (wordDict) {
     // post-verb alterations include converbs, sentence-final particles like -tto or ma, and pei
 
     console.log(`LOG: tensing verb`);
-    word = tenseSuffixer(argsArray[0].word, argsArray[0].rootLength, tensesArray);
+    word = tenseSuffixer(sentenceArray[sentenceArray.findIndex(object => {return object.arg == "verb"})].word, argsArray[0].rootLength, tensesArray);
     console.log(`LOG: tensed verb is ${word}, assigning`);
     sentenceArray[sentenceArray.findIndex(object => {return object.arg == "verb"})].word = word;
     console.log(`LOG: should be assigned, sentenceArray is:`);
