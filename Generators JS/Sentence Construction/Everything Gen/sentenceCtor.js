@@ -29,9 +29,10 @@ function sentenceCtor (wordDict) {
     let tensesArray = ["present"];
     let isNonTemporal;
     let preVAlters = [];
-    let postVAlters = [];
+    let postVAlters = ["sentence-final particle"];
     let altersDict = [];
     let alterIndex;
+    let sentenceTone = "";
     // let rnd = Math.floor(Math.random() * 2) + 1;
 
     // regarding config:
@@ -50,6 +51,49 @@ function sentenceCtor (wordDict) {
     // consider methods for implementing extended questions w/ angsa types
         // we won't actually implement them because it's scary
 
+        // so, we could consider these extended questions as a type of postVAlter
+        // and give them their own implementation in the loop ... i think this is the best way to do it
+        // ah, we should include question words, but then i dont know how to force questions with them
+        // we can check manually but that's lame
+        // hmm. maybe we just give them a questionWord property that sets index 0 of postVAlters to "question"
+        // wow okay so. no these can't be postVAlters. let me make a list
+
+        // poh, mokkitdei, binohdei and beinhodei are treated as measure word constructions
+        // they cannot be made using postVAlters, they would need a special compounding case.
+
+        // sidei is used in place of a person word, but can also be compounded to ask after a specific noun in a group, i.e "gila sidei" which lizard
+        // this actually is not that bad, we can just do a compound for this
+
+        // ditto with akumadei, it would need to be a compound.
+
+        // madei, mokkitdei - placed directly after the adjective ... this is also compoundable.
+
+        // we could also use ni, but i dont really want to. it seems more complex that way.
+
+        // ok, so these are all compounds. my main concern is the measure word construction
+        // i think we can use the same decimal system as before. compound type 1 will be a MWC
+        // then we'll have different compound types based on like ... because you can't say "mun sidei"
+        // dependents should thusly take a "measureWord" property which will be used to measure them
+
+        // so these will all be compounds. that's actually very simple to do
+
+        // however, we cannot use "madei" to mean "how do i". it's ... contextually difficult
+
+        // regarding MWCs, these will just be special compounding as mentioned before. we'll use 1.1 and 1.2 for this
+        // 1.1 is "word and amount but no class noun". i.e, "mun mokkitdei". where mun is the dependent and mokkitdei
+        // is the head.
+        // 1.2 is "word and class noun but no amount". i.e "mun pei", where mun is the dependent and pei is the head.
+        // in 1.1, we need to get the class noun, which will just be a parameter of the dependent
+        // in 1.2, we'd need to get a number... or question counter. these ... hm.
+        // we can just give them a special property, such as "isCounter", and then filter() for != undefined
+        // proper implementation of numbers is hard. in an ideal world we'd roll some number and then translate it
+        // is that hard.................................................................................................
+
+    // 1. cut numbers up into individual numbers. 1234 - [1, 2, 3, 4]
+    // 2. how do we know which number is which? how do we know that 1 isn't the digit and 2 isn't the tens?
+    // 3. easy. we flip 'em and count upwards.
+    // how do we know when to stop? or like,
+
     // properly implement forced args
         // i think forced args will be a continuous filter
         // i.e verbDict.filter((obj) => obj.args[forceArgs[i]] == true) in a loop
@@ -58,11 +102,18 @@ function sentenceCtor (wordDict) {
         // like the locative is permitted and can show up but the dirbj is forced?
         // that sounds like a lot of work though.
 
-    // add aliases to dictLookup
-
-    // tidy dictLookup. it sucks. why the fuck do we loop over the whole array just filter()
-
     // ADD TONE. PLEASE. put a "." or "?" at the end of a sentence.
+        // so the thing about tone is that it's haaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaard :(((
+        // because we need to care about post-finals like ma
+        // and about question words like sidei, or like ...
+        // we can't say "bannoga mun pei mokkitdei sa" without it being a question
+        // so it should TAKE a question tone
+        // my take is ........ hmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
+        // ok, here's my take. some words get a sentenceTone property
+        // by default this is "." but these words can make it something else
+        // when writing stuff, in any situation, we check if its sentenceTone != undefined, and if so, we set sentenceTone to ?
+        // multiple words............ in theory we only ever set it to "?" so i don't think it matters
+        // ok im gonna go implement byebye
 
     // refine the adj matching system. "gila jamiyaeja sa" is not accurate
     // to this end ... i think just a "personReq" thing is enough which checks if it inherits from index 0
@@ -71,7 +122,9 @@ function sentenceCtor (wordDict) {
         // we can't check args bc tawhoy and taw don't inherit args (bc vocative)
 
     // adjust wordDict verbs to use an array of verbTypes for their args, not just true/false
-    // also, dlete the angsa duplicates
+    // also, dlete the angsa duplicate
+
+    // adjust argsArrayFormatter to be able to use aliases
 
     // TODO AFTER PORT:
     // re-implement various currently missing features like focRnd
@@ -159,6 +212,8 @@ function sentenceCtor (wordDict) {
         console.log(`sentenceCtor LOG: usedArgs is now ${usedArgs}`);
         usedArgsIndex += 1;
         // also add the word to the used args list and increase the index at which we write into used args
+        if (argsDict[targetIndex].sentenceTone != undefined) {sentenceTone = argsDict[targetIndex].sentenceTone}
+        // if the word should implement a sentence tone (i.e 'ma', the question marker, should use '?') do it now
     }
     console.log(`sentenceCtor LOG: exited loop. Writing verb.`);
     sentenceArray[sentenceArrayIndex] = {word: argsArray[0].word, arg: "verb", legalAlters: argsArray[0].legalAlters};
@@ -296,6 +351,9 @@ function sentenceCtor (wordDict) {
                 console.groupCollapsed("sentenceArray");
                 console.dir(sentenceArray);
                 console.groupEnd();
+                if (argsDict[alterIndex].sentenceTone != undefined) {sentenceTone = argsDict[alterIndex].sentenceTone}
+                // if something should change the puncutation at the end of the sentence
+                // from nothing to "?", do that
                 break;
 
             case "compound":
@@ -323,6 +381,9 @@ function sentenceCtor (wordDict) {
                     sentenceArray[targetIndex + 1].compoundPart = "head";
                     // insert the dependent before the target word
                     console.dir(`LOG: sentenceArray now ${sentenceArray}`);
+                    if (argsDict[alterIndex].sentenceTone != undefined) {sentenceTone = argsDict[alterIndex].sentenceTone}
+                    // if something should change the puncutation at the end of the sentence
+                    // from nothing to "?", do that
                 } else
                 if (compoundPosition == compoundType + "-dependent") {
                     console.log(`LOG: word is a dependent, find heads`)
@@ -343,6 +404,9 @@ function sentenceCtor (wordDict) {
                     console.log(`sentenceArray now:`);
                     console.dir(sentenceArray)
                     // insert the head after the target word
+                    if (argsDict[alterIndex].sentenceTone != undefined) {sentenceTone = argsDict[alterIndex].sentenceTone}
+                    // if something should change the puncutation at the end of the sentence
+                    // from nothing to "?", do that
                 }
                 break;
 
@@ -370,6 +434,9 @@ function sentenceCtor (wordDict) {
                 console.groupCollapsed("sentenceArray");
                 console.dir(sentenceArray);
                 console.groupEnd();
+                if (argsDict[alterIndex].sentenceTone != undefined) {sentenceTone = argsDict[alterIndex].sentenceTone}
+                // if something should change the puncutation at the end of the sentence
+                // from nothing to "?", do that
                 break;
 
             default:
@@ -391,6 +458,7 @@ function sentenceCtor (wordDict) {
                 console.groupCollapsed("sentenceArray");
                 console.dir(sentenceArray);
                 console.groupEnd();
+                if (argsDict[alterIndex].sentenceTone != undefined) {sentenceTone = argsDict[alterIndex].sentenceTone}
                 break;
         }
     } else {
@@ -412,6 +480,9 @@ function sentenceCtor (wordDict) {
         console.log(`LOG: targetIndex is ${targetIndex}, which is:`);
         console.dir(argsDict[targetIndex])
         console.log(`LOG: now moving on to sentenceString`)
+        if (argsDict[targetIndex].sentenceTone != undefined) {sentenceTone = argsDict[targetIndex].sentenceTone}
+        // if something should change the puncutation at the end of the sentence
+        // from nothing to "?", do that
     } else
     {console.log(`LOG: postVAlters has non-1 length, do nothing`)}
 
@@ -443,6 +514,7 @@ function sentenceCtor (wordDict) {
     console.log(`LOG: now adding post-verb alter`);
     if (postVAlters.length == 1 && argsDict.length != 0)
     {sentenceString += argsDict[targetIndex].joinWith + argsDict[targetIndex].word}
+    sentenceString += sentenceTone;
     // joinWith is a property that only post-v alters have
     // because things like -tto or -dakanei need to be suffixed onto the verb, but ma and pei shouldn't be
     console.log(`LOG: sentenceString now "${sentenceString}", return`);

@@ -1375,6 +1375,7 @@ export const wordDict = [{ word: "hanitae",
         temporalTense: "any",
         nonTemporalTenses: true,
         bannedTense: "imperative",
+        sentenceTone: "?",
         joinWith: " ", // joinWith is a post-verb alteration property
         // some postVAlters need to be suffixed directly to the verb, like tto
         // some need a space, like ma
