@@ -16,7 +16,7 @@ function sentenceCtor (wordDict) {
     // call argsArrayFormatter, get our args, verb, and verb type
     // then filter() into miniDict
     // let verbTypesArray = [0, 1, 2, 3, 4, 4.1, 4.2, 5, 6, 7, 8, 9, 10];
-    let verbType = 4.1
+    let verbType = 4.3
         // verbTypesArray[Math.floor(Math.random() * (verbTypesArray.length - 1 + 1))];
     let miniDict;
     let argsDict;

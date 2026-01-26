@@ -2,11 +2,7 @@
 1 - possessive angsa
 2 - locative angsa
 3 - VOM
-4 - hanta, kata, satka
-    maka should be split from this
-    possibly kata is both hanta and maka type?
-    but then "cutting the soup"
-    yeah kata may need to be its own thing
+4 - hanta, kata
 4.1 - maka
     we're allowed to use decimals like this because our verbTypes will be a long list in perchance
     so we can just code it like that
@@ -15,7 +11,10 @@
     you can see the similarities between hanta and aktodaka, and aktodaka and kata
     and ultimately the goal of much of those things is to eat, or get food
     so yeah. use whole numbers to indicate "relation". that way we can still split as we need
-    without making things extremely confusing and having maka be verbType 8 and yahla verbType 19 or something
+    without making things extremely confusing and having maka be verbType 8 and yahla verbType 19 or something#
+4.3 - satka
+    used to be part of 4 but i realised you can't light a fire with a spear
+    well maybe you can but i can't. skill issue
 5 - kapa
 6 - asa
     regarding 4, 5, and 6, we may need to split them into "slugcat" and "non-slugcat", for lack of a better word
