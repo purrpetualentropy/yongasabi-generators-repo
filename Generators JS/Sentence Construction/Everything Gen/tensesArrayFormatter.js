@@ -1,4 +1,4 @@
-export function tensesArrayFormatter (tensesArray) {
+function tensesArrayFormatter (tensesArray) {
     let formattedArray = [];
     let n = 0;
     let destroyIndex = 0;

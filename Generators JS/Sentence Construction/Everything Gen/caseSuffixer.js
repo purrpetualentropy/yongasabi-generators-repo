@@ -1,4 +1,4 @@
-export function caseSuffixer (word, gramCase, animate, themFlag, isAngsa) {
+function caseSuffixer (word, gramCase, animate, themFlag, isAngsa) {
     let vowelCheckerOutput = vowelChecker(word); // should output true or false
     console.log(`LOG: vowelChecker returned ${vowelCheckerOutput} on word ${word}`);
     let fixedCase = gramCase.toLowerCase();
@@ -103,7 +103,7 @@ export function caseSuffixer (word, gramCase, animate, themFlag, isAngsa) {
     }
 }
 
-export function vowelChecker (word) {
+function vowelChecker (word) {
     let finalChar = word.slice(-1);
     let hFinalChar = word.slice(-2);
     console.log(`vowelChecker running with word ${word} finalChar ${finalChar} hFinalChar ${hFinalChar}`)

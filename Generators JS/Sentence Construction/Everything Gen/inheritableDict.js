@@ -14,6 +14,7 @@ export const inheritableDict = [
         temporalTense: "any",
         nonTemporalTenses: true,
         bannedTense: "none",
+        isPerson: true,
         args: {
             vocative: [0, 1, 2, 3, 4, 4.1, 4.2, 4.3, 5, 6, 7, 8, 9, 10],
             genitive: true,
@@ -34,6 +35,7 @@ export const inheritableDict = [
       temporalTense: "any",
       nonTemporalTenses: true,
       bannedTense: "none",
+      isPerson: false,
       args: {
         vocative: [-1],
         genitive: true,
@@ -53,6 +55,7 @@ export const inheritableDict = [
         temporalTense: "any",
         nonTemporalTenses: true,
         bannedTense: "none",
+        isPerson: false,
         args: {
             vocative: [-1],
             genitive: [-1],
@@ -72,6 +75,7 @@ export const inheritableDict = [
         // because it'll differ between timing words, like nakwon "tomorrow" and hagwon "yesterday"
         legalVTypes: [2, 3, 4, 4.1, 4.2, 4.3, 5, 6, 7, 8, 9, 10],
         legalAlters: ["negation"],
+        isPerson: false,
         args: {
             vocative: [-1],
             genitive: [-1],
@@ -92,6 +96,7 @@ export const inheritableDict = [
         temporalTense: "any",
         nonTemporalTenses: true,
         bannedTense: "none",
+        isPerson: false,
         args: {
             vocative: [-1],
             genitive: [-1],
@@ -113,6 +118,7 @@ export const inheritableDict = [
         // so only the differences are written here, and they'll inherit from angsa possessable otherwise
         // note that these are "unhuntable". it would include things like huwso "soup"
         // bol'o hanta ... gulay'o hanta...
+      isPerson: false,
       args: {
         vocative: [-1],
         genitive: [-1],
@@ -137,6 +143,7 @@ export const inheritableDict = [
         temporalTense: "any",
         nonTemporalTenses: true,
         bannedTense: "none",
+        isPerson: false,
       args: {
         vocative: [-1],
           genitive: [-1],
@@ -158,6 +165,7 @@ export const inheritableDict = [
         temporalTense: "any",
         nonTemporalTenses: true,
         bannedTense: "none",
+        isPerson: false,
         args: {
             vocative: [-1],
             genitive: [-1],
@@ -177,6 +185,7 @@ export const inheritableDict = [
         temporalTense: "any",
         nonTemporalTenses: true,
         bannedTense: "none",
+        isPerson: false,
         args: {
             vocative: [-1],
             genitive: [-1],
@@ -194,6 +203,7 @@ export const inheritableDict = [
         // one of few cases where verbs inherit!
         // but voms essentially always have the same args, so ... it's fine
     index: 9,
+        isPerson: false,
         args: {
         vocative: true,
         genitive: false,

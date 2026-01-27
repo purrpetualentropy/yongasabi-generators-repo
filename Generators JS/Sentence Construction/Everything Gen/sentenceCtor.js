@@ -1,22 +1,8 @@
-sentenceCtor(wordDict);
-import { tenseSuffixer } from "./tenseSuffixer.js";
-import { wordDict } from "./wordDict.js";
-import { caseSuffixer } from "./caseSuffixer.js";
-import { vowelChecker } from "./caseSuffixer.js";
-import { tensesArrayFormatter } from "./tensesArrayFormatter.js";
-import { argsArrayFormatter } from "./argsArrayFormatter.js";
-
 function sentenceCtor (wordDict) {
     // we need to be receiving a verb type, a tenses array, an args array, a pre verb alterations array, and a post verb alterations array
     // in the website version we won't be receiving wordDict as it'll be global
     let sentenceArray = [];
     let sentenceString;
-    let argsArray = ["vocative", "subject", "timing", "locative", "ablative", "instrumental", "destination", "indirobj", "dirobj"];
-    // call argsArrayFormatter, get our args, verb, and verb type
-    // then filter() into miniDict
-    // let verbTypesArray = [0, 1, 2, 3, 4, 4.1, 4.2, 5, 6, 7, 8, 9, 10];
-    let verbType = 0
-        // verbTypesArray[Math.floor(Math.random() * (verbTypesArray.length - 1 + 1))];
     let miniDict;
     let argsDict;
     let currArg;
@@ -25,14 +11,10 @@ function sentenceCtor (wordDict) {
     let usedArgs = [];
     let usedArgsIndex = 0;
     let sentenceArrayIndex = 0;
-    let tensesArray = ["present"];
     let isNonTemporal;
-    let preVAlters = ["adjective"];
-    let postVAlters = ["sentence-final particle"];
     let altersDict = [];
     let alterIndex;
     let sentenceTone = "";
-    // let rnd = Math.floor(Math.random() * 2) + 1;
 
     // regarding config:
     // we should write to global variables, as decided previously
@@ -45,9 +27,6 @@ function sentenceCtor (wordDict) {
         // i might do thsi when working on the tenses dict
         // since case markers gen shouldnt use pei anyway
 
-    // implement tensing for haga and paga
-    // sigh but i want both of these. ok this is our final to-do and of course it's the worst one
-    // good luck soldier o7
 
     // we're not implementing pei yet, nor extended questions, and the numbers problem is part of extended questions
 
@@ -98,31 +77,15 @@ function sentenceCtor (wordDict) {
     // how do we know when to stop? or like, how far is too far
     //
 
-
-
-    // refine the adj matching system. "gila jamiyaeja sa" is not accurate
-    // to this end ... i think just a "personReq" thing is enough which checks if it inherits from index 0
-    // of inheritableDict
-        // ok, but what do we check that it's inheriting?
-        // we can't check args bc tawhoy and taw don't inherit args (bc vocative)
-        // in theory the verb types will always be the same ... we can check that
-        // but.................. bwuh this doesn't feel like a very good solution
-        // wait this doesn't even help lmfao because it'll just look at inheritable dict
-        // persons can have essentially any verb type - SO CAN TIMING WORDS
-        // so it'd have to be a property anyway. ok good great let me go do that
-
     // TODO AFTER PORT:
     // re-implement various currently missing features like focRnd
     // tidy the variables
     // reformat other gens
     // update the github
-    // properly implement forced args
-        // i think forced args will be a continuous filter
-        // i.e verbDict.filter((obj) => obj.args[forceArgs[i]] == true) in a loop
-        // if we then create an array of required args, this should be simple enough in argsArrayFormatter
-        // this also makes me wonder about having individually forced args
-        // like the locative is permitted and can show up but the dirbj is forced?
-        // that sounds like a lot of work though.
+    // make sure that forced args actually work
+    // remember that forced args requires TWO global variables
+    // as we need to take the new verbType before getting miniDict
+
 
     console.log(`LOG: sentenceCtor awake. Calling tensesArrayFormatter.`);
     console.groupCollapsed("sentenceCtor logs");

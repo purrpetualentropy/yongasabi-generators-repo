@@ -1,6 +1,4 @@
-import { wordDict } from "./wordDict.js";
-
-export function argsArrayFormatter(argsArray, tensesArray, verbType) {
+function argsArrayFormatter(argsArray, tensesArray, verbType) {
     let formattedArgsArray = [];
     let verb;
     let verbIndex;
@@ -9,13 +7,28 @@ export function argsArrayFormatter(argsArray, tensesArray, verbType) {
     let destroyIndex = 0;
     console.log(`LOG: argsArrayFormatter init with argsArray ${argsArray} tensesArray ${tensesArray} verbType ${verbType}. Acquire verb.`);
 
-    miniDict = wordDict.filter((obj) => obj.type == "verb" && obj.verbType.includes(verbType));
+    if (forceArgs != true) {console.log(`LOG: not doing forced args stuff`); miniDict = wordDict.filter((obj) => obj.type == "verb" && obj.verbType.includes(verbType))} else
+    {
+        console.log(`LOG: doing forced args stuff, forceArgs is ${forceArgs}`);
+        for (let i = 0; i < forcedArgsArray.length; i++) {
+            miniDict = wordDict.filter((obj) => obj.type == "verb" && obj.args[forcedArgsArray[i]].includes(-1) == false);
+        }
+    }
+
     console.log(`LOG: argsArrayFormatter miniDict is:`);
     console.dir(miniDict);
     verbIndex = Math.floor(Math.random() * (miniDict.length - 1 + 1));
     verb = miniDict[verbIndex]
     formattedArgsArray[0] = verb;
     console.log(`LOG: argsArrayFormatter got verb ${formattedArgsArray[0].word} from verbIndex ${verbIndex}. formattedArgsArray[0] is ${formattedArgsArray[0]}. Proceed to formatting.`);
+    if (forceArgs == true) {
+        console.log(`LOG: updating verbType`);
+        verbType = miniDict[verbIndex].verbType[Math.floor(Math.random() * (miniDict[verbIndex].verbType.length - 1 + 1))]
+        console.log(`LOG: verbType now ${verbType}`)
+    }
+    // we need to send the verb type to sentenceCtor somehow
+    // we'll just do that with a global variable
+    // when forceArgs is true, sentenceCtor will check the global and do global stuff
 
     for (let i = 0; i < argsArray.length + tensesArray.length; i++) {
         if (argsArray.includes("vocative") && formattedArgsArray.includes("vocative") == false) {console.log(`LOG: argsArrayFormatter detected voc at ${argsArray.indexOf("vocative")} OR we detected imperative!`); formattedArgsArray[n] = "vocative"; if (!tensesArray.includes("imperative")) {destroyIndex = argsArray.indexOf("vocative"); argsArray[destroyIndex] = n} n++; console.log(`LOG: after voc formatted argsArray now ${argsArray} formattedArgsArray now ${formattedArgsArray} n now ${n}`); } else
