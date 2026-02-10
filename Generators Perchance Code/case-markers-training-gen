@@ -1,44 +1,73 @@
 // Gen created 17/09/2025
-// Last updated: 16/11/2025
-// Added a note about repeating case markers & word order.
-// A few timing words added.
+// Last updated: 10/02/2026
+// Bug fixes.
 
+
+// Previous patch notes, because I need them for tenses gen updates:
+// Customisation details sections reorganised.
+// Descriptions of case marker customisation changed after feedback.
+// Links automatically open in a new tab.
+// Added an option to force selected markers to occur in sentences.
+
+// 18/01/2025 update: subject box is disabled and cannot be unchecked.
+// This is because its checked/unchecked behaviour is identical.
+
+// Note to morning me: the last two things need to be ported into the verb tenses gen.
 
 // [let tensesArray = ["present"]][tenseCheck = tenses.selectOne][if (negBox == true && tenseCheck == 1) {tensesArray[1] = "neg"} else {} ""]
 // is the code I was using to make an array in perchance
 // I just hardcoded it into the sentenceCtor
 title
   Yongasabi Case Markers Training
+  // [argsArray = args.consumableList.selectMany(1, argsCh + 1).joinItems(","), ""][argsArray = argsArray.split(","), ""][realType = sentenceType.selectOne, ""][realType = Number(realType), ""]
 
+  // TODO:
+  // nothing
+
+bugList
+  None.
 
 output
-  Translate the following sentence into English:<br>[g = displayGlyphs.checked, ""][n = noDisplayGlyphs.checked, ""][argsArray = args.consumableList.selectMany(1, argsCh + 1).joinItems(","), ""][argsArray = argsArray.split(","), ""][realType = sentenceType.selectOne, ""][realType = Number(realType), ""][sentence = sentenceCtor(argsArray, [""], realType), ""][if (g == true && n == true) {"Nothing here."} else if (g == true && n != true) {`<div class="YongiBlock">${sentence}</div>`} else if (g == false && n == true) {[sentence]} else {`<div class="YongiBlock">${sentence}</div>${sentence}`}]
+  Translate the following sentence into English:<br>[argsArray = args.consumableList.selectMany(1, argsCh + 1).joinItems(","), ""][argsArray = argsArray.split(","), ""][realType = sentenceType.selectOne, ""][realType = Number(realType), ""][preVAltersArray = preVAlters.consumableList.selectMany(0, preVAltersCh).joinItems(","), ""][preVAltersArray = preVAltersArray.split(","), ""][postVAltersArray = postVAlters.consumableList.selectMany(0, postVAltersCh).joinItems(","), ""][postVAltersArray = postVAltersArray.split(","), ""][g = displayGlyphs.checked, ""][n = noDisplayGlyphs.checked, ""][sentence = sentenceCtor(realType, ["present"], argsArray, preVAltersArray, postVAltersArray), ""][if (g == true && n == true) {"Nothing here."} else if (g == true && n != true) {`<div class="YongiBlock">${sentence}</div>`} else if (g == false && n == true) {[sentence]} else {`<div class="YongiBlock">${sentence}</div>${sentence}`}] ^[!forceBox.checked]
+  Translate the following sentence into English:<br>[argsArray = args.consumableList.selectMany(argsCh + 1, argsCh + 1).joinItems(","), ""][argsArray = argsArray.split(","), ""][realType = sentenceType.selectOne, ""][realType = Number(realType), ""][preVAltersArray = preVAlters.consumableList.selectMany(0, preVAltersCh).joinItems(","), ""][preVAltersArray = preVAltersArray.split(","), ""][postVAltersArray = postVAlters.consumableList.selectMany(0, postVAltersCh).joinItems(","), ""][postVAltersArray = postVAltersArray.split(","), ""][g = displayGlyphs.checked, ""][n = noDisplayGlyphs.checked, ""][sentence = sentenceCtor(realType, ["present"], argsArray, preVAltersArray, postVAltersArray), ""][if (g == true && n == true) {"Nothing here."} else if (g == true && n != true) {`<div class="YongiBlock">${sentence}</div>`} else if (g == false && n == true) {[sentence]} else {`<div class="YongiBlock">${sentence}</div>${sentence}`}] ^[forceBox.checked]
 
 tenseCh = [(document.querySelectorAll('input[class="tenseBox"]:checked')).length]
 argsCh = [(document.querySelectorAll('input[class="argBox"]:checked')).length]
-
+preVAltersCh = [(document.querySelectorAll('input[class="preVAltersBox"]:checked')).length]
+postVAltersCh = [(document.querySelectorAll('input[class="postVAltersBox"]:checked')).length]
 
 sentenceType
-  0
-  1
-  2 ^[locBox.checked]
-  3
-  4
-  5
+  0 ^14
+  1 ^14
+  2 ^14
+  3 ^14
+  4 ^14
+  4.1 ^14
+  4.2 ^14
+  4.3 ^14
+  5 ^14
+  6 ^14
+  7 ^14
+  8 ^14
+  9 ^14
+  10 ^14
 
 args
   voc ^[vocBox.checked]
   subject ^[subjBox.checked]
   timing ^[timingBox.checked]
-  loc ^[locBox.checked]
-  abl ^[ablBox.checked]
-  instr ^[instrBox.checked]
+  locative ^[locBox.checked]
+  ablative ^[ablBox.checked]
+  instrumental ^[instrBox.checked]
   indirobj ^[indirobjBox.checked]
-  dest ^[destBox.checked]
+  destination ^[destBox.checked]
   dirobj ^[dirobjBox.checked]
-  question ^[questionBox.checked]
-  adjective ^[genBox.checked]
 
-tenses
-  0
-  1
+preVAlters
+  adjective ^[adjBox.checked]
+  compound ^[compoundBox.checked]
+  negation ^[negatedArgBox.checked]
+  possessed ^[genBox.checked]
+
+postVAlters
+  sentence-final particle ^[questionBox.checked]
