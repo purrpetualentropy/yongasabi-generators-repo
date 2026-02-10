@@ -1,0 +1,95 @@
+<h1>[title]</h1>
+<p style="margin:1em auto; padding:0 1em; max-width:700px;">[output]</p>
+<button onclick="update()">randomize</button>
+
+<p>You can use the text box below to search for the definition of a word (you should search for the word without case markers, and plain form verbs). The results will be displayed below.</p>
+<p id="dictLookupReturnZone"></p>
+<input type="text" id="dictLookup" oninput="lookupWord = this.value">
+<button onclick="dictLookup(lookupWord, lookupType)">lookup</button>
+<button onclick="clearDictLookup()">clear</button>
+<p>Search by...</p>
+<select name="dictLookupSearchType" id="dictLookupSearchType" oninput="lookupType = this.value" value="word">
+<option value="word">Word</option>
+<option value="root">Root</option>
+<option value="rootLength">Root length</option>
+<option value="noun">Nouns</option>
+<option value="adjective">Adjectives</option>
+<option value="verb">Verbs</option>
+</select><br><br>
+<details><summary>A note about repeating markers</summary>
+<p>This comes up in the grammar document, but it's possible for some case markers, like the dative <i>'im / m</i> or the locative <i>-wa</i>, to show up multiple times in a sentence, performing different functions.</p>
+
+<p><b>pachmigaega chomugwa hanoltakwa sawil</b> - At night, Survivor sings at the hunting grounds.<br>
+<b>hanitaega sattokubim mulkom go</b> - Hunter is going to the market for Artificer.</p>
+
+<p>Typically in natural Yongasabi, the word order in sentences can be moved around to prioritise information differently, as words closer to the verb are considered more important.</p>
+
+<p><b>sattokubiga lamlansang kip'o damkasa</b> - Artificer is cleaning the shelter with Rivulet. Here the sentence is organised so that the direct object <i>kip</i> holds more emphasis than the instrumental.<br>
+<b>sattokubiga kip'o lamlansang damkasa</b> - Artificer, with Rivulet, is cleaning the shelter. Here the sentence is organised so that the instrumental <i>lamlan</i> holds more emphasis than the direct object.<br>
+(When it comes to truly placing emphasis on something it's more common to use the focus marker <i>hei</i>, and depending on the intended meaning it may be more appropriate.)</p>
+
+<p>However, in this generator, sentences will <i>always</i> follow a specific word order, so you can tell what function a marker is performing based on its location in a sentence. That order is as follows:</p>
+
+<p>Vocative<br>
+Subject<br>
+Timing<br>
+Location<br>
+Ablative<br>
+Instrumental<br>
+Indirect object<br>
+Destination<br>
+Direct object<br>
+Verb</p>
+
+<p>If the usage is ambiguous, such as in <i>hanitaega sattokubim go</i> - where Artificer could be the indirect object or the destination - you can just decide on your own. It doesn't necessarily matter that your interpretation agrees with what the generator has labelled this word, just that you understand the meaning of the sentence as you read it. If you can understand <i>hanitaega sattokubim go</i> both as "Hunter is going on Artificer's behalf" and "Hunter is going to Artificer", I'd consider that a success.</p>
+</details><br>
+<details><summary>Sentence Customisation</summary>
+  <br>
+  <input type="checkbox" id="displayGlyphs"> <label for="displayGlyphs">Display only glyphs</label><br><br>
+<input type="checkbox" id="noDisplayGlyphs"> <label for="noDisplayGlyphs">Do not display glyphs</label><br><br>
+<input type="checkbox" onchange="negPermitted = this.checked" id="negBox" class="tenseBox"> <label for="negBox">Allow verb negation</label><br><br>
+<input type="checkbox" id="subjBox" checked disabled> <label for="subjBox">Allow the subject marker <b>'ag / -ga</b></label><br><br>
+<input onchange="getForcedArgs(this.id, this.checked)" type="checkbox" id="timingBox" class="argBox"> <label for="timingBox">Allow timing words marked with <b>-wa</b></label><br><br>
+<input onchange="getForcedArgs(this.id, this.checked)" type="checkbox" id="locBox" class="argBox"> <label for="locBox">Allow the locative marker <b>-wa</b></label><br><br>
+<input onchange="getForcedArgs(this.id, this.checked)" type="checkbox" id="ablBox" class="argBox"> <label for="ablBox">Allow the ablative marker <b>-mok</b></label><br><br>
+<input onchange="getForcedArgs(this.id, this.checked)" type="checkbox" id="instrBox" class="argBox"> <label for="instrBox">Allow the instrumental marker <b>-sang</b></label><br><br>
+<input onchange="getForcedArgs(this.id, this.checked)" type="checkbox" id="indirobjBox" class="argBox"> <label for="indirobjBox">Allow indirect objects (<b>'im / -m</b>)</label><br><br>
+<input onchange="getForcedArgs(this.id, this.checked)" type="checkbox" id="destBox" class="argBox"> <label for="destBox">Allow destinations of verbs of motion (<b>'im / -m</b>)</label><br><br>
+<input onchange="getForcedArgs(this.id, this.checked)" type="checkbox" id="dirobjBox" class="argBox"> <label for="dirobjBox">Allow the accusative marker <b>'o / -do</b></label><br><br>
+<input onchange="themPermitted = this.checked" type="checkbox" id="themBox"> <label for="themBox">Allow thematic marker <b>pei</b> for VOM direct objects</label><br><br>
+<input onchange="getForcedArgs(this.id, this.checked)" type="checkbox" id="vocBox" class="argBox"> <label for="vocBox">Allow the vocative <b>ho</b></label><br><br>
+<input type="checkbox" onchange="focPermitted = this.checked" id="focBox"> <label for="focBox">Allow replacing subject marker with focus marker <b>-hei</b></label><br><br>
+<input type="checkbox" id="questionBox" class="postVAltersBox"> <label for="questionBox">Allow questions</label><br><br>
+<input type="checkbox" id="genBox" class="preVAltersBox"> <label for="genBox">Allow the genitive marker <b>-la</b> to modify words in the sentence</label><br><br>
+  <input type="checkbox" id="adjBox" class="preVAltersBox"> <label for="adjBox">Allow adjectives to modify words in the sentence</label><br><br>
+  <input type="checkbox" id="compoundBox" class="preVAltersBox"> <label for="compoundBox">Allow position word compounds</label><br><br>
+  <input type="checkbox" id="negatedArgBox" class="preVAltersBox"> <label for="negatedArgBox">Allow arguments to be negated</label><br><br>
+<input onchange="forceArgs = this.checked" type="checkbox" id="forceBox"> <label for="forceBox">Force checked markers to always show up</label><br><br>
+</details>
+
+<p>We've updated to v2.0 of the code! This version is much better and easier to maintain, but there are likely a myriad of bugs.</p>
+<p>If you do experience a bug, an error message will show up in the lower right of the screen. Please send a screenshot of all of the errors in that message, as well as your config settings, with your error report.</p>
+<p>If you happen to be on PC, it'd be highly appreciated if you didn't re-randomise and instead continue using the generator in a separate tab. This is because I need information from the console log to fix most issues, and re-randomising will remove that information.</p>
+
+<p><b>Known issues:</b><br>
+  ["&lt;p>"+bugList.joinItems("&lt;/p>&lt;p>")+"&lt;/p>"]
+  If you encounter any issues, please let me know on the Adamantine's Drainbox thread of the <a target="_blank" href="https://yongasabi.freeforums.net/">Yongasabi Forums</a> or ping me in the <a target="_blank" href="https://discord.gg/p9FuZWrERE">Yongasabi Discord server</a>.
+</p>
+
+<p>By the way, the <b><a target="_blank" href="https://perchance.org/yongasabi-verb-tenses-training">Verb Tenses Training Generator</a></b> is mostly finished and can use every case marker! Go give it a whirl!</p>
+
+<p><a target="_blank" href="https://perchance.org/yongasabi-generators-index">Yongasabi Generators Index</a></p>
+
+<style> html { color-scheme: light dark; } 
+@font-face {  
+	font-family: "YongasabiBlock";
+	src: url("https://file.garden/ZqKEHNruXT-CeLY-/YongasabiBlock.ttf") format("truetype");
+}
+div.YongiBlock { 
+    font-family: YongasabiBlock;
+}
+p {
+ margin-left: 3%;
+ margin-right: 3%;
+}
+</style>
