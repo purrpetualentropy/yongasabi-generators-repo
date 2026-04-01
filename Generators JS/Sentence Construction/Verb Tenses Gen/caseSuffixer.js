@@ -1,4 +1,6 @@
 function caseSuffixer (word, gramCase, animate, themFlag, isAngsa) {
+    // caseSuffixer VERSION: 1.0.0
+    
     let vowelCheckerOutput = vowelChecker(word); // should output true or false
     console.log(`LOG: vowelChecker returned ${vowelCheckerOutput} on word ${word}`);
     let fixedCase = gramCase.toLowerCase();
