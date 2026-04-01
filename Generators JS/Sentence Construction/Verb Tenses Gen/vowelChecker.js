@@ -1,4 +1,6 @@
 function vowelChecker (word) {
+  // vowelChecker VERSION: 1.0.0
+  
 let finalChar = word.slice(-1);
 let hFinalChar = word.slice(-2);
 console.log(`vowelChecker running with word ${word} finalChar ${finalChar} hFinalChar ${hFinalChar}`)
