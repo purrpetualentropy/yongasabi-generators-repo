@@ -1,4 +1,6 @@
 function sentenceCtor (verbType, tensesArray, argsArray, preVAlters, postVAlters) {
+    // sentenceCtor VERSION: 1.0.0
+    
     // we need to be receiving a verb type, a tenses array, an args array, a pre verb alterations array, and a post verb alterations array
     // in the website version we won't be receiving wordDict as it'll be global
     let sentenceArray = [];
