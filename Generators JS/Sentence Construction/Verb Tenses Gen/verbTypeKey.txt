@@ -1,0 +1,42 @@
+0 - descriptive angsa
+1 - possessive angsa
+2 - locative angsa
+3 - VOMs
+4 - hanta, kata
+4.1 - maka
+    we're allowed to use decimals like this because our verbTypes will be a long list in perchance
+    so we can just code it like that
+4.2 - aktodaka
+    i think the way the dict will end up shaking out is that each whole number covers a particular "topic"
+    you can see the similarities between hanta and aktodaka, and aktodaka and kata
+    and ultimately the goal of much of those things is to eat, or get food
+    so yeah. use whole numbers to indicate "relation". that way we can still split as we need
+    without making things extremely confusing and having maka be verbType 8 and yahla verbType 19 or something#
+4.3 - satka
+    used to be part of 4 but i realised you can't light a fire with a spear
+    well maybe you can but i can't. skill issue
+4.4 - yahla
+4.5 - waya
+    dink my oiter
+5 - kapa, talga, yamka, lama
+6 - asa
+    regarding 4, 5, and 6, we may need to split them into "slugcat" and "non-slugcat", for lack of a better word
+    gila hantasa shouldnt take the same dirbojs as yongasabi hantasa
+    i wonder if that's a useful case for decimals
+    but we should think lots more on this before we do any form of splitting
+7 - jamya, kadma
+8 - nana
+9 - aba
+10 - paha
+11 - sanda
+12 - kikana
+
+# COMPOUNDS
+
+0 - position word phrase; hanoltak bak, yosatoldak seing, etc
+1 - adj / adv intensifier. bokka koddim, mokkit jommiyani, etc
+2 - time compounds; takwon sosyei, hagwon akto, etc
+3 - "simple" MWCs that only use the measureWord of the item being counted, not any other counters
+    3.1 - "food-like" counters; kat, lih, meikgo, balak
+    3.2 - "solid container" counters; baenang, sanja, eiji
+    3.3 - "liquid container" counters; ujo, ping
