@@ -1,18 +1,6 @@
 // Gen created 17/09/2025
-// Last updated: 10/02/2026
-// Bug fixes.
-
-
-// Previous patch notes, because I need them for tenses gen updates:
-// Customisation details sections reorganised.
-// Descriptions of case marker customisation changed after feedback.
-// Links automatically open in a new tab.
-// Added an option to force selected markers to occur in sentences.
-
-// 18/01/2025 update: subject box is disabled and cannot be unchecked.
-// This is because its checked/unchecked behaviour is identical.
-
-// Note to morning me: the last two things need to be ported into the verb tenses gen.
+// Last updated: 01/04/26
+// Versioning.
 
 // [let tensesArray = ["present"]][tenseCheck = tenses.selectOne][if (negBox == true && tenseCheck == 1) {tensesArray[1] = "neg"} else {} ""]
 // is the code I was using to make an array in perchance
@@ -20,9 +8,6 @@
 title
   Yongasabi Case Markers Training
   // [argsArray = args.consumableList.selectMany(1, argsCh + 1).joinItems(","), ""][argsArray = argsArray.split(","), ""][realType = sentenceType.selectOne, ""][realType = Number(realType), ""]
-
-  // TODO:
-  // nothing
 
 bugList
   None.
@@ -53,7 +38,7 @@ sentenceType
   10 ^14
 
 args
-  voc ^[vocBox.checked]
+  vocative ^[vocBox.checked]
   subject ^[subjBox.checked]
   timing ^[timingBox.checked]
   locative ^[locBox.checked]
