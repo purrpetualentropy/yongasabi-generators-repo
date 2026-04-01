@@ -1,0 +1,101 @@
+// Last updated: 01/04/26
+// Updates: question words added.
+// Versioning added to functions.
+
+streak = 0
+
+title
+  Can You Read Yongasabi?
+
+bugList
+  When the hypothetical and future tenses are used together (gaengo) you will need to write it as <i>gaen'go</i>, due to technical limitations.
+  Sometimes a sentence will use less tenses than the minimum required. This is due to behind the scenes stuff that I can't fix, so just be aware of it.
+  <i>anga</i> does not conjugate properly and is listed incorrectly in the dictionary as <i>angsa</i>.
+  Some irregular verbs may have the word "TEMP" (or sometimes "TEM") in the verb. <i>Please</i> let me know if you see this!
+  Measure word constructions take the case marker on the wrong word.
+  
+minTenses = [document.getElementById("minTenses").value]
+maxTenses = [document.getElementById("maxTenses").value]
+tenseCh = [(document.querySelectorAll('input[class="tenseBox"]:checked')).length]
+argsCh = [(document.querySelectorAll('input[class="argBox"]:checked')).length]
+preVAltersCh = [(document.querySelectorAll('input[class="preVAltersBox"]:checked')).length]
+postVAltersCh = [(document.querySelectorAll('input[class="postVAltersBox"]:checked')).length]
+  
+output
+  Type this sentence into the box below:<div class \="YongiBlock">[w = word.selectOne.selectOne.selectOne]</div> ^[!answerBox.checked]
+  Type this sentence into the box below:<div class\="YongiBlock">[w = word.selectOne.selectOne.selectOne]</div><details><summary>See answer</summary>"[w]"</details> ^[answerBox.checked]
+
+input
+  nought
+
+word
+  [argsArray = args.consumableList.selectMany(1, argsCh + 1).joinItems(","), ""][argsArray = argsArray.split(","), ""][tensesArray = tenses.consumableList.selectMany(minTenses, maxTenses).joinItems(","), ""][tensesArray = tensesArray.split(","), ""][realType = sentenceType.selectOne, ""][realType = Number(realType), ""][preVAltersArray = preVAlters.consumableList.selectMany(0, preVAltersCh).joinItems(","), ""][preVAltersArray = preVAltersArray.split(","), ""][postVAltersArray = postVAlters.consumableList.selectMany(0, postVAltersCh).joinItems(","), ""][postVAltersArray = postVAltersArray.split(","), ""][sentence = sentenceCtor(realType, tensesArray, argsArray, preVAltersArray, postVAltersArray)]^[!forceBox.checked]
+  [argsArray = args.consumableList.selectMany(argsCh + 1, argsCh + 1).joinItems(","), ""][argsArray = argsArray.split(","), ""][tensesArray = tenses.consumableList.selectMany(minTenses, maxTenses).joinItems(","), ""][tensesArray = tensesArray.split(","), ""][realType = sentenceType.selectOne, ""][realType = Number(realType), ""][preVAltersArray = preVAlters.consumableList.selectMany(0, preVAltersCh).joinItems(","), ""][preVAltersArray = preVAltersArray.split(","), ""][postVAltersArray = postVAlters.consumableList.selectMany(0, postVAltersCh).joinItems(","), ""][postVAltersArray = postVAltersArray.split(","), ""][sentence = sentenceCtor(realType, tensesArray, argsArray, preVAltersArray, postVAltersArray)] ^[forceBox.checked]
+
+sentenceType
+  0 ^18
+  1 ^18
+  2 ^18
+  3 ^18
+  4 ^18
+  4.1 ^18
+  4.2 ^18
+  4.3 ^18
+  4.4 ^18
+  4.5 ^18
+  5 ^18
+  6 ^18
+  7 ^18
+  8 ^18
+  9 ^18
+  10 ^18
+  11 ^18
+  12 ^18
+
+args
+  vocative ^[vocBox.checked]
+  subject ^[subjBox.checked]
+  timing ^[timingBox.checked]
+  locative ^[locBox.checked]
+  ablative ^[ablBox.checked]
+  instrumental ^[instrBox.checked]
+  indirobj ^[indirobjBox.checked]
+  destination ^[destBox.checked]
+  dirobj ^[dirobjBox.checked]
+
+preVAlters
+  adjective ^[adjBox.checked]
+  compound ^[compoundBox.checked]
+  negation ^[negatedArgBox.checked]
+  possessed ^[genBox.checked]
+
+postVAlters
+  sentence-final particle ^[questionBox.checked]
+
+tenses
+  plain ^[plainBox.checked]
+  present ^[presentBox.checked]
+  past ^[pastBox.checked]
+  future ^[futureBox.checked]
+  des ^[desBox.checked]
+  imperative ^[imperativeBox.checked]
+  abil ^[abilBox.checked]
+  polite ^[politeBox.checked]
+  neg ^[negBox.checked]
+  hyp ^[hypBox.checked]
+  habit ^[habitBox.checked]
+
+noinput
+  It seems you didn't input anything yet.
+
+correct
+  Well done!
+  Good job!
+  Nice work.
+  Congrats!
+
+wrong
+  Maybe check for typos?
+  Are you sure your vowels are right?
+  Try this one again.
+  Sorry, not this time.
