@@ -1,5 +1,5 @@
 const wordDict = [
-    // wordDict VERSION: 1.0.0
+    // wordDict VERSION: 1.0.1
     { word: "hanitae",
     definition: ["a hunter", "Hunter's title"],
     root: "h-n-t",
@@ -1172,7 +1172,7 @@ const wordDict = [
         isPerson: inheritableDict[5].isPerson,
         args: inheritableDict[5].args
     },
-    { word: "anji mobei",
+    { word: "anji mabo",
         definition: ["orange pearls; a kind of treat made by mixing orange slime mold, often served in a warm, sweet porridge with chunks of fruit"],
         root: "N/A",
         prefix: "none",
@@ -4287,7 +4287,7 @@ const wordDict = [
         bannedTense: inheritableDict[4].bannedTense,
         args: inheritableDict[4].args
     }, // add instr for talga
-    { word: "mobei utbo",
+    { word: "mabo utbo",
         definition: ["prayer beads, typically used to keep track of repetitions when repeating mantras"],
         root: "none",
         prefix: "none",
