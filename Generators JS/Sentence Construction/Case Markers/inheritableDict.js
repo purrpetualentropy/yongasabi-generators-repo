@@ -127,7 +127,7 @@ const inheritableDict = [
         },
 
         verbWrite: function (arg, noSuffix, themFlag) {
-                return tenseSuffixer(this.word, this.rootLength, this.tensesArray);
+                return tenseSuffixer(this.tensesArray, this.word, this.rootLength);
         },
 
         particleWrite: function (arg, noSuffix, themFlag) {
